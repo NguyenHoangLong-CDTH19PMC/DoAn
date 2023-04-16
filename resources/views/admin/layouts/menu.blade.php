@@ -144,16 +144,16 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{ route('trang-chu') }}" class="brand-link">
         <img src="{{ asset('assets/admin/images/logo.png') }}" alt="Logo company"
-            class="brand-image img-circle elevation-3">
-        <span class="brand-text font-weight-light">HL Shoe</span>
+            class="brand-image img-circle elevation-3 ">
+        <span class="brand-text ml-2 font-weight-light font-size-3">HL Shoe</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar Menu -->
-        <nav class="mt-2">
+        <nav class="mt-4">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
@@ -167,7 +167,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a class="nav-link">
                         <i class="nav-icon fas fa-boxes-stacked"></i>
                         <p>
                             Quản lý sản phẩm
@@ -176,7 +176,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('san-pham') }}" class="nav-link">
                                 <i class="fa-solid fa-square-caret-right nav-icon"></i>
                                 <p>Danh sách sản phẩm</p>
                             </a>

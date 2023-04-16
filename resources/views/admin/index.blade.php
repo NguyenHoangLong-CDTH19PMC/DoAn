@@ -2,11 +2,9 @@
 <html lang="en">
 
 <head>
-
     @include('admin.layouts.head')
     @include('admin.layouts.css')
-
-
+    
 </head>
 
 <body>
@@ -15,15 +13,9 @@
         <img class="animation__shake" src="{{ asset('assets/admin/images/AdminLTELogo.png') }}" alt="AdminLTELogo"
             height="60" width="60">
     </div> --}}
-
     <div class="contain_main wrapper">
-        {{-- @include('admin.layouts.header') --}}
         @include('admin.layouts.menu')
-        {{-- @include('admin.layouts.mmenu') --}}
-        {{-- @include('admin.layouts.slide') --}}
-        <div class="wap-home">
-            @include('admin.home.home')
-        </div>
+        @yield('body')
         @include('admin.layouts.footer')
     </div>
     @include('admin.layouts.js')
