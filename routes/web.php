@@ -18,3 +18,5 @@ Route::get('/', function () { return view('./user/index'); });
 Route::get('user',[ReturnTpl::class,'Return_tpluser']);
 
 Route::get('admin',[ReturnTpl::class,'Return_tpladmin']);
+
+Route::get('/user/home/detail',[ReturnTpl::class,'Return_detailproduct']);
