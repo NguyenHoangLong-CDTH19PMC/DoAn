@@ -196,7 +196,7 @@
                 <div class="card-footer text-sm pb-0"></div>
 
                 <div class="card-footer text-sm">
-                    <a class="btn btn-sm bg-gradient-primary text-white" href="" title="Thêm mới"><i
+                    <a class="btn btn-sm bg-gradient-primary text-white" href="{{ route('them-moi-san-pham') }}" title="Thêm mới"><i
                             class="fas fa-plus mr-2"></i>Thêm mới</a>
                     <a class="btn btn-sm bg-gradient-danger text-white" id="delete-all" data-url=""
                         title="Xóa tất cả"><i class="far fa-trash-alt mr-2"></i>Xóa tất cả</a>
