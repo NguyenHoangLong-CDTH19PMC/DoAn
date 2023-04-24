@@ -75,10 +75,33 @@
                                     <th class="align-middle text-center">Thao tác</th>
                                 </tr>
                             </thead>
-
+                            @foreach($products as $product)
                             <tbody>
                                 <tr>
-                                    <td colspan="100" class="text-center">Không có dữ liệu</td>
+                                <th class="align-middle" width="5%">
+                                        <div class="custom-control custom-checkbox my-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="selectall-checkbox">
+                                            <label for="selectall-checkbox" class="custom-control-label"></label>
+                                        </div>
+                                </th>
+                                    <th class="align-middle text-center" width="10%">{{$product->id}}</th>
+
+                                    <th class="align-middle">Hình</th>
+
+
+                                    <th class="align-middle">Hình 2</th>
+
+                                    <th class="align-middle" style="width:30%">{{$product->name}}</th>
+
+                                    <th class="align-middle">Gallery</th>
+
+                                    <th class="align-middle" width="5%">
+                                        <div class="custom-control custom-checkbox my-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="selectall-checkbox">
+                                            <label for="selectall-checkbox" class="custom-control-label"></label>
+                                        </div>
+                                </th>
+                                    <th class="align-middle text-center">Thao tác</th>
                                 </tr>
                             </tbody>
 
@@ -189,7 +212,7 @@
                                 </tr>
 
                             </tbody>
-
+                            @endforeach
                         </table>
                     </div>
                 </div>
