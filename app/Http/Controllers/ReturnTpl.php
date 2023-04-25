@@ -20,4 +20,7 @@ class ReturnTpl extends Controller
     public function Return_tpladm_addpro(){
         return view('./admin/product/add');
     }
+    public function Return_detailproduct(){
+        return view('user/home/detail');
+    }
 }
