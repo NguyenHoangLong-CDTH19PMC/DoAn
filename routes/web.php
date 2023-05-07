@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReturnTpl;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +14,15 @@ use App\Http\Controllers\ReturnTpl;
 |
 */
 
+
 Route::get('/', function () { return view('./user/index'); });
+Route::get('/user/detail', function () { return view('./user/detail'); });
 
 Route::get('user',[ReturnTpl::class,'Return_tpluser']);
 
 Route::get('admin',[ReturnTpl::class,'Return_tpladmin'])->name('trang-chu');
 
 
-Route::get('/admin/product',[ReturnTpl::class,'Return_tpladm_pro'])->name('san-pham');
+Route::get('/admin/product',[ProductController::class,'products'])->name('san-pham');
+
 Route::get('/admin/product/add-product',[ReturnTpl::class,'Return_tpladm_addpro'])->name('them-moi-san-pham');
