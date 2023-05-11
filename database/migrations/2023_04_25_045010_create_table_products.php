@@ -15,19 +15,21 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('id_color')->unique();
-            $table->string('id_size')->unique();
-            $table->string('id_type')->unique();
-            $table->string('cat_level1');
-            $table->string('cat_level2');
-            $table->string('cat_level3');
-            $table->string('code')->unique();
+            $table->integer('id_color')->unique();
+            $table->integer('id_size')->unique();
+            $table->integer('id_type')->unique();
+            $table->integer('cat_level1')->unique();
+            $table->integer('cat_level2')->unique();
+            $table->integer('cat_level3')->unique();
+            $table->string('code',10)->unique();
             $table->string('name');
             $table->string('content');
+            $table->string('photo');
             $table->double('price_regular');
             $table->double('sale_price');
             $table->double('discount');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

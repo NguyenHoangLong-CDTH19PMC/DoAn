@@ -47,7 +47,7 @@
 
                 <div class="card card-primary card-outline text-sm mb-0">
                     <div class="card-header">
-                        <h3 class="card-title">Danh sách</h3>
+                        <h3 class="card-title">Danh sách </h3>
                     </div>
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover">
@@ -63,8 +63,7 @@
 
                                     <th class="align-middle">Hình</th>
 
-
-                                    <th class="align-middle">Hình 2</th>
+                                    {{-- <th class="align-middle">Hình 2</th> --}}
 
                                     <th class="align-middle" style="width:30%">Tiêu đề</th>
 
@@ -75,38 +74,9 @@
                                     <th class="align-middle text-center">Thao tác</th>
                                 </tr>
                             </thead>
-                            @foreach($products as $product)
+                            @foreach($products as $k => $product)
+                            
                             <tbody>
-                                <tr>
-                                <th class="align-middle" width="5%">
-                                        <div class="custom-control custom-checkbox my-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="selectall-checkbox">
-                                            <label for="selectall-checkbox" class="custom-control-label"></label>
-                                        </div>
-                                </th>
-                                    <th class="align-middle text-center" width="10%">{{$product->id}}</th>
-
-                                    <th class="align-middle">Hình</th>
-
-
-                                    <th class="align-middle">Hình 2</th>
-
-                                    <th class="align-middle" style="width:30%">{{$product->name}}</th>
-
-                                    <th class="align-middle">Gallery</th>
-
-                                    <th class="align-middle" width="5%">
-                                        <div class="custom-control custom-checkbox my-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="selectall-checkbox">
-                                            <label for="selectall-checkbox" class="custom-control-label"></label>
-                                        </div>
-                                </th>
-                                    <th class="align-middle text-center">Thao tác</th>
-                                </tr>
-                            </tbody>
-
-                            <tbody>
-
                                 <tr>
                                     <td class="align-middle">
                                         <div class="custom-control custom-checkbox my-checkbox">
@@ -117,23 +87,24 @@
                                     </td>
                                     <td class="align-middle">
                                         <input type="number" class="form-control form-control-mini m-auto update-numb"
-                                            min="0" value="" data-id="" data-table="product">
+                                            min="0" value="<?=$k+1?>" data-id="" data-table="product" readonly>
                                     </td>
                                     <td class="align-middle">
                                         <a href="" title="">
+                                            <img class="rounded img-preview" src="{{ asset('upload/product/'. $product->photo) }}" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'" alt="Alt Photo" style=""/>
                                         </a>
                                     </td>
-
-                                    <td class="align-middle">
+                                    {{-- <td class="align-middle">
                                         <a href="" title="">
+                                            <img class="rounded img-preview" src="{{ asset('upload/photo/$product->name') }}" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'" alt="Alt Photo" style=""/>
                                         </a>
-                                    </td>
+                                    </td> --}}
 
                                     <td class="align-middle">
-                                        <a class="text-dark text-break" href="" title=""></a>
+                                        <a class="text-dark text-break" href="" title="">{{$product->name}}</a>
                                         <div class="tool-action mt-2 w-clear">
 
-                                            <a class="text-primary mr-3" href="" title=""><i
+                                            {{-- <a class="text-primary mr-3" href="" title=""><i
                                                     class="fas fa-comments mr-1"></i><span
                                                     class="badge badge-danger align-top"></span></a>
 
@@ -159,7 +130,7 @@
                                             </div>
 
                                             <a class="text-danger" id="delete-item" data-url="" title=""><i
-                                                    class="far fa-trash-alt mr-1"></i>Delete</a>
+                                                    class="far fa-trash-alt mr-1"></i>Delete</a> --}}
                                         </div>
                                     </td>
                                     <td class="align-middle">
@@ -168,10 +139,8 @@
                                                 id="dropdown-gallery" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false">Thêm</button>
                                             <div class="dropdown-menu" aria-labelledby="dropdown-gallery">
-
                                                 <a class="dropdown-item text-dark" href="" title=""><i
-                                                        class="far fa-caret-square-right text-secondary mr-2"></i></a>
-
+                                                        class="far fa-caret-square-right text-secondary mr-2"></i>Hình ảnh con </a>
                                             </div>
                                         </div>
                                     </td>
@@ -210,7 +179,6 @@
                                                 class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
-
                             </tbody>
                             @endforeach
                         </table>

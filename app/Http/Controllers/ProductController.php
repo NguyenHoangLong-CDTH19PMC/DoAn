@@ -11,7 +11,8 @@ class ProductController extends Controller
 {
     public function products()
     {
-        $products=DB::table('products')->get();
+        $products=Product::all();
         return view('.admin.product.list',compact('products'));
     }
+    
 }
