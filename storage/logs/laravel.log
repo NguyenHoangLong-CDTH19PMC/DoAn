@@ -6023,3 +6023,946 @@ Did you mean one of these?
 #42 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #43 {main}
 "} 
+[2023-05-18 05:23:29] local.ERROR: No arguments expected for "migrate" command, got "create_table_colors". {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): No arguments expected for \"migrate\" command, got \"create_table_colors\". at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Input\\ArgvInput.php:193)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Input\\ArgvInput.php(86): Symfony\\Component\\Console\\Input\\ArgvInput->parseArgument('create_table_co...')
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Input\\ArgvInput.php(71): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('create_table_co...', true)
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Input\\Input.php(55): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(250): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 {main}
+"} 
+[2023-05-18 05:23:44] local.ERROR: Command "make:migrate" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:test {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:migrate\" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:test at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php:694)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(259): Symfony\\Component\\Console\\Application->find('make:migrate')
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2023-05-18 05:23:57] local.ERROR: Command "create_table_colors" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"create_table_colors\" is not defined. at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php:694)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(259): Symfony\\Component\\Console\\Application->find('create_table_co...')
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2023-05-18 06:45:35] local.ERROR: Command "migarte" is not defined.
+
+Did you mean one of these?
+    migrate
+    migrate:fresh
+    migrate:install
+    migrate:refresh
+    migrate:reset
+    migrate:rollback
+    migrate:status {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"migarte\" is not defined.
+
+Did you mean one of these?
+    migrate
+    migrate:fresh
+    migrate:install
+    migrate:refresh
+    migrate:reset
+    migrate:rollback
+    migrate:status at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php:694)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(259): Symfony\\Component\\Console\\Application->find('migarte')
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2023-05-18 06:45:49] local.ERROR: Method Illuminate\Database\Schema\Blueprint::unsigednInteger does not exist. {"exception":"[object] (BadMethodCallException(code: 0): Method Illuminate\\Database\\Schema\\Blueprint::unsigednInteger does not exist. at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Macroable\\Traits\\Macroable.php:113)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2023_05_18_060808_add_id_role_in_users.php(18): Illuminate\\Database\\Schema\\Blueprint->__call('unsigednInteger', Array)
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(95): Illuminate\\Database\\Migrations\\Migration@anonymous->{closure}(Object(Illuminate\\Database\\Schema\\Blueprint))
+#2 [internal function]: Illuminate\\Database\\Schema\\Blueprint->__construct('users', Object(Closure), '')
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(915): ReflectionClass->newInstanceArgs(Array)
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build('Illuminate\\\\Data...')
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(860): Illuminate\\Container\\Container->resolve('Illuminate\\\\Data...', Array, true)
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Data...', Array)
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(845): Illuminate\\Container\\Container->make('Illuminate\\\\Data...', Array)
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(424): Illuminate\\Foundation\\Application->make('Illuminate\\\\Data...', Array)
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(251): Illuminate\\Database\\Schema\\Builder->createBlueprint('users', Object(Closure))
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->table('users', Object(Closure))
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2023_05_18_060808_add_id_role_in_users.php(20): Illuminate\\Support\\Facades\\Facade::__callStatic('table', Array)
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2023_05_18_0608...', Object(Closure))
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2023_05_18_0608...', Object(Closure))
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 2, false)
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#36 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#37 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#38 {main}
+"} 
+[2023-05-18 06:54:57] local.ERROR: SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gendder` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gendder` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:760)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2014_10_12_000000_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2014_10_12_0000...', Object(Closure))
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2014_10_12_0000...', Object(Closure))
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+
+[previous exception] [object] (PDOException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:545)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(545): PDOStatement->execute()
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(753): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('create table `u...', Array)
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2014_10_12_000000_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2014_10_12_0000...', Object(Closure))
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2014_10_12_0000...', Object(Closure))
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 {main}
+"} 
+[2023-05-18 06:55:41] local.ERROR: Not enough arguments (missing: "name"). {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): Not enough arguments (missing: \"name\"). at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Input\\Input.php:76)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(286): Symfony\\Component\\Console\\Input\\Input->validate()
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateMakeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2023-05-18 06:56:02] local.ERROR: SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gendder` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gendder` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:760)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2014_10_12_000000_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2014_10_12_0000...', Object(Closure))
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2014_10_12_0000...', Object(Closure))
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+
+[previous exception] [object] (PDOException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:545)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(545): PDOStatement->execute()
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(753): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('create table `u...', Array)
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2014_10_12_000000_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2014_10_12_0000...', Object(Closure))
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2014_10_12_0000...', Object(Closure))
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 {main}
+"} 
+[2023-05-18 06:57:36] local.ERROR: Command "make:\migrate" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:test {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:\\migrate\" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:test at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php:694)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(259): Symfony\\Component\\Console\\Application->find('make:\\\\migrate')
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2023-05-18 06:57:40] local.ERROR: Command "make:migrate" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:test {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:migrate\" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:test at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php:694)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(259): Symfony\\Component\\Console\\Application->find('make:migrate')
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2023-05-18 07:05:50] local.ERROR: Not enough arguments (missing: "name"). {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): Not enough arguments (missing: \"name\"). at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Input\\Input.php:76)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(286): Symfony\\Component\\Console\\Input\\Input->validate()
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateMakeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2023-05-18 07:06:07] local.ERROR: Command "migrations" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"migrations\" is not defined. at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php:694)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(259): Symfony\\Component\\Console\\Application->find('migrations')
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2023-05-18 07:06:09] local.ERROR: Command "migration" is not defined.
+
+Did you mean one of these?
+    make:migration
+    migrate
+    migrate:fresh
+    migrate:install
+    migrate:refresh
+    migrate:reset
+    migrate:rollback
+    migrate:status {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"migration\" is not defined.
+
+Did you mean one of these?
+    make:migration
+    migrate
+    migrate:fresh
+    migrate:install
+    migrate:refresh
+    migrate:reset
+    migrate:rollback
+    migrate:status at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php:694)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(259): Symfony\\Component\\Console\\Application->find('migration')
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2023-05-18 07:07:39] local.ERROR: Not enough arguments (missing: "name"). {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): Not enough arguments (missing: \"name\"). at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Input\\Input.php:76)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(286): Symfony\\Component\\Console\\Input\\Input->validate()
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateMakeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2023-05-18 07:07:46] local.ERROR: Command "make:migrate" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:test {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:migrate\" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:test at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php:694)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(259): Symfony\\Component\\Console\\Application->find('make:migrate')
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2023-05-18 07:47:54] local.ERROR: SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gender` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gender` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:760)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2023_05_18_070814_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2023_05_18_0708...', Object(Closure))
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2023_05_18_0708...', Object(Closure))
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+
+[previous exception] [object] (PDOException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:545)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(545): PDOStatement->execute()
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(753): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('create table `u...', Array)
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2023_05_18_070814_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2023_05_18_0708...', Object(Closure))
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2023_05_18_0708...', Object(Closure))
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 {main}
+"} 
+[2023-05-18 07:49:37] local.ERROR: SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gender` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gender` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:760)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2023_05_18_070814_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2023_05_18_0708...', Object(Closure))
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2023_05_18_0708...', Object(Closure))
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+
+[previous exception] [object] (PDOException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:545)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(545): PDOStatement->execute()
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(753): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('create table `u...', Array)
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2023_05_18_070814_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2023_05_18_0708...', Object(Closure))
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2023_05_18_0708...', Object(Closure))
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 {main}
+"} 
+[2023-05-18 07:50:25] local.ERROR: SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gender` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gender` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:760)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2014_10_12_000000_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2014_10_12_0000...', Object(Closure))
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2014_10_12_0000...', Object(Closure))
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+
+[previous exception] [object] (PDOException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:545)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(545): PDOStatement->execute()
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(753): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('create table `u...', Array)
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2014_10_12_000000_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2014_10_12_0000...', Object(Closure))
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2014_10_12_0000...', Object(Closure))
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 {main}
+"} 
+[2023-05-18 07:51:54] local.ERROR: SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gender` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gender` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:760)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2014_10_12_000000_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2014_10_12_0000...', Object(Closure))
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2014_10_12_0000...', Object(Closure))
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+
+[previous exception] [object] (PDOException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:545)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(545): PDOStatement->execute()
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(753): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('create table `u...', Array)
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2014_10_12_000000_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2014_10_12_0000...', Object(Closure))
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2014_10_12_0000...', Object(Closure))
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 {main}
+"} 
+[2023-05-18 07:54:11] local.ERROR: SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gender` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' (SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `gender` varchar(255) not null, `birthday` datetime not null, `email` varchar(255) not null, `phone` varchar(255) not null, `address` varchar(255) not null, `avatar` varchar(255) not null, `username` varchar(255) not null, `password` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:760)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2023_05_18_075355_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2023_05_18_0753...', Object(Closure))
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2023_05_18_0753...', Object(Closure))
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+
+[previous exception] [object] (PDOException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'password' at C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:545)
+[stacktrace]
+#0 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(545): PDOStatement->execute()
+#1 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(753): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('create table `u...', Array)
+#2 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('create table `u...', Array, Object(Closure))
+#3 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(546): Illuminate\\Database\\Connection->run('create table `u...', Array, Object(Closure))
+#4 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `u...')
+#5 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(404): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(267): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Database\\Schema\\Builder->create('users', Object(Closure))
+#8 C:\\Users\\HUNG\\Desktop\\DoAn\\database\\migrations\\2023_05_18_075355_create_users_table.php(32): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(482): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(400): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(409): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#13 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(36): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#14 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(740): Illuminate\\Console\\View\\Components\\Task->render('2023_05_18_0753...', Object(Closure))
+#15 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2023_05_18_0753...', Object(Closure))
+#16 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(175): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\HUNG\\\\D...', 1, false)
+#17 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(118): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#18 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(90): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#19 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#20 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(102): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#21 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#22 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#23 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#24 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#25 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#26 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(178): Illuminate\\Container\\Container->call(Array)
+#27 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Command\\Command.php(291): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#28 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(148): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#29 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(1014): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\Users\\HUNG\\Desktop\\DoAn\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\Users\\HUNG\\Desktop\\DoAn\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 {main}
+"} 
