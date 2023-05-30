@@ -14,7 +14,8 @@
         </section>
         <section class="content">
             <div class="container-fluid">
-                <form class="validation-form" method="post" action="" enctype="multipart/form-data">
+                <form class="validation-form" method="post" action="{{route('xl-them-moi-san-pham')}}" enctype="multipart/form-data">
+                    @csrf
                     <div class="card-footer text-sm sticky-top">
                         <button type="submit" class="btn btn-sm bg-gradient-primary submit-check"><i class="far fa-save mr-2"></i>Lưu</button>
                         {{-- <button type="submit" class="btn btn-sm bg-gradient-success submit-check" name="save-here" disabled><i class="far fa-save mr-2"></i>Lưu tại trang</button> --}}
@@ -23,7 +24,7 @@
                     </div>
                     <div class="card card-primary card-outline text-sm">
                         <div class="card-header">
-                            <h3 class="card-title">Danh mục ...</h3>
+                            <h3 class="card-title">Danh mục Product</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                         class="fas fa-minus"></i></button>
@@ -116,32 +117,33 @@
                                 </div>
                                 <div class="card-body card-article">
                                     <div class="form-group ordinal-numbers">
-                                        <label for="numb" class="d-inline-block align-middle mb-0 mr-2">Số thứ
+                                        <label for="serial" class="d-inline-block align-middle mb-0 mr-2">Số thứ
                                             tự:</label>
                                         <input type="number"
                                             class="form-control form-control-mini d-inline-block align-middle text-sm"
-                                            min="0" name="" id="numb" placeholder="0" value="">
+                                            min="0" name="serial" id="serial" placeholder="0" value="">
                                     </div>
                                     <div class="form-group title">
-                                        <label for="name...">Tên... :</label>
-                                        <input type="text" class="form-control for-seo text-sm" name=""
-                                            id="" placeholder="Tên ..." value="" required>
+                                        <label for="name-product">Tên sản phẩm:</label>
+                                        <input type="text" class="form-control for-seo text-sm" name="tensp"
+                                            id="fullname" placeholder="Tên sản phẩm" value="" required>
+                                        <div class="invalid-feedback">Please fill out this field.</div>
                                     </div>
-                                    <div class="form-group title...">
-                                        <label for="name...">Nội dụng:</label>
-                                        <textarea class="form-control for-seo text-sm " name="" id="" rows="5" placeholder="Nội dung ..."></textarea>
+                                    <div class="form-group titleProduct">
+                                        <label for="nameProduct">Nội dung:</label>
+                                        <textarea class="form-control for-seo text-sm " name="noidung" id="" rows="5" placeholder="Nội dung "></textarea>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-4">
-                                            <label class="d-block" for="code">Mã sản phẩm:</label>
-                                            <input type="text" class="form-control text-sm" name="" id="code"
+                                            <label class="d-block" for="code-product">Mã sản phẩm:</label>
+                                            <input type="text" class="form-control text-sm" name="masp" id="code"
                                                 placeholder="Mã sản phẩm" value="">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label class="d-block" for="regular_price">Giá gốc:</label>
                                             <div class="input-group">
                                                 <input type="text"
-                                                    class="form-control format-price regular_price text-sm" name=""
+                                                    class="form-control format-price regular_price text-sm" name="giagoc"
                                                     id="regular_price" placeholder="Giá gốc" value="">
                                                 <div class="input-group-append">
                                                     <div class="input-group-text"><strong>VNĐ</strong></div>
@@ -152,7 +154,7 @@
                                             <label class="d-block" for="sale_price">Giá mới:</label>
                                             <div class="input-group">
                                                 <input type="text" class="form-control format-price sale_price text-sm"
-                                                    name="" id="sale_price" placeholder="Giá mới" value="">
+                                                    name="giamoi" id="sale_price" placeholder="Giá mới" value="">
                                                 <div class="input-group-append">
                                                     <div class="input-group-text"><strong>VNĐ</strong></div>
                                                 </div>
@@ -166,7 +168,7 @@
                             
                             <div class="card card-primary card-outline text-sm">
                                 <div class="card-header">
-                                    <h3 class="card-title">Hình ảnh ...</h3>
+                                    <h3 class="card-title">Hình ảnh sản phẩm</h3>
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                     </div>

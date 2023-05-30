@@ -27,10 +27,17 @@
 <script src="{{asset('assets/admin/js/summernote/summernote-bs4.min.js')}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset('assets/admin/js/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('assets/admin/js/adminlte.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 {{-- <script src="{{asset('assets/admin/js/demo.js')}}"></script> --}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('assets/admin/js/js/pages/dashboard.js')}}"></script>
+{{-- <script src="{{asset('assets/admin/js/js/pages/dashboard.js')}}"></script> --}}
+<!-- simple notify -->
+<script src="{{asset('assets/admin/simplenotify/simple-notify.js')}}"></script>
+{{-- Format pirce --}}
+<script src="{{asset('assets/admin/js/priceFormat.js')}}"></script>
+{{-- Format select --}}
+<script src="{{asset('assets/admin/js/select2/select2.full.js')}}"></script>
+{{-- App js other --}}
 <script src="{{asset('assets/admin/js/app.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('assets/admin/js/adminlte.js')}}"></script>
