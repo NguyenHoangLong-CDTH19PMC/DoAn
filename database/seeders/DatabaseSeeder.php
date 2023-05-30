@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
-          sd_products::class
+          sd_sizes::class,
         ]);
     }
 }

@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('id_color')->unique();
-            $table->string('id_size')->unique();
-            $table->string('id_type')->unique();
-            $table->string('cat_level1');
-            $table->string('cat_level2');
-            $table->string('cat_level3');
+            //$table->string('id_color');
+            //$table->string('id_size');
+            //$table->string('id_type');
+            //$table->string('cat_level1');
+            //$table->string('cat_level2');
+            //$table->string('cat_level3');
             $table->string('code')->unique();
             $table->string('name');
             $table->string('content');
