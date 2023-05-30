@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products_like', function (Blueprint $table) {
-            $table->id();
-            //$table->integer('id_product');
-            //$table->integer('id_user');
-            $table->string('name');
-            $table->string('content');
-            $table->string('photo');
-            $table->timestamps();
+        //
+        Schema::table('albums', function(Blueprint $table){
+            $table->foreignId('id_product')->constrained('albums');
         });
     }
 
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products_like');
+        //
     }
 };

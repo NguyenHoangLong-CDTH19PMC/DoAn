@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories_lv2', function (Blueprint $table) {
-            $table->id();
-            //$table->integer('id_cat_lv1');
-            $table->string('name');
-            $table->timestamps();
+        //
+        Schema::table('order_details', function(Blueprint $table){
+            $table->foreignId('id_product')->constrained('order_details');
+            $table->foreignId('id_order')->constrained('order_details');
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories_lv2');
+        //
     }
 };

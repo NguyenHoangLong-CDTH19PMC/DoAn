@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories_lv1', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
+        //
+        Schema::table('cities', function(Blueprint $table){
+            $table->foreignId('id_district')->constrained('cities');
+            $table->foreignId('id_user')->constrained('cities');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories_lv1');
+        //
     }
 };

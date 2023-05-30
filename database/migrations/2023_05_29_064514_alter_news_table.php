@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories_lv3', function (Blueprint $table) {
-            $table->id();
-            //$table->integer('id_cat_lv2');
-            $table->string('name');
-            $table->timestamps();
+        //
+        Schema::table('news', function(Blueprint $table){
+            $table->foreignId('id_user')->constrained('news');
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories_lv3');
+        //
     }
 };
