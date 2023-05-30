@@ -26,13 +26,6 @@ class ProductController extends Controller
         return view('.admin.product.main.add',compact('products'));
     }
 
-    public function Return_tpladm_editpro($id){
-        $products = Product::find($id);
-        return view('.admin.product.main.edit',['dsSP'  => $products]);
-    }
-
-
-
     public function addproducts(Request $req)
     {   
         $random = Str::random(5);
@@ -59,7 +52,10 @@ class ProductController extends Controller
         return redirect()->route('san-pham');
     }
 
-
+    public function Return_tpladm_editpro($id){
+        $products = Product::find($id);
+        return view('.admin.product.main.edit',['dsSP'  => $products]);
+    }
 
     public function editproducts(Request $req, $id)
     {
@@ -76,8 +72,9 @@ class ProductController extends Controller
         $products->code = $req->masp;
         $products->name = $req->tensp;
         $products->content = $req->noidung;
-        $products->price_regular = $req->giagoc;
-        $products->sale_price = $req->giamoi;
+        // kiểm tra xem giá có rỗng ko có thì thay thế dấu , =  " " , ngược thì gán = 0 (isset($req->giagoc) && $req->giagoc != '') ? str_replace(",", "", $req->giagoc) : 0;
+        $products->price_regular = (isset($req->giagoc) && $req->giagoc != '') ? str_replace(",", "", $req->giagoc) : 0;
+        $products->sale_price = (isset($req->giamoi) && $req->giamoi != '') ? str_replace(",", "", $req->giamoi) : 0;
         // lấy tên file để lưu vào csdl
         $products->photo = $filename;
         //Lưu trữ file vào thư mục product trong public -> upload -> product
