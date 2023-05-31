@@ -22,8 +22,7 @@ class ProductController extends Controller
     }
 
     public function Return_tpladm_addpro(){
-        $products = Product::all();
-        return view('.admin.product.main.add',compact('products'));
+        return view('.admin.product.main.add');
     }
 
     public function addproducts(Request $req)
@@ -49,7 +48,7 @@ class ProductController extends Controller
 
         //$req->file->move(base_path('upload/product/'.$req->file->getClientOriginalName()));
         $products->save();
-        return redirect()->route('san-pham');
+        return redirect()->route('san-pham-admin');
     }
 
     public function Return_tpladm_editpro($id){
@@ -81,7 +80,7 @@ class ProductController extends Controller
         $req->file->move(public_path('upload/product/'), $filename);
         
         $products->save();
-        return redirect()->route('san-pham');
+        return redirect()->route('san-pham-admin');
     }
 
     public function deleteproducts($id)
@@ -92,7 +91,7 @@ class ProductController extends Controller
         }
        
         $products->delete();
-        return redirect()->route('san-pham');
+        return redirect()->route('san-pham-admin');
     }
 
     //  /* Format money */
@@ -112,20 +111,4 @@ class ProductController extends Controller
     //      return $str;
     //  }
 
-    public function storeFile(Request $reqFile)
-    {
-        $reqFile->validate($reqFile, [
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-        ]);
-
-        $path = $reqFile->file('image')->store('/upload/product', 'public');
-
-        $data = Product::create([
-            'image' => $path,
-        ]);
-
-        session()->flash('success', 'Image Upload successfully');
-
-        return $data;
-    }
 }

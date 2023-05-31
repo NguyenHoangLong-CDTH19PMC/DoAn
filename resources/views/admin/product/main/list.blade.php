@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <ol class="breadcrumb float-sm-left pl-3">
-                        <li class="breadcrumb-item"><a href="{{ route('trang-chu') }}" title="Bảng điều khiển">Bảng điều
+                        <li class="breadcrumb-item"><a href="{{ route('trang-chu-admin') }}" title="Bảng điều khiển">Bảng điều
                                 khiển</a></li>
                         <li class="breadcrumb-item active">Quản lý sản phẩm</li>
                     </ol>
@@ -17,7 +17,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="card-footer text-sm sticky-top">
-                    <a class="btn btn-sm bg-gradient-primary text-white" href="{{ route('them-moi-san-pham') }}"
+                    <a class="btn btn-sm bg-gradient-primary text-white" href="{{ route('them-moi-san-pham-admin') }}"
                         title="Thêm mới"><i class="fas fa-plus mr-2"></i>Thêm mới</a>
                     <a class="btn btn-sm bg-gradient-danger text-white" id="delete-all" title="Xóa tất cả"><i
                             class="far fa-trash-alt mr-2"></i>Xóa tất cả</a>
@@ -91,7 +91,7 @@
                                                 >
                                         </td>
                                         <td class="align-middle">
-                                            <a href="{{ route('sua-doi-san-pham', ['id' => $item->id]) }}"
+                                            <a href="{{ route('sua-doi-san-pham-admin', ['id' => $item->id]) }}"
                                                 title="{{ $item->name }}">
                                                 <img class="rounded img-preview"
                                                     src="{{ asset('upload/product/' . $item->photo) }}"
@@ -107,7 +107,7 @@
 
                                         <td class="align-middle">
                                             <a class="text-dark text-break"
-                                                href="{{ route('sua-doi-san-pham', ['id' => $item->id]) }}"
+                                                href="{{ route('sua-doi-san-pham-admin', ['id' => $item->id]) }}"
                                                 title="{{ $item->name }}">{{ $item->name }}</a>
                                             <div class="tool-action mt-2 w-clear">
 
@@ -183,10 +183,10 @@
                                             </div> --}}
 
                                             <a class="text-primary mr-2"
-                                                href="{{ route('sua-doi-san-pham', ['id' => $item->id]) }}"
+                                                href="{{ route('sua-doi-san-pham-admin', ['id' => $item->id]) }}"
                                                 title="Chỉnh sửa"><i class="fas fa-edit"></i></a>
                                             <a class="text-danger" id="delete-item" data-url=""
-                                                href="{{ route('xl-xoa-bo-san-pham', ['id' => $item->id]) }}"
+                                                href="{{ route('xl-xoa-bo-san-pham-admin', ['id' => $item->id]) }}"
                                                 title="Xóa"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
@@ -204,7 +204,7 @@
                 <div class="card-footer text-sm pb-0"></div>
 
                 <div class="card-footer text-sm">
-                    <a class="btn btn-sm bg-gradient-primary text-white" href="{{ route('them-moi-san-pham') }}"
+                    <a class="btn btn-sm bg-gradient-primary text-white" href="{{ route('them-moi-san-pham-admin') }}"
                         title="Thêm mới"><i class="fas fa-plus mr-2"></i>Thêm mới</a>
                     <a class="btn btn-sm bg-gradient-danger text-white" id="delete-all" data-url=""
                         title="Xóa tất cả"><i class="far fa-trash-alt mr-2"></i>Xóa tất cả</a>

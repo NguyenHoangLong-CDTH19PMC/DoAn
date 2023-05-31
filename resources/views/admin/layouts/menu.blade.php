@@ -144,7 +144,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('trang-chu') }}" class="brand-link">
+    <a href="{{ route('trang-chu-admin') }}" class="brand-link">
         <img src="{{ asset('assets/admin/images/logo.png') }}" alt="Logo company"
             class="brand-image img-circle elevation-3 ">
         <span class="brand-text ml-2 font-weight-light font-size-3">HL Shoe</span>
@@ -159,7 +159,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('trang-chu') }}" class="nav-link ">
+                    <a href="{{ route('trang-chu-admin') }}" class="nav-link ">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -176,7 +176,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('san-pham') }}" class="nav-link">
+                            <a href="{{ route('san-pham-admin') }}" class="nav-link">
                                 <i class="fa-solid fa-square-caret-right nav-icon"></i>
                                 <p>Danh sách sản phẩm</p>
                             </a>
