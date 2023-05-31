@@ -23,11 +23,12 @@ return new class extends Migration
             //$table->string('cat_level3');
             $table->string('code')->unique();
             $table->string('name');
-            $table->string('content');
-            $table->double('price_regular');
-            $table->double('sale_price');
-            $table->double('discount');
+            $table->text('content')->nullable();
+            $table->string('photo')->nullable();
+            $table->double('price_regular')->nullable();
+            $table->double('sale_price')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

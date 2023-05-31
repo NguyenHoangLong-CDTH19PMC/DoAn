@@ -20,6 +20,7 @@ class sd_products extends Seeder
                 
                 'code'=>'ADIDASRUN1',
                 'name'=> 'Adizero Adios Pro 3.0',
+                'photo'=>'pro1.png',
                 'content'=>'Xác định tốc độ đua và duy trì cho tới vạch đích. Đôi giày chạy bộ adidas này có thiết kế đầy tốc độ với các thanh carbon ENERGYROD tạo độ cứng siêu nhẹ cho sải bước gọn ghẽ.',
                 'price_regular'=>'6500000.00',
                 'sale_price'=>'6500000.00',
