@@ -15,7 +15,7 @@ return new class extends Migration
     {
         //
         Schema::table('wards', function(Blueprint $table){
-            $table->foreignId('id_user')->constrained('wards');
+            $table->foreignId('id_district')->constrained('wards');
         });
     }
 
