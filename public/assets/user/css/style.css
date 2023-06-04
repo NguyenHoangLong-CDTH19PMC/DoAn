@@ -593,13 +593,15 @@ img:not([src]) {
     color: #ffcc00;
 }
 
-.menu ul li a.has-child {}
+.menu ul li a.has-child {
+    padding-right: 32px;
+}
 
 .menu ul li a.has-child:after {
     content: "";
     position: absolute;
-    bottom: calc(50% - 4px / 2);
-    right: 12px;
+    bottom: calc(50% - 2px / 2);
+    right: 20px;
     width: 5px;
     height: 5px;
     border: 1px solid #fafafa;
