@@ -1,3 +1,7 @@
+<?php 
+use Illuminate\Support\Facades\Route;
+?>
+
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -8,15 +12,12 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Home</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
-        </li>
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                 <i class="fas fa-search"></i>
             </a>
@@ -36,7 +37,7 @@
                     </div>
                 </form>
             </div>
-        </li>
+        </li> --}}
 
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
@@ -131,12 +132,6 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#"
-                role="button">
-                <i class="fas fa-th-large"></i>
-            </a>
-        </li>
     </ul>
 </nav>
 <!-- /.navbar -->
@@ -153,21 +148,25 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar Menu -->
+        
         <nav class="mt-4">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('trang-chu-admin') }}" class="nav-link ">
+                    <a href="{{ route('trang-chu-admin') }}" class="nav-link <?=($name == 'trang-chu-admin') ? "active" : "" ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview">
-                    <a class="nav-link">
+                <li class="nav-item <?=($name == 'san-pham-admin' || 
+                    $name == 'them-moi-san-pham-admin' || 
+                    $name == 'sua-doi-san-pham-admin' || $name == 'sanpham-lv1-admin' || $name == 'themmoi-sanpham-lv1-admin') ? "menu-open" : "" ?> ">
+
+                    <a class="nav-link <?=($name == 'san-pham-admin'|| 
+                    $name == 'them-moi-san-pham-admin' || 
+                    $name == 'sua-doi-san-pham-admin' || $name == 'sanpham-lv1-admin' || $name == 'themmoi-sanpham-lv1-admin') ? "active" : "" ?>">
                         <i class="nav-icon fas fa-boxes-stacked"></i>
                         <p>
                             Quản lý sản phẩm
@@ -176,13 +175,17 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('san-pham-admin') }}" class="nav-link">
+                            <a href="{{ route('san-pham-admin') }}" class="nav-link <?=($name == 'san-pham-admin'|| 
+                            $name == 'them-moi-san-pham-admin' || 
+                            $name == 'sua-doi-san-pham-admin') ? "active" : "" ?>">
                                 <i class="fa-solid fa-square-caret-right nav-icon"></i>
                                 <p>Danh sách sản phẩm</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('sanpham-lv1-admin')}}" class="nav-link <?=($name == 'sanpham-lv1-admin'|| 
+                            $name == 'themmoi-sanpham-lv1-admin' || 
+                            $name == 'suadoi-sanpham-lv1-admin') ? "active" : "" ?>">
                                 <i class="fa-solid fa-square-caret-right nav-icon"></i>
                                 <p>Danh mục cấp 1</p>
                             </a>

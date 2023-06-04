@@ -7,7 +7,7 @@
                     <ol class="breadcrumb float-sm-left pl-3">
                         <li class="breadcrumb-item"><a href="{{ route('trang-chu-admin') }}" title="Bảng điều khiển">Bảng điều
                                 khiển</a></li>
-                        <li class="breadcrumb-item active">Quản lý sản phẩm</li>
+                        <li class="breadcrumb-item active">Quản lý sản phẩm cấp 1</li>
                     </ol>
                 </div>
             </div>
@@ -17,7 +17,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="card-footer text-sm sticky-top">
-                    <a class="btn btn-sm bg-gradient-primary text-white" href="{{ route('them-moi-san-pham-admin') }}"
+                    <a class="btn btn-sm bg-gradient-primary text-white" href="{{ route('themmoi-sanpham-lv1-admin') }}"
                         title="Thêm mới"><i class="fas fa-plus mr-2"></i>Thêm mới</a>
                     <a class="btn btn-sm bg-gradient-danger text-white" id="delete-all" title="Xóa tất cả"><i
                             class="far fa-trash-alt mr-2"></i>Xóa tất cả</a>
@@ -31,17 +31,6 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="card-footer form-group-category text-sm bg-light row">
-                    <div class="form-group col-xl-2 col-lg-3 col-md-4 col-sm-4 mb-0">
-                        <select id="select-category" name="" class="form-control filter-category select2">
-                            <option value="0">Chọn Danh Mục</option>
-                            @foreach($level1 as $k => $value)
-                                <option value="{{$value->id}}">{{$value->name}}</option>
-                            @endforeach
-                        </select>
                     </div>
                 </div>
 
@@ -65,15 +54,13 @@
 
                                     {{-- <th class="align-middle">Hình 2</th> --}}
 
-                                    <th class="align-middle" style="width:30%">Tên sản phẩm</th>
-
-                                    {{-- <th class="align-middle">Gallery</th> --}}
+                                    <th class="align-middle" style="width:30%">Tên danh mục</th>
 
                                     <th class="align-middle text-center">Thao tác</th>
                                 </tr>
                             </thead>
-                            @if (count($products))
-                                @foreach ($products as $k => $item)
+                            @if (count($level1))
+                                @foreach ($level1 as $k => $item)
                                     <tbody>
                                         <tr>
                                             <td class="align-middle">
@@ -127,12 +114,14 @@
                         </table>
                     </div>
                 </div>
-                
+              
+                    
+               
                 <div class="card-footer text-sm">
-                    @if (count($products))
+                    @if(count($level1))
                         <div class="card-pagination">
-                            {!! $products->links() !!}
-                        </div> 
+                            {!! $level1->links() !!}
+                        </div>
                     @endif
                 </div>
 

@@ -265,3 +265,20 @@ a.upload-file-image-remove:hover,.delete_1hinh:hover{background:#111}
 @media(max-width:401px){
 	.main-header .navbar-nav .nav-item.nav-item-hello span,.label-filer{display:none}
 }
+
+.card-pagination{margin: 10px 0;}
+
+.card-pagination nav{width: 100%;}
+
+.card-pagination nav .pagination{justify-content: center;margin-bottom: 0;}
+
+.page-link .page-link{ position: relative; display: block; color: #0d6efd; text-decoration: none; background-color: #fff; border: 1px solid #dee2e6; transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; }
+
+.page-item.active .page-link { z-index: 3; color: #fff; background-color: #0d6efd; border-color: #0d6efd; }
+
+.page-item.disabled .page-link { color: #6c757d; pointer-events: none; background-color: #fff; border-color: #dee2e6; }
+.nav-item.menu-open .nav-link.active{ background-color: #007bff; } 
+.nav-item.menu-open .nav-treeview{}
+.nav-item.menu-open .nav-treeview .nav-item{ }
+.nav-item.menu-open .nav-treeview .nav-item .nav-link{background-color: transparent;}
+.nav-item.menu-open .nav-treeview .nav-item .nav-link.active{background-color: #fff; color: #333;}
