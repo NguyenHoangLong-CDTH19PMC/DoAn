@@ -1,3 +1,8 @@
+<?php
+    include('connect.php');
+    $sql_brands= mysqli_query($connect,"SELECT * FROM brands ORDER BY id  ASC");
+
+?>
 @extends('admin.index')
 @section('body')
     <div class="content-wrapper">
@@ -33,18 +38,20 @@
                             <div class="form-group-category row">
 
                                 <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_list">Danh mục cấp 1:</label>
-                                    <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Danh Mục Cấp 1 a</option>
-                                        <option value="2">Danh Mục Cấp 1 b</option>
-                                        <option value="3">Danh Mục Cấp 1 c</option>
+                                    <label class="d-block" for="id_list">Thương Hiệu</label>
+                                    <select id="" name="brands" class="form-control select2 ">
+                                        <option>Chọn Thương Hiệu</option>
+                                        <?php
+                                        while($row_brands = mysqli_fetch_array($sql_brands))
+                                        {
+                                            echo '<option value=" '.$row_brands['id'].' ">'.$row_brands['name'].'</option>';
+                                        }
+                                        ?>
                                     </select>
-
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_cat">Danh mục cấp 2:</label>
+                                    <label class="d-block" for="id_cat">Loại Giày</label>
                                     <select id="" name="" class="form-control select2 ">
                                         <option value="0">Chọn Danh mục</option>
                                         <option value="1">Danh Mục Cấp 2 a</option>
@@ -54,7 +61,7 @@
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_item">Danh mục cấp 3:</label>
+                                    <label class="d-block" for="id_item">Giới Tính</label>
                                     <select id="" name="" class="form-control select2 ">
                                         <option value="0">Chọn Danh mục</option>
                                         <option value="1">Danh Mục Cấp 3 a</option>
@@ -64,7 +71,7 @@
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_brand">Danh mục hãng:</label>
+                                    <label class="d-block" for="id_brand">Kích Thước</label>
                                     <select id="" name="" class="form-control select2 ">
                                         <option value="0">Chọn Danh mục</option>
                                         <option value="1">Nike</option>
@@ -75,7 +82,7 @@
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_tags">Danh mục tags:</label>
+                                    <label class="d-block" for="id_tags">Màu Sắc</label>
                                     <select id="" name="" class="form-control select2 ">
                                         <option value="0">Chọn Danh mục</option>
                                         <option value="1">Giày giá rẻ</option>
@@ -84,27 +91,6 @@
                                 </div>
 
 
-                                <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_color">Danh mục màu sắc:</label>
-                                    <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Đỏ</option>
-                                        <option value="2">Đen</option>
-                                        <option value="3">Xanh</option>
-                                        <option value="4">Trắng</option>
-                                    </select>  
-                                </div>
-
-                                <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_size">Danh mục kích thước:</label>
-                                    <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">38</option>
-                                        <option value="2">39</option>
-                                        <option value="3">40</option>
-                                        <option value="4">41</option>
-                                    </select>  
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -123,12 +109,12 @@
                                             min="0" name="" id="numb" placeholder="0" value="">
                                     </div>
                                     <div class="form-group title">
-                                        <label for="name...">Tên... :</label>
+                                        <label for="name...">Tên Sản Phẩm:</label>
                                         <input type="text" class="form-control for-seo text-sm" name=""
                                             id="" placeholder="Tên ..." value="" required>
                                     </div>
                                     <div class="form-group title...">
-                                        <label for="name...">Nội dụng:</label>
+                                        <label for="name...">Nội dung:</label>
                                         <textarea class="form-control for-seo text-sm " name="" id="" rows="5" placeholder="Nội dung ..."></textarea>
                                     </div>
                                     <div class="row">

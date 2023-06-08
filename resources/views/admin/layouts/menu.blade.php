@@ -184,19 +184,19 @@
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="fa-solid fa-square-caret-right nav-icon"></i>
-                                <p>Danh mục cấp 1</p>
+                                <p>Thương Hiệu</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="fa-solid fa-square-caret-right nav-icon"></i>
-                                <p>Danh mục cấp 2</p>
+                                <p>Loại Giày</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="fa-solid fa-square-caret-right nav-icon"></i>
-                                <p>Danh mục cấp 3</p>
+                                <p>Giới Tính</p>
                             </a>
                         </li>
                     </ul>
