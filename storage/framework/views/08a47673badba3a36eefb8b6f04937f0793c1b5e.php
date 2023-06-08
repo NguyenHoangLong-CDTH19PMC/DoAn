@@ -1,7 +1,14 @@
 <?php
-    include('connect.php');
+    $connect= mysqli_connect("localhost","root","","doantn");
+    if(mysqli_connect_error())
+    {
+        echo "Failed to connect to MySQL:".mysqli_connect_error();
+    }
     $sql_brands= mysqli_query($connect,"SELECT * FROM brands ORDER BY id  ASC");
-
+    $sql_genders= mysqli_query($connect,"SELECT * FROM genders ORDER BY id  ASC");
+    $sql_sizes= mysqli_query($connect,"SELECT * FROM sizes ORDER BY id  ASC");
+    $sql_colors= mysqli_query($connect,"SELECT * FROM colors ORDER BY id  ASC");
+    $sql_product_types= mysqli_query($connect,"SELECT * FROM product_types ORDER BY id  ASC");
 ?>
 
 <?php $__env->startSection('body'); ?>
@@ -40,8 +47,7 @@
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_list">Thương Hiệu</label>
                                     <select id="" name="brands" class="form-control select2 ">
-                                      
-                                        <option>Chọn Thương Hiệu</option>
+
                                         <?php
                                         while($row_brands = mysqli_fetch_array($sql_brands))
                                         {
@@ -54,30 +60,36 @@
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_cat">Loại Giày</label>
                                     <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Danh Mục Cấp 2 a</option>
-                                        <option value="2">Danh Mục Cấp 2 b</option>
-                                        <option value="3">Danh Mục Cấp 2 c</option>
+                                    <?php
+                                        while($row_product_types = mysqli_fetch_array($sql_product_types))
+                                        {
+                                            echo '<option value=" '.$row_product_types['id'].' ">'.$row_product_types['name'].'</option>';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_item">Giới Tính</label>
                                     <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Danh Mục Cấp 3 a</option>
-                                        <option value="2">Danh Mục Cấp 3 b</option>
-                                        <option value="3">Danh Mục Cấp 3 c</option>
+                                    <?php
+                                        while($row_genders = mysqli_fetch_array($sql_genders))
+                                        {
+                                            echo '<option value=" '.$row_genders['id'].' ">'.$row_genders['name'].'</option>';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_brand">Kích Thước</label>
                                     <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Nike</option>
-                                        <option value="2">Adidas</option>
-                                        <option value="3">Converse</option>
+                                    <?php
+                                        while($row_sizes = mysqli_fetch_array($sql_sizes))
+                                        {
+                                            echo '<option value=" '.$row_sizes['id'].' ">'.$row_sizes['name'].'</option>';
+                                        }
+                                        ?>
                                     </select>    
 
                                 </div>
@@ -85,9 +97,12 @@
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_tags">Màu Sắc</label>
                                     <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Giày giá rẻ</option>
-                                        <option value="2">Giày cũ</option>
+                                    <?php
+                                        while($row_colors = mysqli_fetch_array($sql_colors))
+                                        {
+                                            echo '<option value=" '.$row_colors['id'].' ">'.$row_colors['name'].'</option>';
+                                        }
+                                        ?>
                                     </select>  
                                 </div>
 
