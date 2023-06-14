@@ -31,3 +31,14 @@ Route::get('/admin/product/delete-product', [ProductController::class, 'deletepr
 Route::get('/admin/product/level1',[ProductController::class,'getproductlv1'])->name('sanpham-lv1-admin');
 Route::get('/admin/product/add-level1',[ProductController::class,'Return_tpladm_addprolv1'])->name('themmoi-sanpham-lv1-admin');
 Route::post('/admin/product/add-level1',[ProductController::class,'addlevel1'])->name('xl-themmoi-sanpham-lv1-admin');
+Route::get('/admin/product/modify-level1',[ProductController::class,'Return_tpladm_modifylv1'])->name('suadoi-sanpham-lv1-admin');
+Route::post('/admin/product/modify-level1', [ProductController::class, 'modifylevel1'])->name('xl-sua-doi-san-pham-lv1-admin');
+Route::get('/admin/product/delete-level1', [ProductController::class, 'deletelevel1'])->name('xl-xoa-bo-san-pham-lv1-admin');
+
+
+Route::get('/admin/product/level2',[ProductController::class,'getproductlv2'])->name('sanpham-lv2-admin');
+Route::get('/admin/product/add-level2',[ProductController::class,'Return_tpladm_addprolv2'])->name('themmoi-sanpham-lv2-admin');
+Route::post('/admin/product/add-level2',[ProductController::class,'addlevel2'])->name('xl-themmoi-sanpham-lv2-admin');
+Route::get('/admin/product/modify-level2',[ProductController::class,'Return_tpladm_modifylv2'])->name('suadoi-sanpham-lv2-admin');
+Route::post('/admin/product/modify-level2', [ProductController::class, 'modifylevel2'])->name('xl-sua-doi-san-pham-lv2-admin');
+Route::get('/admin/product/delete-level2', [ProductController::class, 'deletelevel2'])->name('xl-xoa-bo-san-pham-lv2-admin');

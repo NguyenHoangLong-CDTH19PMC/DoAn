@@ -19,8 +19,8 @@
                 <div class="card-footer text-sm sticky-top">
                     <a class="btn btn-sm bg-gradient-primary text-white" href="{{ route('them-moi-san-pham-admin') }}"
                         title="Thêm mới"><i class="fas fa-plus mr-2"></i>Thêm mới</a>
-                    <a class="btn btn-sm bg-gradient-danger text-white" id="delete-all" title="Xóa tất cả"><i
-                            class="far fa-trash-alt mr-2"></i>Xóa tất cả</a>
+                    {{-- <a class="btn btn-sm bg-gradient-danger text-white" id="delete-all" title="Xóa tất cả"><i
+                            class="far fa-trash-alt mr-2"></i>Xóa tất cả</a> --}}
                     <div class="form-inline form-search d-inline-block align-middle ml-3">
                         <div class="input-group input-group-sm">
                             <input class="form-control form-control-navbar text-sm" type="search" id="keyword"
@@ -34,20 +34,9 @@
                     </div>
                 </div>
 
-                <div class="card-footer form-group-category text-sm bg-light row">
-                    <div class="form-group col-xl-2 col-lg-3 col-md-4 col-sm-4 mb-0">
-                        <select id="select-category" name="" class="form-control filter-category select2">
-                            <option value="0">Chọn Danh Mục</option>
-                            @foreach($level1 as $k => $value)
-                                <option value="{{$value->id}}">{{$value->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-
                 <div class="card card-primary card-outline text-sm mb-0">
                     <div class="card-header">
-                        <h3 class="card-title">Danh sách </h3>
+                        <h3 class="card-title"><b>Danh sách sản phẩm</b></h3>
                     </div>
                     <div class="card-body table-responsive p-0">
                         <table class="table card-table table-hover">
@@ -67,8 +56,6 @@
 
                                     <th class="align-middle" style="width:30%">Tên sản phẩm</th>
 
-                                    {{-- <th class="align-middle">Gallery</th> --}}
-
                                     <th class="align-middle text-center">Thao tác</th>
                                 </tr>
                             </thead>
@@ -86,7 +73,7 @@
                                             <td class="align-middle">
                                                 <input type="number"
                                                     class="form-control form-control-mini m-auto update-numb" min="0"
-                                                    value="{{ $k + 1 }}" data-id="" data-table="product"
+                                                    value="{{ $serial++ }}" data-id="" data-table="product"
                                                     readonly>
                                             </td>
                                             <td class="align-middle">
@@ -107,7 +94,7 @@
 
                                             <td class="align-middle text-center text-md text-nowrap">
                                                 <a class="text-primary mr-2 modify-item"
-                                                    data-href="{{ route('sua-doi-san-pham-admin') . '?id=' . $item->id }}"
+                                                    href="{{ route('sua-doi-san-pham-admin', ['id' => $item->id]) }}"
                                                     title="Chỉnh sửa"><i class="fas fa-edit"></i></a>
                                                 <a class="text-danger delete-item"
                                                     data-href="{{ route('xl-xoa-bo-san-pham-admin') . '?id=' . $item->id }}"
@@ -127,12 +114,12 @@
                         </table>
                     </div>
                 </div>
-                
+
                 <div class="card-footer text-sm">
                     @if (count($products))
                         <div class="card-pagination">
                             {!! $products->links() !!}
-                        </div> 
+                        </div>
                     @endif
                 </div>
 

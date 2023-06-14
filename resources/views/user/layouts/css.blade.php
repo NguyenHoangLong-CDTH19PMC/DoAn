@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{asset('assets/user/css/style.css')}}">
 <link rel="stylesheet" href="{{asset('assets/user/css/media.css')}}">
 <link rel="stylesheet" href="{{asset('assets/user/css/animate.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/user/fontawesome/css/all.css')}}">
+<link rel="stylesheet" href="{{asset('assets/fontawesome/css/all.css')}}">
 <link rel="stylesheet" href="{{asset('assets/user/bootstrap/bootstrap.css')}}">
 <link rel="stylesheet" href="{{asset('assets/user/slick/slick.css')}}">
 <link rel="stylesheet" href="{{asset('assets/user/slick/slick-theme.css')}}">
