@@ -2,11 +2,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="title-main"><span>Thông báo</span></div>
-                
+                <div class="title-main"><i class="fa-solid fa-triangle-exclamation fa-beat fa-sm mr-2" style="color: #dc3545;"></i><span>Thông báo</span></div>
             </div>
             <div class="modal-body">
-                <div class="text-bold">Bạn có chắc muốn xoá sản phẩm này</div>
+                <div class="text-bold">Bạn có chắc muốn xoá mục này</div>
             </div>
             <div class="modal-footer">
                 <a href="" id="del-data" form="popup-notify-delete" class="btn btn-sm btn-primary text-white">Đồng ý</a>
@@ -15,3 +14,4 @@
         </div>
     </div>
 </div>
+

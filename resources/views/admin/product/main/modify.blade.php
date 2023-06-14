@@ -14,11 +14,10 @@
         </section>
         <section class="content">
             <div class="container-fluid">
-                <form class="validation-form" method="post" action="{{ route('xl-sua-doi-san-pham-admin', ['id' => $dsSP->id]) }}" enctype="multipart/form-data">
+                <form class="validation-form" method="post" action="{{ route('xl-sua-doi-san-pham-admin', ['id' => $detailSP->id]) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-footer text-sm sticky-top">
                         <button type="submit" class="btn btn-sm bg-gradient-primary submit-check"><i class="far fa-save mr-2"></i>Lưu</button>
-                        {{-- <button type="submit" class="btn btn-sm bg-gradient-success submit-check" name="save-here" disabled><i class="far fa-save mr-2"></i>Lưu tại trang</button> --}}
                         <button type="reset" class="btn btn-sm bg-gradient-secondary"><i class="fas fa-redo mr-2"></i>Làm lại</button>
                         <a class="btn btn-sm bg-gradient-danger" href="{{ route('san-pham-admin') }}" title="Thoát"><i class="fas fa-sign-out-alt mr-2"></i>Thoát</a>
                     </div>
@@ -35,11 +34,11 @@
 
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_list">Danh mục cấp 1:</label>
-                                    <select id="" name="" class="form-control select2 ">
+                                    <select id="select-category" name="categorylv1" class="form-control select2 ">
                                         <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Danh Mục Cấp 1 a</option>
-                                        <option value="2">Danh Mục Cấp 1 b</option>
-                                        <option value="3">Danh Mục Cấp 1 c</option>
+                                        @foreach ($level1 as $k => $value)
+                                            <option value="{{ $value->id }}" {{ ($value->id == $detailSP->id_level1) ? "selected" : "" }}>{{ $value->name }}</option>
+                                        @endforeach
                                     </select>
 
                                 </div>
@@ -52,27 +51,6 @@
                                         <option value="2">Danh Mục Cấp 2 b</option>
                                         <option value="3">Danh Mục Cấp 2 c</option>
                                     </select>
-                                </div>
-
-                                <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_item">Danh mục cấp 3:</label>
-                                    <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Danh Mục Cấp 3 a</option>
-                                        <option value="2">Danh Mục Cấp 3 b</option>
-                                        <option value="3">Danh Mục Cấp 3 c</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_brand">Danh mục hãng:</label>
-                                    <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Nike</option>
-                                        <option value="2">Adidas</option>
-                                        <option value="3">Converse</option>
-                                    </select>    
-
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">
@@ -109,25 +87,26 @@
                                     <div class="form-group title">
                                         <label for="name-product">Tên sản phẩm:</label>
                                         <input type="text" class="form-control for-seo text-sm" name="tensp"
-                                            id="fullname" placeholder="Tên sản phẩm" value="{{ $dsSP->name }}" @error('tensp') is-invalid @enderror>
+                                            id="fullname" placeholder="Tên sản phẩm" value="{{ $detailSP->name }}" @error('tensp') is-invalid @enderror>
                                         @error('tensp') <div class="invalid-feedback">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group titleProduct">
                                         <label for="nameProduct">Nội dung:</label>
-                                        <textarea class="form-control for-seo text-sm " name="noidung" id="" rows="5" placeholder="Nội dung">{{$dsSP->content}}</textarea>
+                                        <textarea class="form-control for-seo text-sm form-ckeditor" name="noidung" id="" rows="10"
+                                            placeholder="Nội dung">{!!$detailSP->content!!}</textarea>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-4">
                                             <label class="d-block" for="code-product">Mã sản phẩm:</label>
                                             <input type="text" class="form-control text-sm" name="masp" id="code"
-                                                placeholder="Mã sản phẩm" value="{{ $dsSP->code }}">
+                                                placeholder="Mã sản phẩm" value="{{ $detailSP->code }}">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label class="d-block" for="regular_price">Giá gốc:</label>
                                             <div class="input-group">
                                                 <input type="text"
                                                     class="form-control format-price regular_price text-sm" name="giagoc"
-                                                    id="regular_price" placeholder="Giá gốc" value="{{$dsSP->price_regular}}">
+                                                    id="regular_price" placeholder="Giá gốc" value="{{$detailSP->price_regular}}">
                                                 <div class="input-group-append">
                                                     <div class="input-group-text"><strong>VNĐ</strong></div>
                                                 </div>
@@ -137,7 +116,7 @@
                                             <label class="d-block" for="sale_price">Giá mới:</label>
                                             <div class="input-group">
                                                 <input type="text" class="form-control format-price sale_price text-sm"
-                                                    name="giamoi" id="sale_price" placeholder="Giá mới" value="{{$dsSP->sale_price}}">
+                                                    name="giamoi" id="sale_price" placeholder="Giá mới" value="{{$detailSP->sale_price}}">
                                                 <div class="input-group-append">
                                                     <div class="input-group-text"><strong>VNĐ</strong></div>
                                                 </div>
@@ -158,11 +137,10 @@
                                 </div>
                                 <div class="card-body">
                                     {{-- Image --}}
-                                    {{-- @include('admin.layouts.image') --}}
                                     <div class="photoUpload-zone">
                                         <div class="photoUpload-detail" id="photoUpload-preview">
                                             <img class="rounded" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
-                                                src="{{ asset('upload/product/' . $dsSP->photo) }}" alt="Alt Photo" style="" />
+                                                src="{{ asset('upload/product/' . $detailSP->photo) }}" alt="Alt Photo" style="" />
                                         </div>
                                         <label class="photoUpload-file" id="photo-zone" for="file-zone">
                                             <input type="file" name="file" id="file-zone">
@@ -171,7 +149,7 @@
                                             <p class="photoUpload-or">hoặc</p>
                                             <p class="photoUpload-choose btn btn-sm bg-gradient-success">Chọn hình</p>
                                         </label>
-                                        <div class="photoUpload-dimension">Width: 270px - Height: 270px (.jpg|.gif|.png|.jpeg)</div>
+                                        <div class="photoUpload-dimension">Width: 270px - Height: 270px (.jpg|.png|.jpeg)</div>
                                     </div>
                                 </div>
                             </div>

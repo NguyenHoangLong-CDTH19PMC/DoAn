@@ -196,12 +196,6 @@ use Illuminate\Support\Facades\Route;
                                 <p>Danh mục cấp 2</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="fa-solid fa-square-caret-right nav-icon"></i>
-                                <p>Danh mục cấp 3</p>
-                            </a>
-                        </li>
                     </ul>
                 </li>
             </ul>

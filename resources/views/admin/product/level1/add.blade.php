@@ -18,13 +18,12 @@
                     @csrf
                     <div class="card-footer text-sm sticky-top">
                         <button type="submit" class="btn btn-sm bg-gradient-primary submit-check"><i class="far fa-save mr-2"></i>Lưu</button>
-                        {{-- <button type="submit" class="btn btn-sm bg-gradient-success submit-check" name="save-here" disabled><i class="far fa-save mr-2"></i>Lưu tại trang</button> --}}
                         <button type="reset" class="btn btn-sm bg-gradient-secondary"><i class="fas fa-redo mr-2"></i>Làm lại</button>
                         <a class="btn btn-sm bg-gradient-danger" href="{{ route('sanpham-lv1-admin') }}" title="Thoát"><i class="fas fa-sign-out-alt mr-2"></i>Thoát</a>
                     </div>
                     
                     <div class="row">
-                        <div class="col-xl-8">
+                        <div class="col-xl-12">
                             <div class="card card-default color-palette-box card-primary card-outline text-sm">
                                 <div class="card-header">
                                     <h3 class="card-title">Thông tin danh mục cấp 1</h3>
@@ -33,17 +32,17 @@
                                     <div class="form-group title">
                                         <label for="name-product">Tên danh mục cấp 1:</label>
                                         <input type="text" class="form-control for-seo text-sm" name="tensp"
-                                            id="fullname" placeholder="Tên sản phẩm" value="" required>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
+                                            id="fullname" placeholder="Tên tên danh mục" @error('tendm') is-invalid @enderror>
+                                        @error('tendm') <div class="invalid-feedback">{{ $message }}</div>@enderror
                                     </div>
-                                    <div class="form-group titleProduct">
+                                    {{-- <div class="form-group titleProduct">
                                         <label for="nameProduct">Nội dung danh mục cấp 1:</label>
                                         <textarea class="form-control for-seo text-sm " name="noidung" id="" rows="5" placeholder="Nội dung "></textarea>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-4">
+                        {{-- <div class="col-xl-4">
                             
                             <div class="card card-primary card-outline text-sm">
                                 <div class="card-header">
@@ -53,7 +52,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    {{-- Image --}}
+                                  
                                     <div class="photoUpload-zone">
                                         <div class="photoUpload-detail" id="photoUpload-preview">
                                             <img class="rounded" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
@@ -66,11 +65,11 @@
                                             <p class="photoUpload-or">hoặc</p>
                                             <p class="photoUpload-choose btn btn-sm bg-gradient-success">Chọn hình</p>
                                         </label>
-                                        <div class="photoUpload-dimension">Width: 270px - Height: 270px (.jpg|.gif|.png|.jpeg)</div>
+                                        <div class="photoUpload-dimension">Width: 270px - Height: 270px (.jpg|.png|.jpeg)</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </form>
             </div>

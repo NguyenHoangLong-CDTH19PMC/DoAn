@@ -24,13 +24,13 @@ class xlAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'tensp' => 'required'
+            'tensp' => 'required',
         ];
     }
     public function messages()
     {
         return[
-            'tensp.required'=> 'Chưa nhập tên sản phẩm'
+            'tensp.required'=> 'Chưa nhập tên sản phẩm',
         ];
     }
 }

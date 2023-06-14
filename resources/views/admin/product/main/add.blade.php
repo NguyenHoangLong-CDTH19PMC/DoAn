@@ -1,5 +1,6 @@
 @extends('admin.index')
 @section('body')
+    
     <div class="content-wrapper">
         <section class="content-header text-sm">
             <div class="container-fluid">
@@ -20,7 +21,6 @@
                     <div class="card-footer text-sm sticky-top">
                         <button type="submit" class="btn btn-sm bg-gradient-primary submit-check"><i
                                 class="far fa-save mr-2"></i>Lưu</button>
-                        {{-- <button type="submit" class="btn btn-sm bg-gradient-success submit-check" name="save-here" disabled><i class="far fa-save mr-2"></i>Lưu tại trang</button> --}}
                         <button type="reset" class="btn btn-sm bg-gradient-secondary"><i class="fas fa-redo mr-2"></i>Làm
                             lại</button>
                         <a class="btn btn-sm bg-gradient-danger" href="{{ route('san-pham-admin') }}" title="Thoát"><i
@@ -28,7 +28,7 @@
                     </div>
                     <div class="card card-primary card-outline text-sm">
                         <div class="card-header">
-                            <h3 class="card-title">Danh mục Product</h3>
+                            <h3 class="card-title">Danh mục Sản phẩm</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                         class="fas fa-minus"></i></button>
@@ -39,7 +39,7 @@
 
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_list">Danh mục cấp 1:</label>
-                                    <select id="select-category" name="" class="form-control select2 ">
+                                    <select id="select-category1" name="categorylv1" class="form-control select2 ">
                                         <option value="0">Chọn Danh mục</option>
                                         @foreach ($level1 as $k => $value)
                                             <option value="{{ $value->id }}">{{ $value->name }}</option>
@@ -50,33 +50,12 @@
 
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_cat">Danh mục cấp 2:</label>
-                                    <select id="" name="" class="form-control select2 ">
+                                    <select id="select-category2" name="categorylv2" class="form-control select2 ">
                                         <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Danh Mục Cấp 2 a</option>
-                                        <option value="2">Danh Mục Cấp 2 b</option>
-                                        <option value="3">Danh Mục Cấp 2 c</option>
+                                        @foreach ($level2 as $k => $value)
+                                            <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                        @endforeach
                                     </select>
-                                </div>
-
-                                <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_item">Danh mục cấp 3:</label>
-                                    <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Danh Mục Cấp 3 a</option>
-                                        <option value="2">Danh Mục Cấp 3 b</option>
-                                        <option value="3">Danh Mục Cấp 3 c</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_brand">Danh mục hãng:</label>
-                                    <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Nike</option>
-                                        <option value="2">Adidas</option>
-                                        <option value="3">Converse</option>
-                                    </select>
-
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">
@@ -118,8 +97,8 @@
                                     </div>
                                     <div class="form-group titleProduct">
                                         <label for="nameProduct">Nội dung:</label>
-                                        <textarea class="form-control for-seo text-sm " name="noidung" id="" rows="5"
-                                            placeholder="Nội dung "></textarea>
+                                        <textarea class="form-control for-seo text-sm form-ckeditor" name="noidung" id="" rows="10"
+                                            placeholder="Nội dung"></textarea>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-4">
@@ -178,7 +157,7 @@
                                             <p class="photoUpload-choose btn btn-sm bg-gradient-success">Chọn hình</p>
                                         </label>
                                         <div class="photoUpload-dimension">Width: 270px - Height: 270px
-                                            (.jpg|.gif|.png|.jpeg)</div>
+                                            (.jpg|.png|.jpeg)</div>
                                     </div>
                                 </div>
                             </div>

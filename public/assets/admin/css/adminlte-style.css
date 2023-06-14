@@ -282,3 +282,6 @@ a.upload-file-image-remove:hover,.delete_1hinh:hover{background:#111}
 .nav-item.menu-open .nav-treeview .nav-item{ }
 .nav-item.menu-open .nav-treeview .nav-item .nav-link{background-color: transparent;}
 .nav-item.menu-open .nav-treeview .nav-item .nav-link.active{background-color: #fff; color: #333;}
+.ck-content{min-height: 300px; max-height: 300px;}
+.card-title{}
+.modal-header .title-main span{font-size: 20px;}
