@@ -26,8 +26,4 @@ class TableProduct extends Model
         return $this->hasMany(related:TableProduct_Level2::class,foreignKey:'id_level2',localKey:'id');
     }
 
-    public function products_level3()
-    {
-        return $this->hasMany(related:TableProduct_Level3::class,foreignKey:'id_level3',localKey:'id');
-    }
 }

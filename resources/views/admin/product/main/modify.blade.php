@@ -7,7 +7,7 @@
                     <ol class="breadcrumb float-sm-left pl-3">
                         <li class="breadcrumb-item"><a href="{{ route('trang-chu-admin') }}" title="Bảng điều khiển">Bảng điều
                                 khiển</a></li>
-                        <li class="breadcrumb-item active">Thêm mới sản phẩm</li>
+                        <li class="breadcrumb-item active">Chỉnh sửa sản phẩm</li>
                     </ol>
                 </div>
             </div>
@@ -34,7 +34,7 @@
 
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_list">Danh mục cấp 1:</label>
-                                    <select id="select-category" name="categorylv1" class="form-control select2 ">
+                                    <select id="select-category1" name="categorylv1" class="form-control select2">
                                         <option value="0">Chọn Danh mục</option>
                                         @foreach ($level1 as $k => $value)
                                             <option value="{{ $value->id }}" {{ ($value->id == $detailSP->id_level1) ? "selected" : "" }}>{{ $value->name }}</option>
@@ -44,13 +44,14 @@
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_cat">Danh mục cấp 2:</label>
-                                    <select id="" name="" class="form-control select2 ">
+                                    <label class="d-block" for="id_list">Danh mục cấp 2:</label>
+                                    <select id="select-category2" name="categorylv2" class="form-control select2">
                                         <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Danh Mục Cấp 2 a</option>
-                                        <option value="2">Danh Mục Cấp 2 b</option>
-                                        <option value="3">Danh Mục Cấp 2 c</option>
+                                        @foreach ($level2 as $k => $value)
+                                            <option value="{{ $value->id }}" {{ ($value->id == $detailSP->id_level2) ? "selected" : "" }}>{{ $value->name }}</option>
+                                        @endforeach
                                     </select>
+
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">

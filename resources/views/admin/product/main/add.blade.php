@@ -45,7 +45,6 @@
                                             <option value="{{ $value->id }}">{{ $value->name }}</option>
                                         @endforeach
                                     </select>
-
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">

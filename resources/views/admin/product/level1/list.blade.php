@@ -42,15 +42,16 @@
                         <table class="table card-table table-hover">
                             <thead>
                                 <tr>
-                                    <th class="align-middle" width="5%">
+                                    {{-- <th class="align-middle" width="5%">
                                         <div class="custom-control custom-checkbox my-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="selectall-checkbox">
                                             <label for="selectall-checkbox" class="custom-control-label"></label>
                                         </div>
-                                    </th>
+                                    </th> --}}
+
                                     <th class="align-middle text-center" width="10%">STT</th>
 
-                                    <th class="align-middle">Hình</th>
+                                    {{-- <th class="align-middle">Hình</th> --}}
 
                                     {{-- <th class="align-middle">Hình 2</th> --}}
 
@@ -59,25 +60,25 @@
                                     <th class="align-middle text-center">Thao tác</th>
                                 </tr>
                             </thead>
-                            @if (count($level1))
-                                @foreach ($level1 as $k => $item)
+                            @if (count($dslevel1))
+                                @foreach ($dslevel1 as $k => $item)
                                     <tbody>
                                         <tr>
-                                            <td class="align-middle">
+                                            {{-- <td class="align-middle">
                                                 <div class="custom-control custom-checkbox my-checkbox">
                                                     <input type="checkbox" class="custom-control-input select-checkbox"
                                                         id="select-checkbox" value="">
                                                     <label for="select-checkbox" class="custom-control-label"></label>
                                                 </div>
-                                            </td>
+                                            </td> --}}
                                             <td class="align-middle">
                                                 <input type="number"
                                                     class="form-control form-control-mini m-auto update-numb" min="0"
-                                                    value="{{ $k + 1 }}" data-id="" data-table="product"
+                                                    value="{{ $serial++ }}" data-id="" data-table="product"
                                                     readonly>
                                             </td>
 
-                                            <td class="align-middle">
+                                            {{-- <td class="align-middle">
                                                 <a href="{{ route('suadoi-sanpham-lv1-admin', ['id' => $item->id]) }}"
                                                     title="{{ $item->name }}">
                                                     <img class="rounded img-preview"
@@ -85,7 +86,7 @@
                                                         onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
                                                         alt="Alt Photo" style="" />
                                                 </a>
-                                            </td>
+                                            </td> --}}
 
                                             <td class="align-middle">
                                                 <a class="text-dark text-break"
@@ -98,7 +99,7 @@
                                                     href="{{ route('suadoi-sanpham-lv1-admin', ['id' => $item->id]) }}"
                                                     title="Chỉnh sửa"><i class="fas fa-edit"></i></a>
                                                 <a class="text-danger delete-item"
-                                                    data-href="{{ route('xl-xoa-bo-san-pham-lv1-admin') . '?id=' . $item->id }}"
+                                                    data-href="{{ route('xl-xoabo-sanpham-lv1-admin') . '?id=' . $item->id }}"
                                                     data-bs-toggle="modal" data-bs-target="#popup-notify-delete"
                                                     title="Xóa"><i class="fas fa-trash-alt"></i></a>
                                             </td>
@@ -119,9 +120,9 @@
                     
                
                 <div class="card-footer text-sm">
-                    @if(count($level1))
+                    @if(count($dslevel1))
                         <div class="card-pagination">
-                            {!! $level1->links() !!}
+                            {!! $dslevel1->links() !!}
                         </div>
                     @endif
                 </div>

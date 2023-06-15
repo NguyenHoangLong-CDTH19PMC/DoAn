@@ -7,14 +7,14 @@
                     <ol class="breadcrumb float-sm-left pl-3">
                         <li class="breadcrumb-item"><a href="{{ route('trang-chu-admin') }}" title="Bảng điều khiển">Bảng điều
                                 khiển</a></li>
-                        <li class="breadcrumb-item active">Thêm mới sản phẩm cấp 1</li>
+                        <li class="breadcrumb-item active">Chỉnh sửa danh mục cấp 1</li>
                     </ol>
                 </div>
             </div>
         </section>
         <section class="content">
             <div class="container-fluid">
-                <form class="validation-form" method="post" action="{{ route('xl-themmoi-sanpham-lv1-admin') }}" enctype="multipart/form-data">
+                <form class="validation-form" method="post" action="{{ route('xl-suadoi-sanpham-lv1-admin', ['id' => $detailLV1->id]) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-footer text-sm sticky-top">
                         <button type="submit" class="btn btn-sm bg-gradient-primary submit-check"><i class="far fa-save mr-2"></i>Lưu</button>
@@ -31,13 +31,13 @@
                                 <div class="card-body card-article">
                                     <div class="form-group title">
                                         <label for="name-product">Tên danh mục cấp 1:</label>
-                                        <input type="text" class="form-control for-seo text-sm" name="tensp" value="{{$dsLV1->name}}"
+                                        <input type="text" class="form-control for-seo text-sm" name="tensp" value="{{$detailLV1->name}}"
                                             id="fullname" placeholder="Tên tên danh mục" @error('tendm') is-invalid @enderror>
                                         @error('tendm') <div class="invalid-feedback">{{ $message }}</div>@enderror
                                     </div>
                                     {{-- <div class="form-group titleProduct">
                                         <label for="nameProduct">Nội dung danh mục cấp 1:</label>
-                                        <textarea class="form-control for-seo text-sm " name="noidung" id="" rows="5" placeholder="Nội dung ">{!!html_entity_decode($dsSP->content)!!}</textarea>
+                                        <textarea class="form-control for-seo text-sm " name="noidung" id="" rows="5" placeholder="Nội dung ">{!!html_entity_decode($detailLV1->content)!!}</textarea>
                                     </div> --}}
                                 </div>
                             </div>

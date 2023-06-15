@@ -19,8 +19,6 @@
                 <div class="card-footer text-sm sticky-top">
                     <a class="btn btn-sm bg-gradient-primary text-white" href="{{ route('themmoi-sanpham-lv2-admin') }}"
                         title="Thêm mới"><i class="fas fa-plus mr-2"></i>Thêm mới</a>
-                    {{-- <a class="btn btn-sm bg-gradient-danger text-white" id="delete-all" title="Xóa tất cả"><i
-                            class="far fa-trash-alt mr-2"></i>Xóa tất cả</a> --}}
                     <div class="form-inline form-search d-inline-block align-middle ml-3">
                         <div class="input-group input-group-sm">
                             <input class="form-control form-control-navbar text-sm" type="search" id="keyword"
@@ -42,15 +40,15 @@
                         <table class="table card-table table-hover">
                             <thead>
                                 <tr>
-                                    <th class="align-middle" width="5%">
+                                    {{-- <th class="align-middle" width="5%">
                                         <div class="custom-control custom-checkbox my-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="selectall-checkbox">
                                             <label for="selectall-checkbox" class="custom-control-label"></label>
                                         </div>
-                                    </th>
-                                    <th class="align-middle text-center" width="20%">STT</th>
+                                    </th> --}}
+                                    <th class="align-middle text-center" width="10%">STT</th>
 
-                                    <th class="align-middle">Hình</th>
+                                    {{-- <th class="align-middle">Hình</th> --}}
 
                                     {{-- <th class="align-middle">Hình 2</th> --}}
 
@@ -59,25 +57,26 @@
                                     <th class="align-middle text-center">Thao tác</th>
                                 </tr>
                             </thead>
-                            @if (count($level2))
-                                @foreach ($level2 as $k => $item)
+                            @if (count($dslevel2))
+                                @foreach ($dslevel2 as $k => $item)
                                     <tbody>
                                         <tr>
-                                            <td class="align-middle">
+                                            {{-- <td class="align-middle">
                                                 <div class="custom-control custom-checkbox my-checkbox">
                                                     <input type="checkbox" class="custom-control-input select-checkbox"
                                                         id="select-checkbox" value="">
                                                     <label for="select-checkbox" class="custom-control-label"></label>
                                                 </div>
-                                            </td>
+                                            </td> --}}
+                                            
                                             <td class="align-middle">
                                                 <input type="number"
                                                     class="form-control form-control-mini m-auto update-numb" min="0"
-                                                    value="{{ $k + 2 }}" data-id="" data-table="product"
+                                                    value="{{ $serial++ }}" data-id="" data-table="product"
                                                     readonly>
                                             </td>
 
-                                            <td class="align-middle">
+                                            {{-- <td class="align-middle">
                                                 <a href="{{ route('suadoi-sanpham-lv2-admin', ['id' => $item->id]) }}"
                                                     title="{{ $item->name }}">
                                                     <img class="rounded img-preview"
@@ -85,7 +84,7 @@
                                                         onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
                                                         alt="Alt Photo" style="" />
                                                 </a>
-                                            </td>
+                                            </td> --}}
 
                                             <td class="align-middle">
                                                 <a class="text-dark text-break"
@@ -98,7 +97,7 @@
                                                     href="{{ route('suadoi-sanpham-lv2-admin', ['id' => $item->id]) }}"
                                                     title="Chỉnh sửa"><i class="fas fa-edit"></i></a>
                                                 <a class="text-danger delete-item"
-                                                    data-href="{{ route('xl-xoa-bo-san-pham-lv2-admin') . '?id=' . $item->id }}"
+                                                    data-href="{{ route('xl-xoabo-sanpham-lv2-admin') . '?id=' . $item->id }}"
                                                     data-bs-toggle="modal" data-bs-target="#popup-notify-delete"
                                                     title="Xóa"><i class="fas fa-trash-alt"></i></a>
                                             </td>
@@ -119,9 +118,9 @@
                     
                
                 <div class="card-footer text-sm">
-                    @if(count($level1))
+                    @if(count($dslevel2))
                         <div class="card-pagination">
-                            {!! $level1->links() !!}
+                            {!! $dslevel2->links() !!}
                         </div>
                     @endif
                 </div>

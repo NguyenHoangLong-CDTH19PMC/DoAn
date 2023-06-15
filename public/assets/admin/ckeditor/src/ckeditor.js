@@ -5,6 +5,7 @@
 import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor.js';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment.js';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
+import AutoLink from '@ckeditor/ckeditor5-link/src/autolink.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
 import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices.js';
@@ -15,21 +16,29 @@ import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor.js';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily.js';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
-import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js';
+import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight.js';
 import Image from '@ckeditor/ckeditor5-image/src/image.js';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption.js';
+import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert.js';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar.js';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload.js';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent.js';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic.js';
 import Link from '@ckeditor/ckeditor5-link/src/link.js';
+import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage.js';
 import List from '@ckeditor/ckeditor5-list/src/list.js';
+import ListProperties from '@ckeditor/ckeditor5-list/src/listproperties.js';
+import Markdown from '@ckeditor/ckeditor5-markdown-gfm/src/markdown.js';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
+import MediaEmbedToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoolbar.js';
+import Mention from '@ckeditor/ckeditor5-mention/src/mention.js';
 import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak.js';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice.js';
 import SelectAll from '@ckeditor/ckeditor5-select-all/src/selectall.js';
+import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter.js';
 import SpecialCharacters from '@ckeditor/ckeditor5-special-characters/src/specialcharacters.js';
 import SpecialCharactersArrows from '@ckeditor/ckeditor5-special-characters/src/specialcharactersarrows.js';
 import SpecialCharactersCurrency from '@ckeditor/ckeditor5-special-characters/src/specialcharacterscurrency.js';
@@ -56,6 +65,7 @@ class Editor extends ClassicEditor {}
 Editor.builtinPlugins = [
 	Alignment,
 	Autoformat,
+	AutoLink,
 	BlockQuote,
 	Bold,
 	CloudServices,
@@ -66,21 +76,29 @@ Editor.builtinPlugins = [
 	FontFamily,
 	FontSize,
 	Heading,
-	HorizontalLine,
+	Highlight,
 	Image,
 	ImageCaption,
+	ImageInsert,
+	ImageResize,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
 	Indent,
 	Italic,
 	Link,
+	LinkImage,
 	List,
+	ListProperties,
+	Markdown,
 	MediaEmbed,
+	MediaEmbedToolbar,
+	Mention,
 	PageBreak,
 	Paragraph,
 	PasteFromOffice,
 	SelectAll,
+	SimpleUploadAdapter,
 	SpecialCharacters,
 	SpecialCharactersArrows,
 	SpecialCharactersCurrency,
@@ -108,14 +126,17 @@ Editor.defaultConfig = {
 		items: [
 			'undo',
 			'redo',
+			'selectAll',
 			'heading',
 			'|',
 			'bold',
 			'italic',
 			'underline',
 			'strikethrough',
+			'link',
 			'bulletedList',
 			'numberedList',
+			'todoList',
 			'|',
 			'outdent',
 			'alignment',
@@ -124,21 +145,19 @@ Editor.defaultConfig = {
 			'imageUpload',
 			'blockQuote',
 			'insertTable',
-			'link',
 			'mediaEmbed',
+			'imageInsert',
 			'-',
 			'findAndReplace',
-			'horizontalLine',
 			'fontBackgroundColor',
 			'fontColor',
 			'fontFamily',
 			'fontSize',
+			'highlight',
 			'pageBreak',
-			'selectAll',
 			'specialCharacters',
 			'subscript',
-			'superscript',
-			'todoList'
+			'superscript'
 		],
 		shouldNotGroupWhenFull: true
 	},
@@ -149,7 +168,8 @@ Editor.defaultConfig = {
 			'toggleImageCaption',
 			'imageStyle:inline',
 			'imageStyle:block',
-			'imageStyle:side'
+			'imageStyle:side',
+			'linkImage'
 		]
 	},
 	table: {
