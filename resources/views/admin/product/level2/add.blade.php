@@ -21,6 +21,30 @@
                         <button type="reset" class="btn btn-sm bg-gradient-secondary"><i class="fas fa-redo mr-2"></i>Làm lại</button>
                         <a class="btn btn-sm bg-gradient-danger" href="{{ route('sanpham-lv2-admin') }}" title="Thoát"><i class="fas fa-sign-out-alt mr-2"></i>Thoát</a>
                     </div>
+
+                    <div class="card card-primary card-outline text-sm">
+                        <div class="card-header">
+                            <h3 class="card-title">Danh mục cấp 1</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                        class="fas fa-minus"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="form-group-category row">
+                                <div class="form-group col-xl-6 col-sm-4">
+                                    <select id="select-category1" name="categorylv1" class="form-control select2 ">
+                                        <option value="0">Chọn Danh mục</option>
+                                        @foreach ($dslevel1 as $k => $value)
+                                            <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="row">
                         <div class="col-xl-22">

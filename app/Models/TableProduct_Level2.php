@@ -11,7 +11,7 @@ class TableProduct_Level2 extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $table='table_product_level1';
+    protected $table='table_product_level2';
     protected $primaryKey='id';
     protected  $guarded=[];
 

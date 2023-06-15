@@ -42,12 +42,13 @@
                         <table class="table card-table table-hover">
                             <thead>
                                 <tr>
-                                    <th class="align-middle" width="5%">
+                                    {{-- <th class="align-middle" width="5%">
                                         <div class="custom-control custom-checkbox my-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="selectall-checkbox">
                                             <label for="selectall-checkbox" class="custom-control-label"></label>
                                         </div>
-                                    </th>
+                                    </th> --}}
+                                    
                                     <th class="align-middle text-center" width="10%">STT</th>
 
                                     <th class="align-middle">Hình</th>
@@ -63,13 +64,13 @@
                                 @foreach ($products as $k => $item)
                                     <tbody>
                                         <tr>
-                                            <td class="align-middle">
+                                            {{-- <td class="align-middle">
                                                 <div class="custom-control custom-checkbox my-checkbox">
                                                     <input type="checkbox" class="custom-control-input select-checkbox"
                                                         id="select-checkbox" value="">
                                                     <label for="select-checkbox" class="custom-control-label"></label>
                                                 </div>
-                                            </td>
+                                            </td> --}}
                                             <td class="align-middle">
                                                 <input type="number"
                                                     class="form-control form-control-mini m-auto update-numb" min="0"
