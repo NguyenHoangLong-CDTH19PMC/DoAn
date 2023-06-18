@@ -60,8 +60,8 @@
                                     <th class="align-middle text-center">Thao tác</th>
                                 </tr>
                             </thead>
-                            @if (count($products))
-                                @foreach ($products as $k => $item)
+                            @if (count($dsProduct))
+                                @foreach ($dsProduct as $k => $item)
                                     <tbody>
                                         <tr>
                                             {{-- <td class="align-middle">
@@ -117,9 +117,9 @@
                 </div>
 
                 <div class="card-footer text-sm">
-                    @if (count($products))
+                    @if (count($dsProduct))
                         <div class="card-pagination">
-                            {!! $products->links() !!}
+                            {!! $dsProduct->links() !!}
                         </div>
                     @endif
                 </div>

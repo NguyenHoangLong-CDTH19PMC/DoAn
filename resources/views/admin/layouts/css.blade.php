@@ -5,6 +5,7 @@
 {{-- <link rel="stylesheet" href="{{asset('assets/admin/simplenotify/simple-notify.css')}}"> --}}
 <link rel="stylesheet" href="{{asset('assets/admin/css/select2/select2.css')}}">
 <link rel="stylesheet" href="{{asset('assets/bootstrap/bootstrap.css')}}">
+<link rel="stylesheet" href="{{asset('assets/admin/sumoselect/sumoselect.css')}}">
 
 <!-- Theme style -->
 <link rel="stylesheet" href="{{asset('assets/admin/css/adminlte.min.css')}}">

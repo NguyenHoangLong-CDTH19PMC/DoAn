@@ -154,7 +154,7 @@
 .tool-action a{float:left;cursor:pointer}
 .card-footer.sticky-top{background-color:rgb(236,238,241);position:sticky;top:0px;z-index:11}
 .img-upload{max-width:300px}
-.img-preview{max-width:70px;max-height:70px;object-fit: cover;}
+.img-preview{width:70px;height:70px;object-fit: contain;}
 .photoUpload-zone .photoUpload-detail{text-align:center;display:block;margin-bottom:1.5rem;position:relative;}
 .photoUpload-zone .photoUpload-detail img{max-width:100%;max-height:250px}
 .photoUpload-zone .photoUpload-file{cursor:pointer;background-color:#F5F5F5;outline:2px dashed #CDCDCD;outline-offset:0px;padding:2rem 0.75rem;margin-bottom:1rem;border-radius:0.25rem;font-weight:normal!important;display:-webkit-flex;display:-moz-flex;display:-ms-flex;display:-o-flex;display:flex;flex-direction:column;align-items:center;justify-content:center;-webkit-transition:outline-offset .15s ease-in-out,background-color .15s linear;transition:outline-offset .15s ease-in-out,background-color .15s linear}
@@ -285,3 +285,6 @@ a.upload-file-image-remove:hover,.delete_1hinh:hover{background:#111}
 .ck-content{min-height: 300px; max-height: 300px;}
 .card-title{}
 .modal-header .title-main span{font-size: 20px;}
+.nav-sidebar>.nav-item .nav-icon-small{margin-left: 0.05rem; margin-right: 0.2rem; text-align: center; width: 1.6rem;}
+.form-control.is-invalid, .was-validated .form-control:invalid{border-color: #dc3545; padding-right: 2.25rem; background-image: url(../images/error-valid.png); background-repeat: no-repeat; background-position: right calc(0.375em + 0.1875rem) center; background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);}
+.placeholder { background-color: transparent !important; opacity: 1 !important; }

@@ -4141,32 +4141,23 @@ if ($("#photo-zone").length) {
     photoZone("#photo-zone", "#file-zone", "#photoUpload-preview img");
 }
 
-// /* Validation form */
-// function validateForm(ele) {
-// 	window.addEventListener(
-// 		'load',
-// 		function () {
-// 			var forms = document.getElementsByClassName(ele);
-// 			var validation = Array.prototype.filter.call(forms, function (form) {
-// 				form.addEventListener(
-// 					'submit',
-// 					function (event) {
-// 						if (form.checkValidity() === false) {
-// 							event.preventDefault();
-// 							event.stopPropagation();
-// 						}
-// 						form.classList.add('was-validated');
-// 					},
-// 					false
-// 				);
-// 			});
-// 			$('.' + ele)
-// 				.find('input[type=submit],button[type=submit]')
-// 				.removeAttr('disabled');
-// 		},
-// 		false
-// 	);
-// }
+// $(document).ready(function(){
+//     $('submit-check').on('click',function(){
+//         if(hasClass('.check-valid')){
+//             addClass('is-invalid');
+//         }
+//     })
+// })
 
-// /* Validation form chung */
-// validateForm('validation-form');
+/* Sumoselect */
+if ($('.multiselect').length) {
+    $('.multiselect').SumoSelect({
+        placeholder: 'Chọn danh mục',
+        selectAll: true,
+        search: true,
+        searchText: 'Tìm kiếm',
+        locale: ['OK', 'Hủy', 'Chọn hết'],
+        captionFormat: 'Đã chọn {0} mục',
+        captionFormatAllSelected: 'Đã chọn tất cả {0} mục'
+    });
+}

@@ -41,6 +41,7 @@ return new class extends Migration
             $table->string('code')->nullable();
             $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         // tạo bảng size
@@ -48,15 +49,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
      
         // tạo bảng product
         Schema::create('table_product', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_color')->nullable();
-            $table->foreign('id_color')->references('id')->on('table_color')->onDelete('set null');
-            $table->unsignedBigInteger('id_size')->nullable();
-            $table->foreign('id_size')->references('id')->on('table_size')->onDelete('set null');
             $table->unsignedBigInteger('id_level1')->nullable();
             $table->foreign('id_level1')->references('id')->on('table_product_level1')->onDelete('set null');
             $table->unsignedBigInteger('id_level2')->nullable();
@@ -72,13 +70,36 @@ return new class extends Migration
         });
 
         // tạo bảng album
-         Schema::create('table_album', function (Blueprint $table) {
+        Schema::create('table_album', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_product')->nullable();
             $table->foreign('id_product')->references('id')->on('table_product')->onDelete('set null');
             $table->string('name');
             $table->string('photo')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+        });
+
+        // tạo bảng phụ cho bảng Product và bảng Color
+        Schema::create('table_variants_color_product', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_product')->nullable();
+            $table->foreign('id_product')->references('id')->on('table_product')->onDelete('set null');
+            $table->unsignedBigInteger('id_color')->nullable();
+            $table->foreign('id_color')->references('id')->on('table_color')->onDelete('set null');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        // tạo bảng phụ cho bảng Product và bảng Size
+        Schema::create('table_variants_size_product', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_product')->nullable();
+            $table->foreign('id_product')->references('id')->on('table_product')->onDelete('set null');
+            $table->unsignedBigInteger('id_size')->nullable();
+            $table->foreign('id_size')->references('id')->on('table_size')->onDelete('set null');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
