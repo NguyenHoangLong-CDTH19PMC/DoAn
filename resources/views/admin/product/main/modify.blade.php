@@ -53,27 +53,37 @@
                                     </select>
 
                                 </div>
-
+                               
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_color">Danh mục màu sắc:</label>
-                                    <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Đỏ</option>
-                                        <option value="2">Đen</option>
-                                        <option value="3">Xanh</option>
-                                        <option value="4">Trắng</option>
+                                    <select id="select-color" name="color[]" class="select multiselect" multiple="multiple">
+                                        @foreach ($dsColor as $value)
+                                            @php
+                                                $check = '';
+                                                if(in_array($value->id,$arrIdColor))
+                                                {
+                                                    $check = 'selected="selected"';
+                                                }
+                                            @endphp
+                                            <option value="{{$value->id}}" {{$check}}>{{$value->name}}</option>
+                                        @endforeach
                                     </select>  
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_size">Danh mục kích thước:</label>
-                                    <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">38</option>
-                                        <option value="2">39</option>
-                                        <option value="3">40</option>
-                                        <option value="4">41</option>
-                                    </select>  
+                                    <select id="select-size" name="size[]" class="select multiselect" multiple="multiple">
+                                        @foreach ($dsSize as $value)
+                                            @php
+                                                $check = '';
+                                                if(in_array($value->id,$arrIdSize))
+                                                {
+                                                    $check = 'selected="selected"';
+                                                }
+                                            @endphp
+                                            <option value="{{$value->id}}" {{$check}}>{{$value->name}}</option>
+                                        @endforeach
+                                    </select> 
                                 </div>
                             </div>
                         </div>

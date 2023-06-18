@@ -59,24 +59,20 @@
 
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_color">Danh mục màu sắc:</label>
-                                    <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">Đỏ</option>
-                                        <option value="2">Đen</option>
-                                        <option value="3">Xanh</option>
-                                        <option value="4">Trắng</option>
-                                    </select>
+                                    <select id="select-color" name="color[]" class="select multiselect" multiple="multiple">
+                                        @foreach ($dsColor as $value)
+                                            <option value="{{$value->id}}">{{$value->name}}</option>
+                                        @endforeach
+                                    </select>  
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_size">Danh mục kích thước:</label>
-                                    <select id="" name="" class="form-control select2 ">
-                                        <option value="0">Chọn Danh mục</option>
-                                        <option value="1">38</option>
-                                        <option value="2">39</option>
-                                        <option value="3">40</option>
-                                        <option value="4">41</option>
-                                    </select>
+                                    <select id="select-color" name="size[]" class="select multiselect" multiple="multiple">
+                                        @foreach ($dsSize as $value)
+                                            <option value="{{$value->id}}">{{$value->name}}</option>
+                                        @endforeach
+                                    </select> 
                                 </div>
                             </div>
                         </div>
@@ -90,20 +86,21 @@
                                 <div class="card-body card-article">
                                     <div class="form-group title">
                                         <label for="name-product">Tên sản phẩm:</label>
-                                        <input type="text" class="form-control for-seo text-sm" name="tensp"
+                                        <input type="text" class="form-control check-valid text-sm" name="tensp"
                                             id="fullname" placeholder="Tên sản phẩm" @error('tensp') is-invalid @enderror>
-                                        @error('tensp') <div class="invalid-feedback">{{ $message }}</div>@enderror
+                                        @error('tensp')<div class="invalid-feedback">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group titleProduct">
                                         <label for="nameProduct">Nội dung:</label>
-                                        <textarea class="form-control for-seo text-sm form-ckeditor" name="noidung" id="" rows="10"
+                                        <textarea class="form-control  text-sm form-ckeditor" name="noidung" id="" rows="10"
                                             placeholder="Nội dung"></textarea>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-4">
                                             <label class="d-block" for="code-product">Mã sản phẩm:</label>
-                                            <input type="text" class="form-control text-sm" name="masp"
-                                                id="code" placeholder="Mã sản phẩm">
+                                            <input type="text" class="form-control check-valid text-sm" name="masp"
+                                                id="code" placeholder="Mã sản phẩm" @error('masp') is-invalid @enderror>
+                                            @error('masp')<div class="invalid-feedback">{{ $message }}</div>@enderror
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label class="d-block" for="regular_price">Giá gốc:</label>

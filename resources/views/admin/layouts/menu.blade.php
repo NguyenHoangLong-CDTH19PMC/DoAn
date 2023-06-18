@@ -154,7 +154,7 @@
                             <a href="{{ route('san-pham-admin') }}" class="nav-link {{($name == 'san-pham-admin'|| 
                             $name == 'them-moi-san-pham-admin' || 
                             $name == 'sua-doi-san-pham-admin') ? "active" : "" }}">
-                                <i class="fa-solid fa-square-caret-right nav-icon"></i>
+                                <i class="nav-icon-small fas fa-circle fa-2xs"></i>
                                 <p>Danh sách sản phẩm</p>
                             </a>
                         </li>
@@ -162,7 +162,7 @@
                             <a href="{{route('sanpham-lv1-admin')}}" class="nav-link {{($name == 'sanpham-lv1-admin'|| 
                             $name == 'themmoi-sanpham-lv1-admin' || 
                             $name == 'suadoi-sanpham-lv1-admin') ? "active" : "" }}">
-                                <i class="fa-solid fa-square-caret-right nav-icon"></i>
+                                <i class="nav-icon-small fas fa-circle fa-2xs"></i>
                                 <p>Danh mục cấp 1</p>
                             </a>
                         </li>
@@ -170,8 +170,32 @@
                             <a href="{{route('sanpham-lv2-admin')}}" class="nav-link {{($name == 'sanpham-lv2-admin'|| 
                             $name == 'themmoi-sanpham-lv2-admin' || 
                             $name == 'suadoi-sanpham-lv2-admin') ? "active" : "" }}">
-                                <i class="fa-solid fa-square-caret-right nav-icon"></i>
+                                <i class="nav-icon-small fas fa-circle fa-2xs"></i>
                                 <p>Danh mục cấp 2</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item {{($name == 'mau-sac-admin'|| $name == 'them-moi-mau-sac-admin' || $name == 'sua-doi-mau-sac-admin' || $name == 'kich-thuoc-admin'|| $name == 'them-moi-kich-thuoc-admin' || $name == 'sua-doi-kich-thuoc-admin' ) ? "menu-open" : ""}}">
+                    <a class="nav-link {{($name == 'mau-sac-admin' || $name == 'them-moi-mau-sac-admin' || $name == 'sua-doi-mau-sac-admin' || $name == 'kich-thuoc-admin'|| $name == 'them-moi-kich-thuoc-admin' || $name == 'sua-doi-kich-thuoc-admin') ? "active" : ""}} ">
+                        <i class="nav-icon  fas fa-palette"></i>
+                        <p>
+                           Quản lý Color - Size
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('mau-sac-admin')}}" class="nav-link {{($name == 'mau-sac-admin' || $name == 'them-moi-mau-sac-admin' || $name == 'sua-doi-mau-sac-admin') ? "active" : ""}}">
+                                <i class="nav-icon-small fas fa-circle fa-2xs"></i>
+                                <p>Danh sách màu sắc</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('kich-thuoc-admin')}}" class="nav-link {{($name == 'kich-thuoc-admin'|| $name == 'them-moi-kich-thuoc-admin' || $name == 'sua-doi-kich-thuoc-admin') ? "active" : ""}}">
+                                <i class="nav-icon-small fas fa-circle fa-2xs"></i>
+                                <p>Danh sách kích thước</p>
                             </a>
                         </li>
                     </ul>

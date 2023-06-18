@@ -31,7 +31,7 @@
                                 <div class="card-body card-article">
                                     <div class="form-group title">
                                         <label for="name-product">Tên danh mục cấp 1:</label>
-                                        <input type="text" class="form-control for-seo text-sm" name="tensp"
+                                        <input type="text" class="form-control for-seo text-sm" name="tendm"
                                             id="fullname" placeholder="Tên tên danh mục" @error('tendm') is-invalid @enderror>
                                         @error('tendm') <div class="invalid-feedback">{{ $message }}</div>@enderror
                                     </div>

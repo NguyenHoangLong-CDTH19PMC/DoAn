@@ -15,7 +15,7 @@ class TableProduct_Level2 extends Model
     protected $primaryKey='id';
     protected  $guarded=[];
 
-    public function products_level1()
+    public function foreignKey_products_level1()
     {
         return $this->hasMany(related:TableProduct_Level1::class,foreignKey:'id_level1',localKey:'id');
     }
