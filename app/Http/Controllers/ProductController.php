@@ -8,8 +8,8 @@ use App\Http\Requests\xlAddRequestProduct;
 use App\Http\Requests\xlAddRequestDmucLevel;
 use Illuminate\Support\Str;
 use App\Models\TableProduct;
-use App\Models\TableProduct_Level1;
-use App\Models\TableProduct_Level2;
+use App\Models\TableBrand;
+use App\Models\TableProductType;
 use App\Models\TableColor;
 use App\Models\TableSize;
 use App\Models\TableVariantsColorProduct;
@@ -35,8 +35,8 @@ class ProductController extends Controller
 
     public function Return_tpladm_addpro()
     {
-        $level1 = TableProduct_Level1::all();
-        $level2 = TableProduct_Level2::all();
+        $level1 = TableBrand::all();
+        $level2 = TableProductType::all();
 
         $dsColor = TableColor::all();
         $dsSize = TableSize::all();
@@ -58,8 +58,9 @@ class ProductController extends Controller
         // kiểm tra xem giá có rỗng không, có giá trị thì thay thế ký tự , =  ký tự rỗng, ngược lại thì gán = 0 
         $itemproduct->price_regular = (isset($req->giagoc) && !empty($req->giagoc)) ? str_replace(',', '', $req->giagoc) : 0;
         $itemproduct->sale_price = (isset($req->giamoi) && !empty($req->giamoi)) ? str_replace(",", "", $req->giamoi) : 0;
-        ($req->categorylv1 > 0) ? $itemproduct->id_level1 = $req->categorylv1 : 0;
-        ($req->categorylv2 > 0) ? $itemproduct->id_level2 = $req->categorylv2 : 0;
+        ($req->brand > 0) ? $itemproduct->id_brand = $req->brand : 0;
+        ($req->type > 0) ? $itemproduct->id_type = $req->type : 0;
+        $itemproduct->quantity = $req->soluong;
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
@@ -101,8 +102,8 @@ class ProductController extends Controller
     public function Return_tpladm_modifypro(Request $req, $id)
     {
         $product = TableProduct::find($id);
-        $level1 = TableProduct_Level1::all();
-        $level2 = TableProduct_Level2::all();
+        $level1 = TableBrand::all();
+        $level2 = TableProductType::all();
 
         $dsColor = TableColor::all();
         $dsSize = TableSize::all();
@@ -141,8 +142,9 @@ class ProductController extends Controller
         // kiểm tra xem giá có rỗng không, có giá trị thì thay thế ký tự ',' =  ký tự rỗng '' , ngược lại thì gán = 0 
         $itemproduct->price_regular = (isset($req->giagoc) && !empty($req->giagoc)) ? str_replace(",", "", $req->giagoc) : 0;
         $itemproduct->sale_price = (isset($req->giamoi) && !empty($req->giamoi)) ? str_replace(",", "", $req->giamoi) : 0;
-        ($req->categorylv1 > 0) ? $itemproduct->id_level1 = $req->categorylv1 : 0;
-        ($req->categorylv2 > 0) ? $itemproduct->id_level2 = $req->categorylv2 : 0;
+        ($req->brand > 0) ? $itemproduct->id_brand = $req->brand : 0;
+        ($req->type > 0) ? $itemproduct->id_type = $req->type : 0;
+        $itemproduct->quantity = $req->soluong;
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
@@ -210,44 +212,43 @@ class ProductController extends Controller
     }
     // Sản phẩm //
 
-    // Danh mục cấp 1 //
+    // Danh mục thương hiệu //
     public function getproductlv1()
     {
         $limit =  10;
-        $dslevel1 = TableProduct_Level1::latest()->paginate($limit);
+        $dslevel1 = TableBrand::latest()->paginate($limit);
         // lấy trang hiện tại
         $current = $dslevel1->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
         $perSerial = $limit * ($current - 1);
         $serial = $perSerial + 1;
-        return view('.admin.product.level1.list', compact('dslevel1', 'serial'));
+        return view('.admin.product.brand.list', compact('dslevel1', 'serial'));
     }
 
     public function Return_tpladm_addprolv1()
     {
-        return view('.admin.product.level1.add');
+        return view('.admin.product.brand.add');
     }
 
     public function addlevel1(xlAddRequestDmucLevel $req)
     {
         // tạo 1 item mới
-        $itemlevel1 = new TableProduct_Level1();
+        $itemlevel1 = new TableBrand();
         // lưu các mục vào csdl
         $itemlevel1->name = $req->tendm;
-
         $itemlevel1->save();
         return redirect()->route('sanpham-lv1-admin');
     }
 
     public function Return_tpladm_modifylv1($id)
     {
-        $level1 = TableProduct_Level1::find($id);
-        return view('.admin.product.level1.modify', ['detailLV1'  => $level1]);
+        $level1 = TableBrand::find($id);
+        return view('.admin.product.brand.modify', ['detailLV1'  => $level1]);
     }
 
     public function modifylevel1(xlAddRequestDmucLevel $req, $id)
     {
-        $itemlevel1 = TableProduct_Level1::find($id);
+        $itemlevel1 = TableBrand::find($id);
         if ($itemlevel1 == null) {
             return "không tìm thấy danh mục nào có ID = {$id} này";
         }
@@ -259,7 +260,7 @@ class ProductController extends Controller
 
     public function deletelevel1(Request $req)
     {
-        $itemlevel1 = TableProduct_Level1::find($req->id);
+        $itemlevel1 = TableBrand::find($req->id);
         if ($itemlevel1 == null) {
             return "không tìm thấy sản phẩm có ID = {$req->id} ";
         }
@@ -268,62 +269,59 @@ class ProductController extends Controller
         return redirect()->route('sanpham-lv1-admin');
     }
 
-    // Danh mục cấp 1 //
+    // Danh mục thương hiệu //
 
-    // Danh mục cấp 2 //
+    // Danh mục loại //
     public function getproductlv2()
     {
         $limit =  10;
-        $dslevel2 = TableProduct_Level2::latest()->paginate($limit);
-        $dslevel1 = TableProduct_Level1::all();
+        $dslevel2 = TableProductType::latest()->paginate($limit);
+       
         // lấy trang hiện tại
         $current = $dslevel2->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
         $perSerial = $limit * ($current - 1);
         $serial = $perSerial + 1;
-        return view('.admin.product.level2.list', compact('dslevel2', 'serial', 'dslevel1'));
+        return view('.admin.product.type.list', compact('dslevel2', 'serial'));
     }
 
     public function Return_tpladm_addprolv2()
     {
-        $dslevel1 = TableProduct_Level1::all();
-        return view('.admin.product.level2.add', compact('dslevel1'));
+        return view('.admin.product.type.add');
     }
 
     public function addlevel2(xlAddRequestDmucLevel $req)
     {
         // tạo 1 item mới
-        $itemlevel2 = new TableProduct_Level2();
+        $itemlevel2 = new TableProductType();
         // lưu các mục vào csdl
         $itemlevel2->name = $req->tendm;
-        ($req->categorylv1 > 0) ? $itemlevel2->id_level1 = $req->categorylv1 : 0;
         $itemlevel2->save();
         return redirect()->route('sanpham-lv2-admin');
     }
 
     public function Return_tpladm_modifylv2($id)
     {
-        $level2 = TableProduct_Level2::find($id);
-        $dslevel1 = TableProduct_Level1::all();
-        return view('.admin.product.level2.modify', ['detailLV2'  => $level2], compact('dslevel1'));
+        $level2 = TableProductType::find($id);
+       
+        return view('.admin.product.type.modify', ['detailLV2'  => $level2]);
     }
 
     public function modifylevel2(xlAddRequestDmucLevel $req, $id)
     {
-        $itemlevel2 = TableProduct_Level2::find($id);
+        $itemlevel2 = TableProductType::find($id);
         if ($itemlevel2 == null) {
             return "không tìm thấy danh mục nào có ID = {$id} này";
         }
         // lưu các mục vào csdl
         $itemlevel2->name = $req->tendm;
-        ($req->categorylv1 > 0) ? $itemlevel2->id_level1 = $req->categorylv1 : 0;
         $itemlevel2->save();
         return redirect()->route('sanpham-lv2-admin');
     }
 
     public function deletelevel2(Request $req)
     {
-        $itemlevel2 = TableProduct_Level2::find($req->id);
+        $itemlevel2 = TableProductType::find($req->id);
         if ($itemlevel2 == null) {
             return "không tìm thấy sản phẩm có nào ID = {$req->id} này";
         }
@@ -332,7 +330,7 @@ class ProductController extends Controller
         return redirect()->route('sanpham-lv2-admin');
     }
 
-    // Danh mục cấp 2 //
+    // Danh mục loại //
 
     public function setStatus(Request $req){
         if ($req->id) {

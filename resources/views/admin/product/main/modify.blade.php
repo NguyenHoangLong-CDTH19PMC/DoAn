@@ -33,22 +33,22 @@
                             <div class="form-group-category row">
 
                                 <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_list">Danh mục cấp 1:</label>
-                                    <select id="select-category1" name="categorylv1" class="form-control select2">
+                                    <label class="d-block" for="id_list">Danh mục thương hiệu:</label>
+                                    <select id="select-brand" name="brand" class="form-control select2">
                                         <option value="0">Chọn Danh mục</option>
                                         @foreach ($level1 as $k => $value)
-                                            <option value="{{ $value->id }}" {{ ($value->id == $detailSP->id_level1) ? "selected" : "" }}>{{ $value->name }}</option>
+                                            <option value="{{ $value->id }}" {{ ($value->id == $detailSP->id_brand) ? "selected" : "" }}>{{ $value->name }}</option>
                                         @endforeach
                                     </select>
 
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">
-                                    <label class="d-block" for="id_list">Danh mục cấp 2:</label>
-                                    <select id="select-category2" name="categorylv2" class="form-control select2">
+                                    <label class="d-block" for="id_list">Danh mục loại sản phẩm:</label>
+                                    <select id="select-type" name="type" class="form-control select2">
                                         <option value="0">Chọn Danh mục</option>
                                         @foreach ($level2 as $k => $value)
-                                            <option value="{{ $value->id }}" {{ ($value->id == $detailSP->id_level2) ? "selected" : "" }}>{{ $value->name }}</option>
+                                            <option value="{{ $value->id }}" {{ ($value->id == $detailSP->id_type) ? "selected" : "" }}>{{ $value->name }}</option>
                                         @endforeach
                                     </select>
 
@@ -107,12 +107,18 @@
                                             placeholder="Nội dung">{!!$detailSP->content!!}</textarea>
                                     </div>
                                     <div class="row">
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-3">
                                             <label class="d-block" for="code-product">Mã sản phẩm:</label>
                                             <input type="text" class="form-control text-sm" name="masp" id="code"
                                                 placeholder="Mã sản phẩm" value="{{ $detailSP->code }}">
                                         </div>
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-3">
+                                            <label class="d-block" for="code-product">Số lượng tồn kho:</label>
+                                            <input type="text" class="form-control check-valid text-sm" name="soluong"
+                                                id="code" placeholder="Số lượng tồn kho" @error('soluong') is-invalid @enderror value="{{$detailSP->quantity}}">
+                                            @error('soluong')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                        </div>
+                                        <div class="form-group col-md-3">
                                             <label class="d-block" for="regular_price">Giá gốc:</label>
                                             <div class="input-group">
                                                 <input type="text"
@@ -123,7 +129,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-3">
                                             <label class="d-block" for="sale_price">Giá mới:</label>
                                             <div class="input-group">
                                                 <input type="text" class="form-control format-price sale_price text-sm"

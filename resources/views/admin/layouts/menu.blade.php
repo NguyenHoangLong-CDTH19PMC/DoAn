@@ -163,7 +163,7 @@
                             $name == 'themmoi-sanpham-lv1-admin' || 
                             $name == 'suadoi-sanpham-lv1-admin') ? "active" : "" }}">
                                 <i class="nav-icon-small fas fa-circle fa-2xs"></i>
-                                <p>Danh mục cấp 1</p>
+                                <p>Danh mục thương hiệu</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -171,7 +171,7 @@
                             $name == 'themmoi-sanpham-lv2-admin' || 
                             $name == 'suadoi-sanpham-lv2-admin') ? "active" : "" }}">
                                 <i class="nav-icon-small fas fa-circle fa-2xs"></i>
-                                <p>Danh mục cấp 2</p>
+                                <p>Danh mục loại</p>
                             </a>
                         </li>
                     </ul>
