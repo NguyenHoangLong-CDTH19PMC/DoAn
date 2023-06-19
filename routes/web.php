@@ -28,6 +28,7 @@ Route::post('/admin/product/add-product', [ProductController::class, 'addproduct
 Route::get('/admin/product/modify-product/id={id}',[ProductController::class,'Return_tpladm_modifypro'])->name('sua-doi-san-pham-admin');
 Route::post('/admin/product/modify-product/id={id}', [ProductController::class, 'modifyproducts'])->name('xl-sua-doi-san-pham-admin');
 Route::get('/admin/product/delete-product', [ProductController::class, 'deleteproducts'])->name('xl-xoa-bo-san-pham-admin');
+Route::post('/searchproduct',[ProductController::class,'searchproduct'])->name('searchproduct');
 
 
 Route::get('/admin/product/level1',[ProductController::class,'getproductlv1'])->name('sanpham-lv1-admin');

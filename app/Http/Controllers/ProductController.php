@@ -358,6 +358,21 @@ class ProductController extends Controller
             $status_save->save();  
         }
     }
+    public function searchproduct(Request $req)
+    {
+        $limit =  10;
+        //latest() = orderBy('created_at','desc')
+        $dsProduct = TableProduct::latest()->paginate($limit);
+        // lấy trang hiện tại
+        $current = $dsProduct->currentPage();
+        // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
+        $perSerial = $limit * ($current - 1);
+        $serial = $perSerial + 1;
+        $keywords=$req->keywords_submit;
+
+        $search_product=TableProduct::where('name','like','%'.$keywords.'%')->get();
+        return view('.admin.product.main.searchproduct')->with('search_product',$search_product);
+    }
 
     // ---------------- ADMIN ---------------- //
 
