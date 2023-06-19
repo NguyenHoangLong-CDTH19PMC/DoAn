@@ -23,6 +23,11 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
           sd_sizes::class,
+          sd_colors::class,
+          sd_brands::class,
+          sd_genders::class,
+          sd_products::class,
+          sd_users::class,
         ]);
     }
 }
