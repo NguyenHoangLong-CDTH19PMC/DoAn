@@ -285,6 +285,6 @@ a.upload-file-image-remove:hover,.delete_1hinh:hover{background:#111}
 .ck-content{min-height: 300px; max-height: 300px;}
 .card-title{}
 .modal-header .title-main span{font-size: 20px;}
-.nav-sidebar>.nav-item .nav-icon-small{margin-left: 0.05rem; margin-right: 0.2rem; text-align: center; width: 1.6rem;}
+.nav-sidebar>.nav-item .nav-icon-small{margin-left: 0.05rem; text-align: center; width: 1.6rem;}
 .form-control.is-invalid, .was-validated .form-control:invalid{border-color: #dc3545; padding-right: 2.25rem; background-image: url(../images/error-valid.png); background-repeat: no-repeat; background-position: right calc(0.375em + 0.1875rem) center; background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);}
 .placeholder { background-color: transparent !important; opacity: 1 !important; }

@@ -1033,6 +1033,9 @@ img:not([src]) {
 .pic-product img {
     width: 100%;
     border-radius: 5px;
+    max-width: 270px;
+    max-height: 270px;
+    object-fit: cover;
 }
 
 .name-product {

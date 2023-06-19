@@ -73,13 +73,7 @@
                                     @endphp
                                     <tbody>
                                         <tr data-id="{{$item->id}}">
-                                            {{-- <td class="align-middle">
-                                                <div class="custom-control custom-checkbox my-checkbox">
-                                                    <input type="checkbox" class="custom-control-input select-checkbox"
-                                                        id="select-checkbox" value="">
-                                                    <label for="select-checkbox" class="custom-control-label"></label>
-                                                </div>
-                                            </td> --}}
+                                           
                                             <td class="align-middle">
                                                 <input type="number"
                                                     class="form-control form-control-mini m-auto update-numb" min="0"
