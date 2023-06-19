@@ -16,7 +16,7 @@
         @include('user.layouts.mmenu')
         @include('user.layouts.slide')
         <div class="wap-home">
-            @include('user.home.home')
+            @yield('body')
         </div>
         @include('user.layouts.footer')
     </div>

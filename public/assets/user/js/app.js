@@ -1,7 +1,7 @@
 NN_FRAMEWORK.Menu = function () {
 	$(window).scroll(function () {
-		if ($(window).scrollTop() >= $(".header").height()) $(".menu").addClass('menu-fix');
-		else $(".menu").removeClass('menu-fix');
+		if ($(window).scrollTop() >= $(".header").height()) $(".menu").addClass('menu-sticky');
+		else $(".menu").removeClass('menu-sticky');
 	});
 	/* tạo menu mobile */
 	var menu_mobi = $('ul.menu_desktop').html();
