@@ -57,13 +57,22 @@
 
                                     <th class="align-middle" style="width:30%">Tên sản phẩm</th>
 
+                                    <th class="align-middle text-center">Hiển thị</th>
+
+                                    <th class="align-middle text-center">Nổi bật</th>
+
+                                    <th class="align-middle text-center">Mới</th>
+                                    
                                     <th class="align-middle text-center">Thao tác</th>
                                 </tr>
                             </thead>
                             @if (count($dsProduct))
                                 @foreach ($dsProduct as $k => $item)
+                                    @php
+                                        $arr_status =  (!empty($item->status)) ? explode(',', $item->status) : array();
+                                    @endphp
                                     <tbody>
-                                        <tr>
+                                        <tr data-id="{{$item->id}}">
                                             {{-- <td class="align-middle">
                                                 <div class="custom-control custom-checkbox my-checkbox">
                                                     <input type="checkbox" class="custom-control-input select-checkbox"
@@ -91,6 +100,30 @@
                                                 <a class="text-dark text-break"
                                                     href="{{ route('sua-doi-san-pham-admin', ['id' => $item->id]) }}"
                                                     title="{{ $item->name }}">{{ $item->name }}</a>
+                                            </td>
+
+                                            <td class="align-middle">
+                                                <div class="custom-control custom-checkbox my-checkbox">
+                                                    <input type="checkbox" class="custom-control-input select-checkbox"
+                                                        id="select-checkbox" data-attr="hienthi" {{(in_array('hienthi', $arr_status)) ? 'checked' : ''}}>
+                                                    <label for="select-checkbox" class="custom-control-label"></label>
+                                                </div>
+                                            </td>
+
+                                            <td class="align-middle">
+                                                <div class="custom-control custom-checkbox my-checkbox">
+                                                    <input type="checkbox" class="custom-control-input select-checkbox"
+                                                        id="select-checkbox" data-attr="noibat" {{(in_array('noibat', $arr_status)) ? 'checked' : ''}}>
+                                                    <label for="select-checkbox" class="custom-control-label"></label>
+                                                </div>
+                                            </td>
+
+                                            <td class="align-middle">
+                                                <div class="custom-control custom-checkbox my-checkbox">
+                                                    <input type="checkbox" class="custom-control-input select-checkbox"
+                                                        id="select-checkbox" data-attr="moi" {{(in_array('moi', $arr_status)) ? 'checked' : ''}}>
+                                                    <label for="select-checkbox" class="custom-control-label"></label>
+                                                </div>
                                             </td>
 
                                             <td class="align-middle text-center text-md text-nowrap">

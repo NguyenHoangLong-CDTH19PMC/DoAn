@@ -16,7 +16,9 @@ use App\Http\Controllers\ColorController;
 */
 
 
-Route::get('/', function () { return view('./user/index'); })->name('trang-chu-user');
+// Route::get('/', function () { return view('./user/index'); })->name('trang-chu-user');
+Route::get('/',[ProductController::class,'GetProductIndex'])->name('trang-chu-user');
+
 
 Route::get('admin',[ReturnTpl::class,'Return_tpladmin'])->name('trang-chu-admin');
 
@@ -57,3 +59,5 @@ Route::post('/admin/size/add-size',[ColorController::class,'addSize'])->name('xl
 Route::get('/admin/size/modify-size/id={id}',[ColorController::class,'Return_tpladm_modifysize'])->name('sua-doi-kich-thuoc-admin');
 Route::post('/admin/size/modify-size/id={id}',[ColorController::class,'modifySize'])->name('xl-sua-doi-kich-thuoc-admin');
 Route::get('/admin/size/delete-size', [ColorController::class, 'deleteSize'])->name('xl-xoa-bo-kich-thuoc-admin');
+
+Route::get('/admin/status',[ProductController::class,'setStatus'])->name('set-trang-thai-sp');

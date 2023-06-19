@@ -64,7 +64,6 @@ class ProductController extends Controller
             // kiểm tra kích thước
             $size = $req->file->getSize();
             if ($size > 2000000) {
-                session()->flash('fail', 'Kích thước ảnh vượt quá 2MB');
                 return redirect()->back();
             }
             // lọc ra đuôi file
@@ -77,7 +76,6 @@ class ProductController extends Controller
                 //Lưu trữ file vào thư mục product trong public -> upload -> product
                 $req->file->move(public_path('upload/product/'), $filename);
             } else {
-                // session()->flash('fail', 'File hiện tại không phải hình ảnh');
                 return redirect()->back();
             }
         }
@@ -149,7 +147,7 @@ class ProductController extends Controller
             // kiểm tra kích thước
             $size = $req->file->getSize();
             if ($size > 2000000) {
-                //session()->flash('fail', 'Kích thước ảnh vượt quá 2MB');
+               
                 return redirect()->back();
             }
             // lọc ra đuôi file
@@ -162,19 +160,19 @@ class ProductController extends Controller
                 //Lưu trữ file vào thư mục product trong public -> upload -> product
                 $req->file->move(public_path('upload/product/'), $filename);
             } else {
-                //session()->flash('fail', 'File hiện tại không phải hình ảnh');
+                
                 return redirect()->back();
             }
         }
 
         $itemproduct->save();
+
         // Xoá đi để thêm lại cái mới
         TableVariantsColorProduct::where('id_product', $id)->delete();
         if (!empty($req->color)) {
-            // Tìm trong bảng có sản phẩm nào ko=hông
+            // Tìm trong bảng có sản phẩm nào không
             $variantsColPro = TableVariantsColorProduct::where('id_product', $id)->get();
-           
-            
+                       
             // Update lại
             foreach ($req->color as $key => $value) {
                 $variantsColPro = new TableVariantsColorProduct();
@@ -241,7 +239,7 @@ class ProductController extends Controller
         return redirect()->route('sanpham-lv1-admin');
     }
 
-    public function Return_tpladm_modifylv1(Request $id)
+    public function Return_tpladm_modifylv1($id)
     {
         $level1 = TableProduct_Level1::find($id);
         return view('.admin.product.level1.modify', ['detailLV1'  => $level1]);
@@ -303,7 +301,7 @@ class ProductController extends Controller
         return redirect()->route('sanpham-lv2-admin');
     }
 
-    public function Return_tpladm_modifylv2(Request $req, $id)
+    public function Return_tpladm_modifylv2($id)
     {
         $level2 = TableProduct_Level2::find($id);
         $dslevel1 = TableProduct_Level1::all();
@@ -336,25 +334,57 @@ class ProductController extends Controller
 
     // Danh mục cấp 2 //
 
+    public function setStatus(Request $req){
+        if ($req->id) {
+            // lấy giá trị cột được chọn tạo ra 1 mảng riêng
+            $status_detail = TableProduct::where('id',$req->id)->pluck('status');
+            // cắt mảng thành từng phần tử nhỏ và lấy phần tử đầu tiên
+            $status_array = (!empty($status_detail[0])) ? explode(',', $status_detail[0]) : array();
+            // check xem $req truyền vào có trong mảng ko
+            if (array_search($req->status, $status_array) !== false) {
+                $key = array_search($req->status, $status_array);
+                unset($status_array[$key]);
+            } else {
+                array_push($status_array, $req->status);
+            }
+            // tạo 1 mảng mới
+            $data = array();
+            // truyền dữ liệu vào mảng
+            $data['status'] = (!empty($status_array)) ? implode(',', $status_array) : null;
+            // lấy dữ liệu item hiện tại
+            $status_save = TableProduct::find($req->id);
+            // đổi giá trị cột status thành giá trị mới truyền
+            $status_save->status = $data['status'];
+            $status_save->save();  
+        }
+    }
+
     // ---------------- ADMIN ---------------- //
 
+    // ---------------- USER ---------------- //
+    public function GetProductIndex (Request $req)
+    {
+        $limit =  10;
+        //latest() = orderBy('created_at','desc')
+        $dsProduct = TableProduct::latest()->get();
+        return view('.user.home.home', compact('dsProduct'));
+    }
 
-
-    //  /* Format money */
-    //  public function formatMoney($price = 0, $unit = 'đ', $html = false)
-    //  {
-    //      $str = '';
-    //      if ($price) {
-    //          $str .= number_format($price, 0, ',', '.');
-    //          if ($unit != '') {
-    //              if ($html) {
-    //                  $str .= '<span>' . $unit . '</span>';
-    //              } else {
-    //                  $str .= $unit;
-    //              }
-    //          }
-    //      }
-    //      return $str;
-    //  }
-
+    /* Format money */
+     public function formatMoney($price = 0, $unit = 'vnđ', $html = false)
+     {
+         $str = '';
+         if ($price) {
+             $str .= number_format($price, 0, ',', '.');
+             if ($unit != '') {
+                 if ($html) {
+                     $str .= '<span>' . $unit . '</span>';
+                 } else {
+                     $str .= $unit;
+                 }
+             }
+         }
+         return $str;
+     }
+    // ---------------- USER ---------------- //    
 }

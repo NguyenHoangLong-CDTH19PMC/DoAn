@@ -65,6 +65,7 @@ return new class extends Migration
             $table->string('photo')->nullable();
             $table->double('price_regular')->nullable();
             $table->double('sale_price')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

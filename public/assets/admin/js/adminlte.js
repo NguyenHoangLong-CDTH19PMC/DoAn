@@ -4059,7 +4059,19 @@ $(document).ready(function () {
 $(document).ready(function(){
     $(".form-ckeditor").each(function(vitriInArr,valOfElement){
         var data_editor = $(".form-ckeditor").val();
-        ClassicEditor.create( document.querySelector(".form-ckeditor") )
+        ClassicEditor.create( document.querySelector(".form-ckeditor"), {
+            fontSize: {
+                options: [
+                    9,
+                    11,
+                    13,
+                    'default',
+                    17,
+                    19,
+                    21,
+                    32
+                ]
+            }} )
         .catch( error => {
             console.error( error );
         } );
@@ -4161,3 +4173,17 @@ if ($('.multiselect').length) {
         captionFormatAllSelected: 'Đã chọn tất cả {0} mục'
     });
 }
+
+$('.custom-control-input').on('click',function(){
+    var dataID= $(this).parent().parent().parent().data('id');
+    var dataStatus = $(this).data('attr');
+    $.ajax({
+        // type: "post",
+        url: "/admin/status",
+        data: {id:dataID,status:dataStatus},
+        
+    })
+    .done(function(result) {
+        
+    });
+})
