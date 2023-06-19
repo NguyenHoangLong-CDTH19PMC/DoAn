@@ -507,6 +507,7 @@ class ComposerStaticInit585eb8fbe9d07c015a27114c727eae47
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\BrandController' => __DIR__ . '/../..' . '/app/Http/Controllers/BrandController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductController.php',
         'App\\Http\\Controllers\\ReturnTpl' => __DIR__ . '/../..' . '/app/Http/Controllers/ReturnTpl.php',
@@ -634,11 +635,22 @@ class ComposerStaticInit585eb8fbe9d07c015a27114c727eae47
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'Database\\Seeders\\sd_brands' => __DIR__ . '/../..' . '/database/seeders/sd_brands.php',
+<<<<<<< HEAD
         'Database\\Seeders\\sd_colors' => __DIR__ . '/../..' . '/database/seeders/sd_colors.php',
+=======
+        'Database\\Seeders\\sd_cities' => __DIR__ . '/../..' . '/database/seeders/sd_cities.php',
+        'Database\\Seeders\\sd_colors' => __DIR__ . '/../..' . '/database/seeders/sd_colors.php',
+        'Database\\Seeders\\sd_districts' => __DIR__ . '/../..' . '/database/seeders/sd_districts.php',
+>>>>>>> dc266781cbb34bf9f6a3a1a363f4b24a91df5715
         'Database\\Seeders\\sd_genders' => __DIR__ . '/../..' . '/database/seeders/sd_genders.php',
         'Database\\Seeders\\sd_products' => __DIR__ . '/../..' . '/database/seeders/sd_products.php',
         'Database\\Seeders\\sd_roles' => __DIR__ . '/../..' . '/database/seeders/sd_roles.php',
         'Database\\Seeders\\sd_sizes' => __DIR__ . '/../..' . '/database/seeders/sd_sizes.php',
+<<<<<<< HEAD
+=======
+        'Database\\Seeders\\sd_users' => __DIR__ . '/../..' . '/database/seeders/sd_users.php',
+        'Database\\Seeders\\sd_wards' => __DIR__ . '/../..' . '/database/seeders/sd_wards.php',
+>>>>>>> dc266781cbb34bf9f6a3a1a363f4b24a91df5715
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',

@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\BrandController' => $baseDir . '/app/Http/Controllers/BrandController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\ProductController' => $baseDir . '/app/Http/Controllers/ProductController.php',
     'App\\Http\\Controllers\\ReturnTpl' => $baseDir . '/app/Http/Controllers/ReturnTpl.php',
@@ -135,11 +136,22 @@ return array(
     'Database\\Factories\\UserFactory' => $baseDir . '/database/factories/UserFactory.php',
     'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',
     'Database\\Seeders\\sd_brands' => $baseDir . '/database/seeders/sd_brands.php',
+<<<<<<< HEAD
     'Database\\Seeders\\sd_colors' => $baseDir . '/database/seeders/sd_colors.php',
+=======
+    'Database\\Seeders\\sd_cities' => $baseDir . '/database/seeders/sd_cities.php',
+    'Database\\Seeders\\sd_colors' => $baseDir . '/database/seeders/sd_colors.php',
+    'Database\\Seeders\\sd_districts' => $baseDir . '/database/seeders/sd_districts.php',
+>>>>>>> dc266781cbb34bf9f6a3a1a363f4b24a91df5715
     'Database\\Seeders\\sd_genders' => $baseDir . '/database/seeders/sd_genders.php',
     'Database\\Seeders\\sd_products' => $baseDir . '/database/seeders/sd_products.php',
     'Database\\Seeders\\sd_roles' => $baseDir . '/database/seeders/sd_roles.php',
     'Database\\Seeders\\sd_sizes' => $baseDir . '/database/seeders/sd_sizes.php',
+<<<<<<< HEAD
+=======
+    'Database\\Seeders\\sd_users' => $baseDir . '/database/seeders/sd_users.php',
+    'Database\\Seeders\\sd_wards' => $baseDir . '/database/seeders/sd_wards.php',
+>>>>>>> dc266781cbb34bf9f6a3a1a363f4b24a91df5715
     'DeepCopy\\DeepCopy' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
     'DeepCopy\\Exception\\CloneException' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
     'DeepCopy\\Exception\\PropertyException' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',

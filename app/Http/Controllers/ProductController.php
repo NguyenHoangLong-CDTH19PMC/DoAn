@@ -384,22 +384,4 @@ class ProductController extends Controller
         $dsProduct = TableProduct::latest()->get();
         return view('.user.home.home', compact('dsProduct'));
     }
-
-    /* Format money */
-     public function formatMoney($price = 0, $unit = 'vnđ', $html = false)
-     {
-         $str = '';
-         if ($price) {
-             $str .= number_format($price, 0, ',', '.');
-             if ($unit != '') {
-                 if ($html) {
-                     $str .= '<span>' . $unit . '</span>';
-                 } else {
-                     $str .= $unit;
-                 }
-             }
-         }
-         return $str;
-     }
-    // ---------------- USER ---------------- //    
 }
