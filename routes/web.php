@@ -25,4 +25,8 @@ Route::get('admin',[ReturnTpl::class,'Return_tpladmin'])->name('trang-chu');
 
 Route::get('/admin/product',[ProductController::class,'products'])->name('san-pham');
 
+
 Route::get('/admin/product/add-product',[ReturnTpl::class,'Return_tpladm_addpro'])->name('them-moi-san-pham');
+Route::get('/admin/product/insert-product',[ProductController::class,'insert_product'])->name('them-moi');
+Route::post('/admin/product/insert-product',[ProductController::class,'insert_product'])->name('them-moi');
+Route::post('/admin/product/add-product',[ProductController::class,'insert_product'])->name('them-moi');

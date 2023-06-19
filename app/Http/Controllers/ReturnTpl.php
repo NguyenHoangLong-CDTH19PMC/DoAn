@@ -23,4 +23,7 @@ class ReturnTpl extends Controller
     public function Return_tpluser_detail(){
         return view('./user/detail');
     }
+    public function Return_tpladm_insertpro(){
+        return view('./admin/product/list');
+    }
 }

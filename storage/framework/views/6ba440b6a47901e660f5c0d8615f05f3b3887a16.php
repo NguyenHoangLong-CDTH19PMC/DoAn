@@ -1,4 +1,5 @@
 
+
 <?php $__env->startSection('body'); ?>
     <div class="content-wrapper">
         <section class="content-header text-sm">
@@ -40,14 +41,13 @@
                             <option value="">Danh Mục Cấp 1 a</option>
                             <option value="">Danh Mục Cấp 1 b</option>
                             <option value="">Danh Mục Cấp 1 c</option>
-
                         </select>
                     </div>
                 </div>
 
                 <div class="card card-primary card-outline text-sm mb-0">
                     <div class="card-header">
-                        <h3 class="card-title">Danh sách</h3>
+                        <h3 class="card-title">Danh sách sản phẩm</h3>
                     </div>
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover">
@@ -64,11 +64,11 @@
                                     <th class="align-middle">Hình</th>
 
 
-                                    <th class="align-middle">Hình 2</th>
+                                    <th class="align-middle">Loại Sản Phẩm</th>
 
-                                    <th class="align-middle" style="width:30%">Tiêu đề</th>
+                                    <th class="align-middle" style="width:30%">Tên Sản Phẩm</th>
 
-                                    <th class="align-middle">Gallery</th>
+                                    <th class="align-middle">Giá Thành (VND)</th>
 
                                     <th class="align-middle text-center">Hiển thị</th>
 
@@ -84,12 +84,15 @@
                                             <label for="selectall-checkbox" class="custom-control-label"></label>
                                         </div>
                                 </th>
+
                                     <th class="align-middle text-center" width="10%"><?php echo e($product->id); ?></th>
+            
+                                    <th class="align-middle" width="50px">
 
-                                    <th class="align-middle">Hình</th>
+                                    <img src="/img/<?php echo e($product->image); ?>" alt="IMG-PRODUCT" style="width:100px"/>   
+                                    </th>
 
-
-                                    <th class="align-middle">Hình 2</th>
+                                    <th class="align-middle"><?php echo e($product->id_product_type); ?></th>
 
                                     <th class="align-middle" style="width:30%"><?php echo e($product->name); ?></th>
 
@@ -129,7 +132,7 @@
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
 
-                            <tbody>
+                            <!-- <tbody>
 
                                 <tr>
                                     <td class="align-middle">
@@ -236,7 +239,7 @@
                                 </tr>
 
                             </tbody>
-         
+          -->
                         </table>
                     </div>
                 </div>

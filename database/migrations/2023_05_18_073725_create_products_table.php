@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->string('name');
             $table->string('content');
+            $table->string('image');
             $table->double('price_regular');
             $table->double('sale_price');
             $table->double('discount');

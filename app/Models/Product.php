@@ -11,7 +11,7 @@ class Product extends Model
     
     protected $table='products';
     protected $primaryKey='id';
-    protected  $guarded=[];
+    protected  $fillable=['code','name','content','image','price_regular','sale_price','discount','id_color','id_size','id_product_type','id_brand','id_gender'];
 
     public function products_color()
     {
