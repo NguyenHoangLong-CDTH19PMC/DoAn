@@ -26,7 +26,7 @@
                             @csrf
                         <div class="input-group input-group-sm">
                             <input class="form-control form-control-navbar text-sm" type="search" id="keyword"
-                                placeholder="Tìm kiếm" aria-label="Tìm kiếm" value="">
+                                placeholder="Tìm kiếm" aria-label="Tìm kiếm" name="keywords_submit" value="">
                             <div class="input-group-append bg-primary rounded-right">
                                 <button class="btn btn-navbar text-white" type="submit">
                                     <i class="fas fa-search"></i>

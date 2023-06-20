@@ -8,10 +8,10 @@
 <script src="{{ asset('assets/admin/ckeditor/build/ckeditor.js') }}"></script>
 <script src="{{ asset('assets/admin/sumoselect/jquery.sumoselect.js') }}"></script>
 
-<<<<<<< HEAD
+
 <!-- Theme app -->
 <script src="{{ asset('assets/admin/js/adminlte.js') }}"></script>
-=======
+
 <!-- jQuery -->
 <script src="{{asset('assets/admin/js/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -47,4 +47,3 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('assets/admin/js/js/pages/dashboard.js')}}"></script>
 <script src="{{asset('images/dashboard.js')}}"></script>
->>>>>>> dc266781cbb34bf9f6a3a1a363f4b24a91df5715
