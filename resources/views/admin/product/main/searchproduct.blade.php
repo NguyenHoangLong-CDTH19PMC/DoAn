@@ -22,17 +22,18 @@
                     {{-- <a class="btn btn-sm bg-gradient-danger text-white" id="delete-all" title="Xóa tất cả"><i
                             class="far fa-trash-alt mr-2"></i>Xóa tất cả</a> --}}
                     <div class="form-inline form-search d-inline-block align-middle ml-3">
-                        <form action="{{URL::to('/search')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{URL::to('/searchproduct')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
                         <div class="input-group input-group-sm">
                             <input class="form-control form-control-navbar text-sm" type="search" id="keyword"
-                                placeholder="Tìm kiếm" aria-label="Tìm kiếm" value="">
+                                placeholder="Tìm kiếm" aria-label="Tìm kiếm" name="keywords_submit" value="">
                             <div class="input-group-append bg-primary rounded-right">
                                 <button class="btn btn-navbar text-white" type="submit">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
                         </div>
-                    </form>
+                        </form>
                     </div>
                 </div>
 
@@ -51,7 +52,7 @@
                                         </div>
                                     </th> --}}
                                     
-                                    <th class="align-middle text-center" width="10%">STT</th>
+                                    <th class="align-middle text-center" width="10%">ID</th>
 
                                     <th class="align-middle">Hình</th>
 
@@ -68,15 +69,10 @@
                                     <th class="align-middle text-center">Thao tác</th>
                                 </tr>
                             </thead>
-                            
-                            @if (count($dsProduct))
-                                @foreach ($dsProduct as $k => $item)
-                                    @php
-                                        $arr_status =  (!empty($item->status)) ? explode(',', $item->status) : array();
-                                    @endphp
-                                    @foreach($search_product as $key=>$dsProduct)
+                          
+                                    @foreach($search_product as $key=>$product)
                                     <tbody>
-                                        <tr data-id="{{$item->id}}">
+                                        <tr data-id="{{$product->id}}">
                                             {{-- <td class="align-middle">
                                                 <div class="custom-control custom-checkbox my-checkbox">
                                                     <input type="checkbox" class="custom-control-input select-checkbox"
@@ -87,14 +83,14 @@
                                             <td class="align-middle">
                                                 <input type="number"
                                                     class="form-control form-control-mini m-auto update-numb" min="0"
-                                                    value="{{ $serial++ }}" data-id="" data-table="product"
+                                                    value="{{$product->id}}" data-id="" data-table="product"
                                                     readonly>
                                             </td>
                                             <td class="align-middle">
-                                                <a href="{{ route('sua-doi-san-pham-admin', ['id' => $item->id]) }}"
-                                                    title="{{ $item->name }}">
+                                                <a href="{{ route('sua-doi-san-pham-admin', ['id' => $product->id]) }}"
+                                                    title="{{ $product->name }}">
                                                     <img class="rounded img-preview"
-                                                        src="{{ asset('upload/product/' . $item->photo) }}"
+                                                        src="{{ asset('upload/product/' . $product->photo) }}"
                                                         onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
                                                         alt="Alt Photo" style="" />
                                                 </a>
@@ -102,14 +98,14 @@
 
                                             <td class="align-middle">
                                                 <a class="text-dark text-break"
-                                                    href="{{ route('sua-doi-san-pham-admin', ['id' => $item->id]) }}"
-                                                    title="{{ $item->name }}">{{ $item->name }}</a>
+                                                    href="{{ route('sua-doi-san-pham-admin', ['id' => $product->id]) }}"
+                                                    title="{{ $product->name }}">{{ $product->name }}</a>
                                             </td>
 
                                             <td class="align-middle">
                                                 <div class="custom-control custom-checkbox my-checkbox">
                                                     <input type="checkbox" class="custom-control-input select-checkbox"
-                                                        id="select-checkbox" data-attr="hienthi" {{(in_array('hienthi', $arr_status)) ? 'checked' : ''}}>
+                                                        id="select-checkbox" data-attr="hienthi">
                                                     <label for="select-checkbox" class="custom-control-label"></label>
                                                 </div>
                                             </td>
@@ -117,7 +113,7 @@
                                             <td class="align-middle">
                                                 <div class="custom-control custom-checkbox my-checkbox">
                                                     <input type="checkbox" class="custom-control-input select-checkbox"
-                                                        id="select-checkbox" data-attr="noibat" {{(in_array('noibat', $arr_status)) ? 'checked' : ''}}>
+                                                        id="select-checkbox" data-attr="noibat">
                                                     <label for="select-checkbox" class="custom-control-label"></label>
                                                 </div>
                                             </td>
@@ -125,42 +121,30 @@
                                             <td class="align-middle">
                                                 <div class="custom-control custom-checkbox my-checkbox">
                                                     <input type="checkbox" class="custom-control-input select-checkbox"
-                                                        id="select-checkbox" data-attr="moi" {{(in_array('moi', $arr_status)) ? 'checked' : ''}}>
+                                                        id="select-checkbox" data-attr="moi" >
                                                     <label for="select-checkbox" class="custom-control-label"></label>
                                                 </div>
                                             </td>
 
                                             <td class="align-middle text-center text-md text-nowrap">
                                                 <a class="text-primary mr-2 modify-item"
-                                                    href="{{ route('sua-doi-san-pham-admin', ['id' => $item->id]) }}"
+                                                    href="{{ route('sua-doi-san-pham-admin', ['id' => $product->id]) }}"
                                                     title="Chỉnh sửa"><i class="fas fa-edit"></i></a>
                                                 <a class="text-danger delete-item"
-                                                    data-href="{{ route('xl-xoa-bo-san-pham-admin') . '?id=' . $item->id }}"
+                                                    data-href="{{ route('xl-xoa-bo-san-pham-admin') . '?id=' . $product->id }}"
                                                     data-bs-toggle="modal" data-bs-target="#popup-notify-delete"
                                                     title="Xóa"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>
+                              
                                 @endforeach
-                                @endforeach
-                            @else
-                                <tbody>
-                                    <tr>
-                                        <td colspan="100" class="text-center">Không có dữ liệu</td>
-                                    </tr>
-                                </tbody>
-                            @endif
+                         
                         </table>
                     </div>
                 </div>
 
-                <div class="card-footer text-sm">
-                    @if (count($dsProduct))
-                        <div class="card-pagination">
-                            {!! $dsProduct->links() !!}
-                        </div>
-                    @endif
-                </div>
+              
 
                 {{-- <div class="card-footer text-sm">
                     <a class="btn btn-sm bg-gradient-primary text-white" href="{{ route('them-moi-san-pham-admin') }}"

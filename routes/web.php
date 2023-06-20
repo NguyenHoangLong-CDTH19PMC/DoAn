@@ -22,7 +22,6 @@ Route::get('/',[ProductController::class,'GetProductIndex'])->name('trang-chu-us
 
 Route::get('admin',[ReturnTpl::class,'Return_tpladmin'])->name('trang-chu-admin');
 
-<<<<<<< HEAD
 Route::get('/admin/product',[ProductController::class,'getproducts'])->name('san-pham-admin');
 Route::get('/admin/product/add-product',[ProductController::class,'Return_tpladm_addpro'])->name('them-moi-san-pham-admin');
 Route::post('/admin/product/add-product', [ProductController::class, 'addproducts'])->name('xl-them-moi-san-pham-admin');
@@ -30,6 +29,10 @@ Route::get('/admin/product/modify-product/id={id}',[ProductController::class,'Re
 Route::post('/admin/product/modify-product/id={id}', [ProductController::class, 'modifyproducts'])->name('xl-sua-doi-san-pham-admin');
 Route::get('/admin/product/delete-product', [ProductController::class, 'deleteproducts'])->name('xl-xoa-bo-san-pham-admin');
 Route::post('/searchproduct',[ProductController::class,'searchproduct'])->name('searchproduct');
+Route::post('/searchlv1',[ProductController::class,'searchlv1'])->name('search-danh-muc-lv1');
+Route::post('/searchlv2',[ProductController::class,'searchlv2'])->name('search-danh-muc-lv2');
+Route::post('/searchcolor',[ProductController::class,'searchcolor'])->name('search-color');
+Route::post('/searchsize',[ProductController::class,'searchsize'])->name('search-size');
 
 
 Route::get('/admin/product/level1',[ProductController::class,'getproductlv1'])->name('sanpham-lv1-admin');
@@ -63,10 +66,4 @@ Route::post('/admin/size/modify-size/id={id}',[ColorController::class,'modifySiz
 Route::get('/admin/size/delete-size', [ColorController::class, 'deleteSize'])->name('xl-xoa-bo-kich-thuoc-admin');
 
 Route::get('/admin/status',[ProductController::class,'setStatus'])->name('set-trang-thai-sp');
-=======
 
-Route::get('/admin/product/add-product',[ReturnTpl::class,'Return_tpladm_addpro'])->name('them-moi-san-pham');
-Route::get('/admin/product/insert-product',[ProductController::class,'insert_product'])->name('them-moi');
-Route::post('/admin/product/insert-product',[ProductController::class,'insert_product'])->name('them-moi');
-Route::post('/admin/product/add-product',[ProductController::class,'insert_product'])->name('them-moi');
->>>>>>> dc266781cbb34bf9f6a3a1a363f4b24a91df5715

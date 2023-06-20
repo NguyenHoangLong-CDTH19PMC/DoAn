@@ -159,7 +159,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-<<<<<<< HEAD
+
                             <a href="<?php echo e(route('sanpham-lv1-admin')); ?>" class="nav-link <?php echo e(($name == 'sanpham-lv1-admin'|| 
                             $name == 'themmoi-sanpham-lv1-admin' || 
                             $name == 'suadoi-sanpham-lv1-admin') ? "active" : ""); ?>">
@@ -175,7 +175,7 @@
                                 <p>Danh mục cấp 2</p>
                             </a>
                         </li>
-=======
+
                             <a href="" class="nav-link">
                                 <i class="fa-solid fa-square-caret-right nav-icon"></i>
                                 <p>Thương Hiệu</p>
@@ -193,7 +193,7 @@
                                 <p>Giới Tính</p>
                             </a>
                         </li>
->>>>>>> dc266781cbb34bf9f6a3a1a363f4b24a91df5715
+
                     </ul>
                 </li>
 

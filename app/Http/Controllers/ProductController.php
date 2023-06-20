@@ -360,18 +360,43 @@ class ProductController extends Controller
     }
     public function searchproduct(Request $req)
     {
-        $limit =  10;
-        //latest() = orderBy('created_at','desc')
-        $dsProduct = TableProduct::latest()->paginate($limit);
-        // lấy trang hiện tại
-        $current = $dsProduct->currentPage();
-        // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
-        $perSerial = $limit * ($current - 1);
-        $serial = $perSerial + 1;
+        
         $keywords=$req->keywords_submit;
 
         $search_product=TableProduct::where('name','like','%'.$keywords.'%')->get();
         return view('.admin.product.main.searchproduct')->with('search_product',$search_product);
+    }
+    public function searchlv2(Request $req)
+    {
+        
+        $keywords=$req->keywords_submit;
+
+        $search_lv2=TableProduct_Level2::where('name','like','%'.$keywords.'%')->get();
+        return view('.admin.product.level2.searchlv2')->with('search_lv2',$search_lv2);
+    }
+    public function searchlv1(Request $req)
+    {
+
+        $keywords=$req->keywords_submit;
+
+        $search_lv1=TableProduct_Level1::where('name','like','%'.$keywords.'%')->get();
+        return view('.admin.product.level1.searchlv1')->with('search_lv1',$search_lv1);
+    }
+    public function searchcolor(Request $req)
+    {
+
+        $keywords=$req->keywords_submit;
+
+        $search_color=TableColor::where('name','like','%'.$keywords.'%')->get();
+        return view('.admin.color_size.color.searchcolor')->with('search_color',$search_color);
+    }
+    public function searchsize(Request $req)
+    {
+
+        $keywords=$req->keywords_submit;
+
+        $search_size=TableSize::where('name','like','%'.$keywords.'%')->get();
+        return view('.admin.color_size.size.searchsize')->with('search_size',$search_size);
     }
 
     // ---------------- ADMIN ---------------- //
