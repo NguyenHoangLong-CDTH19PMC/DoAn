@@ -285,6 +285,30 @@ a.upload-file-image-remove:hover,.delete_1hinh:hover{background:#111}
 .ck-content{min-height: 300px; max-height: 300px;}
 .card-title{}
 .modal-header .title-main span{font-size: 20px;}
-.nav-sidebar>.nav-item .nav-icon-small{margin-left: 0.05rem; margin-right: 0.2rem; text-align: center; width: 1.6rem;}
+.nav-sidebar>.nav-item .nav-icon-small{margin-left: 0.05rem; text-align: center; width: 1.6rem;}
 .form-control.is-invalid, .was-validated .form-control:invalid{border-color: #dc3545; padding-right: 2.25rem; background-image: url(../images/error-valid.png); background-repeat: no-repeat; background-position: right calc(0.375em + 0.1875rem) center; background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);}
 .placeholder { background-color: transparent !important; opacity: 1 !important; }
+
+
+#sidebarCollapse{border: none;padding: 0.65rem 1.1rem;font-size: 20px;background: #ff5722;margin-right: 0;cursor: pointer;float: left;height: auto;}
+.img-circle{max-width: 35px;max-height: 35px;}
+.link-home{padding: 0.75rem 1rem}
+
+.user_profile_dd { float: left; margin: 0 0 0 25px; }
+.user_profile_dd  a { cursor: pointer; }
+.user_profile_dd { width: auto; border-radius: 0; background: #ff5722; margin: 0; padding: .35rem 0 0.35rem; height: auto; }
+
+.sidebar_toggle { border: none; padding: 15px 26px 15px; font-size: 21px; background: #ff5722; margin-right: 0; cursor: pointer; float: left; }
+
+.user_profile_dd  div a { font-size: 15px; color: #15283c; padding: 4px 15px; border-bottom: none; line-height: normal; }
+.user_profile_dd  div a span { font-size: 13px; color: #15283c; font-weight: normal; padding: 0; transition: all .3s ease-in-out; line-height: normal; }
+
+.user_profile_dd  div a:hover,
+.user_profile_dd  div a:focus { background: #243147; color: #fff; }
+
+.user_profile_dd  div a:hover span,
+.user_profile_dd  div a:focus span { color: #fff; }
+
+.user_profile_dd .dropdown-menu { position: absolute; top: 100%; right: 0; z-index: 1000; float: left; padding: 10px 6px; margin: 0; font-size: 15px; color: #212529; text-align: left; list-style: none; background-color: #fff; background-clip: padding-box; border-radius: 0; width: 100%; box-shadow: -1px 1px 4px -2px rgba(0, 0, 0, 0.2); border: none; }
+.img-responsive{max-width: 40px; max-height: 40px;}
+.dropdown-toggle{padding: 0;}
