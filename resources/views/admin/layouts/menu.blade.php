@@ -220,6 +220,35 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="nav-item {{($name == 'bai-viet-admin'|| $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin') ? "menu-open" : ""}}">
+                    <a class="nav-link {{($name == 'bai-viet-admin' || $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin') ? "active" : ""}} ">
+                        <i class="nav-icon fas fa-duotone fa-cassette-betamax 2xs"></i>
+                        <p>
+                           Quản lý Bài Viết
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('bai-viet-admin')}}" class="nav-link {{($name == 'bai-viet-admin' || $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin') ? "active" : ""}}">
+                                <i class="nav-icon-small fas fa-circle fa-2xs"></i>
+                                <p>Danh sách bài viết</p>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('loai-bai-viet-admin')}}" class="nav-link {{($name == 'loai-bai-viet-admin' || $name == 'them-moi-loai-bai-viet-admin' || $name == 'sua-doi-loai-bai-viet-admin') ? "active" : ""}}">
+                                <i class="nav-icon-small fas fa-circle fa-2xs"></i>
+                                <p>Danh sách loaị bài viết</p>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

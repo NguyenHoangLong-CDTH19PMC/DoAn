@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReturnTpl;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\NewController;
+use App\Http\Controllers\NewTypeController;
 use App\Http\Controllers\ColorController;
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +33,8 @@ Route::get('/admin/product/delete-product', [ProductController::class, 'deletepr
 Route::post('/searchproduct',[ProductController::class,'searchproduct'])->name('searchproduct');
 Route::post('/searchlv1',[ProductController::class,'searchlv1'])->name('search-danh-muc-lv1');
 Route::post('/searchlv2',[ProductController::class,'searchlv2'])->name('search-danh-muc-lv2');
-Route::post('/searchcolor',[ProductController::class,'searchcolor'])->name('search-color');
-Route::post('/searchsize',[ProductController::class,'searchsize'])->name('search-size');
+Route::post('/searchcolor',[ColorController::class,'searchcolor'])->name('search-color');
+Route::post('/searchsize',[ColorController::class,'searchsize'])->name('search-size');
 
 
 Route::get('/admin/product/level1',[ProductController::class,'getproductlv1'])->name('sanpham-lv1-admin');
@@ -67,3 +69,18 @@ Route::get('/admin/size/delete-size', [ColorController::class, 'deleteSize'])->n
 
 Route::get('/admin/status',[ProductController::class,'setStatus'])->name('set-trang-thai-sp');
 
+Route::get('/admin/new',[NewController::class,'getsnew'])->name('bai-viet-admin');
+Route::get('/admin/new/add-new',[NewController::class,'Return_tpladm_addnew'])->name('them-moi-bai-viet-admin');
+Route::post('/admin/new/add-new', [NewController::class, 'addnews'])->name('xl-them-moi-bai-viet-admin');
+// Route::get('/admin/product/modify-product/id={id}',[ProductController::class,'Return_tpladm_modifypro'])->name('sua-doi-san-pham-admin');
+// Route::post('/admin/product/modify-product/id={id}', [ProductController::class, 'modifyproducts'])->name('xl-sua-doi-san-pham-admin');
+// Route::get('/admin/product/delete-product', [ProductController::class, 'deleteproducts'])->name('xl-xoa-bo-san-pham-admin');
+// Route::post('/searchproduct',[ProductController::class,'searchproduct'])->name('searchproduct');
+
+Route::get('/admin/newtype',[NewTypeController::class,'getsnewtype'])->name('loai-bai-viet-admin');
+Route::get('/admin/new/add-newtype',[NewTypeController::class,'Return_tpladm_addnewtype'])->name('them-moi-loai-bai-viet-admin');
+Route::post('/admin/new/add-newtype', [NewTypeController::class, 'addnewstype'])->name('xl-them-moi-loai-bai-viet-admin');
+Route::get('/admin/newtype/modify-newtype/id={id}',[NewTypeController::class,'Return_tpladm_modifynewtype'])->name('sua-doi-loai-bai-viet-admin');
+Route::post('/admin/newtype/modify-newtype/id={id}', [NewTypeController::class, 'modifynewtypes'])->name('xl-sua-doi-loai-bai-viet-admin');
+Route::get('/admin/newtype/delete-newtype', [NewTypeController::class, 'deletenewtypes'])->name('xl-xoa-bo-loai-bai-viet-admin');
+// Route::post('/searchproduct',[NewTypeController::class,'searchproduct'])->name('searchproduct');

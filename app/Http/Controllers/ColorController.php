@@ -131,4 +131,20 @@ class ColorController extends Controller
         $itemSize->delete();
         return redirect()->route('kich-thuoc-admin');
     }
+    public function searchcolor(Request $req)
+    {
+
+        $keywords=$req->keywords_submit;
+
+        $search_color=TableColor::where('name','like','%'.$keywords.'%')->get();
+        return view('.admin.color_size.color.searchcolor')->with('search_color',$search_color);
+    }
+    public function searchsize(Request $req)
+    {
+
+        $keywords=$req->keywords_submit;
+
+        $search_size=TableSize::where('name','like','%'.$keywords.'%')->get();
+        return view('.admin.color_size.size.searchsize')->with('search_size',$search_size);
+    }
 }

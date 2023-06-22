@@ -102,6 +102,25 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+        Schema::create('table_new', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_type')->nullable();
+            $table->foreign('id_type')->references('id')->on('table_new_type')->onDelete('set null');
+            $table->string('name');
+            $table->text('content')->nullable();
+            $table->string('photo')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+        });
+        Schema::create('table_new_type', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->text('content')->nullable();
+            $table->string('photo')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+        });
+       
     }
 
     /**
@@ -118,5 +137,6 @@ return new class extends Migration
         Schema::dropIfExists('table_color');
         Schema::dropIfExists('table_size');
         Schema::dropIfExists('table_album');
+        Schema::dropIfExists('table_new');
     }
 };
