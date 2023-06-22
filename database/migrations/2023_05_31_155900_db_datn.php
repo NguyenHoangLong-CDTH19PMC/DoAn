@@ -57,14 +57,14 @@ return new class extends Migration
             $table->foreign('id_brand')->references('id')->on('table_product_brand')->onDelete('set null');
             $table->unsignedBigInteger('id_type')->nullable();
             $table->foreign('id_type')->references('id')->on('table_product_type')->onDelete('set null');
-            $table->string('code',10)->nullable();
+            $table->string('code',10)->nullable()->unique();
             $table->string('name');
             $table->text('content')->nullable();
             $table->string('photo')->nullable();
             $table->double('price_regular')->nullable();
             $table->double('sale_price')->nullable();
             $table->string('status')->nullable();
-            $table->integer('quantity');
+            $table->integer('quantity')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
