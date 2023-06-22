@@ -4056,27 +4056,18 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function(){
-    $(".form-ckeditor").each(function(vitriInArr,valOfElement){
+$(document).ready(function () {
+    $(".form-ckeditor").each(function (vitriInArr, valOfElement) {
         var data_editor = $(".form-ckeditor").val();
-        ClassicEditor.create( document.querySelector(".form-ckeditor"), {
+        ClassicEditor.create(document.querySelector(".form-ckeditor"), {
             fontSize: {
-                options: [
-                    9,
-                    11,
-                    13,
-                    'default',
-                    17,
-                    19,
-                    21,
-                    32
-                ]
-            }} )
-        .catch( error => {
-            console.error( error );
-        } );
-    })
-})
+                options: [9, 11, 13, "default", 17, 19, 21, 32],
+            },
+        }).catch((error) => {
+            console.error(error);
+        });
+    });
+});
 
 /* Reader image */
 function readImage(inputFile, elementPhoto) {
@@ -4153,37 +4144,26 @@ if ($("#photo-zone").length) {
     photoZone("#photo-zone", "#file-zone", "#photoUpload-preview img");
 }
 
-// $(document).ready(function(){
-//     $('submit-check').on('click',function(){
-//         if(hasClass('.check-valid')){
-//             addClass('is-invalid');
-//         }
-//     })
-// })
-
 /* Sumoselect */
-if ($('.multiselect').length) {
-    $('.multiselect').SumoSelect({
-        placeholder: 'Chọn danh mục',
+if ($(".multiselect").length) {
+    $(".multiselect").SumoSelect({
+        placeholder: "Chọn danh mục",
         selectAll: true,
         search: true,
-        searchText: 'Tìm kiếm',
-        locale: ['OK', 'Hủy', 'Chọn hết'],
-        captionFormat: 'Đã chọn {0} mục',
-        captionFormatAllSelected: 'Đã chọn tất cả {0} mục'
+        searchText: "Tìm kiếm",
+        locale: ["OK", "Hủy", "Chọn hết"],
+        captionFormat: "Đã chọn {0} mục",
+        captionFormatAllSelected: "Đã chọn tất cả {0} mục",
     });
 }
 
-$('.custom-control-input').on('click',function(){
-    var dataID= $(this).parent().parent().parent().data('id');
-    var dataStatus = $(this).data('attr');
+$(".custom-control-input").on("click", function () {
+    var dataID = $(this).parent().parent().parent().data("id");
+    var dataStatus = $(this).data("attr");
     $.ajax({
         // type: "post",
         url: "/admin/status",
-        data: {id:dataID,status:dataStatus},
-        
-    })
-    .done(function(result) {
-        
-    });
-})
+        data: { id: dataID, status: dataStatus },
+    }).done(function (result) {});
+});
+

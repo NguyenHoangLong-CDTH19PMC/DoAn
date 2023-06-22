@@ -23,8 +23,12 @@
                         <div class="price-product">
                             
                             <div class="layout-price">
-                                <p>Giá: <span class="price-old">{{ $item->price_regular }}</span></p>
-                                <p>Giảm giá: <span class=" price-new">{{ $item->sale_price }}</span></p>
+                                <p class="price-product">
+                                    <span class="label-price">Giá:</span> 
+                                    <span class="price-new">{{ $item->sale_price }}</span>
+                                    <span class="price-old">{{ $item->price_regular }}</span>
+                                </p>
+                                
                             </div>
                             <p class="btn-addcart text-decoration-none"><span>Thêm vào giỏ hàng</span></p>
                         </div>

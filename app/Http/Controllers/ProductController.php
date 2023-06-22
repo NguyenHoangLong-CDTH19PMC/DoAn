@@ -15,16 +15,22 @@ use App\Models\TableSize;
 use App\Models\TableVariantsColorProduct;
 use App\Models\TableVariantsSizeProduct;
 
+use function PHPUnit\Framework\isNull;
+
 class ProductController extends Controller
 {
 
     // ---------------- ADMIN ---------------- //
     // Sản phẩm //
-    public function getproducts(Request $req)
+    public function index_product(Request $req)
     {
         $limit =  10;
         //latest() = orderBy('created_at','desc')
         $dsProduct = TableProduct::latest()->paginate($limit);
+        //kiểm tra xem nhập keyword chưa
+        if ($req->keyword != null) {
+            $dsProduct = TableProduct::where('name', 'like', '%' . $req->keyword. '%')->latest()->paginate($limit);
+        }
         // lấy trang hiện tại
         $current = $dsProduct->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
@@ -33,7 +39,7 @@ class ProductController extends Controller
         return view('.admin.product.main.list', compact('dsProduct', 'serial'));
     }
 
-    public function Return_tpladm_addpro()
+    public function index_addpro()
     {
         $level1 = TableBrand::all();
         $level2 = TableProductType::all();
@@ -44,7 +50,7 @@ class ProductController extends Controller
         return view('.admin.product.main.add', compact('level1', 'level2', 'dsColor', 'dsSize'));
     }
 
-    public function addproducts(xlAddRequestProduct $req)
+    public function addproducts(xlAddRequestProduct $req , $keyword =  null)
     {
 
         $random = Str::random(5);
@@ -81,25 +87,27 @@ class ProductController extends Controller
             }
         }
         $itemproduct->save();
-
-        foreach ($req->color as $key => $value) {
-            $variantsColPro = new TableVariantsColorProduct();
-            $variantsColPro->id_product = $itemproduct->id;
-            $variantsColPro->id_color = $value;
-            $variantsColPro->save();
+        if (!empty($req->color)) {
+            foreach ($req->color as $key => $value) {
+                $variantsColPro = new TableVariantsColorProduct();
+                $variantsColPro->id_product = $itemproduct->id;
+                $variantsColPro->id_color = $value;
+                $variantsColPro->save();
+            }
         }
-
-        foreach ($req->size as $key => $value) {
-            $variantsSizPro = new TableVariantsSizeProduct();
-            $variantsSizPro->id_product = $itemproduct->id;
-            $variantsSizPro->id_size = $value;
-            $variantsSizPro->save();
+        if (!empty($req->color)) {
+            foreach ($req->size as $key => $value) {
+                $variantsSizPro = new TableVariantsSizeProduct();
+                $variantsSizPro->id_product = $itemproduct->id;
+                $variantsSizPro->id_size = $value;
+                $variantsSizPro->save();
+            }
         }
 
         return redirect()->route('san-pham-admin');
     }
 
-    public function Return_tpladm_modifypro(Request $req, $id)
+    public function index_modifypro(Request $req, $id)
     {
         $product = TableProduct::find($id);
         $level1 = TableBrand::all();
@@ -149,7 +157,7 @@ class ProductController extends Controller
             // kiểm tra kích thước
             $size = $req->file->getSize();
             if ($size > 2000000) {
-               
+
                 return redirect()->back();
             }
             // lọc ra đuôi file
@@ -162,7 +170,7 @@ class ProductController extends Controller
                 //Lưu trữ file vào thư mục product trong public -> upload -> product
                 $req->file->move(public_path('upload/product/'), $filename);
             } else {
-                
+
                 return redirect()->back();
             }
         }
@@ -174,7 +182,7 @@ class ProductController extends Controller
         if (!empty($req->color)) {
             // Tìm trong bảng có sản phẩm nào không
             $variantsColPro = TableVariantsColorProduct::where('id_product', $id)->get();
-                       
+
             // Update lại
             foreach ($req->color as $key => $value) {
                 $variantsColPro = new TableVariantsColorProduct();
@@ -187,7 +195,7 @@ class ProductController extends Controller
         TableVariantsSizeProduct::where('id_product', $id)->delete();
         if (!empty($req->size)) {
             $variantsSizPro = TableVariantsSizeProduct::where('id_product', $id)->get();
-          
+
             // Update lại
             foreach ($req->size as $key => $value) {
                 $variantsSizPro = new TableVariantsSizeProduct();
@@ -213,7 +221,7 @@ class ProductController extends Controller
     // Sản phẩm //
 
     // Danh mục thương hiệu //
-    public function getproductlv1()
+    public function index_brand()
     {
         $limit =  10;
         $dslevel1 = TableBrand::latest()->paginate($limit);
@@ -225,7 +233,7 @@ class ProductController extends Controller
         return view('.admin.product.brand.list', compact('dslevel1', 'serial'));
     }
 
-    public function Return_tpladm_addprolv1()
+    public function index_addbrand()
     {
         return view('.admin.product.brand.add');
     }
@@ -240,7 +248,7 @@ class ProductController extends Controller
         return redirect()->route('sanpham-lv1-admin');
     }
 
-    public function Return_tpladm_modifylv1($id)
+    public function index_modifybrand($id)
     {
         $level1 = TableBrand::find($id);
         return view('.admin.product.brand.modify', ['detailLV1'  => $level1]);
@@ -272,11 +280,11 @@ class ProductController extends Controller
     // Danh mục thương hiệu //
 
     // Danh mục loại //
-    public function getproductlv2()
+    public function index_type()
     {
         $limit =  10;
         $dslevel2 = TableProductType::latest()->paginate($limit);
-       
+
         // lấy trang hiện tại
         $current = $dslevel2->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
@@ -285,7 +293,7 @@ class ProductController extends Controller
         return view('.admin.product.type.list', compact('dslevel2', 'serial'));
     }
 
-    public function Return_tpladm_addprolv2()
+    public function index_addtype()
     {
         return view('.admin.product.type.add');
     }
@@ -300,10 +308,10 @@ class ProductController extends Controller
         return redirect()->route('sanpham-lv2-admin');
     }
 
-    public function Return_tpladm_modifylv2($id)
+    public function index_modifytype($id)
     {
         $level2 = TableProductType::find($id);
-       
+
         return view('.admin.product.type.modify', ['detailLV2'  => $level2]);
     }
 
@@ -332,10 +340,11 @@ class ProductController extends Controller
 
     // Danh mục loại //
 
-    public function setStatus(Request $req){
+    public function setStatus(Request $req)
+    {
         if ($req->id) {
             // lấy giá trị cột được chọn tạo ra 1 mảng riêng
-            $status_detail = TableProduct::where('id',$req->id)->pluck('status');
+            $status_detail = TableProduct::where('id', $req->id)->pluck('status');
             // cắt mảng thành từng phần tử nhỏ và lấy phần tử đầu tiên
             $status_array = (!empty($status_detail[0])) ? explode(',', $status_detail[0]) : array();
             // check xem $req truyền vào có trong mảng ko
@@ -353,14 +362,49 @@ class ProductController extends Controller
             $status_save = TableProduct::find($req->id);
             // đổi giá trị cột status thành giá trị mới truyền
             $status_save->status = $data['status'];
-            $status_save->save();  
+            $status_save->save();
         }
+    }
+
+    public function searchproduct(Request $req)
+    {
+        $keywords = $req->keywords_submit;
+        $search_product = TableProduct::where('name', 'like', '%' . $keywords . '%')->get();
+        return view('.admin.product.main.search')->with('search_product', $search_product);
+    }
+
+    public function searchbrand(Request $req)
+    {
+        $keywords = $req->keywords_submit;
+        $search_lv1 = TableBrand::where('name', 'like', '%' . $keywords . '%')->get();
+        return view('.admin.product.brand.search')->with('search_lv1', $search_lv1);
+    }
+
+    public function searchtype(Request $req)
+    {
+        $keywords = $req->keywords_submit;
+        $search_lv2 = TableProductType::where('name', 'like', '%' . $keywords . '%')->get();
+        return view('.admin.product.type.search')->with('search_lv2', $search_lv2);
+    }
+
+    public function searchcolor(Request $req)
+    {
+        $keywords = $req->keywords_submit;
+        $search_color = TableColor::where('name', 'like', '%' . $keywords . '%')->get();
+        return view('.admin.color_size.color.search')->with('search_color', $search_color);
+    }
+
+    public function searchsize(Request $req)
+    {
+        $keywords = $req->keywords_submit;
+        $search_size = TableSize::where('name', 'like', '%' . $keywords . '%')->get();
+        return view('.admin.color_size.size.search')->with('search_size', $search_size);
     }
 
     // ---------------- ADMIN ---------------- //
 
     // ---------------- USER ---------------- //
-    public function GetProductIndex (Request $req)
+    public function GetProductIndex(Request $req)
     {
         $limit =  10;
         //latest() = orderBy('created_at','desc')
@@ -369,20 +413,20 @@ class ProductController extends Controller
     }
 
     /* Format money */
-     public function formatMoney($price = 0, $unit = 'vnđ', $html = false)
-     {
-         $str = '';
-         if ($price) {
-             $str .= number_format($price, 0, ',', '.');
-             if ($unit != '') {
-                 if ($html) {
-                     $str .= '<span>' . $unit . '</span>';
-                 } else {
-                     $str .= $unit;
-                 }
-             }
-         }
-         return $str;
-     }
+    public function formatMoney($price = 0, $unit = 'vnđ', $html = false)
+    {
+        $str = '';
+        if ($price) {
+            $str .= number_format($price, 0, ',', '.');
+            if ($unit != '') {
+                if ($html) {
+                    $str .= '<span>' . $unit . '</span>';
+                } else {
+                    $str .= $unit;
+                }
+            }
+        }
+        return $str;
+    }
     // ---------------- USER ---------------- //    
 }
