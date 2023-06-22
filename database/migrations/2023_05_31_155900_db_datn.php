@@ -101,33 +101,6 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-
-
-        // tạo bảng Role
-        Schema::create('table_role', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
-            $table->softDeletes();
-        });
-
-        // tạo bảng User
-        Schema::create('table_user', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_role')->nullable();
-            $table->foreign('id_role')->references('id')->on('table_role')->onDelete('set null');
-            $table->string('name');
-            $table->string('gender',3);
-            $table->string('birthdate');
-            $table->string('email');
-            $table->string('phone',11);
-            $table->string('address');
-            $table->string('avatar');
-            $table->string('username');
-            $table->string('password');
-            $table->timestamps();
-            $table->softDeletes();
-        });
     }
 
     /**
@@ -143,7 +116,5 @@ return new class extends Migration
         Schema::dropIfExists('table_color');
         Schema::dropIfExists('table_size');
         Schema::dropIfExists('table_album');
-        Schema::dropIfExists('table_role');
-        Schema::dropIfExists('table_user');
     }
 };

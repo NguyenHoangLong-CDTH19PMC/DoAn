@@ -365,6 +365,31 @@ class ProductController extends Controller
             $status_save->save();
         }
     }
+    public function searchproduct(Request $req)
+    {
+        
+        $keywords=$req->keywords_submit;
+
+        $search_product=TableProduct::where('name','like','%'.$keywords.'%')->get();
+        return view('.admin.product.main.searchproduct')->with('search_product',$search_product);
+    }
+    public function searchlv2(Request $req)
+    {
+        
+        $keywords=$req->keywords_submit;
+
+        $search_lv2=TableProduct_Level2::where('name','like','%'.$keywords.'%')->get();
+        return view('.admin.product.level2.searchlv2')->with('search_lv2',$search_lv2);
+    }
+    public function searchlv1(Request $req)
+    {
+
+        $keywords=$req->keywords_submit;
+
+        $search_lv1=TableProduct_Level1::where('name','like','%'.$keywords.'%')->get();
+        return view('.admin.product.level1.searchlv1')->with('search_lv1',$search_lv1);
+    }
+    
 
     public function searchproduct(Request $req)
     {
@@ -413,20 +438,20 @@ class ProductController extends Controller
     }
 
     /* Format money */
-    public function formatMoney($price = 0, $unit = 'vnđ', $html = false)
-    {
-        $str = '';
-        if ($price) {
-            $str .= number_format($price, 0, ',', '.');
-            if ($unit != '') {
-                if ($html) {
-                    $str .= '<span>' . $unit . '</span>';
-                } else {
-                    $str .= $unit;
-                }
-            }
-        }
-        return $str;
-    }
+     public function formatMoney($price = 0, $unit = 'vnđ', $html = false)
+     {
+         $str = '';
+         if ($price) {
+             $str .= number_format($price, 0, ',', '.');
+             if ($unit != '') {
+                 if ($html) {
+                     $str .= '<span>' . $unit . '</span>';
+                 } else {
+                     $str .= $unit;
+                 }
+             }
+         }
+         return $str;
+     }
     // ---------------- USER ---------------- //    
 }
