@@ -1,13 +1,13 @@
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-color navbar-light">
     <!-- Left navbar links -->
-    <ul class="navbar-nav">
+    <ul class="navbar-nav align-items-center">
         <li class="nav-item">
             <a class="nav-link" id="sidebarCollapse" data-widget="pushmenu" href="#" role="button"><i
                     class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link link-home">Home</a>
+            <a href="#" class="nav-link link-home d-block">Home</a>
         </li>
     </ul>
 
@@ -106,19 +106,21 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
-
-        <li class="nav-item user_profile_dd">
-            <a class="dropdown-toggle nav-link"  data-toggle="dropdown" href="#"><img class="img-responsive rounded-circle"
-                    src="{{ asset('assets/admin/images/avatar5.png') }}" alt="#" />
-                    <span class="name_user">John David</span></a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="profile.html">My Profile</a>
-                <a class="dropdown-item" href="settings.html">Settings</a>
-                <a class="dropdown-item" href="help.html">Help</a>
-                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+        <li class="nav-item">
+            <div class="user_profile_dd dropdown">
+                <a class="nav-link d-block"  data-toggle="dropdown" href="#">
+                        <img class="img-responsive rounded-circle" src="{{ asset('upload/avatar/' . Auth::guard('user')->user()->avatar) }}"
+                        onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"alt="Alt Photo" style="" />
+                        <span class="name_user">{{ Auth::guard('user')->user()->name }}</span></a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ route('suadoi-thongtin-admin', ['id'=>Auth::guard('user')->user()->id]) }}">My Profile</a>
+                    <a class="dropdown-item" href="settings.html">Settings</a>
+                    <a class="dropdown-item" href="{{route('xl-logout')}}"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                </div>
             </div>
         </li>
     </ul>
+    
 </nav>
 <!-- /.navbar -->
 

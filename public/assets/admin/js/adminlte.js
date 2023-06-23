@@ -4050,13 +4050,6 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $(".delete-item").on("click", function () {
-        var href = $(this).data("href");
-        $("#popup-notify-delete #del-data").attr("href", href);
-    });
-});
-
-$(document).ready(function () {
     $(".form-ckeditor").each(function (vitriInArr, valOfElement) {
         var data_editor = $(".form-ckeditor").val();
         ClassicEditor.create(document.querySelector(".form-ckeditor"), {
@@ -4167,3 +4160,6 @@ $(".custom-control-input").on("click", function () {
     }).done(function (result) {});
 });
 
+$(".nav-link").on("click", function () {
+    $(this).parents(".dropdown").find(".dropdown-menu").slideToggle(500);
+});

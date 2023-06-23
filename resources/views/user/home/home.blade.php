@@ -25,8 +25,12 @@
                             <div class="layout-price">
                                 <p class="price-product">
                                     <span class="label-price">Giá:</span> 
-                                    <span class="price-new">{{ $item->sale_price }}</span>
-                                    <span class="price-old">{{ $item->price_regular }}</span>
+                                    @if ($item->sale_price > 0)
+                                        <span class="price-new">{{ $item->sale_price }}</span>
+                                        <span class="price-old">{{ $item->price_regular }}</span>    
+                                    @else
+                                        <span class="price-new">{{ ($item->price_regular) ? $item->price_regular : "Liên hệ" }}</span>
+                                    @endif
                                 </p>
                                 
                             </div>

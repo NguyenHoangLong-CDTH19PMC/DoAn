@@ -366,40 +366,7 @@ class ProductController extends Controller
         }
     }
 
-    public function searchproduct(Request $req)
-    {
-        $keywords = $req->keywords_submit;
-        $search_product = TableProduct::where('name', 'like', '%' . $keywords . '%')->get();
-        return view('.admin.product.main.search')->with('search_product', $search_product);
-    }
-
-    public function searchbrand(Request $req)
-    {
-        $keywords = $req->keywords_submit;
-        $search_lv1 = TableBrand::where('name', 'like', '%' . $keywords . '%')->get();
-        return view('.admin.product.brand.search')->with('search_lv1', $search_lv1);
-    }
-
-    public function searchtype(Request $req)
-    {
-        $keywords = $req->keywords_submit;
-        $search_lv2 = TableProductType::where('name', 'like', '%' . $keywords . '%')->get();
-        return view('.admin.product.type.search')->with('search_lv2', $search_lv2);
-    }
-
-    public function searchcolor(Request $req)
-    {
-        $keywords = $req->keywords_submit;
-        $search_color = TableColor::where('name', 'like', '%' . $keywords . '%')->get();
-        return view('.admin.color_size.color.search')->with('search_color', $search_color);
-    }
-
-    public function searchsize(Request $req)
-    {
-        $keywords = $req->keywords_submit;
-        $search_size = TableSize::where('name', 'like', '%' . $keywords . '%')->get();
-        return view('.admin.color_size.size.search')->with('search_size', $search_size);
-    }
+    
 
     // ---------------- ADMIN ---------------- //
 
@@ -407,8 +374,10 @@ class ProductController extends Controller
     public function GetProductIndex(Request $req)
     {
         $limit =  10;
-        //latest() = orderBy('created_at','desc')
-        $dsProduct = TableProduct::latest()->get();
+        $getStatus = TableProduct::pluck('status');
+        $status = explode(',', $getStatus);
+        // $dsProduct = TableProduct::where(explode(',',$status), $status)->get();
+        // dd($dsProduct);
         return view('.user.home.home', compact('dsProduct'));
     }
 

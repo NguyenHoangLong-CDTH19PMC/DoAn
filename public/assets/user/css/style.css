@@ -1131,22 +1131,23 @@ img:not([src]) {
     margin-bottom: 0px;
     display: flex;
     justify-items: start;
-    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .price-product p {
     margin-bottom: 0;
 }
 
-.price-product span {}
+.price-product span {padding-right: 5px;}
 
 .price-new {
     font-size: 14px;
     color: #ea0000;
     margin-bottom: 0;
     font-family: quicksand-b;
+    padding-left: 0;
 }
 
 .price-new span {
@@ -1158,6 +1159,7 @@ img:not([src]) {
     color: #999999;
     text-decoration: line-through;
     margin-bottom: 0;
+    padding-right: 0 !important;
 }
 
 .price-old span {
@@ -3706,7 +3708,7 @@ div.dienthoai-yahoo span a:hover {
 .layout-price {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 
