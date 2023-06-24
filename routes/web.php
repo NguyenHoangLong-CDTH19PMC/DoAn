@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReturnTpl;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\NewController;
+use App\Http\Controllers\NewTypeController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\LoginCotroller;
 use Illuminate\Support\Facades\Auth;
@@ -27,16 +29,14 @@ Route::get('/login', [LoginCotroller::class, 'Return_tpladm_login'])->name('dang
 Route::post('/login', [LoginCotroller::class, 'xlLogin'])->name('xl-dang-nhap-admin');
 
 
-Route::group(['middleware' => ['checkauth:admin']], function () {
+Route::get('admin',[ReturnTpl::class,'index_admin'])->name('trang-chu-admin');
 
-    Route::get('admin', [ReturnTpl::class, 'index_admin'])->name('trang-chu-admin');
-    
-    Route::get('/admin/product', [ProductController::class, 'index_product'])->name('san-pham-admin');
-    Route::get('/admin/product/add-product', [ProductController::class, 'index_addpro'])->name('them-moi-san-pham-admin');
-    Route::post('/admin/product/add-product', [ProductController::class, 'addproducts'])->name('xl-them-moi-san-pham-admin');
-    Route::get('/admin/product/modify-product/id={id}', [ProductController::class, 'index_modifypro'])->name('sua-doi-san-pham-admin');
-    Route::post('/admin/product/modify-product/id={id}', [ProductController::class, 'modifyproducts'])->name('xl-sua-doi-san-pham-admin');
-    Route::get('/admin/product/delete-product', [ProductController::class, 'deleteproducts'])->name('xl-xoa-bo-san-pham-admin');
+Route::get('/admin/product',[ProductController::class,'index_product'])->name('san-pham-admin');
+Route::get('/admin/product/add-product',[ProductController::class,'Return_tpladm_addpro'])->name('them-moi-san-pham-admin');
+Route::post('/admin/product/add-product', [ProductController::class, 'index_addpro'])->name('xl-them-moi-san-pham-admin');
+Route::get('/admin/product/modify-product/id={id}',[ProductController::class,'index_modifypro'])->name('sua-doi-san-pham-admin');
+Route::post('/admin/product/modify-product/id={id}', [ProductController::class, 'modifyproducts'])->name('xl-sua-doi-san-pham-admin');
+Route::get('/admin/product/delete-product', [ProductController::class, 'deleteproducts'])->name('xl-xoa-bo-san-pham-admin');
 
     Route::get('/admin/product/brand', [ProductController::class, 'index_brand'])->name('sanpham-lv1-admin');
     Route::get('/admin/product/add-brand', [ProductController::class, 'index_addbrand'])->name('themmoi-sanpham-lv1-admin');
@@ -66,5 +66,21 @@ Route::group(['middleware' => ['checkauth:admin']], function () {
     Route::post('/admin/size/modify-size/id={id}', [ColorController::class, 'modifySize'])->name('xl-sua-doi-kich-thuoc-admin');
     Route::get('/admin/size/delete-size', [ColorController::class, 'deleteSize'])->name('xl-xoa-bo-kich-thuoc-admin');
 
-    Route::get('/admin/status', [ProductController::class, 'setStatus'])->name('set-trang-thai-sp');
-});
+Route::get('/admin/status',[ProductController::class,'setStatus'])->name('set-trang-thai-sp');
+
+
+Route::get('/admin/new',[NewController::class,'getsnew'])->name('bai-viet-admin');
+Route::get('/admin/new/add-new',[NewController::class,'Return_tpladm_addnew'])->name('them-moi-bai-viet-admin');
+Route::post('/admin/new/add-new', [NewController::class, 'addnews'])->name('xl-them-moi-bai-viet-admin');
+Route::get('/admin/new/modify-new/id={id}',[NewController::class,'Return_tpladm_modifynew'])->name('sua-doi-bai-viet-admin');
+Route::post('/admin/new/modify-new/id={id}', [NewController::class, 'modifynews'])->name('xl-sua-doi-bai-viet-admin');
+Route::get('/admin/new/delete-new', [NewController::class, 'deletenews'])->name('xl-xoa-bo-bai-viet-admin');
+// Route::post('/searchproduct',[ProductController::class,'searchproduct'])->name('searchproduct');
+
+Route::get('/admin/newtype',[NewTypeController::class,'getsnewtype'])->name('loai-bai-viet-admin');
+Route::get('/admin/new/add-newtype',[NewTypeController::class,'Return_tpladm_addnewtype'])->name('them-moi-loai-bai-viet-admin');
+Route::post('/admin/new/add-newtype', [NewTypeController::class, 'addnewstype'])->name('xl-them-moi-loai-bai-viet-admin');
+Route::get('/admin/newtype/modify-newtype/id={id}',[NewTypeController::class,'Return_tpladm_modifynewtype'])->name('sua-doi-loai-bai-viet-admin');
+Route::post('/admin/newtype/modify-newtype/id={id}', [NewTypeController::class, 'modifynewtypes'])->name('xl-sua-doi-loai-bai-viet-admin');
+Route::get('/admin/newtype/delete-newtype', [NewTypeController::class, 'deletenewtypes'])->name('xl-xoa-bo-loai-bai-viet-admin');
+// Route::post('/searchproduct',[NewTypeController::class,'searchproduct'])->name('searchproduct');

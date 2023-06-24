@@ -189,10 +189,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('sanpham-lv1-admin') }}"
-                                class="nav-link {{ $name == 'sanpham-lv1-admin' || $name == 'themmoi-sanpham-lv1-admin' || $name == 'suadoi-sanpham-lv1-admin'
-                                    ? 'active'
-                                    : '' }}">
+                            <a href="{{route('sanpham-lv1-admin')}}" class="nav-link {{($name == 'sanpham-lv1-admin'|| 
+                            $name == 'themmoi-sanpham-lv1-admin' || 
+                            $name == 'suadoi-sanpham-lv1-admin') ? "active" : "" }}">
                                 <i class="nav-icon-small fas fa-circle fa-2xs"></i>
                                 <p>Danh mục thương hiệu</p>
                             </a>
@@ -206,6 +205,25 @@
                                 <p>Danh mục loại</p>
                             </a>
                         </li>
+
+                            <a href="" class="nav-link">
+                                <i class="fa-solid fa-square-caret-right nav-icon"></i>
+                                <p>Thương Hiệu</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="fa-solid fa-square-caret-right nav-icon"></i>
+                                <p>Loại Giày</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="fa-solid fa-square-caret-right nav-icon"></i>
+                                <p>Giới Tính</p>
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
 
@@ -234,6 +252,35 @@
                                 <p>Danh sách kích thước</p>
                             </a>
                         </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item {{($name == 'bai-viet-admin'|| $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin') ? "menu-open" : ""}}">
+                    <a class="nav-link {{($name == 'bai-viet-admin' || $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin') ? "active" : ""}} ">
+                        <i class="nav-icon fas fa-duotone fa-clipboard"></i>
+                        <p>
+                           Quản lý Bài Viết
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('bai-viet-admin')}}" class="nav-link {{($name == 'bai-viet-admin' || $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin') ? "active" : ""}}">
+                                <i class="nav-icon-small fas fa-circle fa-2xs"></i>
+                                <p>Danh sách bài viết</p>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('loai-bai-viet-admin')}}" class="nav-link {{($name == 'loai-bai-viet-admin' || $name == 'them-moi-loai-bai-viet-admin' || $name == 'sua-doi-loai-bai-viet-admin') ? "active" : ""}}">
+                                <i class="nav-icon-small fas fa-circle fa-2xs"></i>
+                                <p>Danh sách loaị bài viết</p>
+                            </a>
+                        </li>
+                        
                     </ul>
                 </li>
             </ul>
