@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class xlDangNhapRequest extends FormRequest
 {
     /**
@@ -13,7 +14,7 @@ class xlDangNhapRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,16 @@ class xlDangNhapRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'username' => 'required',
+            'password' => 'required',
+        ];
+    }
+    public function messages()
+    {
+        return[
+            'username.required'=> 'Chưa nhập tên đăng nhập',
+            'password.required'=> 'Chưa nhập mật khẩu',
+
         ];
     }
 }

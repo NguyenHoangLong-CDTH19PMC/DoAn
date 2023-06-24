@@ -117,8 +117,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_role')->nullable();
             $table->foreign('id_role')->references('id')->on('table_role')->onDelete('set null');
             $table->string('name');
-            $table->string('gender',3);
-            $table->string('birthdate');
+            $table->int('gender');
+            $table->string('birthday');
             $table->string('email');
             $table->string('phone',11);
             $table->string('address');
