@@ -741,13 +741,13 @@ img:not([src]) {
     right: 5px;
 }
 
-.menu ul li.li-cart {}
+.menu ul li .li-cart {}
 
-.menu ul li.li-cart a {
-    padding: 10px 0 10px 55px;
+.menu ul li .li-cart {
+    padding: 10px 0 10px 15px;
 }
 
-.menu ul li.li-cart a .cart {
+.menu ul li .li-cart .cart {
     background-color: #fff;
     height: 47px;
     width: 47px;
@@ -759,12 +759,12 @@ img:not([src]) {
     padding: 0;
 }
 
-.menu ul li.li-cart a .cart .ico-cart {
+.menu ul li .li-cart .cart .ico-cart {
     color: #c31829;
     font-size: 22px;
 }
 
-.menu ul li.li-cart a .cart .quantity-item {
+.menu ul li .li-cart .cart .quantity-item {
     position: absolute;
     top: -6px;
     background-color: #c31829;
@@ -775,6 +775,9 @@ img:not([src]) {
     text-align: center;
     border-radius: 100%;
 }
+.li-last{display: flex;align-items: center;}
+
+.ml-auto{margin-left: auto;}
 
 .menu ul li:hover>a.has-child {
     color: #ffcc00;
@@ -1129,21 +1132,18 @@ img:not([src]) {
 
 .price-product {
     margin-bottom: 0px;
-    display: flex;
-    justify-items: start;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 .price-product p {
     margin-bottom: 0;
 }
 
-.price-product span {padding-right: 5px;}
+.price-product span {
+    padding-right: 5px;
+}
 
 .price-new {
-    font-size: 14px;
+    font-size: 16px;
     color: #ea0000;
     margin-bottom: 0;
     font-family: quicksand-b;
@@ -3708,34 +3708,52 @@ div.dienthoai-yahoo span a:hover {
 .layout-price {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2px;
+    margin-bottom: 6px;
 }
 
 
-.btn-addcart {
-    border-radius: 30px;
+.cart-product {
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.2rem;
+    height: 25px;
+    width: 25px;
+    padding: 0px;
     border: 1px solid #de2331;
-    background: #de2331;
-    padding: 6px 5px;
-    margin-top: 10px;
+    cursor: pointer;
 }
-
-.btn-addcart span {
-    font-size: 13px;
-    border: 1px dashed #fff;
-    border-radius: 20px;
-    padding: 6px 7px;
-    color: #fff;
+.cart-product::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -50px;
+    bottom: 0;
+    left: 0;
+    border-right: 50px solid transparent;
+    border-bottom: 80px solid #de2331;
+    transform: translateX(-100%);
+    transition: 0.5s ease-in-out;
 }
+.cart-product:hover::before{transform: translateX(0);} 
 
-.btn-addcart:hover {
-    background: #fff;
-}
-
-.btn-addcart:hover span {
+.cart-product span {
+    cursor: pointer;
     color: #de2331;
-
+    text-transform: capitalize;
+    font-size: 15px;
+    background: transparent;
+    border-color: #de2331;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 0;
+    transition: 0.5s ease-in-out;
 }
+.cart-product:hover span{color:#fff;}
 
 /* San pham moi o trang chu */
 .page_moi {
@@ -4215,4 +4233,3 @@ div.chay-sp .slick-next {
     -o-transition: all 400ms linear;
     transition: all 400ms linear;
 }
-

@@ -1475,13 +1475,13 @@ a.upload-file-image-remove:hover,.delete_1hinh:hover {
 #sidebarCollapse {
     border: none;
     display: flex;
-    font-size: 20px;
+    font-size: 25px;
     background: #ff5722;
     margin-right: 0;
     cursor: pointer;
     float: left;
-    height: 66px;
-    width: 66px;
+    height: 65px;
+    width: 65px;
     justify-content: center;
     align-items: center;
     padding: 0;
@@ -1510,7 +1510,6 @@ a.upload-file-image-remove:hover,.delete_1hinh:hover {
     border-radius: 0;
     background: #ff5722;
     margin: 0;
-    padding: .35rem 0 0.35rem;
     height: auto;
 }
 

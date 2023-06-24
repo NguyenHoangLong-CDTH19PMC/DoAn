@@ -373,12 +373,18 @@ class ProductController extends Controller
     // ---------------- USER ---------------- //
     public function GetProductIndex(Request $req)
     {
-        $limit =  10;
-        $getStatus = TableProduct::pluck('status');
-        $status = explode(',', $getStatus);
-        // $dsProduct = TableProduct::where(explode(',',$status), $status)->get();
-        // dd($dsProduct);
-        return view('.user.home.home', compact('dsProduct'));
+        $dsProductNew = TableProduct::whereRaw('FIND_IN_SET("moi", status)')->where('quantity','>',0)->get();
+        $dsProductOutsanding = TableProduct::whereRaw('FIND_IN_SET("noibat", status)')->where('quantity','>',0)->get();
+
+        return view('.user.home.home', compact('dsProductNew','dsProductOutsanding'));
+    }
+
+
+    public function GetProductPage(Request $req)
+    {
+        $limit = 12;
+        $dsProduct = TableProduct::whereRaw('FIND_IN_SET("hienthi", status)')->where('quantity','>',0)->get()->paginate($limit);
+        return view('.user.product.product', compact('dsProduct'));
     }
 
     /* Format money */

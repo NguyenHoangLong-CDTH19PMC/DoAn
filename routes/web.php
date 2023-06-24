@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/', [ProductController::class, 'GetProductIndex'])->name('trang-chu-user');
 
 Route::get('/login', [LoginCotroller::class, 'index_login'])->name('dang-nhap-admin');
 Route::post('/login', [LoginCotroller::class, 'xlLogin'])->name('xl-dang-nhap-admin');
@@ -69,3 +68,8 @@ Route::group(['middleware' => ['checkauth:admin']], function () {
 
     Route::get('/admin/status', [ProductController::class, 'setStatus'])->name('set-trang-thai-sp');
 });
+
+
+
+Route::get('/', [ProductController::class, 'GetProductIndex'])->name('trang-chu-user');
+Route::get('/user/product', [ProductController::class, 'GetProductPage'])->name('lay-ds-product');
