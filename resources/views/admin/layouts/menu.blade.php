@@ -257,7 +257,7 @@
 
                 <li class="nav-item {{($name == 'bai-viet-admin'|| $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin') ? "menu-open" : ""}}">
                     <a class="nav-link {{($name == 'bai-viet-admin' || $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin') ? "active" : ""}} ">
-                        <i class="nav-icon fas fa-duotone fa-cassette-betamax 2xs"></i>
+                        <i class="nav-icon fas fa-duotone fa-clipboard"></i>
                         <p>
                            Quản lý Bài Viết
                            <i class="right fas fa-angle-left"></i>

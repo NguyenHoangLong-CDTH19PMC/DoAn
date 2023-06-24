@@ -16,6 +16,8 @@ use App\Models\TableColor;
 use App\Models\TableSize;
 use App\Models\TableVariantsColorProduct;
 use App\Models\TableVariantsSizeProduct;
+use App\Models\TableVariantsNewType;
+use App\Http\Requests\xlAddRequestNew;
 
 class NewController extends Controller
 {
@@ -34,7 +36,7 @@ class NewController extends Controller
     }
     public function Return_tpladm_addnew()
     {
-        $level1 = TableNew::all();
+        $level1 = TableNewType::all();
        
 
         return view('.admin.new.add', compact('level1'));
@@ -46,51 +48,104 @@ class NewController extends Controller
         $random = Str::random(5);
 
         // tạo 1 item mới
-        $itemproduct = new TableProduct();
+        $itemnew = new TableNew();
         // lưu các mục vào csdl
-        $itemproduct->code = $req->masp;
-        $itemproduct->name = $req->tensp;
-        $itemproduct->content = htmlspecialchars($req->noidung);
-        // kiểm tra xem giá có rỗng không, có giá trị thì thay thế ký tự , =  ký tự rỗng, ngược lại thì gán = 0 
-        $itemproduct->price_regular = (isset($req->giagoc) && !empty($req->giagoc)) ? str_replace(',', '', $req->giagoc) : 0;
-        $itemproduct->sale_price = (isset($req->giamoi) && !empty($req->giamoi)) ? str_replace(",", "", $req->giamoi) : 0;
-        ($req->categorylv1 > 0) ? $itemproduct->id_level1 = $req->categorylv1 : 0;
-        ($req->categorylv2 > 0) ? $itemproduct->id_level2 = $req->categorylv2 : 0;
-        if ($req->file != null) {
-            // kiểm tra kích thước
-            $size = $req->file->getSize();
-            if ($size > 2000000) {
-                return redirect()->back();
-            }
+        $itemnew->name = $req->tenbaiviet;
+        $itemnew->content = htmlspecialchars($req->noidung);
+        
             // lọc ra đuôi file
             $extension = $req->file->getClientOriginalExtension();
             if ($extension == 'jpg' || $extension == 'png' || $extension = 'jpeg') {
                 // đổi tên hình
-                $filename = 'product-' . $random . '.' . $req->file->getClientOriginalExtension();
+                $filename = 'new-' . $random . '.' . $req->file->getClientOriginalExtension();
                 // lấy tên file để lưu vào csdl
-                $itemproduct->photo = $filename;
+                $itemnew->photo = $filename;
                 //Lưu trữ file vào thư mục product trong public -> upload -> product
                 $req->file->move(public_path('upload/new/'), $filename);
             } else {
                 return redirect()->back();
             }
+        
+        $itemnew->save();
+        if (!empty($req->new)) {
+            foreach ($req->new as $key => $value) {
+                $variantsNew = new TableVariantsNewType();
+                $variantsNew->id_new = $itemnew->id;
+                $variantsNew->id_newtype = $value;
+                $variantsNew->save();
+            }
         }
-        $itemproduct->save();
+        return redirect()->route('bai-viet-admin');
+    }
+    public function Return_tpladm_modifynew(Request $req, $id)
+    {
+        $new = TableNew::find($id);
+        $level1 = TableNewType::all();
+        $listSelectedNewType = TableVariantsNewType::where('id_new', $id)->get();
 
-        foreach ($req->color as $key => $value) {
-            $variantsColPro = new TableVariantsColorProduct();
-            $variantsColPro->id_product = $itemproduct->id;
-            $variantsColPro->id_color = $value;
-            $variantsColPro->save();
+        $arrIdNewType = [];
+        foreach ($listSelectedNewType as $k => $v) {
+            array_push($arrIdNewType, $v->id_new_type);
         }
 
-        foreach ($req->size as $key => $value) {
-            $variantsSizPro = new TableVariantsSizeProduct();
-            $variantsSizPro->id_product = $itemproduct->id;
-            $variantsSizPro->id_size = $value;
-            $variantsSizPro->save();
+
+        return view('.admin.new.modify', ['detailNew'  => $new], compact('level1','arrIdNewType'));
+    }
+
+    public function modifynews(xlAddRequestNew $req, $id)
+    {
+        // tạo 1 chuỗi ngẫu nhiên 
+        $random = Str::random(5);
+
+        $itemnew = TableNew::find($id);
+        if ($itemnew == null) {
+            return "không tìm thấy bài viết nào có ID = {$id} này";
+        }
+        $itemnew->name = $req->tenbaiviet;
+        $itemnew->content = htmlspecialchars($req->noidung);
+
+            // lọc ra đuôi file
+            $extension = $req->file->getClientOriginalExtension();
+            if ($extension == 'jpg' || $extension == 'png' || $extension = 'jpeg' || $extension == 'gif') {
+                // đổi tên hình
+                $filename = 'new-' . $random . '.' . $req->file->getClientOriginalExtension();
+                // lấy tên file để lưu vào csdl
+                $itemnew->photo = $filename;
+                //Lưu trữ file vào thư mục product trong public -> upload -> product
+                $req->file->move(public_path('upload/new/'), $filename);
+            } else {
+
+                return redirect()->back();
+            }
+        
+
+        $itemnew->save();
+
+        // Xoá đi để thêm lại cái mới
+        TableVariantsNewType::where('id_new', $id)->delete();
+        if (!empty($req->new_type)) {
+            // Tìm trong bảng có sản phẩm nào không
+            $variantsNewType = TableVariantsNewType::where('id_new', $id)->get();
+
+            // Update lại
+            foreach ($req->new_type as $key => $value) {
+                $variantsNewType = new TableVariantsNewType();
+                $variantsNewType->id_new = $id;
+                $variantsNewType->id_new_type = $value;
+                $variantsNewType->save();
+            }
+        }
+        return redirect()->route('bai-viet-admin');
+    }
+
+    public function deletenews(Request $req)
+    {
+        $new = TableNew::find($req->id);
+        if ($new == null) {
+            return "không tìm thấy thấy bài viết nào có ID = {$req->id} này";
         }
 
-        return redirect()->route('san-pham-admin');
+        $new->delete();
+        return redirect()->route('bai-viet-admin');
     }
 }

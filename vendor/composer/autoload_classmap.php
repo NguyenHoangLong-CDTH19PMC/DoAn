@@ -62,6 +62,7 @@ return array(
     'App\\Models\\TableSize' => $baseDir . '/app/Models/TableSize.php',
     'App\\Models\\TableVariantsColorProduct' => $baseDir . '/app/Models/TableVariantsColorProduct.php',
     'App\\Models\\TableVariantsSizeProduct' => $baseDir . '/app/Models/TableVariantsSizeProduct.php',
+    'App\\Models\\TablevariantsNewType' => $baseDir . '/app/Models/TablevariantsNewType.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Ward' => $baseDir . '/app/Models/Ward.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

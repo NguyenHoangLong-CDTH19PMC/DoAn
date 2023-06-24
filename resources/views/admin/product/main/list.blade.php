@@ -24,9 +24,9 @@
                     <div class="form-inline form-search d-inline-block align-middle ml-3">
                         <div class="input-group input-group-sm">
                             <input class="form-control form-control-navbar text-sm" type="search" id="keyword"
-                                placeholder="Tìm kiếm" aria-label="Tìm kiếm" value="">
+                                placeholder="Tìm kiếm" aria-label="Tìm kiếm" name="keyword" value="">
                             <div class="input-group-append bg-primary rounded-right">
-                                <button class="btn btn-navbar text-white" type="button">
+                                <button class="btn btn-navbar text-white" type="submit">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>

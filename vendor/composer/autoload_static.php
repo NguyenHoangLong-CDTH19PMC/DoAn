@@ -571,6 +571,7 @@ class ComposerStaticInit585eb8fbe9d07c015a27114c727eae47
         'App\\Models\\TableSize' => __DIR__ . '/../..' . '/app/Models/TableSize.php',
         'App\\Models\\TableVariantsColorProduct' => __DIR__ . '/../..' . '/app/Models/TableVariantsColorProduct.php',
         'App\\Models\\TableVariantsSizeProduct' => __DIR__ . '/../..' . '/app/Models/TableVariantsSizeProduct.php',
+        'App\\Models\\TablevariantsNewType' => __DIR__ . '/../..' . '/app/Models/TablevariantsNewType.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Ward' => __DIR__ . '/../..' . '/app/Models/Ward.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

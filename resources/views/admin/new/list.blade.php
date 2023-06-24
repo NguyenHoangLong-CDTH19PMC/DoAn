@@ -82,12 +82,6 @@
                                                 </a>
                                          </td>
 
-                                         <td class="align-middle">
-                                            <a class="text-dark text-break"
-                                                href="{{ route('sua-doi-bai-viet-admin', ['id' => $item->id]) }}"
-                                                title="{{ $item->id_type }}">{{ $item->id_type }}</a>
-                                        </td>
-
                                         <td class="align-middle">
                                             <a class="text-dark text-break"
                                                 href="{{ route('sua-doi-bai-viet-admin', ['id' => $item->id]) }}"
@@ -129,7 +123,7 @@
             <div class="card-footer text-sm">
                 @if (count($dsNew))
                     <div class="card-pagination">
-                        {!! $dsnew->links() !!}
+                        {!! $dsNew->links() !!}
                     </div>
                 @endif
             </div>

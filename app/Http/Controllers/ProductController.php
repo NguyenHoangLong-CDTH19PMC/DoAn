@@ -391,12 +391,12 @@ class ProductController extends Controller
     }
     
 
-    public function searchproduct(Request $req)
-    {
-        $keywords = $req->keywords_submit;
-        $search_product = TableProduct::where('name', 'like', '%' . $keywords . '%')->get();
-        return view('.admin.product.main.search')->with('search_product', $search_product);
-    }
+    // public function searchproduct(Request $req)
+    // {
+    //     $keywords = $req->keywords_submit;
+    //     $search_product = TableProduct::where('name', 'like', '%' . $keywords . '%')->get();
+    //     return view('.admin.product.main.search')->with('search_product', $search_product);
+    // }
 
     public function searchbrand(Request $req)
     {
