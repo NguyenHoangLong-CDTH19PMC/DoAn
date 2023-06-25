@@ -31,6 +31,10 @@ Route::group(['middleware' => ['checkauth:admin']], function () {
     Route::get('admin', [ReturnTpl::class, 'index_admin'])->name('trang-chu-admin');
     Route::get('/update-info/id={id}', [LoginCotroller::class, 'index_update'])->name('suadoi-thongtin-admin');
     Route::post('/update-info/id={id}', [LoginCotroller::class, 'xl_update_info'])->name('xl-suadoi-thongtin-admin');
+
+    Route::get('/change-password/id={id}', [LoginCotroller::class, 'index_change'])->name('doi-matkhau-admin');
+    Route::post('/change-password/id={id}', [LoginCotroller::class, 'xl_change_password'])->name('xl-doi-matkhau-admin');
+
     Route::get('/admin/product', [ProductController::class, 'index_product'])->name('san-pham-admin');
     Route::get('/admin/product/add-product', [ProductController::class, 'index_addpro'])->name('them-moi-san-pham-admin');
     Route::post('/admin/product/add-product', [ProductController::class, 'addproducts'])->name('xl-them-moi-san-pham-admin');
@@ -72,4 +76,5 @@ Route::group(['middleware' => ['checkauth:admin']], function () {
 
 
 Route::get('/', [ProductController::class, 'GetProductIndex'])->name('trang-chu-user');
-Route::get('/user/product', [ProductController::class, 'GetProductPage'])->name('lay-ds-product');
+Route::get('/product', [ProductController::class, 'GetProductPage'])->name('lay-ds-product');
+Route::get('/cart', [ProductController::class, 'GetCartTpl'])->name('lay-gio-hang');

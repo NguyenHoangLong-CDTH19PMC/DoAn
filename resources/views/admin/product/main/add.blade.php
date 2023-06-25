@@ -1,13 +1,14 @@
 @extends('admin.index')
 @section('body')
-    
     <div class="content-wrapper">
         <section class="content-header text-sm">
             <div class="container-fluid">
                 <div class="row">
                     <ol class="breadcrumb float-sm-left pl-3">
-                        <li class="breadcrumb-item"><a href="{{ route('trang-chu-admin') }}" title="Bảng điều khiển">Bảng điều
-                                khiển</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('trang-chu-admin') }}" title="Bảng điều khiển">Bảng điều khiển</a></li>
+                        
+                        <li class="breadcrumb-item"><a href="{{ route('san-pham-admin') }}" title="Quản lý sản phẩm">Quản lý sản phẩm</a></li>
+                        
                         <li class="breadcrumb-item active">Thêm mới sản phẩm</li>
                     </ol>
                 </div>
@@ -61,18 +62,18 @@
                                     <label class="d-block" for="id_color">Danh mục màu sắc:</label>
                                     <select id="select-color" name="color[]" class="select multiselect" multiple="multiple">
                                         @foreach ($dsColor as $value)
-                                            <option value="{{$value->id}}">{{$value->name}}</option>
+                                            <option value="{{ $value->id }}">{{ $value->name }}</option>
                                         @endforeach
-                                    </select>  
+                                    </select>
                                 </div>
 
                                 <div class="form-group col-xl-6 col-sm-4">
                                     <label class="d-block" for="id_size">Danh mục kích thước:</label>
                                     <select id="select-color" name="size[]" class="select multiselect" multiple="multiple">
                                         @foreach ($dsSize as $value)
-                                            <option value="{{$value->id}}">{{$value->name}}</option>
+                                            <option value="{{ $value->id }}">{{ $value->name }}</option>
                                         @endforeach
-                                    </select> 
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +89,9 @@
                                         <label for="name-product">Tên sản phẩm:</label>
                                         <input type="text" class="form-control check-valid text-sm" name="tensp"
                                             id="fullname" placeholder="Tên sản phẩm" @error('tensp') is-invalid @enderror>
-                                        @error('tensp')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                        @error('tensp')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group titleProduct">
                                         <label for="nameProduct">Nội dung:</label>
@@ -99,14 +102,20 @@
                                         <div class="form-group col-md-3">
                                             <label class="d-block" for="code-product">Mã sản phẩm:</label>
                                             <input type="text" class="form-control check-valid text-sm" name="masp"
-                                                id="code" placeholder="Mã sản phẩm" @error('masp') is-invalid @enderror>
-                                            @error('masp')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                                id="code" placeholder="Mã sản phẩm"
+                                                @error('masp') is-invalid @enderror>
+                                            @error('masp')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label class="d-block" for="code-product">Số lượng tồn kho:</label>
                                             <input type="text" class="form-control check-valid text-sm" name="soluong"
-                                                id="code" placeholder="Số lượng tồn kho" @error('soluong') is-invalid @enderror>
-                                            @error('soluong')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                                id="code" placeholder="Số lượng tồn kho"
+                                                @error('soluong') is-invalid @enderror>
+                                            @error('soluong')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label class="d-block" for="regular_price">Giá gốc:</label>
@@ -155,7 +164,7 @@
                                             <p class="photoUpload-choose btn btn-sm bg-gradient-success">Chọn hình</p>
                                         </label>
                                         <div class="photoUpload-dimension">Width: 270px - Height: 270px
-                                            (.jpg|.png|.jpeg)</div>
+                                            (.jpg|.png|.jpeg|.gif|.webp)</div>
                                     </div>
                                 </div>
                             </div>

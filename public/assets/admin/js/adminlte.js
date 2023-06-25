@@ -4163,3 +4163,34 @@ $(".custom-control-input").on("click", function () {
 $(".nav-link").on("click", function () {
     $(this).parents(".dropdown").find(".dropdown-menu").slideToggle(500);
 });
+
+
+
+/* Show password */
+$(".show").click(function () {
+    if ($("#old-password").val()) {
+      if ($(this).hasClass("active")) {
+        $(this).removeClass("active");
+        $("#old-password").attr("type", "password");
+      } else {
+        $(this).addClass("active");
+        $("#old-password").attr("type", "text");
+      }
+      $(this).find("span").toggleClass("fas fa-eye fas fa-eye-slash");
+    }
+  });
+  
+  /* Show password */
+  $(".show-icon").click(function () {
+    if ($(".show-value").val()) {
+      if ($(this).hasClass("active")) {
+        $(this).removeClass("active");
+        $(".show-value").attr("type", "password");
+      } else {
+        $(this).addClass("active");
+        $(".show-value").attr("type", "text");
+      }
+      $(this).find("span").toggleClass("fas fa-eye fas fa-eye-slash");
+    }
+  });
+

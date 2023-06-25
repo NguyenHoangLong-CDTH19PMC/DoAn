@@ -70,12 +70,12 @@ class ProductController extends Controller
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
-            if ($size > 2000000) {
+            if ($size > 10000) {
                 return redirect()->back();
             }
             // lọc ra đuôi file
             $extension = $req->file->getClientOriginalExtension();
-            if ($extension == 'jpg' || $extension == 'png' || $extension = 'jpeg') {
+            if ($extension == 'jpg' || $extension == 'png' || $extension = 'jpeg' || $extension == 'gif' || $extension == 'webp') {
                 // đổi tên hình
                 $filename = 'product-' . $random . '.' . $req->file->getClientOriginalExtension();
                 // lấy tên file để lưu vào csdl
@@ -156,13 +156,13 @@ class ProductController extends Controller
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
-            if ($size > 2000000) {
+            if ($size > 10000) {
 
                 return redirect()->back();
             }
             // lọc ra đuôi file
             $extension = $req->file->getClientOriginalExtension();
-            if ($extension == 'jpg' || $extension == 'png' || $extension = 'jpeg' || $extension == 'gif') {
+            if ($extension == 'jpg' || $extension == 'png' || $extension = 'jpeg' || $extension == 'gif' || $extension == 'webp') {
                 // đổi tên hình
                 $filename = 'product-' . $random . '.' . $req->file->getClientOriginalExtension();
                 // lấy tên file để lưu vào csdl
@@ -221,10 +221,14 @@ class ProductController extends Controller
     // Sản phẩm //
 
     // Danh mục thương hiệu //
-    public function index_brand()
+    public function index_brand(Request $req)
     {
         $limit =  10;
         $dslevel1 = TableBrand::latest()->paginate($limit);
+         //kiểm tra xem nhập keyword chưa
+        if ($req->keyword != null) {
+            $dslevel1 = TableBrand::where('name', 'like', '%' . $req->keyword. '%')->latest()->paginate($limit);
+        }
         // lấy trang hiện tại
         $current = $dslevel1->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
@@ -280,11 +284,14 @@ class ProductController extends Controller
     // Danh mục thương hiệu //
 
     // Danh mục loại //
-    public function index_type()
+    public function index_type(Request $req)
     {
         $limit =  10;
         $dslevel2 = TableProductType::latest()->paginate($limit);
-
+         //kiểm tra xem nhập keyword chưa
+         if ($req->keyword != null) {
+            $dslevel2 = TableProductType::where('name', 'like', '%' . $req->keyword. '%')->latest()->paginate($limit);
+        }
         // lấy trang hiện tại
         $current = $dslevel2->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
@@ -383,25 +390,30 @@ class ProductController extends Controller
     public function GetProductPage(Request $req)
     {
         $limit = 12;
-        $dsProduct = TableProduct::whereRaw('FIND_IN_SET("hienthi", status)')->where('quantity','>',0)->get()->paginate($limit);
+        $dsProduct = TableProduct::whereRaw('FIND_IN_SET("hienthi", status)')->where('quantity','>',0)->latest()->paginate($limit);
         return view('.user.product.product', compact('dsProduct'));
     }
 
-    /* Format money */
-    public function formatMoney($price = 0, $unit = 'vnđ', $html = false)
-    {
-        $str = '';
-        if ($price) {
-            $str .= number_format($price, 0, ',', '.');
-            if ($unit != '') {
-                if ($html) {
-                    $str .= '<span>' . $unit . '</span>';
-                } else {
-                    $str .= $unit;
-                }
-            }
-        }
-        return $str;
+
+    public function GetCartTpl(){
+        return view('.user.order.order');
     }
+
+    /* Format money */
+    // public function formatMoney($price = 0, $unit = 'vnđ', $html = false)
+    // {
+    //     $str = '';
+    //     if ($price) {
+    //         $str .= number_format($price, 0, ',', '.');
+    //         if ($unit != '') {
+    //             if ($html) {
+    //                 $str .= '<span>' . $unit . '</span>';
+    //             } else {
+    //                 $str .= $unit;
+    //             }
+    //         }
+    //     }
+    //     return $str;
+    // }
     // ---------------- USER ---------------- //    
 }

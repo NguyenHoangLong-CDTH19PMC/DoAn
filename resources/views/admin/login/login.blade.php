@@ -36,7 +36,7 @@
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
-						Log in
+						Đăng nhập hệ thống
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Vui lòng nhập Username">
@@ -45,8 +45,13 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Vui lòng nhập Password">
-						<input class="input100" type="password" name="password" placeholder="Password">
+						<input class="input100" id="show-password" type="password" name="password" placeholder="Password">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+						<div class="input-group-append">
+							<div class="input-group-text show">
+								<span class="fas fa-eye" toggle="#old-password"></span>
+							</div>
+						</div>
 					</div>
 
 					{{-- <div class="contact100-form-checkbox">
@@ -62,11 +67,11 @@
 						</button>
 					</div>
 
-					<div class="text-center p-t-90">
+					{{-- <div class="text-center p-t-90">
 						<a class="txt1" href="#">
 							Forgot Password?
 						</a>
-					</div>
+					</div> --}}
 				</form>
 			</div>
 		</div>

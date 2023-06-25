@@ -11,8 +11,8 @@
                     <div class="product">
                         <a href="" class="box-product text-decoration-none">
                             <p class="pic-product scale-img">
-                                <img class="rounded" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
-                                    src="{{ asset('upload/product/' . $item->photo) }}" alt="Alt Photo" style=""
+                                <img class="" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
+                                    src="{{ asset('upload/product/' . $item->photo) }}" style=""
                                     alt="{{ $item->name }}" />
                             </p>
                             <div class="info-product">

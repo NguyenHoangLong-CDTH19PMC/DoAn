@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="{{asset('assets/user/css/style.css')}}">
+<link rel="stylesheet" href="{{asset('assets/user/css/cart.css')}}">
 <link rel="stylesheet" href="{{asset('assets/user/css/media.css')}}">
 <link rel="stylesheet" href="{{asset('assets/user/css/animate.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/fontawesome/css/all.min.css')}}">

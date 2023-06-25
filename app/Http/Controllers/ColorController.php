@@ -11,10 +11,14 @@ use App\Http\Requests\xlAddRequestSize;
 
 class ColorController extends Controller
 {
-    public function getcolors()
-    {   
+    public function getcolors(Request $req)
+    {
         $limit =  10;
         $dscolor = TableColor::latest()->paginate($limit);
+        //kiểm tra xem nhập keyword chưa
+        if ($req->keyword != null) {
+            $dscolor = TableColor::where('name', 'like', '%' . $req->keyword . '%')->latest()->paginate($limit);
+        }
         // lấy trang hiện tại
         $current = $dscolor->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
@@ -22,7 +26,7 @@ class ColorController extends Controller
         $serial = $perSerial + 1;
         return view('.admin.color_size.color.list', compact('dscolor', 'serial'));
     }
-    
+
     public function Return_tpladm_addcolor()
     {
         return view('.admin.color_size.color.add');
@@ -35,21 +39,21 @@ class ColorController extends Controller
         // lưu các mục vào csdl
         $itemColor->name = $req->tenmau;
         $itemColor->code = $req->mamau;
-        
+
         $itemColor->save();
         return redirect()->route('mau-sac-admin');
     }
 
-    public function Return_tpladm_modifycolor(Request $req,$id)
+    public function Return_tpladm_modifycolor(Request $req, $id)
     {
         $itemColor = TableColor::find($id);
-        return view('.admin.color_size.color.modify', ['detailColor'=>$itemColor]);
+        return view('.admin.color_size.color.modify', ['detailColor' => $itemColor]);
     }
 
-    public function modifyColor(xlAddRequestColor $req,$id)
+    public function modifyColor(xlAddRequestColor $req, $id)
     {
         //tìm xem sản phẩm có hay không
-        $itemColor = TableColor::where('id',$id)->first();
+        $itemColor = TableColor::where('id', $id)->first();
         if ($itemColor == null) {
             return "không tìm thấy danh mục màu nào có ID = {$id} này ";
         }
@@ -74,10 +78,14 @@ class ColorController extends Controller
 
 
 
-    public function getsizes()
-    {   
+    public function getsizes(Request $req)
+    {
         $limit =  10;
         $dsSize = TableSize::latest()->paginate($limit);
+        //kiểm tra xem nhập keyword chưa
+        if ($req->keyword != null) {
+            $dsSize = TableSize::where('name', 'like', '%' . $req->keyword . '%')->latest()->paginate($limit);
+        }
         // lấy trang hiện tại
         $current = $dsSize->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
@@ -85,7 +93,7 @@ class ColorController extends Controller
         $serial = $perSerial + 1;
         return view('.admin.color_size.size.list', compact('dsSize', 'serial'));
     }
-    
+
     public function Return_tpladm_addsize()
     {
         return view('.admin.color_size.Size.add');
@@ -97,21 +105,21 @@ class ColorController extends Controller
         $itemSize = new TableSize();
         // lưu các mục vào csdl
         $itemSize->name = $req->tensize;
-        
+
         $itemSize->save();
         return redirect()->route('kich-thuoc-admin');
     }
 
-    public function Return_tpladm_modifysize(Request $req,$id)
+    public function Return_tpladm_modifysize(Request $req, $id)
     {
         $itemSize = TableSize::find($id);
-        return view('.admin.color_size.size.modify', ['detailSize'=>$itemSize]);
+        return view('.admin.color_size.size.modify', ['detailSize' => $itemSize]);
     }
 
-    public function modifySize(xlAddRequestSize $req,$id)
+    public function modifySize(xlAddRequestSize $req, $id)
     {
         //tìm xem sản phẩm có hay không
-        $itemSize = TableSize::where('id',$id)->first();
+        $itemSize = TableSize::where('id', $id)->first();
         if ($itemSize == null) {
             return "không tìm thấy size nào có ID = {$id} này";
         }

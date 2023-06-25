@@ -5,8 +5,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <ol class="breadcrumb float-sm-left pl-3">
-                        <li class="breadcrumb-item"><a href="{{ route('trang-chu-admin') }}" title="Bảng điều khiển">Bảng điều
-                                khiển</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('trang-chu-admin') }}" title="Bảng điều khiển">Bảng điều khiển</a></li>
+
+                        <li class="breadcrumb-item"><a href="{{ route('sanpham-lv1-admin') }}" title="Quản lý sản phẩm">Quản lý sản phẩm</a></li>
+
                         <li class="breadcrumb-item active">Chỉnh sửa sản phẩm</li>
                     </ol>
                 </div>
@@ -163,7 +165,7 @@
                                             <p class="photoUpload-or">hoặc</p>
                                             <p class="photoUpload-choose btn btn-sm bg-gradient-success">Chọn hình</p>
                                         </label>
-                                        <div class="photoUpload-dimension">Width: 270px - Height: 270px (.jpg|.png|.jpeg)</div>
+                                        <div class="photoUpload-dimension">Width: 270px - Height: 270px (.jpg|.png|.jpeg|.gif|.webp)</div>
                                     </div>
                                 </div>
                             </div>
