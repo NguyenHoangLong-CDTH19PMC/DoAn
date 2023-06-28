@@ -31,7 +31,7 @@
                                         <p class="photoUpload-choose btn btn-sm bg-gradient-success">Chọn hình</p>
                                     </label>
                                     <div class="photoUpload-dimension">Width: 270px - Height: 270px
-                                        (.jpg|.png|.jpeg|.gif|.webp)</div>
+                                        (.jpg|.png|.jpeg)</div>
                                 </div>
                             </div>
                         </div>

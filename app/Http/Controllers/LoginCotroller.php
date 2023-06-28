@@ -44,7 +44,7 @@ class LoginCotroller extends Controller
     {
         // tạo 1 chuỗi ngẫu nhiên 
         $random = Str::random(5);
-        $info = TableUser::where($id . 'id');
+        $info = TableUser::where('id', $id)->first();
         if ($info == null) {
             return "không tìm thấy người dùng nào có ID = {$id} này";
         }
@@ -55,15 +55,16 @@ class LoginCotroller extends Controller
         ($req->gender > 0) ? $info->gender = $req->gender : $info->gender = 1;
         $info->birthday = $req->birthday;
         $info->address = $req->address;
+        
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
-            if ($size > 10000) {
-                return redirect()->back();
+            if ($size > 51200) {
+                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 50MB ~ 51200KB";
             }
             // lọc ra đuôi file
             $extension = $req->file->getClientOriginalExtension();
-            if ($extension == 'jpg' || $extension == 'png' || $extension = 'jpeg' || $extension == 'gif' || $extension == 'webp') {
+            if ($extension == 'jpg' || $extension == 'png' || $extension = 'jpeg') {
                 // đổi tên hình
                 $filename = 'avatar-' . $random . '.' . $req->file->getClientOriginalExtension();
                 // lấy tên file để lưu vào csdl
@@ -71,8 +72,7 @@ class LoginCotroller extends Controller
                 //Lưu trữ file vào thư mục avatar trong public -> upload -> avatar
                 $req->file->move(public_path('upload/avatar/'), $filename);
             } else {
-
-                return redirect()->back();
+                return "Định dạng ảnh không đúng. Định dạng cho phép (.jpg|.png|.jpeg)";
             }
         }
         $info->save();

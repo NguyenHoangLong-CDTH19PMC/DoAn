@@ -9,7 +9,7 @@
                         <div class="css_flex_ajax">
                             @foreach ($dsProduct as $item)
                                 <div class="product">
-                                    <a href="" class="box-product text-decoration-none">
+                                    <a href="{{ route('chi-tiet-product', ['id'=>$item->id]) }}" class="box-product text-decoration-none">
                                         <p class="pic-product scale-img">
                                             <img class=""
                                                 onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"

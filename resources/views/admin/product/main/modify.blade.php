@@ -165,10 +165,31 @@
                                             <p class="photoUpload-or">hoặc</p>
                                             <p class="photoUpload-choose btn btn-sm bg-gradient-success">Chọn hình</p>
                                         </label>
-                                        <div class="photoUpload-dimension">Width: 270px - Height: 270px (.jpg|.png|.jpeg|.gif|.webp)</div>
+                                        <div class="photoUpload-dimension">Width: 270px - Height: 270px (.jpg|.png|.jpeg)</div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card card-primary card-outline text-sm">
+                        <div class="card-header">
+                            <h3 class="card-title">Album sản phẩm</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                        class="fas fa-minus"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body upload__box">
+                            <input type="hidden" name="gallery_table" id="gallery_table" value="gallery">
+                            <div class="form-group">
+                                <label for="filer-gallery" class="label-filer-gallery mb-3">Album hình:
+                                    (.jpg|.png|.jpeg)</label>
+                                <input type="file" name="filenames[]" id="filer-gallery" data-table="gallery"
+                                    multiple="multiple" data-max_length="50">
+                                <input type="hidden" class="col-filer"
+                                    value="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6">
+                            </div>
+                            <div class="upload__img-wrap"></div>
                         </div>
                     </div>
                 </form>

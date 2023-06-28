@@ -57,7 +57,7 @@ return new class extends Migration
             $table->foreign('id_brand')->references('id')->on('table_product_brand')->onDelete('set null');
             $table->unsignedBigInteger('id_type')->nullable();
             $table->foreign('id_type')->references('id')->on('table_product_type')->onDelete('set null');
-            $table->string('code',10)->nullable()->unique();
+            $table->string('code',10)->nullable();//->unique()
             $table->string('name');
             $table->text('content')->nullable();
             $table->string('photo')->nullable();
@@ -74,7 +74,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_product')->nullable();
             $table->foreign('id_product')->references('id')->on('table_product')->onDelete('set null');
-            $table->string('name');
             $table->string('photo')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -117,7 +116,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_role')->nullable();
             $table->foreign('id_role')->references('id')->on('table_role')->onDelete('set null');
             $table->string('name');
-            $table->int('gender');
+            $table->integer('gender');
             $table->string('birthday');
             $table->string('email');
             $table->string('phone',11);
@@ -125,6 +124,27 @@ return new class extends Migration
             $table->string('avatar');
             $table->string('username');
             $table->string('password');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        // tạo bảng TypeArticle
+        Schema::create('table_article_type', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        // tạo bảng Article
+        Schema::create('table_article', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_type')->nullable();
+            $table->foreign('id_type')->references('id')->on('table_article_type')->onDelete('set null');
+            $table->string('name');
+            $table->text('content')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

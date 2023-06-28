@@ -7,7 +7,7 @@
                     class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link link-home d-block">Home</a>
+            <a href="{{ route('trang-chu-user') }}" class="nav-link link-home d-block" target="_blank">Xem Webite <i class="fa-solid fa-arrow-up-right-from-square fa-xs ml-1"></i></a>
         </li>
     </ul>
 
@@ -236,6 +236,34 @@
                                 <p>Danh sách kích thước</p>
                             </a>
                         </li>
+                    </ul>
+                </li>
+                <li class="nav-item {{($name == 'bai-viet-admin'|| $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin' || $name == 'loai-bai-viet-admin' || $name == 'them-moi-loai-bai-viet-admin' || $name == 'sua-doi-loai-bai-viet-admin') ? "menu-open" : ""}}">
+                    <a class="nav-link {{($name == 'bai-viet-admin' || $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin' || $name == 'loai-bai-viet-admin' || $name == 'them-moi-loai-bai-viet-admin' || $name == 'sua-doi-loai-bai-viet-admin') ? "active" : ""}} ">
+                        <i class="nav-icon fas fa-duotone fa-clipboard"></i>
+                        <p>
+                           Quản lý Bài Viết
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('bai-viet-admin')}}" class="nav-link {{($name == 'bai-viet-admin' || $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin') ? "active" : ""}}">
+                                <i class="nav-icon-small fas fa-circle fa-2xs"></i>
+                                <p>Danh sách bài viết</p>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('loai-bai-viet-admin')}}" class="nav-link {{($name == 'loai-bai-viet-admin' || $name == 'them-moi-loai-bai-viet-admin' || $name == 'sua-doi-loai-bai-viet-admin') ? "active" : ""}}">
+                                <i class="nav-icon-small fas fa-circle fa-2xs"></i>
+                                <p>Danh sách loại bài viết</p>
+                            </a>
+                        </li>
+                        
                     </ul>
                 </li>
             </ul>

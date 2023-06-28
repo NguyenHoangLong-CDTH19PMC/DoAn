@@ -22,15 +22,18 @@
                 {{-- <a class="btn btn-sm bg-gradient-danger text-white" id="delete-all" title="Xóa tất cả"><i
                         class="far fa-trash-alt mr-2"></i>Xóa tất cả</a> --}}
                 <div class="form-inline form-search d-inline-block align-middle ml-3">
-                    <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar text-sm" type="search" id="keyword"
-                            placeholder="Tìm kiếm" aria-label="Tìm kiếm" value="">
-                        <div class="input-group-append bg-primary rounded-right">
-                            <button class="btn btn-navbar text-white" type="button">
-                                <i class="fas fa-search"></i>
-                            </button>
+                    <form action="{{route('mau-sac-admin')}}" method="get">
+                        <div class="input-group input-group-sm">
+                            <input class="form-control form-control-navbar text-sm" type="search" name="keyword" id="keyword"
+                                placeholder="Tìm kiếm" aria-label="Tìm kiếm" value="">
+                            <input type="hidden" value="">
+                            <div class="input-group-append bg-primary rounded-right" >
+                                <button class="btn btn-navbar text-white" type="submit" id="btn-search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
 
