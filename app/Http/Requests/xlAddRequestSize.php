@@ -30,7 +30,7 @@ class xlAddRequestSize extends FormRequest
     public function messages()
     {
         return[
-            'tensize.required'=> 'Chưa nhập tên sản phẩm',
+            'tensize.required'=> 'Chưa nhập kích thước',
         ];
     }
 }

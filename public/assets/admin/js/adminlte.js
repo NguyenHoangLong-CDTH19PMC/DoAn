@@ -4050,38 +4050,22 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $(".delete-item").on("click", function () {
-        var href = $(this).data("href");
-        $("#popup-notify-delete #del-data").attr("href", href);
+    $(".form-ckeditor").each(function (vitriInArr, valOfElement) {
+        var data_editor = $(".form-ckeditor").val();
+        ClassicEditor.create(document.querySelector(".form-ckeditor"), {
+            fontSize: {
+                options: [9, 11, 13, "default", 17, 19, 21, 32],
+            },
+        }).catch((error) => {
+            console.error(error);
+        });
     });
 });
-
-$(document).ready(function(){
-    $(".form-ckeditor").each(function(vitriInArr,valOfElement){
-        var data_editor = $(".form-ckeditor").val();
-        ClassicEditor.create( document.querySelector(".form-ckeditor"), {
-            fontSize: {
-                options: [
-                    9,
-                    11,
-                    13,
-                    'default',
-                    17,
-                    19,
-                    21,
-                    32
-                ]
-            }} )
-        .catch( error => {
-            console.error( error );
-        } );
-    })
-})
 
 /* Reader image */
 function readImage(inputFile, elementPhoto) {
     if (inputFile[0].files[0]) {
-        if (inputFile[0].files[0].name.match(/.(jpg|jpeg|png|gif)$/i)) {
+        if (inputFile[0].files[0].name.match(/.(jpg|jpeg|png)$/i)) {
             var size = parseInt(inputFile[0].files[0].size) / 1024;
 
             if (size <= 4096) {
@@ -4153,37 +4137,163 @@ if ($("#photo-zone").length) {
     photoZone("#photo-zone", "#file-zone", "#photoUpload-preview img");
 }
 
-// $(document).ready(function(){
-//     $('submit-check').on('click',function(){
-//         if(hasClass('.check-valid')){
-//             addClass('is-invalid');
-//         }
-//     })
-// })
-
 /* Sumoselect */
-if ($('.multiselect').length) {
-    $('.multiselect').SumoSelect({
-        placeholder: 'Chọn danh mục',
+if ($(".multiselect").length) {
+    $(".multiselect").SumoSelect({
+        placeholder: "Chọn danh mục",
         selectAll: true,
         search: true,
-        searchText: 'Tìm kiếm',
-        locale: ['OK', 'Hủy', 'Chọn hết'],
-        captionFormat: 'Đã chọn {0} mục',
-        captionFormatAllSelected: 'Đã chọn tất cả {0} mục'
+        searchText: "Tìm kiếm",
+        locale: ["OK", "Hủy", "Chọn hết"],
+        captionFormat: "Đã chọn {0} mục",
+        captionFormatAllSelected: "Đã chọn tất cả {0} mục",
     });
 }
 
-$('.custom-control-input').on('click',function(){
-    var dataID= $(this).parent().parent().parent().data('id');
-    var dataStatus = $(this).data('attr');
+$(".custom-control-input").on("click", function () {
+    var dataID = $(this).parent().parent().parent().data("id");
+    var dataStatus = $(this).data("attr");
     $.ajax({
         // type: "post",
         url: "/admin/status",
-        data: {id:dataID,status:dataStatus},
-        
-    })
-    .done(function(result) {
-        
+        data: { id: dataID, status: dataStatus },
+    }).done(function (result) {});
+});
+
+$(".nav-link").on("click", function () {
+    $(this).parents(".dropdown").find(".dropdown-menu").slideToggle(500);
+});
+
+/* Show password */
+$(".show").click(function () {
+    if ($("#old-password").val()) {
+        if ($(this).hasClass("active")) {
+            $(this).removeClass("active");
+            $("#old-password").attr("type", "password");
+        } else {
+            $(this).addClass("active");
+            $("#old-password").attr("type", "text");
+        }
+        $(this).find("span").toggleClass("fas fa-eye fas fa-eye-slash");
+    }
+});
+
+/* Show password */
+$(".show-icon").click(function () {
+    if ($(".show-value").val()) {
+        if ($(this).hasClass("active")) {
+            $(this).removeClass("active");
+            $(".show-value").attr("type", "password");
+        } else {
+            $(this).addClass("active");
+            $(".show-value").attr("type", "text");
+        }
+        $(this).find("span").toggleClass("fas fa-eye fas fa-eye-slash");
+    }
+});
+
+if ($("#filer-gallery").length) {
+    var table = $("#gallery_table")[0].value;
+
+    $("#filer-gallery").filer({
+        limit: null,
+        maxSize: null,
+        extensions: ["jpg", "png", "jpeg", "JPG", "PNG", "JPEG", "Png"],
+        changeInput:
+            '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Kéo và thả hình vào đây</h3> <span style="display:inline-block; margin: 15px 0">hoặc</span></div><a class="jFiler-input-choose-btn blue">Chọn hình</a></div></div>',
+        theme: "dragdropbox",
+        showThumbs: false,
+        addMore: true,
+        allowDuplicates: false,
+        clipBoardPaste: false,
+        dragDrop: {
+            dragEnter: null,
+            dragLeave: null,
+            drop: null,
+            dragContainer: null,
+        },
+        captions: {
+            button: "Thêm hình",
+            feedback: "Vui lòng chọn hình ảnh",
+            feedback2: "Những hình đã được chọn",
+            drop: "Kéo hình vào đây để upload",
+            removeConfirmation: "Bạn muốn loại bỏ hình ảnh này ?",
+            errors: {
+                filesLimit: "Chỉ được upload mỗi lần {{fi-limit}} hình ảnh",
+                filesType:
+                    "Chỉ hỗ trợ tập tin là hình ảnh có định dạng: {{fi-extensions}}",
+                filesSize:
+                    "Hình {{fi-name}} có kích thước quá lớn. Vui lòng upload hình ảnh có kích thước tối đa {{fi-maxSize}} MB.",
+                filesSizeAll:
+                    "Những hình ảnh bạn chọn có kích thước quá lớn. Vui lòng chọn những hình ảnh có kích thước tối đa {{fi-maxSize}} MB.",
+            },
+        },
     });
-})
+}
+
+$(document).ready(function () {
+    function ImgUpload() {
+        var imgWrap = "";
+        var imgArray = [];
+
+        $("#filer-gallery").each(function () {
+            $(this).on("change", function (e) {
+                imgWrap = $(this)
+                    .closest(".upload__box")
+                    .find(".upload__img-wrap");
+                var maxLength = $(this).attr("data-max_length");
+
+                var files = e.target.files;
+                var filesArr = Array.prototype.slice.call(files);
+                var iterator = 0;
+                filesArr.forEach(function (f, index) {
+                    if (!f.type.match("image.*")) {
+                        return;
+                    }
+
+                    if (imgArray.length > maxLength) {
+                        return false;
+                    } else {
+                        var len = 0;
+                        for (var i = 0; i < imgArray.length; i++) {
+                            if (imgArray[i] !== undefined) {
+                                len++;
+                            }
+                        }
+                        if (len > maxLength) {
+                            return false;
+                        } else {
+                            imgArray.push(f);
+
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                var html =
+                                    "<div class='upload__img-box'><div style='background-image: url(" +
+                                    e.target.result +
+                                    ")' data-number='" +
+                                    $(".upload__img-close").length +
+                                    "' data-file='" +
+                                    f.name +
+                                    "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+                                imgWrap.append(html);
+                                iterator++;
+                            };
+                            reader.readAsDataURL(f);
+                        }
+                    }
+                });
+            });
+        });
+
+        $("body").on("click", ".upload__img-close", function (e) {
+            var file = $(this).parent().data("file");
+            for (var i = 0; i < imgArray.length; i++) {
+                if (imgArray[i].name === file) {
+                    imgArray.splice(i, 1);
+                    break;
+                }
+            }
+            $(this).parent().parent().remove();
+        });
+    }
+});

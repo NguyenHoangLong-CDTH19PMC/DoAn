@@ -1,3 +1,8 @@
+<?php 
+$name = Route::currentRouteName(); 
+date_default_timezone_set('Asia/Ho_Chi_Minh'); 
+$yearnow =  date("Y", time()) ;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +19,7 @@
         @include('user.layouts.header')
         @include('user.layouts.menu')
         @include('user.layouts.mmenu')
-        @include('user.layouts.slide')
+         @include('user.layouts.slide')   
         <div class="wap-home">
             @yield('body')
         </div>

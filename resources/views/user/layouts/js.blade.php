@@ -3,6 +3,8 @@
 </script>
 <script src="{{ asset('assets/user/js/wow.min.js') }}"></script>
 <script src="{{ asset('assets/user/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/fontawesome/js/all.min.js') }}"></script>
+<script src="{{ asset('assets/user/bootstrap/bootstrap.js') }}"></script>
 <script src="{{ asset('assets/user/js/app.js') }}"></script>
 <script src="{{ asset('assets/user/slick/slick.min.js') }}"></script>
 <script src="{{ asset('assets/user/owlcarousel2/owl.carousel.js') }}"></script>

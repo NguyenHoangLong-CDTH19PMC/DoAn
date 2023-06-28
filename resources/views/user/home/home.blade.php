@@ -7,32 +7,44 @@
                 <div class="deco"></div>
             </div>
             <div class="page_moi css_flex_ajax">
-                @foreach ($dsProduct as $item)
+                @foreach ($dsProductNew as $item)
                     <div class="product">
-                        <a href="" class="box-product text-decoration-none">
+                        <a href="{{ route('chi-tiet-product', ['id'=>$item->id]) }}" class="box-product text-decoration-none">
                             <p class="pic-product scale-img">
-                                <img class="rounded" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
-                                    src="{{ asset('upload/product/' . $item->photo) }}" alt="Alt Photo" style=""
+                                <img class="" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
+                                    src="{{ asset('upload/product/' . $item->photo) }}" style=""
                                     alt="{{ $item->name }}" />
                             </p>
                             <div class="info-product">
                                 <h3 class="name-product text-split">{{ $item->name }}</h3>
-                                <span class="price-per">-50%</span>
+
                             </div>
                         </a>
-                        <div class="price-product">
-                            
-                            <div class="layout-price">
-                                <p>Giá: <span class="price-old">{{ $item->price_regular }}</span></p>
-                                <p>Giảm giá: <span class=" price-new">{{ $item->sale_price }}</span></p>
-                            </div>
-                            <p class="btn-addcart text-decoration-none"><span>Thêm vào giỏ hàng</span></p>
+                        <div class="layout-price">
+                            <p class="price-product">
+                                <span class="label-price">Giá:</span>
+                                @if ($item->sale_price > 0)
+                                    <span class="price-new">{{ formatMoney($item->sale_price) }}</span>
+                                    <span class="price-old">{{ formatMoney($item->price_regular) }}</span>
+                                    <span
+                                        class="price-per">{{ round(100 - ($item->sale_price / $item->price_regular) * 100) }}%</span>
+                                @else
+                                    <span
+                                        class="price-new">{{ formatMoney($item->price_regular) ? formatMoney($item->price_regular) : 'Liên hệ' }}</span>
+                                @endif
+                            </p>
+
+                            <p class="cart-product text-decoration-none">
+                                <span class="btn-add cart-add addcart">
+                                    <i class="fas fa-cart-plus"></i>
+                                </span>
+                            </p>
                         </div>
                     </div>
                 @endforeach
 
             </div>
-            <p class="xemthem-sp"><a href="">Xem thêm</a></p>
+            <p class="xemthem-sp"><a href="" class="text-decoration-none">Xem thêm</a></p>
         </div>
     </div>
 
@@ -46,7 +58,7 @@
                 </div>
                 <div class="wap_center">
                     <div class="title-main">
-                        <?php /*<p><?=substr($get_1bv['name'.$lang], 0,30)?> ?> ?></p>
+                        <?php /*<p><?=substr($get_1bv['name'.$lang], 0,30)?> ?> ?> ?> ?> ?></p>
                         <span><?= substr($get_1bv['name' . $lang], 30) ?></span>*/?>
                         <span>Giới thiệu về công ty</span>
                     </div>
@@ -81,142 +93,43 @@
                 <div class="deco"></div>
             </div>
             <div class="chay-sp">
-                <div class="product">
-                    <a href="" class="box-product text-decoration-none">
-                        <p class="pic-product scale-img"><img src="{{ asset('assets/user/images/poduct-1.jpg') }}"
-                                alt=""></p>
-                        <div class="info-product">
-                            <h3 class="name-product text-split">Tên sản phẩm 1</h3>
-                            <span class="price-per">-50%</span>
+                @foreach ($dsProductOutsanding as $item)
+                    <div class="product">
+                        <a href="{{ route('chi-tiet-product', ['id'=>$item->id]) }}" class="box-product text-decoration-none">
+                            <p class="pic-product scale-img">
+                                <img class="rounded" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
+                                    src="{{ asset('upload/product/' . $item->photo) }}" alt="Alt Photo" style=""
+                                    alt="{{ $item->name }}" />
+                            </p>
+                            <div class="info-product">
+                                <h3 class="name-product text-split">{{ $item->name }}</h3>
+
+                            </div>
+                        </a>
+                        <div class="layout-price">
+
+
+                            <p class="price-product">
+                                <span class="label-price">Giá:</span>
+                                @if ($item->sale_price > 0)
+                                    <span class="price-new">{{ formatMoney($item->sale_price) }}</span>
+                                    <span class="price-old">{{ formatMoney($item->price_regular) }}</span>
+                                    <span
+                                        class="price-per">{{ round(100 - ($item->sale_price / $item->price_regular) * 100) }}%</span>
+                                @else
+                                    <span
+                                        class="price-new">{{ formatMoney($item->price_regular) ? formatMoney($item->price_regular) : 'Liên hệ' }}</span>
+                                @endif
+                            </p>
+
+                            <p class="cart-product text-decoration-none">
+                                <span class="btn-add cart-add addcart">
+                                    <i class="fas fa-cart-plus"></i>
+                                </span>
+                            </p>
                         </div>
-                    </a>
-                    <div class="price-product">
-                        <div class="wap-price">
-                            <p>Giá: <span class="price-old">1.000.000vnđ</span></p>
-                            <p>Giảm giá: <span class=" price-new">500.000vnđ</span></p>
-                        </div>
-                        <a href="" class="btn-addcart text-decoration-none "><span>Thêm vào giỏ hàng</span></a>
                     </div>
-                </div>
-                <div class="product">
-                    <a href="" class="box-product text-decoration-none">
-                        <p class="pic-product scale-img"><img src="{{ asset('assets/user/images/poduct-2.jpg') }}"
-                                alt=""></p>
-                        <div class="info-product">
-                            <h3 class="name-product text-split">Tên sản phẩm 2</h3>
-                            <span class="price-per">-50%</span>
-                        </div>
-                    </a>
-                    <div class="price-product">
-                        <div class="wap-price">
-                            <p>Giá: <span class="price-old">1.000.000vnđ</span></p>
-                            <p>Giảm giá: <span class=" price-new">500.000vnđ</span></p>
-                        </div>
-                        <a href="" class="btn-addcart text-decoration-none"><span>Thêm vào giỏ hàng</span></a>
-                    </div>
-                </div>
-                <div class="product">
-                    <a href="" class="box-product text-decoration-none">
-                        <p class="pic-product scale-img"><img src="{{ asset('assets/user/images/poduct-3.jpg') }}"
-                                alt=""></p>
-                        <div class="info-product">
-                            <h3 class="name-product text-split">Tên sản phẩm 3</h3>
-                            <span class="price-per">-50%</span>
-                        </div>
-                    </a>
-                    <div class="price-product">
-                        <div class="wap-price">
-                            <p>Giá: <span class="price-old">1.000.000vnđ</span></p>
-                            <p>Giảm giá: <span class=" price-new">500.000vnđ</span></p>
-                        </div>
-                        <a href="" class="btn-addcart text-decoration-none"><span>Thêm vào giỏ hàng</span></a>
-                    </div>
-                </div>
-                <div class="product">
-                    <a href="" class="box-product text-decoration-none">
-                        <p class="pic-product scale-img"><img src="{{ asset('assets/user/images/poduct-4.jpg') }}"
-                                alt=""></p>
-                        <div class="info-product">
-                            <h3 class="name-product text-split">Tên sản phẩm 4</h3>
-                            <span class="price-per">-50%</span>
-                        </div>
-                    </a>
-                    <div class="price-product">
-                        <div class="wap-price">
-                            <p>Giá: <span class="price-old">1.000.000vnđ</span></p>
-                            <p>Giảm giá: <span class=" price-new">500.000vnđ</span></p>
-                        </div>
-                        <a href="" class="btn-addcart text-decoration-none"><span>Thêm vào giỏ hàng</span></a>
-                    </div>
-                </div>
-                <div class="product">
-                    <a href="" class="box-product text-decoration-none">
-                        <p class="pic-product scale-img"><img src="{{ asset('assets/user/images/poduct-5.jpg') }}"
-                                alt=""></p>
-                        <div class="info-product">
-                            <h3 class="name-product text-split">Tên sản phẩm 5</h3>
-                            <span class="price-per">-50%</span>
-                        </div>
-                    </a>
-                    <div class="price-product">
-                        <div class="wap-price">
-                            <p>Giá: <span class="price-old">1.000.000vnđ</span></p>
-                            <p>Giảm giá: <span class=" price-new">500.000vnđ</span></p>
-                        </div>
-                        <a href="" class="btn-addcart text-decoration-none"><span>Thêm vào giỏ hàng</span></a>
-                    </div>
-                </div>
-                <div class="product">
-                    <a href="" class="box-product text-decoration-none">
-                        <p class="pic-product scale-img"><img src="{{ asset('assets/user/images/poduct-6.jpg') }}"
-                                alt=""></p>
-                        <div class="info-product">
-                            <h3 class="name-product text-split">Tên sản phẩm 6</h3>
-                            <span class="price-per">-50%</span>
-                        </div>
-                    </a>
-                    <div class="price-product">
-                        <div class="wap-price">
-                            <p>Giá: <span class="price-old">1.000.000vnđ</span></p>
-                            <p>Giảm giá: <span class=" price-new">500.000vnđ</span></p>
-                        </div>
-                        <a href="" class="btn-addcart text-decoration-none"><span>Thêm vào giỏ hàng</span></a>
-                    </div>
-                </div>
-                <div class="product">
-                    <a href="" class="box-product text-decoration-none">
-                        <p class="pic-product scale-img"><img src="{{ asset('assets/user/images/poduct-7.jpg') }}"
-                                alt=""></p>
-                        <div class="info-product">
-                            <h3 class="name-product text-split">Tên sản phẩm 7</h3>
-                            <span class="price-per">-50%</span>
-                        </div>
-                    </a>
-                    <div class="price-product">
-                        <div class="wap-price">
-                            <p>Giá: <span class="price-old">1.000.000vnđ</span></p>
-                            <p>Giảm giá: <span class=" price-new">500.000vnđ</span></p>
-                        </div>
-                        <a href="" class="btn-addcart text-decoration-none"><span>Thêm vào giỏ hàng</span></a>
-                    </div>
-                </div>
-                <div class="product">
-                    <a href="" class="box-product text-decoration-none">
-                        <p class="pic-product scale-img"><img src="{{ asset('assets/user/images/poduct-8.jpg') }}"
-                                alt=""></p>
-                        <div class="info-product">
-                            <h3 class="name-product text-split">Tên sản phẩm 8</h3>
-                            <span class="price-per">-50%</span>
-                        </div>
-                    </a>
-                    <div class="price-product">
-                        <div class="wap-price">
-                            <p>Giá: <span class="price-old">1.000.000vnđ</span></p>
-                            <p>Giảm giá: <span class=" price-new">500.000vnđ</span></p>
-                        </div>
-                        <a href="" class="btn-addcart text-decoration-none"><span>Thêm vào giỏ hàng</span></a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

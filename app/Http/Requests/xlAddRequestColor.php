@@ -30,7 +30,7 @@ class xlAddRequestColor extends FormRequest
     public function messages()
     {
         return[
-            'tenmau.required'=> 'Chưa nhập tên sản phẩm',
+            'tenmau.required'=> 'Chưa nhập màu sắc',
         ];
     }
 }

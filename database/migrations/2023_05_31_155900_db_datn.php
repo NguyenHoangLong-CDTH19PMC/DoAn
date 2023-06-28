@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        // tạo bảng danh mục cấp 1 product
-        Schema::create('table_product_level1', function (Blueprint $table) {
+        // tạo bảng Thương hiệu
+        Schema::create('table_product_brand', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->text('content')->nullable();
@@ -23,11 +23,9 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        // tạo bảng danh mục cấp 2 product
-        Schema::create('table_product_level2', function (Blueprint $table) {
+        // tạo bảng Loại Product
+        Schema::create('table_product_type', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_level1')->nullable();
-            $table->foreign('id_level1')->references('id')->on('table_product_level1')->onDelete('set null');
             $table->string('name');
             $table->text('content')->nullable();
             $table->string('photo')->nullable();
@@ -35,7 +33,7 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        // tạo bảng color
+        // tạo bảng Color
         Schema::create('table_color', function (Blueprint $table) {
             $table->id();
             $table->string('code')->nullable();
@@ -44,7 +42,7 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        // tạo bảng size
+        // tạo bảng Size
         Schema::create('table_size', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -52,30 +50,30 @@ return new class extends Migration
             $table->softDeletes();
         });
      
-        // tạo bảng product
+        // tạo bảng Product
         Schema::create('table_product', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_level1')->nullable();
-            $table->foreign('id_level1')->references('id')->on('table_product_level1')->onDelete('set null');
-            $table->unsignedBigInteger('id_level2')->nullable();
-            $table->foreign('id_level2')->references('id')->on('table_product_level2')->onDelete('set null');
-            $table->string('code',10)->nullable();
+            $table->unsignedBigInteger('id_brand')->nullable();
+            $table->foreign('id_brand')->references('id')->on('table_product_brand')->onDelete('set null');
+            $table->unsignedBigInteger('id_type')->nullable();
+            $table->foreign('id_type')->references('id')->on('table_product_type')->onDelete('set null');
+            $table->string('code',10)->nullable();//->unique()
             $table->string('name');
             $table->text('content')->nullable();
             $table->string('photo')->nullable();
             $table->double('price_regular')->nullable();
             $table->double('sale_price')->nullable();
             $table->string('status')->nullable();
+            $table->integer('quantity')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
 
-        // tạo bảng album
+        // tạo bảng Album
         Schema::create('table_album', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_product')->nullable();
             $table->foreign('id_product')->references('id')->on('table_product')->onDelete('set null');
-            $table->string('name');
             $table->string('photo')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -102,6 +100,54 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+
+        // tạo bảng Role
+        Schema::create('table_role', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        // tạo bảng User
+        Schema::create('table_user', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_role')->nullable();
+            $table->foreign('id_role')->references('id')->on('table_role')->onDelete('set null');
+            $table->string('name');
+            $table->integer('gender');
+            $table->string('birthday');
+            $table->string('email');
+            $table->string('phone',11);
+            $table->string('address');
+            $table->string('avatar');
+            $table->string('username');
+            $table->string('password');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        // tạo bảng TypeArticle
+        Schema::create('table_article_type', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        // tạo bảng Article
+        Schema::create('table_article', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_type')->nullable();
+            $table->foreign('id_type')->references('id')->on('table_article_type')->onDelete('set null');
+            $table->string('name');
+            $table->text('content')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('status')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
@@ -112,11 +158,12 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('table_product');
-        Schema::dropIfExists('table_product_level1');
-        Schema::dropIfExists('table_product_level2');
-        Schema::dropIfExists('table_product_level3');
+        Schema::dropIfExists('table_product_brand');
+        Schema::dropIfExists('table_product_type');
         Schema::dropIfExists('table_color');
         Schema::dropIfExists('table_size');
         Schema::dropIfExists('table_album');
+        Schema::dropIfExists('table_role');
+        Schema::dropIfExists('table_user');
     }
 };
