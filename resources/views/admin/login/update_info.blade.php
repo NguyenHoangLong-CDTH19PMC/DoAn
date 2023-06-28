@@ -16,10 +16,6 @@
                         <div class="card card-primary card-outline text-sm">
                             <div class="card-header">
                                 <h3 class="card-title">Avatar</h3>
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                            class="fas fa-minus"></i></button>
-                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="photoUpload-zone">
@@ -44,24 +40,19 @@
                     <div class="col-xl-8">
                         <div class="card card-primary card-outline text-sm">
                             <div class="card-header">
-                                <h3 class="card-title">Xin chào bạn {{ Auth::guard('user')->user()->name }}</h3>
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                            class="fas fa-minus"></i></button>
-                                </div>
+                                <h3 class="card-title">Thông tin người dùng</h3>
                             </div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label for="username">Tài khoản: <span class="text-danger">*</span></label>
+                                        <label for="username">Tên đăng nhập: <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control text-sm" name="username"
-                                            id="username" placeholder="Tài khoản" value="{{ Auth::guard('user')->user()->username }}" readonly>
+                                            id="username" placeholder="Tên đăng nhập" value="{{ Auth::guard('user')->user()->username }}" readonly>
                                     </div>
-                                    {{-- <div class="form-group col-md-6">
+                                    <div class="form-group col-md-6 btn-change-password">
                                         <label for="username">Mật khẩu: <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control text-sm" name="username"
-                                            id="username" placeholder="Tài khoản" value="{{ Auth::guard('user')->user()->username }}" readonly>
-                                    </div> --}}
+                                        <a class="w-100" href="{{ route('doi-matkhau-admin', ['id'=>Auth::guard('user')->user()->id]) }}">Đổi mật khẩu</a>
+                                    </div>
                                     <div class="form-group col-md-6">
                                         <label for="fullname">Họ tên: <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control text-sm" name="fullname" id="fullname"

@@ -775,9 +775,15 @@ img:not([src]) {
     text-align: center;
     border-radius: 100%;
 }
-.li-last{display: flex;align-items: center;}
 
-.ml-auto{margin-left: auto;}
+.li-last {
+    display: flex;
+    align-items: center;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
 
 .menu ul li:hover>a.has-child {
     color: #ffcc00;
@@ -1193,7 +1199,7 @@ img:not([src]) {
 }
 
 /* Product Detail */
-/* .grid-pro-detail {
+.grid-pro-detail {
     margin-bottom: 3rem;
 }
 
@@ -1371,7 +1377,7 @@ img:not([src]) {
 
 .list-news-other li a:hover {
     color: #ec2d3f;
-} */
+} 
 
 /* Contact */
 /* .contact-article {
@@ -3726,7 +3732,8 @@ div.dienthoai-yahoo span a:hover {
     border: 1px solid #de2331;
     cursor: pointer;
 }
-.cart-product::before{
+
+.cart-product::before {
     content: "";
     position: absolute;
     top: 0;
@@ -3738,7 +3745,10 @@ div.dienthoai-yahoo span a:hover {
     transform: translateX(-100%);
     transition: 0.5s ease-in-out;
 }
-.cart-product:hover::before{transform: translateX(0);} 
+
+.cart-product:hover::before {
+    transform: translateX(0);
+}
 
 .cart-product span {
     cursor: pointer;
@@ -3753,7 +3763,10 @@ div.dienthoai-yahoo span a:hover {
     padding: 0;
     transition: 0.5s ease-in-out;
 }
-.cart-product:hover span{color:#fff;}
+
+.cart-product:hover span {
+    color: #fff;
+}
 
 /* San pham moi o trang chu */
 .page_moi {
@@ -4233,3 +4246,20 @@ div.chay-sp .slick-next {
     -o-transition: all 400ms linear;
     transition: all 400ms linear;
 }
+
+/* .box-product {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+} */
+
+.template-pro{margin: 40px 0;}
+.quantity-pro-detail{width:100%;max-width:110px;line-height:normal;text-align:center;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+.quantity-pro-detail span{line-height:25px;padding:0px;width:30px;height:30px;color:#5f5f5f;cursor:pointer;font-size:22px;border:1px solid #cccccc}
+.quantity-pro-detail span.quantity-plus-pro-detail{border-left:0px}
+.quantity-pro-detail span.quantity-minus-pro-detail{border-right:0px}
+.quantity-pro-detail input{height:30px;border:1px solid #cccccc;width:calc(100% - 60px);text-align:center;font-size:14px;padding:5px}
+
+.wap_detail{max-width: 1200px;
+    margin: 40px auto;
+    padding: 0px;}

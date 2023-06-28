@@ -5,8 +5,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <ol class="breadcrumb float-sm-left pl-3">
-                        <li class="breadcrumb-item"><a href="{{ route('trang-chu-admin') }}" title="Bảng điều khiển">Bảng điều
-                                khiển</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('trang-chu-admin') }}" title="Bảng điều khiển">Bảng điều khiển</a></li>
+
+                        <li class="breadcrumb-item"><a href="{{ route('sanpham-lv1-admin') }}" title="Quản lý sản phẩm">Quản lý sản phẩm</a></li>
+
                         <li class="breadcrumb-item active">Chỉnh sửa sản phẩm</li>
                     </ol>
                 </div>
@@ -167,6 +169,27 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card card-primary card-outline text-sm">
+                        <div class="card-header">
+                            <h3 class="card-title">Album sản phẩm</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                        class="fas fa-minus"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body upload__box">
+                            <input type="hidden" name="gallery_table" id="gallery_table" value="gallery">
+                            <div class="form-group">
+                                <label for="filer-gallery" class="label-filer-gallery mb-3">Album hình:
+                                    (.jpg|.png|.jpeg)</label>
+                                <input type="file" name="filenames[]" id="filer-gallery" data-table="gallery"
+                                    multiple="multiple" data-max_length="50">
+                                <input type="hidden" class="col-filer"
+                                    value="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6">
+                            </div>
+                            <div class="upload__img-wrap"></div>
                         </div>
                     </div>
                 </form>

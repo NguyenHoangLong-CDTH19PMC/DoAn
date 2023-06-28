@@ -1,18 +1,17 @@
 <div class="menu">
     <div class="wrap-content">
         <ul class="menu-main menu_desktop">
-            <li><a class="transition" href="" title="Trang chủ">Trang chủ</a></li>
+            <li><a class="transition {{($name == "" || $name =="trang-chu-user") ? "active" : ""}}" href="{{ route('trang-chu-user') }}" title="Trang chủ">Trang chủ</a></li>
             <li class="menu-line"></li>
             <li><a class="transition" href="" title="Giới thiệu">Giới thiệu</a></li>
             <li class="menu-line"></li>
             <li>
-                <a class="has-child transition" href="" title="sản phẩm">sản phẩm</a>
+                <a class="transition {{($name =="lay-ds-product") ? "active" : ""}}" href="{{ route('lay-ds-product') }}" title="sản phẩm">sản phẩm</a>
                         
             </li>
             <li class="menu-line"></li>
             <li>
-                <a class="has-child transition" href="" title="Tin tức">Tin tức</a>
-                
+                <a class="transition" href="" title="Tin tức">Tin tức</a>
             </li>            
             <li class="menu-line"></li>
             <li><a class="transition" href="" title="Liên hệ">Liên hệ</a></li>
@@ -21,7 +20,7 @@
                     <input type="text" id="keyword" placeholder="Nhập từ khoá..." />
                     <p ><i class="fas fa-search"></i></p>
                 </div>
-                <a href="" class="li-cart d-block">
+                <a href="{{ route('lay-gio-hang') }}" class="li-cart d-block">
                     <div class="cart">
                         <div class="ico-cart">
                             <i class="fa-solid fa-cart-shopping"></i>

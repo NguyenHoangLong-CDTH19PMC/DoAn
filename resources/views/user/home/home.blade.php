@@ -9,10 +9,10 @@
             <div class="page_moi css_flex_ajax">
                 @foreach ($dsProductNew as $item)
                     <div class="product">
-                        <a href="" class="box-product text-decoration-none">
+                        <a href="{{ route('chi-tiet-product', ['id'=>$item->id]) }}" class="box-product text-decoration-none">
                             <p class="pic-product scale-img">
-                                <img class="rounded" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
-                                    src="{{ asset('upload/product/' . $item->photo) }}" alt="Alt Photo" style=""
+                                <img class="" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
+                                    src="{{ asset('upload/product/' . $item->photo) }}" style=""
                                     alt="{{ $item->name }}" />
                             </p>
                             <div class="info-product">
@@ -21,18 +21,16 @@
                             </div>
                         </a>
                         <div class="layout-price">
-
-
                             <p class="price-product">
                                 <span class="label-price">Giá:</span>
                                 @if ($item->sale_price > 0)
-                                    <span class="price-new">{{ $item->sale_price }}</span>
-                                    <span class="price-old">{{ $item->price_regular }}</span>
+                                    <span class="price-new">{{ formatMoney($item->sale_price) }}</span>
+                                    <span class="price-old">{{ formatMoney($item->price_regular) }}</span>
                                     <span
-                                        class="price-per">-{{ round(100 - ($item->sale_price / $item->price_regular) * 100) }}%</span>
+                                        class="price-per">{{ round(100 - ($item->sale_price / $item->price_regular) * 100) }}%</span>
                                 @else
                                     <span
-                                        class="price-new">{{ $item->price_regular ? $item->price_regular : 'Liên hệ' }}</span>
+                                        class="price-new">{{ formatMoney($item->price_regular) ? formatMoney($item->price_regular) : 'Liên hệ' }}</span>
                                 @endif
                             </p>
 
@@ -97,7 +95,7 @@
             <div class="chay-sp">
                 @foreach ($dsProductOutsanding as $item)
                     <div class="product">
-                        <a href="" class="box-product text-decoration-none">
+                        <a href="{{ route('chi-tiet-product', ['id'=>$item->id]) }}" class="box-product text-decoration-none">
                             <p class="pic-product scale-img">
                                 <img class="rounded" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
                                     src="{{ asset('upload/product/' . $item->photo) }}" alt="Alt Photo" style=""
@@ -114,13 +112,13 @@
                             <p class="price-product">
                                 <span class="label-price">Giá:</span>
                                 @if ($item->sale_price > 0)
-                                    <span class="price-new">{{ $item->sale_price }}</span>
-                                    <span class="price-old">{{ $item->price_regular }}</span>
+                                    <span class="price-new">{{ formatMoney($item->sale_price) }}</span>
+                                    <span class="price-old">{{ formatMoney($item->price_regular) }}</span>
                                     <span
-                                        class="price-per">-{{ round(100 - ($item->sale_price / $item->price_regular) * 100) }}%</span>
+                                        class="price-per">{{ round(100 - ($item->sale_price / $item->price_regular) * 100) }}%</span>
                                 @else
                                     <span
-                                        class="price-new">{{ $item->price_regular ? $item->price_regular : 'Liên hệ' }}</span>
+                                        class="price-new">{{ formatMoney($item->price_regular) ? formatMoney($item->price_regular) : 'Liên hệ' }}</span>
                                 @endif
                             </p>
 

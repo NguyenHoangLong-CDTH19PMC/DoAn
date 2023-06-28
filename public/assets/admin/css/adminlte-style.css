@@ -1587,3 +1587,13 @@ span.name_user {
 .user_profile_dd .nav-link {
     height: 100%;
 }
+
+.btn-change-password{
+    
+}
+
+.btn-change-password a{color: #fff;background-color: #ff5722;display: block;height: calc(2.25rem + 2px);font-size: 18px;text-align: center;padding: .375rem .75rem;border-radius: .25rem;}
+.wap-inputpass{display: flex; max-height: 38px;}
+.wap-inputpass #old-password{border-right-width:0; border-radius:.25rem 0 0 .25rem !important;}
+.wap-inputpass .input-group-text{padding: 0.125rem .75rem !important;border-radius:0 .25rem .25rem 0!important;min-width: 46px !important;justify-content: center;}
+.wap-inputpass .input-group-append{cursor: pointer;}
