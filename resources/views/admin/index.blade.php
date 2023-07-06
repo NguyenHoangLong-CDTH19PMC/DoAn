@@ -17,7 +17,6 @@ $yearnow =  date("Y", time()) ;
         @yield('body')
         @include('admin.layouts.footer')
     </div>
-    @include('admin.layouts.notify')
     @include('admin.layouts.js')
 </body>
 

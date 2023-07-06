@@ -80,7 +80,6 @@
                             </div>
                         </div>
                         <div class="col-xl-4">
-
                             <div class="card card-primary card-outline text-sm">
                                 <div class="card-header">
                                     <h3 class="card-title">Hình ảnh bài viết</h3>
@@ -100,7 +99,32 @@
                                             <p class="photoUpload-or">hoặc</p>
                                             <p class="photoUpload-choose btn btn-sm bg-gradient-success">Chọn hình</p>
                                         </label>
-                                        <div class="photoUpload-dimension">Width: 270px - Height: 270px
+                                        <div class="photoUpload-dimension">Width: 352px - Height: 352px
+                                            (.jpg|.png|.jpeg)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card card-primary card-outline text-sm">
+                                <div class="card-header">
+                                    <h3 class="card-title">Hình ảnh 2 bài viết</h3>
+                                </div>
+                                <div class="card-body">
+                                    {{-- Image --}}
+                                    <div class="photoUpload-zone">
+                                        <div class="photoUpload-detail" id="photoUpload-preview2">
+                                            <img class="rounded"
+                                                onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
+                                                src="" alt="Alt Photo" style="" />
+                                        </div>
+                                        <label class="photoUpload-file" id="photo-zone2" for="file-zone2">
+                                            <input type="file" name="file2" id="file-zone2">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            {{-- <p class="photoUpload-drop">Kéo và thả hình vào đây</p>
+                                            <p class="photoUpload-or">hoặc</p> --}}
+                                            <p class="photoUpload-choose btn btn-sm bg-gradient-success">Chọn hình</p>
+                                        </label>
+                                        <div class="photoUpload-dimension">Width: 352px - Height: 352px
                                             (.jpg|.png|.jpeg)</div>
                                     </div>
                                 </div>

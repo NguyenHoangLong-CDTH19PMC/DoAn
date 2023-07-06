@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{{asset('assets/admin/sumoselect/sumoselect.css')}}">
 <link href="{{asset('assets/admin/filer/jquery.filer.css')}}" rel="stylesheet">
 <link href="{{asset('assets/admin/filer/jquery.filer-dragdropbox-theme.css')}}" rel="stylesheet">
-
+<link href="{{asset('assets/admin/sweetalert/sweetalert2.min.css')}}" rel="stylesheet">
 <!-- Theme style -->
 <link rel="stylesheet" href="{{asset('assets/admin/css/adminlte.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/admin/css/adminlte.css')}}">

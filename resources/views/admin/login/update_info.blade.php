@@ -2,7 +2,7 @@
 @section('body')
     <div class="content-wrapper">
         <section class="content">
-            <form id="form_user" class="validation-form" novalidate action="{{route('xl-suadoi-thongtin-admin', ['id'=>Auth::guard('user')->user()->id])}}" method="post" enctype="multipart/form-data">
+            <form id="form_user" class="validation-form" novalidate action="{{route('xl-suadoi-thongtin-admin', ['id'=>Auth::guard('admin')->user()->id])}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-header text-sm sticky-top">
                     <button type="submit" class="btn btn-sm bg-gradient-primary submit-check"><i
@@ -21,7 +21,7 @@
                                 <div class="photoUpload-zone">
                                     <div class="photoUpload-detail" id="photoUpload-preview">
                                         <img class="rounded" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
-                                            src="{{ asset('upload/avatar/' . Auth::guard('user')->user()->avatar) }}" alt="Alt Photo" style="" />
+                                            src="{{ asset('upload/avatar/' . Auth::guard('admin')->user()->avatar) }}" alt="Alt Photo" style="" />
                                     </div>
                                     <label class="photoUpload-file" id="photo-zone" for="file-zone">
                                         <input type="file" name="file" id="file-zone">
@@ -45,37 +45,37 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label for="username">Tên đăng nhập: <span class="text-danger">*</span></label>
+                                        <label for="username">Tên đăng nhập:</label>
                                         <input type="text" class="form-control text-sm" name="username"
-                                            id="username" placeholder="Tên đăng nhập" value="{{ Auth::guard('user')->user()->username }}" readonly>
+                                            id="username" placeholder="Tên đăng nhập" value="{{ Auth::guard('admin')->user()->username }}" readonly>
                                     </div>
                                     <div class="form-group col-md-6 btn-change-password">
-                                        <label for="username">Mật khẩu: <span class="text-danger">*</span></label>
-                                        <a class="w-100" href="{{ route('doi-matkhau-admin', ['id'=>Auth::guard('user')->user()->id]) }}">Đổi mật khẩu</a>
+                                        <label for="username">Mật khẩu:</label>
+                                        <a class="w-100" href="{{ route('doi-matkhau-admin', ['id'=>Auth::guard('admin')->user()->id]) }}">Đổi mật khẩu</a>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="fullname">Họ tên: <span class="text-danger">*</span></label>
+                                        <label for="fullname">Họ tên:</label>
                                         <input type="text" class="form-control text-sm" name="fullname" id="fullname"
-                                            placeholder="Họ tên" value="{{ Auth::guard('user')->user()->name }}" required>
+                                            placeholder="Họ tên" value="{{ Auth::guard('admin')->user()->name }}" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="email">Email:</label>
                                         <input type="email" class="form-control text-sm" name="email" id="email"
-                                            placeholder="Email" value="{{ Auth::guard('user')->user()->email }}" required>
+                                            placeholder="Email" value="{{ Auth::guard('admin')->user()->email }}" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="phone">Điện thoại:</label>
                                         <input type="text" class="form-control text-sm" name="phone" id="phone"
-                                            placeholder="Điện thoại" value="{{ Auth::guard('user')->user()->phone }}" required>
+                                            placeholder="Điện thoại" value="{{ Auth::guard('admin')->user()->phone }}" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="gender">Giới tính:</label>
                                         {{-- @php
-                                            if(Auth::guard('user')->user()->gender == 1)
+                                            if(Auth::guard('admin')->user()->gender == 1)
                                             {
                                                 $check = "selected";
                                             }
-                                            elseif (Auth::guard('user')->user()->gender == 2) {
+                                            elseif (Auth::guard('admin')->user()->gender == 2) {
                                                 $check = "selected";
                                             }
                                             else {
@@ -84,21 +84,21 @@
                                         @endphp --}}
                                         <select class="custom-select text-sm" name="gender" id="gender" required>
                                             <option value="0">Chọn giới tính</option>
-                                            <option value="1" {{ (Auth::guard('user')->user()->gender == 1) ? 'selected' : '' }} >Nam</option>
-                                            <option value="2" {{ (Auth::guard('user')->user()->gender == 2) ? 'selected' : '' }}>Nữ</option>
+                                            <option value="1" {{ (Auth::guard('admin')->user()->gender == 1) ? 'selected' : '' }} >Nam</option>
+                                            <option value="2" {{ (Auth::guard('admin')->user()->gender == 2) ? 'selected' : '' }}>Nữ</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="birthday">Ngày sinh:</label>
                                         <input type="text" class="form-control text-sm max-date" name="birthday"
                                             id="birthday" placeholder="Ngày sinh"
-                                            value="{{ !empty(Auth::guard('user')->user()->birthday) ? Auth::guard('user')->user()->birthday : 'Chưa có thông tin này' }}"
+                                            value="{{ !empty(Auth::guard('admin')->user()->birthday) ? Auth::guard('admin')->user()->birthday : 'Chưa có thông tin này' }}"
                                             autocomplete="off" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="address">Địa chỉ:</label>
                                         <input type="text" class="form-control text-sm" name="address"
-                                            id="address" placeholder="Địa chỉ" value="{{ !empty(Auth::guard('user')->user()->address) ? Auth::guard('user')->user()->address : 'Chưa có thông tin này' }}">
+                                            id="address" placeholder="Địa chỉ" value="{{ !empty(Auth::guard('admin')->user()->address) ? Auth::guard('admin')->user()->address : 'Chưa có thông tin này' }}">
                                     </div>
                                 </div>
                             </div>

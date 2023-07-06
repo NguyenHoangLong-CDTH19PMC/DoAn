@@ -8,6 +8,8 @@
 <script src="{{ asset('assets/admin/ckeditor/build/ckeditor.js') }}"></script>
 <script src="{{ asset('assets/admin/sumoselect/jquery.sumoselect.js') }}"></script>
 <script src="{{ asset('assets/admin/filer/jquery.filer.js') }}"></script>
+<script src="{{ asset('assets/admin/filer/jquery.filer.js') }}"></script>
+<script src="{{ asset('assets/admin/sweetalert/sweetalert2.all.min.js') }}"></script>
 
 <!-- Theme app -->
 <script src="{{ asset('assets/admin/js/adminlte.js') }}"></script>

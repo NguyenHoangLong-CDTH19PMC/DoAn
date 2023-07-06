@@ -15,8 +15,8 @@ use App\Models\TableSize;
 use App\Models\TableAlbum;
 use App\Models\TableVariantsColorProduct;
 use App\Models\TableVariantsSizeProduct;
-use Illuminate\Support\Facades\File;
-
+use App\Models\TableOrder;
+use App\Models\TableOrderDetail;
 
 class ProductController extends Controller
 {
@@ -28,10 +28,7 @@ class ProductController extends Controller
         $limit =  10;
         //latest() = orderBy('created_at','desc')
         $dsProduct = TableProduct::latest()->paginate($limit);
-        //kiểm tra xem nhập keyword chưa
-        if ($req->keyword != null) {
-            $dsProduct = TableProduct::where('name', 'like', '%' . $req->keyword . '%')->latest()->paginate($limit);
-        }
+
         // lấy trang hiện tại
         $current = $dsProduct->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
@@ -71,8 +68,8 @@ class ProductController extends Controller
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
-            if ($size > 51200) {
-                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 50MB ~ 51200KB";
+            if ($size > 102400) {
+                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 100MB ~ 102400KB";
             }
             // lọc ra đuôi file
             $extension = $req->file->getClientOriginalExtension();
@@ -97,7 +94,7 @@ class ProductController extends Controller
             }
         }
         if (!empty($req->color)) {
-            foreach ($req->size as $key => $value) {    
+            foreach ($req->size as $key => $value) {
                 $variantsSizPro = new TableVariantsSizeProduct();
                 $variantsSizPro->id_product = $itemproduct->id;
                 $variantsSizPro->id_size = $value;
@@ -105,10 +102,8 @@ class ProductController extends Controller
             }
         }
         //kiểm tra xem có file ko
-        if(!empty($req->filenames))
-        {
-            foreach($req->filenames as $image)
-            {
+        if (!empty($req->filenames)) {
+            foreach ($req->filenames as $image) {
                 // tạo random mới
                 $randomNew = Str::random(5);
                 // tạo mới hình con
@@ -120,7 +115,6 @@ class ProductController extends Controller
                 $picture->photo = $filename;
                 $picture->save();
             }
-            
         }
         return redirect()->route('san-pham-admin');
     }
@@ -130,7 +124,7 @@ class ProductController extends Controller
         $product = TableProduct::find($id);
         $level1 = TableBrand::all();
         $level2 = TableProductType::all();
-
+        $dsGallery = TableAlbum::where('id_product', $id)->get();
         $dsColor = TableColor::all();
         $dsSize = TableSize::all();
 
@@ -149,7 +143,7 @@ class ProductController extends Controller
             array_push($arrIdSize, $v->id_size);
         }
 
-        return view('.admin.product.main.modify', ['detailSP'  => $product], compact('level1', 'level2', 'dsColor', 'dsSize', 'arrIdColor', 'arrIdSize'));
+        return view('.admin.product.main.modify', ['detailSP'  => $product], compact('level1', 'level2', 'dsColor', 'dsSize', 'arrIdColor', 'arrIdSize','dsGallery'));
     }
 
     public function modifyproducts(xlAddRequestProduct $req, $id)
@@ -174,9 +168,9 @@ class ProductController extends Controller
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
-            if ($size > 51200) {
+            if ($size > 102400) {
 
-                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 50MB ~ 51200KB";
+                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 100MB ~ 102400KB";
             }
             // lọc ra đuôi file
             $extension = $req->file->getClientOriginalExtension();
@@ -222,33 +216,31 @@ class ProductController extends Controller
                 $variantsSizPro->save();
             }
         }
-        // xoá đi để thêm lại cái mới
-        $arr_picture = TableAlbum::where('id_product', $id)->get();
-        foreach($arr_picture as $k => $v){
-            $image_path = public_path('upload/album/'.$v->photo);
-            if(file_exists($image_path)) {
-                unlink($image_path);
-            }
-            $v->delete();
-        }
         
-        //kiểm tra xem có file ko
-        if($req->hasFile('filenames'))
-        {
-            foreach($req->filenames as $image)
-            {
-                // tạo random mới
-                $randomNew = Str::random(5);
-                // tạo mới hình con
-                $picture = new TableAlbum();
-                $destinationPath = public_path('upload/album/');
-                $filename = 'pictureProduct-' . $randomNew . '.' . $image->getClientOriginalExtension();
-                $image->move($destinationPath, $filename);
-                $picture->id_product  = $itemproduct->id;
-                $picture->photo = $filename;
-                $picture->save();
+        
+        //kiểm tra xem có nhập file hay không
+        if ($req->hasFile('filenames')) {
+            $arr_picture = TableAlbum::where('id', $req->id)->get();
+            foreach ($arr_picture as $v) {
+                $image_path = public_path('upload/album/' . $v->photo);
+                if (file_exists($image_path)) {
+                    unlink($image_path);
+                }
             }
-            
+            if(!isset($arr_picture->name)){
+                foreach ($req->filenames as $image) {
+                    // tạo random mới
+                    $randomNew = Str::random(5);
+                    // tạo mới hình con
+                    $picture = new TableAlbum();
+                    $destinationPath = public_path('upload/album/');
+                    $filename = 'pictureProduct-' . $randomNew . '.' . $image->getClientOriginalExtension();
+                    $image->move($destinationPath, $filename);
+                    $picture->id_product  = $itemproduct->id;
+                    $picture->photo = $filename;
+                    $picture->save();
+                }
+            }
         }
         return redirect()->route('san-pham-admin');
     }
@@ -260,14 +252,35 @@ class ProductController extends Controller
             return "không tìm thấy sản phẩm nào có ID = {$req->id} này";
         }
 
-        $image_path = public_path('upload/product/'.$products->photo);
-        if(file_exists($image_path)) {
+        $image_path = public_path('upload/product/' . $products->photo);
+        if (file_exists($image_path)) {
             unlink($image_path);
+        }
+
+        $arr_picture = TableAlbum::where('id_product', $req->id)->get();
+        foreach ($arr_picture as $v) {
+            $path = public_path('upload/album/' . $v->photo);
+            if (file_exists($path)) {
+                unlink($path);
+            }
+            $v->delete();
         }
 
         $products->delete();
         return redirect()->route('san-pham-admin');
     }
+
+    public function removeFormGallery(Request $req){
+        $arr_picture = TableAlbum::where('id', $req->id)->get();
+        foreach ($arr_picture as $v) {
+            $image_path = public_path('upload/album/' . $v->photo);
+            if (file_exists($image_path)) {
+                unlink($image_path);
+            }
+            $v->delete();
+        }
+    }
+
     // Sản phẩm //
 
     // Danh mục thương hiệu //
@@ -276,9 +289,7 @@ class ProductController extends Controller
         $limit =  10;
         $dslevel1 = TableBrand::latest()->paginate($limit);
         //kiểm tra xem nhập keyword chưa
-        if ($req->keyword != null) {
-            $dslevel1 = TableBrand::where('name', 'like', '%' . $req->keyword . '%')->latest()->paginate($limit);
-        }
+        
         // lấy trang hiện tại
         $current = $dslevel1->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
@@ -339,9 +350,6 @@ class ProductController extends Controller
         $limit =  10;
         $dslevel2 = TableProductType::latest()->paginate($limit);
         //kiểm tra xem nhập keyword chưa
-        if ($req->keyword != null) {
-            $dslevel2 = TableProductType::where('name', 'like', '%' . $req->keyword . '%')->latest()->paginate($limit);
-        }
         // lấy trang hiện tại
         $current = $dslevel2->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
@@ -422,16 +430,59 @@ class ProductController extends Controller
             $status_save->save();
         }
     }
+    public function searchProductAdmin(Request $req)
+    {
+        //kiểm tra xem nhập keyword chưa
+        if ($req->keyword != null) {
+            $limit = 10;
+            $dsProduct = TableProduct::where('name', 'like', '%' . $req->keyword . '%')->latest()->paginate($limit);
+            // lấy trang hiện tại
+            $current = $dsProduct->currentPage();
+            // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
+            $perSerial = $limit * ($current - 1);
+            $serial = $perSerial + 1;
+        }
+        return view('.admin.product.main.list', compact('dsProduct','serial'));
+    }
 
+    public function searchBrandAdmin(Request $req)
+    {
+        //kiểm tra xem nhập keyword chưa
+        if ($req->keyword != null) {
+            $limit = 10;
+            $dslevel1 = TableBrand::where('name', 'like', '%' . $req->keyword . '%')->latest()->paginate($limit);
+            // lấy trang hiện tại
+            $current = $dslevel1->currentPage();
+            // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
+            $perSerial = $limit * ($current - 1);
+            $serial = $perSerial + 1;
+        }
+        return view('.admin.product.brand.list', compact('dslevel1','serial'));
+    }
 
+    public function searchTypeAdmin(Request $req)
+    {
+        //kiểm tra xem nhập keyword chưa
+        if ($req->keyword != null) {
+            $limit = 10;
+            $dslevel2 = TableProductType::where('name', 'like', '%' . $req->keyword . '%')->latest()->paginate($limit);
+            // lấy trang hiện tại
+            $current = $dslevel2->currentPage();
+            // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
+            $perSerial = $limit * ($current - 1);
+            $serial = $perSerial + 1;
+        }
+        return view('.admin.product.type.list', compact('dslevel2','serial'));
+    }
 
     // ---------------- ADMIN ---------------- //
 
     // ---------------- USER ---------------- //
     public function GetProductIndex(Request $req)
     {
-        $dsProductNew = TableProduct::whereRaw('FIND_IN_SET("moi", status)')->where('quantity', '>', 0)->get();
-        $dsProductOutsanding = TableProduct::whereRaw('FIND_IN_SET("noibat", status)')->where('quantity', '>', 0)->get();
+        // lấy sản phẩm
+        $dsProductNew = TableProduct::whereRaw('FIND_IN_SET("moi", status)')->limit(8)->get();
+        $dsProductOutsanding = TableProduct::whereRaw('FIND_IN_SET("noibat", status)')->get();
 
         return view('.user.home.home', compact('dsProductNew', 'dsProductOutsanding'));
     }
@@ -440,24 +491,127 @@ class ProductController extends Controller
     public function GetProductPage(Request $req)
     {
         $limit = 12;
-        $dsProduct = TableProduct::whereRaw('FIND_IN_SET("hienthi", status)')->where('quantity', '>', 0)->latest()->paginate($limit);
+        $dsProduct = TableProduct::whereRaw('FIND_IN_SET("hienthi", status)')->latest()->paginate($limit);
         return view('.user.product.product', compact('dsProduct'));
     }
 
+    public function SearchProduct(Request $req)
+    {
+        if ($req->keyword != null) {
+            $limit = 12;
+            $dsProduct = TableProduct::whereRaw('FIND_IN_SET("hienthi", status)')->where('name', 'like', '%' . $req->keyword . '%')->latest()->paginate($limit);
+        }
+        return view('.user.product.product', compact('dsProduct'));
+    }
+
+
     public function GetDetailProduct(Request $req, $id)
     {
-        $detailProduct = TableProduct::whereRaw('FIND_IN_SET("hienthi", status)')->where('quantity', '>', 0)->where('id', $id)->first();
-        return view('.user.product.detail', ['rowDetail' => $detailProduct]);
+        $detailProduct = TableProduct::whereRaw('FIND_IN_SET("hienthi", status)')->where('id', $id)->first();
+        $dsGallery = TableAlbum::where('id_product', $id)->get();
+        $listSelectedColor = TableVariantsColorProduct::where('id_product', $id)->get();
+        $listSelectedSize = TableVariantsSizeProduct::where('id_product', $id)->get();
+        // Lấy mảng id từ danh sách color theo sản phẩm
+        $arrIdColor = [];
+        foreach ($listSelectedColor as $k => $v) {
+            array_push($arrIdColor, $v->id_color);
+        }
+
+        // Lấy mảng id từ danh sách size theo sản phẩm
+        $arrIdSize = [];
+        foreach ($listSelectedSize as $k => $v) {
+            array_push($arrIdSize, $v->id_size);
+        }
+
+        $rowColor  = TableColor::whereIn('id', $arrIdColor)->get();
+        $rowSize  = TableSize::whereIn('id', $arrIdSize)->get();
+
+        return view('.user.product.detail', ['rowDetail' => $detailProduct], compact('rowColor', 'rowSize','dsGallery'));
     }
 
 
 
-    public function GetCartTpl()
+    public function viewCart()
     {
-        return view('.user.order.order');
+        $colors = TableColor::all();
+        $sizes = TableSize::all();
+        return view('.user.order.order', compact('colors', 'sizes'));
     }
 
-    /* Format money */
+    // kiểm tra sản phẩm có tồn tại trong giỏ hàng không
+    public function ProductExist($code_order, $q)
+    {
+        $flag = 0;
+        if (isset($cart) && !empty($cart) && $code_order != '') {
+            foreach ($cart as $value) {
+                if ($code_order == $value->code) {
+                    $value->quantity += $q;
+                    $flag = 1;
+                }
+            }
+        }
+        return $flag;
+    }
+
+    public function addToCart(Request $req)
+    {
+        $code_order = $req->id . $req->id_color . $req->id_size;
+        // tạo session
+        $cart = session()->get('cart', []);
+        $id = $req->id;
+        $Itemproduct = TableProduct::findOrFail($id);
+        // kiểm tra giỏ hàng có tồn tại và không rỗng
+        if (isset($cart) && !empty($cart)) {
+            // kiểm tra xem sản phẩm đã tồn tại chưa qua biến code_order
+            if (!$this->ProductExist($code_order, 1)) {
+                $max = count($cart);
+                $cart[$max] = [
+                    "name" => $Itemproduct->name,
+                    "quantity" => $req->quantity,
+                    "price_regular" => $Itemproduct->price_regular,
+                    "price_sale" => $Itemproduct->sale_price,
+                    "image" => $Itemproduct->photo,
+                    "id_color" => $req->id_color,
+                    "id_size" => $req->id_size,
+                    "code" => $code_order,
+                ];
+            }
+        }
+        // ngược lại chưa có tạo mới
+        else {
+            $cart[0] = [
+                "name" => $Itemproduct->name,
+                "quantity" => $req->quantity,
+                "price_regular" => $Itemproduct->price_regular,
+                "price_sale" => $Itemproduct->sale_price,
+                "image" => $Itemproduct->photo,
+                "id_color" => $req->id_color,
+                "id_size" => $req->id_size,
+                "code" => $code_order,
+            ];
+        }
+        // thêm vào seesion
+        session()->put('cart', $cart);
+        return $cart;
+    }
+
+    public function removeFromCart(Request $req)
+    {
+
+        $cart = session()->get('cart');
+        foreach ($cart as $key => $value) {
+            if ($value['code'] == $req->code) {
+                unset($cart[$key]);
+            }
+        }
+        session()->put('cart', $cart);
+    }
+
+    // public function Payment(Request $req){
+    //     $info = new TableOrder();
+    //     $info->id_user = 
+    // }
+
 
     // ---------------- USER ---------------- //    
 }
