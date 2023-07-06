@@ -19,21 +19,20 @@
                 <div class="card-footer text-sm sticky-top">
                     <a class="btn btn-sm bg-gradient-primary text-white" href="{{ route('themmoi-sanpham-lv1-admin') }}"
                         title="Thêm mới"><i class="fas fa-plus mr-2"></i>Thêm mới</a>
-                    {{-- <a class="btn btn-sm bg-gradient-danger text-white" id="delete-all" title="Xóa tất cả"><i
-                            class="far fa-trash-alt mr-2"></i>Xóa tất cả</a> --}}
                     <div class="form-inline form-search d-inline-block align-middle ml-3">
-                        <form action="{{route('sanpham-lv1-admin')}}" method="get">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar text-sm" type="search" name="keyword" id="keyword"
-                                    placeholder="Tìm kiếm" aria-label="Tìm kiếm" value="">
-                                <input type="hidden" value="">
-                                <div class="input-group-append bg-primary rounded-right" >
-                                    <button class="btn btn-navbar text-white" type="submit" id="btn-search">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
+
+                        <div class="input-group input-group-sm">
+                            <input class="form-control form-control-navbar text-sm" type="search" name="keyword"
+                                id="keyword" placeholder="Tìm kiếm" aria-label="Tìm kiếm" value=""
+                                data-href="brand">
+                            <input type="hidden" value="">
+                            <div class="input-group-append bg-primary rounded-right">
+                                <button class="btn btn-navbar text-white btn-search" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
                             </div>
-                        </form>
+                        </div>
+
                     </div>
                 </div>
 
@@ -101,9 +100,7 @@
                                                 <a class="text-primary mr-2 modify-item"
                                                     href="{{ route('suadoi-sanpham-lv1-admin', ['id' => $item->id]) }}"
                                                     title="Chỉnh sửa"><i class="fas fa-edit"></i></a>
-                                                <a class="text-danger delete-item"
-                                                    data-href="{{ route('xl-xoabo-sanpham-lv1-admin') . '?id=' . $item->id }}"
-                                                    data-bs-toggle="modal" data-bs-target="#popup-notify-delete"
+                                                <a class="text-danger delete-item" data-id="{{ $item->id }}" data-href="brand"
                                                     title="Xóa"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
@@ -119,11 +116,11 @@
                         </table>
                     </div>
                 </div>
-              
-                    
-               
+
+
+
                 <div class="card-footer text-sm">
-                    @if(count($dslevel1))
+                    @if (count($dslevel1))
                         <div class="card-pagination">
                             {!! $dslevel1->links() !!}
                         </div>

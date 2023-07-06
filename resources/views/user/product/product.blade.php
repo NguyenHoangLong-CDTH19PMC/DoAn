@@ -9,7 +9,8 @@
                         <div class="css_flex_ajax">
                             @foreach ($dsProduct as $item)
                                 <div class="product">
-                                    <a href="{{ route('chi-tiet-product', ['id'=>$item->id]) }}" class="box-product text-decoration-none">
+                                    <a href="{{ route('chi-tiet-product', ['id' => $item->id]) }}"
+                                        class="box-product text-decoration-none">
                                         <p class="pic-product scale-img">
                                             <img class=""
                                                 onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
@@ -24,21 +25,22 @@
                                         <p class="price-product">
                                             <span class="label-price">Giá:</span>
                                             @if ($item->sale_price > 0)
-                                                <span class="price-new">{{ $item->sale_price }}</span>
-                                                <span class="price-old">{{ $item->price_regular }}</span>
+                                                <span class="price-new">{{ formatMoney($item->sale_price) }}</span>
+                                                <span class="price-old">{{ formatMoney($item->price_regular) }}</span>
                                                 <span
                                                     class="price-per">-{{ round(100 - ($item->sale_price / $item->price_regular) * 100) }}%</span>
                                             @else
                                                 <span
-                                                    class="price-new">{{ $item->price_regular ? $item->price_regular : 'Liên hệ' }}</span>
+                                                    class="price-new">{{ $item->price_regular > 0 ? formatMoney($item->price_regular) : 'Liên hệ' }}</span>
                                             @endif
                                         </p>
 
-                                        <p class="cart-product text-decoration-none">
+                                        <a class="cart-product text-decoration-none"
+                                            href="{{ route('chi-tiet-product', ['id' => $item->id]) }}">
                                             <span class="btn-add cart-add addcart">
-                                                <i class="fas fa-cart-plus"></i>
+                                                <i class="fa-solid fa-arrow-right-to-bracket"></i>
                                             </span>
-                                        </p>
+                                        </a>
                                     </div>
                                 </div>
                             @endforeach
@@ -48,6 +50,13 @@
                             <div class="alert alert-warning w-100" role="alert">
                                 <strong>Không có sản phẩm nào!!!</strong>
                             </div>
+                        </div>
+                    @endif
+                </div>
+                <div class="col-12">
+                    @if (count($dsProduct))
+                        <div class="pagination-home w-100">
+                            {!! $dsProduct->links() !!}
                         </div>
                     @endif
                 </div>

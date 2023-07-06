@@ -27,24 +27,26 @@
                                     <span class="price-new">{{ formatMoney($item->sale_price) }}</span>
                                     <span class="price-old">{{ formatMoney($item->price_regular) }}</span>
                                     <span
-                                        class="price-per">{{ round(100 - ($item->sale_price / $item->price_regular) * 100) }}%</span>
+                                        class="price-per">- {{ round(100 - ($item->sale_price / $item->price_regular) * 100) }}%</span>
                                 @else
                                     <span
                                         class="price-new">{{ formatMoney($item->price_regular) ? formatMoney($item->price_regular) : 'Liên hệ' }}</span>
                                 @endif
                             </p>
 
-                            <p class="cart-product text-decoration-none">
+                            <a class="cart-product text-decoration-none" href="{{ route('chi-tiet-product', ['id'=>$item->id]) }}">
                                 <span class="btn-add cart-add addcart">
-                                    <i class="fas fa-cart-plus"></i>
+                                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
                                 </span>
-                            </p>
+                            </a>
                         </div>
                     </div>
                 @endforeach
 
             </div>
-            <p class="xemthem-sp"><a href="" class="text-decoration-none">Xem thêm</a></p>
+            @if(count($dsProductNew) > 8)
+                <p class="xemthem-sp"><a href="{{route('lay-ds-product')}}" class="text-decoration-none">Xem thêm</a></p>
+            @endif
         </div>
     </div>
 
@@ -115,78 +117,24 @@
                                     <span class="price-new">{{ formatMoney($item->sale_price) }}</span>
                                     <span class="price-old">{{ formatMoney($item->price_regular) }}</span>
                                     <span
-                                        class="price-per">{{ round(100 - ($item->sale_price / $item->price_regular) * 100) }}%</span>
+                                        class="price-per">- {{ round(100 - ($item->sale_price / $item->price_regular) * 100) }}%</span>
                                 @else
                                     <span
                                         class="price-new">{{ formatMoney($item->price_regular) ? formatMoney($item->price_regular) : 'Liên hệ' }}</span>
                                 @endif
                             </p>
 
-                            <p class="cart-product text-decoration-none">
+                            <a class="cart-product text-decoration-none" href="{{ route('chi-tiet-product', ['id'=>$item->id]) }}">
                                 <span class="btn-add cart-add addcart">
-                                    <i class="fas fa-cart-plus"></i>
+                                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
                                 </span>
-                            </p>
+                            </a>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
     </div>
-
-    <div class="box-ykien">
-        <div class="wap_1200">
-            <div class="box-title">
-                <div class="title-main"><span>Feedback khách hàng</span></div>
-                <div class="deco"></div>
-            </div>
-            <div class="chay-yk">
-                <a class="yk text-decoration-none w-clear" title="">
-                    <div class="desc-news text-split">xưởng may thời trang nam theo yêu cầu là 1 nơi uy tín để đặt may
-                        những mặt hàng thời trang số lượng lớn, 1 nơi đáng tin cậy, quy trình làm việc rõ ràng, thời gian
-                        làm hàng nhanh chóng </div>
-                    <div class="info-news">
-                        <p class="pic-news">
-                            <img src="{{ asset('assets/user/images/avt.jpg') }}">
-                        </p>
-                        <div class="name-position">
-                            <h3 class="name-news">Tên khách hàng</h3>
-                            <span class="position-news">Công việc của khách hàng</span>
-                        </div>
-                    </div>
-                </a>
-                <a class="yk text-decoration-none w-clear" title="">
-                    <div class="desc-news text-split">xưởng may thời trang nam theo yêu cầu là 1 nơi uy tín để đặt may
-                        những mặt hàng thời trang số lượng lớn, 1 nơi đáng tin cậy, quy trình làm việc rõ ràng, thời gian
-                        làm hàng nhanh chóng </div>
-                    <div class="info-news">
-                        <p class="pic-news">
-                            <img src="{{ asset('assets/user/images/avt.jpg') }}">
-                        </p>
-                        <div class="name-position">
-                            <h3 class="name-news">Tên khách hàng 2</h3>
-                            <span class="position-news">Công việc của khách hàng 2</span>
-                        </div>
-                    </div>
-                </a>
-                <a class="yk text-decoration-none w-clear" title="">
-                    <div class="desc-news text-split">xưởng may thời trang nam theo yêu cầu là 1 nơi uy tín để đặt may
-                        những mặt hàng thời trang số lượng lớn, 1 nơi đáng tin cậy, quy trình làm việc rõ ràng, thời gian
-                        làm hàng nhanh chóng </div>
-                    <div class="info-news">
-                        <p class="pic-news">
-                            <img src="{{ asset('assets/user/images/avt.jpg') }}">
-                        </p>
-                        <div class="name-position">
-                            <h3 class="name-news">Tên khách hàng 3</h3>
-                            <span class="position-news">Công việc của khách hàng 3</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-
 
     <div class="box-tintuc-video">
         <div class="wap_1200">

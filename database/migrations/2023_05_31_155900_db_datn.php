@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('table_product_brand', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('content')->nullable();
+            // $table->text('content')->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -27,7 +27,7 @@ return new class extends Migration
         Schema::create('table_product_type', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('content')->nullable();
+            // $table->text('content')->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -59,7 +59,7 @@ return new class extends Migration
             $table->foreign('id_type')->references('id')->on('table_product_type')->onDelete('set null');
             $table->string('code',10)->nullable();//->unique()
             $table->string('name');
-            $table->text('content')->nullable();
+            $table->mediumText('content')->nullable();
             $table->string('photo')->nullable();
             $table->double('price_regular')->nullable();
             $table->double('sale_price')->nullable();
@@ -124,6 +124,7 @@ return new class extends Migration
             $table->string('avatar');
             $table->string('username');
             $table->string('password');
+            $table->string('remember_token');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -142,9 +143,44 @@ return new class extends Migration
             $table->unsignedBigInteger('id_type')->nullable();
             $table->foreign('id_type')->references('id')->on('table_article_type')->onDelete('set null');
             $table->string('name');
-            $table->text('content')->nullable();
+            $table->mediumText('content')->nullable();
             $table->string('photo')->nullable();
             $table->string('status')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        // tạo bảng Order
+        Schema::create('table_order', function (Blueprint $table) {
+            $table->id();
+            $table->string('code',5)->nullable();
+            $table->string('fullname')->nullable();
+            $table->string('email',100)->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone',11)->nullable();
+            $table->text('content')->nullable();
+            $table->string('payment')->nullable();
+            $table->string('status')->nullable();
+            $table->double('total_price')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        // tạo bảng Order Detail
+        Schema::create('table_order_detail', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_order')->nullable();
+            $table->foreign('id_order')->references('id')->on('table_order')->onDelete('set null');
+            $table->unsignedBigInteger('id_product')->nullable();
+            $table->foreign('id_product')->references('id')->on('table_product')->onDelete('set null');
+            $table->unsignedBigInteger('id_color')->nullable();
+            $table->foreign('id_color')->references('id')->on('table_color')->onDelete('set null');
+            $table->unsignedBigInteger('id_size')->nullable();
+            $table->foreign('id_size')->references('id')->on('table_size')->onDelete('set null');
+            $table->string('name_product')->nullable();
+            $table->string('photo_product')->nullable();
+            $table->double('price')->nullable();
+            $table->integer('quantity')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -165,5 +201,9 @@ return new class extends Migration
         Schema::dropIfExists('table_album');
         Schema::dropIfExists('table_role');
         Schema::dropIfExists('table_user');
+        Schema::dropIfExists('table_article_type');
+        Schema::dropIfExists('table_article');
+        Schema::dropIfExists('table_order');
+        Schema::dropIfExists('table_order_detail');
     }
 };

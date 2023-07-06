@@ -14,5 +14,4 @@ function formatMoney($price = 0, $unit = 'vnđ', $html = false)
     }
     return $str;
 }
-
 ?>

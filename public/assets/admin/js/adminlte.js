@@ -4043,13 +4043,6 @@ if ($(".select2").length) {
 }
 
 $(document).ready(function () {
-    $(".delete-item").on("click", function () {
-        var href = $(this).data("href");
-        $("#popup-notify-delete #del-data").attr("href", href);
-    });
-});
-
-$(document).ready(function () {
     $(".form-ckeditor").each(function (vitriInArr, valOfElement) {
         var data_editor = $(".form-ckeditor").val();
         ClassicEditor.create(document.querySelector(".form-ckeditor"), {
@@ -4076,7 +4069,7 @@ function readImage(inputFile, elementPhoto) {
                 reader.readAsDataURL(inputFile[0].files[0]);
             } else {
                 notifyDialog(
-                    "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 4MB ~ 4096KB"
+                    "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 100MB ~ 4096KB"
                 );
                 return false;
             }
@@ -4202,7 +4195,7 @@ if ($("#filer-gallery").length) {
         changeInput:
             '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Kéo và thả hình vào đây</h3> <span style="display:inline-block; margin: 15px 0">hoặc</span></div><a class="jFiler-input-choose-btn blue">Chọn hình</a></div></div>',
         theme: "dragdropbox",
-        showThumbs: false,
+        showThumbs: true,
         addMore: true,
         allowDuplicates: false,
         clipBoardPaste: false,
@@ -4213,11 +4206,9 @@ if ($("#filer-gallery").length) {
             dragContainer: null,
         },
         captions: {
-            button: "Thêm hình",
-            feedback: "Vui lòng chọn hình ảnh",
-            feedback2: "Những hình đã được chọn",
-            drop: "Kéo hình vào đây để upload",
-            removeConfirmation: "Bạn muốn loại bỏ hình ảnh này ?",
+            // button: 'Thêm hình',
+            // feedback: 'Vui lòng chọn hình ảnh',
+            // feedback2: 'Những hình đã được chọn',
             errors: {
                 filesLimit: "Chỉ được upload mỗi lần {{fi-limit}} hình ảnh",
                 filesType:
@@ -4232,68 +4223,80 @@ if ($("#filer-gallery").length) {
 }
 
 $(document).ready(function () {
-    function ImgUpload() {
-        var imgWrap = "";
-        var imgArray = [];
-
-        $("#filer-gallery").each(function () {
-            $(this).on("change", function (e) {
-                imgWrap = $(this)
-                    .closest(".upload__box")
-                    .find(".upload__img-wrap");
-                var maxLength = $(this).attr("data-max_length");
-
-                var files = e.target.files;
-                var filesArr = Array.prototype.slice.call(files);
-                var iterator = 0;
-                filesArr.forEach(function (f, index) {
-                    if (!f.type.match("image.*")) {
-                        return;
-                    }
-
-                    if (imgArray.length > maxLength) {
-                        return false;
-                    } else {
-                        var len = 0;
-                        for (var i = 0; i < imgArray.length; i++) {
-                            if (imgArray[i] !== undefined) {
-                                len++;
-                            }
-                        }
-                        if (len > maxLength) {
-                            return false;
-                        } else {
-                            imgArray.push(f);
-
-                            var reader = new FileReader();
-                            reader.onload = function (e) {
-                                var html =
-                                    "<div class='upload__img-box'><div style='background-image: url(" +
-                                    e.target.result +
-                                    ")' data-number='" +
-                                    $(".upload__img-close").length +
-                                    "' data-file='" +
-                                    f.name +
-                                    "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-                                imgWrap.append(html);
-                                iterator++;
-                            };
-                            reader.readAsDataURL(f);
-                        }
-                    }
+    $(".delete_1hinh").on("click", function () {
+        var id = $(this).data("id");
+        Swal.fire({
+            title: "Thông báo",
+            text: "Bạn muốn xóa bức ảnh này?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Đồng ý",
+            cancelButtonText: "Huỷ",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "GET",
+                    url: "/admin/remove",
+                    data: {
+                        id: id,
+                    },
+                    success: function (response) {
+                        // window.location.href = "/admin/product/";
+                        window.location.reload();
+                    },
                 });
-            });
-        });
-
-        $("body").on("click", ".upload__img-close", function (e) {
-            var file = $(this).parent().data("file");
-            for (var i = 0; i < imgArray.length; i++) {
-                if (imgArray[i].name === file) {
-                    imgArray.splice(i, 1);
-                    break;
-                }
             }
-            $(this).parent().parent().remove();
         });
+    });
+});
+
+
+$(document).ready(function () {
+    $(".delete-item").on("click", function () {
+        var href = $(this).data("href");
+        var id = $(this).data("id");
+        Swal.fire({
+            title: "Thông báo",
+            text: "Bạn muốn xóa mục này?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Đồng ý",
+            cancelButtonText: "Huỷ",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "GET",
+                    url: "/admin/"+href+"/delete-"+href,
+                    data: {
+                        id: id,
+                    },
+                    success: function (response) {
+                        window.location.href = "/admin/"+href;
+                    },
+                });
+            }
+        });
+    });
+});
+
+/* Search */
+$("body").on("click", ".btn-search", function () {
+    var href = $(".form-control-navbar").val();
+    if ($(".form-control-navbar").val() == "") {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Bạn chưa nhập từ khoá!",
+        });
+    } else {
+        window.location.href =
+            "/admin/" +
+            $(".form-control#keyword").data("href") +
+            "/search/" +
+            $(".form-control-navbar").val();
     }
 });

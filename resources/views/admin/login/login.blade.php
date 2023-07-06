@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>HL Shoe</title>
+	<title>HL Shoe Store</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="{{ asset('assets/admin/images/favicon.ico') }}"/>
+	<link rel="icon" type="image/png" href="{{ asset('assets/admin/images/favicon.ico')}}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/login/vendor/bootstrap/css/bootstrap.min.css')}}"> 
 <!--===============================================================================================-->
@@ -14,8 +14,6 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/login/fonts/iconic/css/material-design-iconic-font.min.css')}}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/login/vendor/animate/animate.css')}}">
-<!--===============================================================================================-->	
-	{{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/login/vendor/css-hamburgers/hamburgers.min.css')}}"> --}}
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/login/vendor/animsition/css/animsition.min.css')}}">
 <!--===============================================================================================-->
@@ -39,13 +37,13 @@
 						Đăng nhập hệ thống
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Vui lòng nhập Username">
-						<input class="input100" type="text" name="username" placeholder="Username">
+					<div class="wrap-input100 validate-input" data-validate = "Vui lòng nhập tài khoản">
+						<input class="input100" type="text" name="username" placeholder="Tài Khoản">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Vui lòng nhập Password">
-						<input class="input100" id="show-password" type="password" name="password" placeholder="Password">
+					<div class="wrap-input100 validate-input" data-validate="Vui lòng nhập mật khẩu">
+						<input class="input100" id="show-password" type="password" name="password" placeholder="Mật khẩu">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 						<div class="input-group-append">
 							<div class="input-group-text show">
@@ -63,8 +61,12 @@
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
-							Login
+							Đăng nhập
 						</button>
+					</div>
+
+					<div class="text-center pt-4">
+						<a href="{{ route('trang-chu-user') }}" class="nav-link link-home text-white" target="_blank">Xem Webite <i class="fa-solid fa-arrow-up-right-from-square fa-xs ml-1"></i></a>
 					</div>
 
 					{{-- <div class="text-center p-t-90">

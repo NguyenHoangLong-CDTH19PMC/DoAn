@@ -16,9 +16,6 @@ class ArticleCotroller extends Controller
         $limit =  10;
         //latest() = orderBy('created_at','desc')
         $dsNew = TableArticle::latest()->paginate($limit);
-        if ($req->keyword != null) {
-            $dsNew = TableArticle::where('name', 'like', '%' . $req->keyword . '%')->latest()->paginate($limit);
-        }
         // lấy trang hiện tại
         $current = $dsNew->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
@@ -46,8 +43,8 @@ class ArticleCotroller extends Controller
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
-            if ($size > 51200) {
-                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 50MB ~ 51200KB";
+            if ($size > 102400) {
+                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 100MB ~ 102400KB";
             }
             // lọc ra đuôi file
             $extension = $req->file->getClientOriginalExtension();
@@ -87,8 +84,8 @@ class ArticleCotroller extends Controller
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
-            if ($size > 51200) {
-                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 50MB ~ 51200KB";
+            if ($size > 102400) {
+                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 100MB ~ 102400KB";
             }
             // lọc ra đuôi file
             $extension = $req->file->getClientOriginalExtension();
@@ -117,5 +114,20 @@ class ArticleCotroller extends Controller
 
         $new->delete();
         return redirect()->route('bai-viet-admin');
+    }
+
+    public function searchArticleAdmin(Request $req)
+    {
+        //kiểm tra xem nhập keyword chưa
+        if ($req->keyword != null) {
+            $limit = 10;
+            $dsNew = TableArticle::where('name', 'like', '%' . $req->keyword . '%')->latest()->paginate($limit);
+            // lấy trang hiện tại
+            $current = $dsNew->currentPage();
+            // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
+            $perSerial = $limit * ($current - 1);
+            $serial = $perSerial + 1;
+        }
+        return view('.admin.new.list', compact('dsNew','serial'));
     }
 }

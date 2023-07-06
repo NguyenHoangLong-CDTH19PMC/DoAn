@@ -19,26 +19,26 @@ class CheckAuth
     public function handle(Request $request, Closure $next, string $role): Response
     {
         if ($role == 'admin') {
-            if(auth()->guard('user')->check()){
-                if (auth()->guard('user')->user()->id_role == null || auth()->guard('user')->user()->id_role == 1) {
+            if(auth()->guard('admin')->check()){
+                if (auth()->guard('admin')->user()->id_role == null || auth()->guard('admin')->user()->id_role == 1) {
                     return $next($request);
                 } else {
-                    return redirect('/login');
+                    return redirect('/login-admin');
                 }
             }
             else{
-                return redirect('/login');
+                return redirect('/login-admin');
             }
         } elseif ($role == 'user') {
             if(auth()->guard('user')->check()){
                 if (auth()->guard('user')->user()->id_role == 2 ) {
                     return $next($request);
                 } else {
-                    return redirect('/login');
+                    return redirect('/login-user');
                 }
             }
             else{
-                return redirect('/login');
+                return redirect('/login-user');
             }
         } else {
             return redirect('/login');

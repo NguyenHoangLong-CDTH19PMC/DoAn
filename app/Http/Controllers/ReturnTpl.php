@@ -7,9 +7,9 @@ use App\Models\Product;
 class ReturnTpl extends Controller
 {
     public function index_user(){
-        return view('.user/ndex');
+        return view('.user.index');
     }
     public function index_admin(){
-        return view('./admin/home/home');
+        return view('.admin.home.home');
     }
 }

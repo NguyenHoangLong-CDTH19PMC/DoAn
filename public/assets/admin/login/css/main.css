@@ -25,11 +25,17 @@
   src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
 }
 
+@font-face {
+  font-family: Poppins-Black;
+  src: url('../fonts/poppins/Poppins-Black.ttf'); 
+}
 
 @font-face {
   font-family: Quicksand-Bold;
   src: url('../fonts/Quicksand-Bold.ttf'); 
 }
+
+
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
@@ -214,7 +220,7 @@ iframe {
 }
 
 .login100-form-logo {
-  font-size: 60px; 
+  font-size: 60px;
   color: #333333;
   display: -webkit-box;
   display: -webkit-flex;
@@ -226,10 +232,10 @@ iframe {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #895D39;
   margin: 0 auto;
 }
-.login100-form-logo img{width: 90%;height: 90%;border-radius: 50%;}
+.login100-form-logo img{width: 92%;height: 92%;border-radius: 50%;}
 
 .login100-form-title {
   font-family: Quicksand-Bold;
@@ -553,3 +559,6 @@ iframe {
 
 .input-group-append{color: #fff;}
 .input-group-append .input-group-text{cursor: pointer;}
+.link-home{ position: relative; width: 27%; padding: 0; margin: 0 auto; }
+.link-home::before{content: ""; background-color: #fff; width: 0%; height: 1px;position: absolute; bottom: 0;left: 0;transition: .5s all;}
+.link-home:hover::before{width: 100%;}

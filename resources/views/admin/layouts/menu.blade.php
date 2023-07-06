@@ -13,109 +13,15 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto align-items-center">
-        <!-- Messages Dropdown Menu -->
-        <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-comments"></i>
-                <span class="badge badge-danger navbar-badge">3</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
-                    <div class="media">
-                        <img src="{{ asset('assets/admin/images/user1-128x128.jpg') }}" alt="User Avatar"
-                            class="img-size-50 mr-3 img-circle">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                Brad Diesel
-                                <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm">Call me whenever you can...</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                    </div>
-                    <!-- Message End -->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
-                    <div class="media">
-                        <img src="{{ asset('assets/admin/images/user8-128x128.jpg') }}" alt="User Avatar"
-                            class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                John Pierce
-                                <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm">I got your message bro</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                    </div>
-                    <!-- Message End -->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
-                    <div class="media">
-                        <img src="{{ asset('assets/admin/images/user3-128x128.jpg') }}" alt="User Avatar"
-                            class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                Nora Silvester
-                                <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm">The subject goes here</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                    </div>
-                    <!-- Message End -->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-            </div>
-        </li>
-        <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-bell"></i>
-                <span class="badge badge-warning navbar-badge">15</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <span class="dropdown-item dropdown-header">15 Notifications</span>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-envelope mr-2"></i> 4 new messages
-                    <span class="float-right text-muted text-sm">3 mins</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-users mr-2"></i> 8 friend requests
-                    <span class="float-right text-muted text-sm">12 hours</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-file mr-2"></i> 3 new reports
-                    <span class="float-right text-muted text-sm">2 days</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                <i class="fas fa-expand-arrows-alt"></i>
-            </a>
-        </li>
         <li class="nav-item">
             <div class="user_profile_dd dropdown">
                 <a class="nav-link d-block"  data-toggle="dropdown" href="#">
-                        <img class="img-responsive rounded-circle" src="{{ asset('upload/avatar/' . Auth::guard('user')->user()->avatar) }}"
+                        <img class="img-responsive rounded-circle" src="{{ asset('upload/avatar/' . Auth::guard('admin')->user()->avatar) }}"
                         onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"alt="Alt Photo" style="" />
-                        <span class="name_user">{{ Auth::guard('user')->user()->name }}</span></a>
+                        <span class="name_user">{{ Auth::guard('admin')->user()->name }}</span></a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ route('suadoi-thongtin-admin', ['id'=>Auth::guard('user')->user()->id]) }}">My Profile</a>
-                    <a class="dropdown-item" href="settings.html">Settings</a>
-                    <a class="dropdown-item" href="{{route('xl-logout')}}"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                    <a class="dropdown-item" href="{{ route('suadoi-thongtin-admin', ['id'=>Auth::guard('admin')->user()->id]) }}">Thông tin cá nhân</a>
+                    <a class="dropdown-item" href="{{route('xl-logout-admin')}}"><span>Đăng xuất</span> <i class="fa fa-sign-out"></i></a>
                 </div>
             </div>
         </li>
@@ -140,15 +46,15 @@
         <nav class="mt-4">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('trang-chu-admin') }}"
                         class="nav-link {{ $name == 'trang-chu-admin' ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Dashboard
+                           Trang chủ
                         </p>
                     </a>
-                </li>
+                </li> --}}
                 <li
                     class="nav-item {{ $name == 'san-pham-admin' ||
                     $name == 'them-moi-san-pham-admin' ||
@@ -158,7 +64,8 @@
                     $name == 'suadoi-sanpham-lv1-admin' ||
                     $name == 'sanpham-lv2-admin' ||
                     $name == 'themmoi-sanpham-lv2-admin' ||
-                    $name == 'suadoi-sanpham-lv2-admin'
+                    $name == 'suadoi-sanpham-lv2-admin' ||
+                    $name == 'tim-kiem-product' || $name == 'tim-kiem-brand' || $name == 'tim-kiem-type'
                         ? 'menu-open'
                         : '' }} ">
 
@@ -171,7 +78,8 @@
                         $name == 'suadoi-sanpham-lv1-admin' ||
                         $name == 'sanpham-lv2-admin' ||
                         $name == 'themmoi-sanpham-lv2-admin' ||
-                        $name == 'suadoi-sanpham-lv2-admin'
+                        $name == 'suadoi-sanpham-lv2-admin'||
+                        $name == 'tim-kiem-product' || $name == 'tim-kiem-brand' || $name == 'tim-kiem-type'
                             ? 'active'
                             : '' }}">
                         <i class="nav-icon fas fa-boxes-stacked"></i>
@@ -183,7 +91,8 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('san-pham-admin') }}"
-                                class="nav-link {{ $name == 'san-pham-admin' || $name == 'them-moi-san-pham-admin' || $name == 'sua-doi-san-pham-admin'
+                                class="nav-link {{ $name == 'san-pham-admin' || $name == 'them-moi-san-pham-admin' || $name == 'sua-doi-san-pham-admin' ||
+                                $name == 'tim-kiem-product'
                                     ? 'active'
                                     : '' }}">
                                 <i class="nav-icon-small fas fa-circle fa-2xs"></i>
@@ -192,7 +101,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('sanpham-lv1-admin') }}"
-                                class="nav-link {{ $name == 'sanpham-lv1-admin' || $name == 'themmoi-sanpham-lv1-admin' || $name == 'suadoi-sanpham-lv1-admin'
+                                class="nav-link {{ $name == 'sanpham-lv1-admin' || $name == 'themmoi-sanpham-lv1-admin' || $name == 'suadoi-sanpham-lv1-admin' ||
+                                $name == 'tim-kiem-brand'
                                     ? 'active'
                                     : '' }}">
                                 <i class="nav-icon-small fas fa-circle fa-2xs"></i>
@@ -201,7 +111,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('sanpham-lv2-admin') }}"
-                                class="nav-link {{ $name == 'sanpham-lv2-admin' || $name == 'themmoi-sanpham-lv2-admin' || $name == 'suadoi-sanpham-lv2-admin'
+                                class="nav-link {{ $name == 'sanpham-lv2-admin' || $name == 'themmoi-sanpham-lv2-admin' || $name == 'suadoi-sanpham-lv2-admin'||
+                                $name == 'tim-kiem-type'
                                     ? 'active'
                                     : '' }}">
                                 <i class="nav-icon-small fas fa-circle fa-2xs"></i>
@@ -212,34 +123,38 @@
                 </li>
 
                 <li
-                    class="nav-item {{ $name == 'mau-sac-admin' || $name == 'them-moi-mau-sac-admin' || $name == 'sua-doi-mau-sac-admin' || $name == 'kich-thuoc-admin' || $name == 'them-moi-kich-thuoc-admin' || $name == 'sua-doi-kich-thuoc-admin' ? 'menu-open' : '' }}">
+                    class="nav-item {{ $name == 'mau-sac-admin' || $name == 'them-moi-mau-sac-admin' || $name == 'sua-doi-mau-sac-admin' || $name == 'kich-thuoc-admin' || $name == 'them-moi-kich-thuoc-admin' || 
+                    $name == 'sua-doi-kich-thuoc-admin' || $name == 'tim-kiem-color' || $name == 'tim-kiem-size'? 'menu-open' : '' }}">
                     <a
                         class="nav-link {{ $name == 'mau-sac-admin' || $name == 'them-moi-mau-sac-admin' || $name == 'sua-doi-mau-sac-admin' || $name == 'kich-thuoc-admin' || $name == 'them-moi-kich-thuoc-admin' || $name == 'sua-doi-kich-thuoc-admin' ? 'active' : '' }} ">
                         <i class="nav-icon  fas fa-palette"></i>
                         <p>
-                            Quản lý Color - Size
+                            Quản lý Màu - Size
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('mau-sac-admin') }}"
-                                class="nav-link {{ $name == 'mau-sac-admin' || $name == 'them-moi-mau-sac-admin' || $name == 'sua-doi-mau-sac-admin' ? 'active' : '' }}">
+                                class="nav-link {{ $name == 'mau-sac-admin' || $name == 'them-moi-mau-sac-admin' || $name == 'sua-doi-mau-sac-admin' || $name == 'tim-kiem-color' ? 'active' : '' }}">
                                 <i class="nav-icon-small fas fa-circle fa-2xs"></i>
                                 <p>Danh sách màu sắc</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('kich-thuoc-admin') }}"
-                                class="nav-link {{ $name == 'kich-thuoc-admin' || $name == 'them-moi-kich-thuoc-admin' || $name == 'sua-doi-kich-thuoc-admin' ? 'active' : '' }}">
+                                class="nav-link {{ $name == 'kich-thuoc-admin' || $name == 'them-moi-kich-thuoc-admin' || $name == 'sua-doi-kich-thuoc-admin' || $name == 'tim-kiem-size' ? 'active' : '' }}">
                                 <i class="nav-icon-small fas fa-circle fa-2xs"></i>
-                                <p>Danh sách kích thước</p>
+                                <p>Danh sách size</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item {{($name == 'bai-viet-admin'|| $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin' || $name == 'loai-bai-viet-admin' || $name == 'them-moi-loai-bai-viet-admin' || $name == 'sua-doi-loai-bai-viet-admin') ? "menu-open" : ""}}">
-                    <a class="nav-link {{($name == 'bai-viet-admin' || $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin' || $name == 'loai-bai-viet-admin' || $name == 'them-moi-loai-bai-viet-admin' || $name == 'sua-doi-loai-bai-viet-admin') ? "active" : ""}} ">
+                <li class="nav-item {{($name == 'bai-viet-admin'|| $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin' || 
+                $name == 'loai-bai-viet-admin' || $name == 'them-moi-loai-bai-viet-admin' || 
+                $name == 'sua-doi-loai-bai-viet-admin' || $name == 'tim-kiem-article' || $name == 'tim-kiem-type-article') ? "menu-open" : ""}}">
+                    <a class="nav-link {{($name == 'bai-viet-admin' || $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin' 
+                    || $name == 'loai-bai-viet-admin' || $name == 'them-moi-loai-bai-viet-admin' || $name == 'sua-doi-loai-bai-viet-admin' || $name == 'tim-kiem-article' || $name == 'tim-kiem-type-article') ? "active" : ""}} ">
                         <i class="nav-icon fas fa-duotone fa-clipboard"></i>
                         <p>
                            Quản lý Bài Viết
@@ -248,7 +163,8 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('bai-viet-admin')}}" class="nav-link {{($name == 'bai-viet-admin' || $name == 'them-moi-bai-viet-admin' || $name == 'sua-doi-bai-viet-admin') ? "active" : ""}}">
+                            <a href="{{route('bai-viet-admin')}}" class="nav-link {{($name == 'bai-viet-admin' || $name == 'them-moi-bai-viet-admin' 
+                            || $name == 'sua-doi-bai-viet-admin' || $name == 'tim-kiem-article' ) ? "active" : ""}}">
                                 <i class="nav-icon-small fas fa-circle fa-2xs"></i>
                                 <p>Danh sách bài viết</p>
                             </a>
@@ -258,7 +174,8 @@
 
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('loai-bai-viet-admin')}}" class="nav-link {{($name == 'loai-bai-viet-admin' || $name == 'them-moi-loai-bai-viet-admin' || $name == 'sua-doi-loai-bai-viet-admin') ? "active" : ""}}">
+                            <a href="{{route('loai-bai-viet-admin')}}" class="nav-link {{($name == 'loai-bai-viet-admin' || $name == 'them-moi-loai-bai-viet-admin' 
+                            || $name == 'sua-doi-loai-bai-viet-admin' || $name == 'tim-kiem-type-article') ? "active" : ""}}">
                                 <i class="nav-icon-small fas fa-circle fa-2xs"></i>
                                 <p>Danh sách loại bài viết</p>
                             </a>

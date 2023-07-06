@@ -19,21 +19,19 @@
                 <div class="card-footer text-sm sticky-top">
                     <a class="btn btn-sm bg-gradient-primary text-white" href="{{ route('them-moi-san-pham-admin') }}"
                         title="Thêm mới"><i class="fas fa-plus mr-2"></i>Thêm mới</a>
-                    {{-- <a class="btn btn-sm bg-gradient-danger text-white" id="delete-all" title="Xóa tất cả"><i
-                            class="far fa-trash-alt mr-2"></i>Xóa tất cả</a> --}}
                     <div class="form-inline form-search d-inline-block align-middle ml-3">
-                        <form action="{{route('san-pham-admin')}}" method="get">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar text-sm" type="search" name="keyword" id="keyword"
-                                    placeholder="Tìm kiếm" aria-label="Tìm kiếm" value="">
-                                <input type="hidden" value="">
-                                <div class="input-group-append bg-primary rounded-right" >
-                                    <button class="btn btn-navbar text-white" type="submit" id="btn-search">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
+
+                        <div class="input-group input-group-sm">
+                            <input class="form-control form-control-navbar text-sm" type="search" name="keyword"
+                                id="keyword" placeholder="Tìm kiếm" aria-label="Tìm kiếm" value=""
+                                data-href="product">
+                            <div class="input-group-append bg-primary rounded-right">
+                                <button class="btn btn-navbar text-white btn-search" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
                             </div>
-                        </form>
+                        </div>
+                        
                     </div>
                 </div>
 
@@ -51,7 +49,7 @@
                                             <label for="selectall-checkbox" class="custom-control-label"></label>
                                         </div>
                                     </th> --}}
-                                    
+
                                     <th class="align-middle text-center" width="10%">STT</th>
 
                                     <th class="align-middle">Hình</th>
@@ -65,18 +63,18 @@
                                     <th class="align-middle text-center">Nổi bật</th>
 
                                     <th class="align-middle text-center">Mới</th>
-                                    
+
                                     <th class="align-middle text-center">Thao tác</th>
                                 </tr>
                             </thead>
                             @if (count($dsProduct))
                                 @foreach ($dsProduct as $k => $item)
                                     @php
-                                        $arr_status =  (!empty($item->status)) ? explode(',', $item->status) : array();
+                                        $arr_status = !empty($item->status) ? explode(',', $item->status) : [];
                                     @endphp
                                     <tbody>
-                                        <tr data-id="{{$item->id}}">
-                                           
+                                        <tr data-id="{{ $item->id }}">
+
                                             <td class="align-middle">
                                                 <input type="number"
                                                     class="form-control form-control-mini m-auto update-numb" min="0"
@@ -102,7 +100,8 @@
                                             <td class="align-middle">
                                                 <div class="custom-control custom-checkbox my-checkbox">
                                                     <input type="checkbox" class="custom-control-input select-checkbox"
-                                                        id="select-checkbox" data-attr="hienthi" {{(in_array('hienthi', $arr_status)) ? 'checked' : ''}}>
+                                                        id="select-checkbox" data-attr="hienthi"
+                                                        {{ in_array('hienthi', $arr_status) ? 'checked' : '' }}>
                                                     <label for="select-checkbox" class="custom-control-label"></label>
                                                 </div>
                                             </td>
@@ -110,7 +109,8 @@
                                             <td class="align-middle">
                                                 <div class="custom-control custom-checkbox my-checkbox">
                                                     <input type="checkbox" class="custom-control-input select-checkbox"
-                                                        id="select-checkbox" data-attr="noibat" {{(in_array('noibat', $arr_status)) ? 'checked' : ''}}>
+                                                        id="select-checkbox" data-attr="noibat"
+                                                        {{ in_array('noibat', $arr_status) ? 'checked' : '' }}>
                                                     <label for="select-checkbox" class="custom-control-label"></label>
                                                 </div>
                                             </td>
@@ -118,7 +118,8 @@
                                             <td class="align-middle">
                                                 <div class="custom-control custom-checkbox my-checkbox">
                                                     <input type="checkbox" class="custom-control-input select-checkbox"
-                                                        id="select-checkbox" data-attr="moi" {{(in_array('moi', $arr_status)) ? 'checked' : ''}}>
+                                                        id="select-checkbox" data-attr="moi"
+                                                        {{ in_array('moi', $arr_status) ? 'checked' : '' }}>
                                                     <label for="select-checkbox" class="custom-control-label"></label>
                                                 </div>
                                             </td>
@@ -127,10 +128,9 @@
                                                 <a class="text-primary mr-2 modify-item"
                                                     href="{{ route('sua-doi-san-pham-admin', ['id' => $item->id]) }}"
                                                     title="Chỉnh sửa"><i class="fas fa-edit"></i></a>
-                                                <a class="text-danger delete-item"
-                                                    data-href="{{ route('xl-xoa-bo-san-pham-admin') . '?id=' . $item->id }}"
-                                                    data-bs-toggle="modal" data-bs-target="#popup-notify-delete"
-                                                    title="Xóa"><i class="fas fa-trash-alt"></i></a>
+                                                <a class="text-danger delete-item" data-href="product"
+                                                    data-id="{{ $item->id }}" title="Xóa"><i
+                                                        class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>

@@ -14,9 +14,6 @@ class TypeArticleCotroller extends Controller
         $limit =  10;
         //latest() = orderBy('created_at','desc')
         $dsNewType = TableTypeArticle::latest()->paginate($limit);
-        if ($req->keyword != null) {
-            $dsNewType = TableTypeArticle::where('name', 'like', '%' . $req->keyword . '%')->latest()->paginate($limit);
-        }
         // lấy trang hiện tại
         $current = $dsNewType->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
@@ -79,5 +76,19 @@ class TypeArticleCotroller extends Controller
 
         $newtype->delete();
         return redirect()->route('loai-bai-viet-admin');
+    }
+    public function searchTypeArticle(Request $req)
+    {
+        //kiểm tra xem nhập keyword chưa
+        if ($req->keyword != null) {
+            $limit = 10;
+            $dsNewType = TableTypeArticle::where('name', 'like', '%' . $req->keyword . '%')->latest()->paginate($limit);
+            // lấy trang hiện tại
+            $current = $dsNewType->currentPage();
+            // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
+            $perSerial = $limit * ($current - 1);
+            $serial = $perSerial + 1;
+        }
+        return view('.admin.newtype.list', compact('dsNewType','serial'));
     }
 }

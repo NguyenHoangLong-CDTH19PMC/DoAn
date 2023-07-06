@@ -17,10 +17,14 @@ class LoginCotroller extends Controller
     {
         return view('.admin.login.login');
     }
-    function xlLogin(xlDangNhapRequest $req)
+    function index_login_user()
+    {
+        return view('.user.login.login');
+    }
+    function xlLoginAdmin(xlDangNhapRequest $req)
     {
         //Kiểm Giá trị input có bằng giá trị trông cơ sở dữ liệu
-        if (Auth::guard('user')->attempt($req->only(['username', 'password']))) {
+        if (Auth::guard('admin')->attempt($req->only(['username', 'password']))) {
             //Đúng thì vào trang trong
             return redirect()->route('trang-chu-admin');
         } else {
@@ -29,13 +33,39 @@ class LoginCotroller extends Controller
         }
     }
 
-    public function xlLogout(Request $req): RedirectResponse
+    function xlLoginUser(xlDangNhapRequest $req)
     {
-        Auth::logout();
-        $req->session()->invalidate();
-        $req->session()->regenerateToken();
+        //Kiểm Giá trị input có bằng giá trị trông cơ sở dữ liệu
+        if (Auth::guard('user')->attempt($req->only(['username', 'password']))) {
+            //Đúng thì vào trang trong
+            return redirect()->route('trang-chu-user');
+        } else {
+            //Sai thì load lại trang login
+            return redirect()->route('dang-nhap-user');
+        }
+    }
+
+    public function xlLogoutAdmin(Request $req): RedirectResponse
+    {
+        if (Auth::guard('admin')->check()) // this means that the user was logged in.
+        {
+            Auth::guard('admin')->logout();
+            $req->session()->regenerateToken();
+            return redirect()->route('dang-nhap-admin');
+        }
         return redirect()->route('dang-nhap-admin');
     }
+
+    public function xlLogoutUser(Request $req): RedirectResponse
+    {
+        if (Auth::guard('user')->check()) // this means that the user was logged in.
+        {
+            Auth::guard('user')->logout();
+            return redirect()->route('dang-nhap-user');
+        }
+        return redirect()->route('dang-nhap-user');
+    }
+
     function index_update()
     {
         return view('.admin.login.update_info');
@@ -59,8 +89,8 @@ class LoginCotroller extends Controller
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
-            if ($size > 51200) {
-                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 50MB ~ 51200KB";
+            if ($size > 102400) {
+                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 100MB ~ 102400KB";
             }
             // lọc ra đuôi file
             $extension = $req->file->getClientOriginalExtension();

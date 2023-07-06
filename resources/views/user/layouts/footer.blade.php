@@ -39,17 +39,18 @@
 <a class="btn-map btn-frame text-decoration-none" target="_blank" href="">
     <div class="animated infinite zoomIn kenit-alo-circle"></div>
     <div class="animated infinite pulse kenit-alo-circle-fill"></div>
-    <i><img src="assets/user/images/maps.png" alt="Chỉ đường"></i>
-</a>
+    <i><img src="{{ asset('assets/user/images/maps.png') }}" alt="Bản đồ"></i>
+</a>    
 <a class="btn-zalo btn-frame text-decoration-none" target="_blank" href="">
     <div class="animated infinite zoomIn kenit-alo-circle"></div>
     <div class="animated infinite pulse kenit-alo-circle-fill"></div>
-    <i><img src="assets/user/images/zl.png" alt="Zalo"></i>
+    <i><img src="{{ asset('assets/user/images/zl.png') }}" alt="Zalo"></i>
 </a>
 <a class="btn-phone btn-frame text-decoration-none" href="">
     <div class="animated infinite zoomIn kenit-alo-circle"></div>
     <div class="animated infinite pulse kenit-alo-circle-fill"></div>
-    <i><img src="assets/user/images/hl.png" alt="Hotline"></i>
+    <i><img src="{{ asset('assets/user/images/hl.png') }}" alt="Hotline"></i>
+
 </a>
 
 <div class="progress-wrap cursor-pointer">

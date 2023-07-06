@@ -19,21 +19,21 @@
                 <div class="card-footer text-sm sticky-top">
                     <a class="btn btn-sm bg-gradient-primary text-white" href="{{ route('them-moi-bai-viet-admin') }}"
                         title="Thêm mới"><i class="fas fa-plus mr-2"></i>Thêm mới</a>
-                    {{-- <a class="btn btn-sm bg-gradient-danger text-white" id="delete-all" title="Xóa tất cả"><i
-                        class="far fa-trash-alt mr-2"></i>Xóa tất cả</a> --}}
+                    
                     <div class="form-inline form-search d-inline-block align-middle ml-3">
-                        <form action="{{route('bai-viet-admin')}}" method="get">
+                        
                             <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar text-sm" type="search" name="keyword" id="keyword"
-                                    placeholder="Tìm kiếm" aria-label="Tìm kiếm" value="">
+                                <input class="form-control form-control-navbar text-sm" type="search" name="keyword"
+                                    id="keyword" placeholder="Tìm kiếm" aria-label="Tìm kiếm" value=""
+                                    data-href="new">
                                 <input type="hidden" value="">
-                                <div class="input-group-append bg-primary rounded-right" >
-                                    <button class="btn btn-navbar text-white" type="submit" id="btn-search">
+                                <div class="input-group-append bg-primary rounded-right">
+                                    <button class="btn btn-navbar text-white btn-search" type="submit">
                                         <i class="fas fa-search"></i>
                                     </button>
                                 </div>
                             </div>
-                        </form>
+                        
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@
                             @if (count($dsNew))
                                 @foreach ($dsNew as $k => $item)
                                     <tbody>
-                                        <tr>
+                                        <tr data-id="{{$item->id}}">
 
                                             <td class="align-middle">
                                                 <input type="number"
@@ -89,8 +89,8 @@
                                                     title="Chỉnh sửa"><i class="fas fa-edit"></i></a>
 
                                                 <a class="text-danger delete-item"
-                                                    data-href="{{ route('xl-xoa-bo-bai-viet-admin') . '?id=' . $item->id }}"
-                                                    data-bs-toggle="modal" data-bs-target="#popup-notify-delete"
+                                                    data-href="article"
+                                                    data-id="{{$item->id}}"
                                                     title="Xóa"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
