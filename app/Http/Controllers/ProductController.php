@@ -572,6 +572,7 @@ class ProductController extends Controller
                     "price_regular" => $Itemproduct->price_regular,
                     "price_sale" => $Itemproduct->sale_price,
                     "image" => $Itemproduct->photo,
+                    "available" => $Itemproduct->quantity,
                     "id_product" => $Itemproduct->id,
                     "id_color" => $req->id_color,
                     "id_size" => $req->id_size,
@@ -588,6 +589,7 @@ class ProductController extends Controller
                 "price_regular" => $Itemproduct->price_regular,
                 "price_sale" => $Itemproduct->sale_price,
                 "image" => $Itemproduct->photo,
+                "available" => $Itemproduct->quantity,
                 "id_product" => $req->id,
                 "id_color" => $req->id_color,
                 "id_size" => $req->id_size,
@@ -638,55 +640,46 @@ class ProductController extends Controller
         return response()->json(array('regularPrice' => $regular_price, 'salePrice' => $sale_price, 'totalText' => $totalText));
     }
 
-    // public function GetMapVn(){
-    //     //dọc file json
-    //     $data = json_decode(file_get_contents(storage_path() . "/app/public/data_map.json"), true);
-    //     return $data;
-    // }
+    public function Payment(Request $req)
+    {
+        if (!empty(Auth::guard('user')->user()->id)) {
 
-    public function Payment(Request $req){
-        $mahd = 'HD'.Str::random(3);
-        $infoOrder = new TableOrder();
-        $infoOrder->code = $mahd;
-        $infoOrder->fullname = $req->fullname;
-        $infoOrder->phone = $req->phone;
-        $infoOrder->address = $req->address;
-        $infoOrder->email = $req->email;
-        $infoOrder->payment = $req->payments;
-        $infoOrder->status = 'moidat';
-        $infoOrder->total_price	 = getOrderTotal();
-        $infoOrder->save();
-        $cart = session()->get('cart');
-        foreach($cart as $key => $value){
-            $detailOrder = new TableOrderDetail();
-            $detailOrder->id_order = $infoOrder->id;
-            $detailOrder->id_product = $value['id_product'];
-            $detailOrder->id_color	= $value['id_color'];
-            $detailOrder->id_size = $value['id_size'];
-            $detailOrder->name_product = $value['name'];
-            $detailOrder->photo_product = $value['image'];
-            if($value['price_sale'] > 0) $detailOrder->price = $value['price_sale'];
-            else $detailOrder->price = $value['price_regular'];
-            $detailOrder->quantity = $value['quantity'];
-            $detailOrder->save();
-            
-            // if ($value[$key]['code'] == $req->code) {
-            //     unset($value[$key]);
-            //     break;
-            // }
-            // session()->put('cart', $cart);
-           
-            $miniusQuantity = TableProduct::find($value['id_product']);
-    
-            $miniusQuantity->quantity = $miniusQuantity->quantity - $value['quantity'];
-            $miniusQuantity->save();
+            $mahd = 'HD' . Str::random(3);
+            $infoOrder = new TableOrder();
+            $infoOrder->code = $mahd;
+            $infoOrder->fullname = $req->fullname;
+            $infoOrder->phone = $req->phone;
+            $infoOrder->address = $req->address;
+            $infoOrder->email = $req->email;
+            $infoOrder->payment = $req->payments;
+            $infoOrder->status = 'moidat';
+            $infoOrder->total_price     = getOrderTotal();
+            $infoOrder->save();
+            $cart = session()->get('cart');
+            foreach ($cart as $key => $value) {
+                $detailOrder = new TableOrderDetail();
+                $detailOrder->id_order = $infoOrder->id;
+                $detailOrder->id_product = $value['id_product'];
+                $detailOrder->id_color    = $value['id_color'];
+                $detailOrder->id_size = $value['id_size'];
+                $detailOrder->name_product = $value['name'];
+                $detailOrder->photo_product = $value['image'];
+                if ($value['price_sale'] > 0) $detailOrder->price = $value['price_sale'];
+                else $detailOrder->price = $value['price_regular'];
+                $detailOrder->quantity = $value['quantity'];
+                $detailOrder->save();
+
+                $miniusQuantity = TableProduct::find($value['id_product']);
+
+                $miniusQuantity->quantity = $miniusQuantity->quantity - $value['quantity'];
+                $miniusQuantity->save();
+            }
+            if (session()->has('cart')) {
+                session()->forget('cart');
+            }
+
+            return redirect()->route('trang-chu-user');
         }
-        
-        return redirect()->route('trang-chu-user');
-
-        // if(!empty(Auth::guard('user')->user()->id)){
-        //    $sl = TableProduct::
-        // }
     }
 
 

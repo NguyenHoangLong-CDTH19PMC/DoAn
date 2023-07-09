@@ -8,10 +8,10 @@
     <meta name="description" content="Colorlib Templates">
     <meta name="author" content="Colorlib">
     <meta name="keywords" content="Colorlib Templates">
-
     <!-- Title Page-->
     <title>Đăng Ký Tài Khoản HL Shoes</title>
 
+    <link rel="icon" type="image/png" href="{{ asset('assets/user/images/favicon.ico') }}" />
     <link rel="stylesheet" href="{{ asset('assets/bootstrap/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/user/css/register.css') }}">
 </head>

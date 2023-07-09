@@ -10,7 +10,8 @@ use App\Http\Requests\xlDangNhapRequest;
 use App\Models\TableUser;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class LoginCotroller extends Controller
 {
@@ -163,7 +164,7 @@ class LoginCotroller extends Controller
 
     function index_change_user()
     {
-        return view('.user.login.change_password_user');
+        return view('.user.login.change_password');
     }
     function xl_change_password_user(Request $req, $id)
     {
@@ -240,24 +241,32 @@ class LoginCotroller extends Controller
         return view('.user.login.forgot_password');
     }
 
-    // public function xl_ForgotPassword(Request $req)
-    // {
-    //     $req->validate([
-    //         'email' => 'required'
-    //     ], [
-    //         'email.required' => 'Vui lòng nhập địa chỉ Email hợp lệ!'
-    //     ]);
-    //     $user = TableUser::where('email', $req->email)->first();
-    //     $token = Str::random(20);
-    //     $user->update(['token' => $token]);
-    //     Mail::send('user.email.active_account', compact('user'), function ($email) use ($user) {
-    //         $email->subject('HL Shoes Store - Lấy lại mật khẩu tài khoản');
-    //         $email->to($user->email, $user->name);
-    //         $email->from($user->email, $user->name);
-    //     });
-    //     $user->update([$status => 1, 'token' => null]);
-    //     return redirect()->back('trang-dang-nhap')->with('yes', 'Vui lòng kiểm tra Email để tiến hành thay đổi mật khẩu');
-    // }
+    public function SendMail()
+    {
+        return view('.user.mail.sendmail');
+    }
+
+    public function xl_SendMail(Request $req)
+    {
+        $req->validate([
+            'email' => 'required'
+        ], [
+            'email.required' => 'Vui lòng nhập địa chỉ Email hợp lệ!'
+        ]);
+
+        $user = TableUser::where('email', $req->email)->first();
+        // $token = Str::random(20);
+        // $user->update(['token' => $token]);
+        $mailData = [
+            'title' => 'Xin chào ' . $req->name,
+            'body' => 'Xin chào, vui lòng nhấn đường dẫn bên dưới đê tiến hành xác nhận tài khoản của bạn .',
+            'email' => $req->email
+        ];
+        Mail::to($req->email)->send(new SendMail($mailData));
+
+        // $user->update([$status => 1, 'token' => null]);
+        return redirect()->back('trang-dang-nhap')->with('yes', 'Vui lòng kiểm tra Email để tiến hành thay đổi mật khẩu');
+    }
 
     public function GetRegisterIndex()
     {
@@ -266,6 +275,7 @@ class LoginCotroller extends Controller
 
     public function addRegister(Request $req)
     {
+        // if(){
         // tạo 1 chuỗi ngẫu nhiên 
         $random = Str::random(5);
         $info = new TableUser();
@@ -298,14 +308,13 @@ class LoginCotroller extends Controller
             } else {
                 return "Định dạng ảnh không đúng. Định dạng cho phép (.jpg|.png|.jpeg)";
             }
-            
         }
         $info->save();
+        // }
         if (Auth::guard('user')->attempt($req->only(['username', 'password']))) {
             //Đúng thì vào trang trong
             return redirect()->route('trang-chu-user');
         }
-        
     }
 
     // ---------------- USER ---------------- //

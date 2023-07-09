@@ -511,6 +511,8 @@ img:not([src]) {
 .menu ul li.menu-line {
     background: url(../images/menu-line.png) no-repeat center center;
     padding: 11px 1px;
+    filter: brightness(0) saturate(100%) invert(0%) sepia(100%) saturate(7500%) hue-rotate(59deg) brightness(105%) contrast(111%);
+    -webkit-filter: brightness(0) saturate(100%) invert(0%) sepia(100%) saturate(7500%) hue-rotate(59deg) brightness(105%) contrast(111%);
 }
 
 .menu ul li a {
@@ -1027,7 +1029,7 @@ img:not([src]) {
 
 .attr-content-pro-detail {
     display: inline-block;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
 }
 
 .price-new-pro-detail {
@@ -2137,13 +2139,13 @@ div.chay-sp .slick-next {
 }
 
 .quantity-pro-detail span {
-    line-height: 25px;
+    line-height: 28px;
     padding: 0px;
     width: 30px;
     height: 30px;
     color: #5f5f5f;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 18px;
     border: 1px solid #cccccc
 }
 
@@ -2247,6 +2249,7 @@ input[type=radio] {
 .item-gallery {
     margin: 0 5px;
     height: 734px !important;
+    width: 734px !important;
 }
 
 .item-gallery img {
@@ -2492,3 +2495,25 @@ input[type=radio] {
 }
 
 .show-dropdown .name_user{color: #000;}
+.quantity-plus-pro-detail,.quantity-minus-pro-detail{
+    width: 38px;
+    padding: 3px 0;
+}
+
+.photoUpload-update{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.wap-inputpass {
+    display: flex;
+    max-height: 38px;
+}
+.wap-inputpass #old-password {
+    border-right-width: 0;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.wap-inputpass #new-password{
+    border-right-width: 0;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}

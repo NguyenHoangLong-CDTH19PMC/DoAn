@@ -124,10 +124,10 @@ Route::get('/logout-user', [LoginCotroller::class, 'xlLogoutUser'])->name('xl-lo
 
 Route::group(['middleware' => ['checkauth:admin']], function () {
 
-    Route::get('/forgot-password', [LoginCotroller::class, 'GetForgotPasswordIndex'])->name('trang-forgot');
-    Route::post('/forgot-password', [LoginCotroller::class, 'xl_ForgotPassword'])->name('xl-trang-forgot');
-    Route::get('/get-password', [LoginCotroller::class, 'GetForgotPassword'])->name('trang-getpassword');
-    Route::post('/get-password', [LoginCotroller::class, 'xl_GetPassword'])->name('xl-trang-get-password');
+    // Route::get('/forgot-password', [LoginCotroller::class, 'GetForgotPasswordIndex'])->name('trang-forgot');
+    // Route::post('/forgot-password', [LoginCotroller::class, 'xl_ForgotPassword'])->name('xl-trang-forgot');
+    // Route::get('/get-password', [LoginCotroller::class, 'GetForgotPassword'])->name('trang-getpassword');
+    // Route::post('/get-password', [LoginCotroller::class, 'xl_GetPassword'])->name('xl-trang-get-password');
 
 
     Route::get('/change-password/user/{id}', [LoginCotroller::class, 'index_change_user'])->name('doi-matkhau-user');
@@ -135,7 +135,11 @@ Route::group(['middleware' => ['checkauth:admin']], function () {
 
     Route::get('/update-info/user/{id}', [LoginCotroller::class, 'index_update_user'])->name('suadoi-thongtin-user');
     Route::post('/update-info/user/{id}', [LoginCotroller::class, 'xl_update_info_user'])->name('xl-suadoi-thongtin-user');
+
+    
 });
+Route::get('/mail', [LoginCotroller::class, 'SendMail'])->name('trang-gui-mail');
+Route::post('/mail', [LoginCotroller::class, 'xl_SendMail'])->name('xl-gui-mail');
 
 Route::get('/register', [LoginCotroller::class, 'GetRegisterIndex'])->name('trang-dang-ky');
 Route::post('/register', [LoginCotroller::class, 'addRegister'])->name('xl-dang-ky-nguoi-dung');

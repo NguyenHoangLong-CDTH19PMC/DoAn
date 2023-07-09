@@ -14,7 +14,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="photoUpload-zone">
-                                    <div class="photoUpload-detail" id="photoUpload-preview">
+                                    <div class="photoUpload-detail photoUpload-update" id="photoUpload-preview">
                                         <img class="rounded" onerror="src='{{ asset('assets/user/images/noimage.png') }}'"
                                             src="{{ asset('upload/avatar/' . Auth::guard('user')->user()->avatar) }}"
                                             alt="Alt Photo" style="" />

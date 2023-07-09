@@ -1,4 +1,5 @@
-<div id="slide" class="slideshow">
+<div id="slide"
+    class="slideshow {{ $name == 'suadoi-thongtin-user' || $name == 'doi-matkhau-user' ? 'd-none' : 'd-block' }}">
     <div class="owl-page owl-carousel owl-theme " data-xsm-items="1:0" data-sm-items="1:0" data-md-items="1:0"
         data-lg-items="1:0" data-xlg-items="1:0" data-rewind="1" data-autoplay="1" data-loop="0" data-lazyload="0"
         data-mousedrag="0" data-touchdrag="0" data-smartspeed="800" data-autoplayspeed="800" data-autoplaytimeout="5000"
