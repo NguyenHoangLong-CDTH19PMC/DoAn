@@ -1,18 +1,3 @@
-{{-- <div id="slide" class="slide">
-    <div class="chay-slide">
-        <div class="slideshow-item" >
-            <a class="slideshow-image" href="">
-                <img src="{{ asset('assets/images/slide1.jpg') }}" />
-            </a>
-        </div>
-        <div class="slideshow-item" >
-            <a class="slideshow-image" href="">
-                <img src="{{ asset('assets/images/slide2.jpg') }}" />
-            </a>
-        </div>
-    </div>
-</div> --}}
-
 <div id="slide" class="slideshow">
     <div class="owl-page owl-carousel owl-theme " data-xsm-items="1:0" data-sm-items="1:0" data-md-items="1:0"
         data-lg-items="1:0" data-xlg-items="1:0" data-rewind="1" data-autoplay="1" data-loop="0" data-lazyload="0"
@@ -33,8 +18,6 @@
                 <img src="../assets/user/images/slide2.jpg" />
             </a>
         </div>
-
-
     </div>
     <div class="control-slideshow control-owl transition">
 

@@ -2,7 +2,9 @@
 @section('body')
     <div class="content-wrapper">
         <section class="content">
-            <form class="validation-form" novalidate method="post" action="{{ route('xl-doi-matkhau-admin', ['id'=>Auth::guard('user')->user()->id]) }}" enctype="multipart/form-data">
+            <form class="validation-form" novalidate method="post"
+                action="{{ route('xl-doi-matkhau-admin', ['id' => Auth::guard('admin')->user()->id]) }}"
+                enctype="multipart/form-data">
                 @csrf
                 <div class="card-footer text-sm sticky-top">
                     <button type="submit" class="btn btn-sm bg-gradient-primary submit-check"><i
@@ -20,8 +22,8 @@
                             <div class="form-group col-xl-4 col-lg-6 col-md-6">
                                 <label for="old-password">Mật khẩu cũ:</label>
                                 <div class="wap-inputpass">
-                                    <input type="password" class="form-control text-sm" name="oldpassword"
-                                        id="old-password" placeholder="Mật khẩu cũ">
+                                    <input type="password" class="form-control text-sm" name="oldpassword" id="old-password"
+                                        placeholder="Mật khẩu cũ">
                                     <div class="input-group-append">
                                         <div class="input-group-text show">
                                             <span class="fas fa-eye" toggle="#old-password"></span>
@@ -35,17 +37,15 @@
                                     <span class="d-inline-block align-middle">Mật khẩu mới:</span>
                                     <span class="text-danger ml-2" id="show-password"></span>
                                 </label>
-                                <div class="row align-items-center">
-                                    <div class="wap-inputpass">
-                                        <input type="password" class="form-control show-value text-sm" name="newpassword"
-                                            id="new-password" placeholder="Mật khẩu mới">
-                                        <div class="input-group-append">
-                                            <div class="input-group-text show-icon">
-                                                <span class="fas fa-eye" toggle="#old-password"></span>
-                                            </div>
+
+                                <div class="wap-inputpass">
+                                    <input type="password" class="form-control show-value text-sm" name="newpassword"
+                                        id="new-password" placeholder="Mật khẩu mới">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text show-icon">
+                                            <span class="fas fa-eye" toggle="#old-password"></span>
                                         </div>
                                     </div>
-                                    {{-- <div class="col-5 create-password-random"><a class="btn btn-sm bg-gradient-primary text-sm" href="#" onclick="randomPassword()"><i class="fas fa-random mr-1"></i>Tạo mật khẩu</a></div> --}}
                                 </div>
                             </div>
 

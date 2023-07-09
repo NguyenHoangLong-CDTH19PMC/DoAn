@@ -1476,7 +1476,7 @@ a.upload-file-image-remove:hover,.delete_1hinh:hover {
     border: none;
     display: flex;
     font-size: 25px;
-    background: #ff5722;
+    background: #fdaf13;
     margin-right: 0;
     cursor: pointer;
     float: left;
@@ -1493,7 +1493,6 @@ a.upload-file-image-remove:hover,.delete_1hinh:hover {
 }
 
 .link-home {
-    padding: 0.75rem 1rem
 }
 
 .user_profile_dd {
@@ -1508,7 +1507,7 @@ a.upload-file-image-remove:hover,.delete_1hinh:hover {
 .user_profile_dd {
     width: auto;
     border-radius: 0;
-    background: #ff5722;
+    background: #fdaf13;
     margin: 0;
     height: auto;
 }
@@ -1536,7 +1535,6 @@ a.upload-file-image-remove:hover,.delete_1hinh:hover {
     color: #15283c;
     font-weight: normal;
     padding: 0;
-    transition: all .3s ease-in-out;
     line-height: normal;
 }
 
@@ -1592,9 +1590,11 @@ span.name_user {
     
 }
 
-.user_profile_dd .nav-link{padding-right: 3rem !important;}
+.user_profile_dd .nav-link{
+    width: 244px;
+}
 
-.btn-change-password a{color: #fff;background-color: #ff5722;display: block;height: calc(2.25rem + 2px);font-size: 18px;text-align: center;padding: .375rem .75rem;border-radius: .25rem;}
+.btn-change-password a{color: #fff;background-color: #fdaf13;display: block;height: calc(2.25rem + 2px);font-size: 18px;text-align: center;padding: .375rem .75rem;border-radius: .25rem;}
 .wap-inputpass{display: flex; max-height: 38px;}
 .wap-inputpass #old-password{border-right-width:0; border-radius:.25rem 0 0 .25rem !important;}
 .wap-inputpass .input-group-text{padding: 0.125rem .75rem !important;border-radius:0 .25rem .25rem 0!important;min-width: 46px !important;justify-content: center;}

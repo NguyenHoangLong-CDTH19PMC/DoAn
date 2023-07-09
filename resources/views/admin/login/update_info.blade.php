@@ -70,18 +70,6 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="gender">Giới tính:</label>
-                                        {{-- @php
-                                            if(Auth::guard('admin')->user()->gender == 1)
-                                            {
-                                                $check = "selected";
-                                            }
-                                            elseif (Auth::guard('admin')->user()->gender == 2) {
-                                                $check = "selected";
-                                            }
-                                            else {
-                                                $check = "";
-                                            }
-                                        @endphp --}}
                                         <select class="custom-select text-sm" name="gender" id="gender" required>
                                             <option value="0">Chọn giới tính</option>
                                             <option value="1" {{ (Auth::guard('admin')->user()->gender == 1) ? 'selected' : '' }} >Nam</option>
@@ -90,7 +78,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="birthday">Ngày sinh:</label>
-                                        <input type="text" class="form-control text-sm max-date" name="birthday"
+                                        <input type="date" class="form-control text-sm max-date" name="birthday"
                                             id="birthday" placeholder="Ngày sinh"
                                             value="{{ !empty(Auth::guard('admin')->user()->birthday) ? Auth::guard('admin')->user()->birthday : 'Chưa có thông tin này' }}"
                                             autocomplete="off" required>

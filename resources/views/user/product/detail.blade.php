@@ -3,14 +3,13 @@
     <div class="wap_detail">
         <div class="grid-pro-detail w-clear">
             <div class="row">
-                <div class="left-pro-detail col-md-6 col-lg-6 mb-4 row">
-                    <div class="photo-prodetail col-md-6 col-lg-10">
-                        {{-- <p class="thumb-pro-detail mb-0 scale-img">
-                            <img class="rounded" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
-                                src="{{ asset('upload/product/' . $rowDetail->photo) }}" style="" />
-                        </p> --}}
-
+                <div class="left-pro-detail col-md-6 col-lg-6 mb-4">
+                    <div class="photo-prodetail">
                         <div class="chay-photo">
+                            <div class="item-gallery">
+                                <img class="rounded" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
+                                    src="{{ asset('upload/product/' . $rowDetail->photo) }}" style="" />
+                            </div>
                             @foreach ($dsGallery as $item)
                                 <div class="item-gallery">
                                     <a class="thumb-pro-detail">
@@ -21,18 +20,22 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="list-gallery col-md-6 col-lg-2">
-                        <div class="chay-gallery">
-                            @foreach ($dsGallery as $item)
-                                <div class="item-gallery">
-                                    <a class="thumb-pro-detail">
-                                        <img class="rounded" onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
-                                            src="{{ asset('upload/album/' . $item->photo) }}" style="" />
-                                    </a>
-                                </div>
-                            @endforeach
+                    @if (!empty($dsGallery))
+                        <div class="list-gallery">
+                            <div class="chay-gallery">
+                                @foreach ($dsGallery as $item)
+                                    <div class="item-gallery">
+                                        <a class="thumb-pro-detail">
+                                            <img class="rounded"
+                                                onerror="src='{{ asset('assets/admin/images/noimage.png') }}'"
+                                                src="{{ asset('upload/album/' . $item->photo) }}" style="" />
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
+                    @endif
+
                 </div>
                 <div class="right-pro-detail col-md-6 col-lg-6 mb-4">
                     <p class="title-pro-detail mb-2"><?= $rowDetail->name ?></p>
@@ -50,7 +53,8 @@
                                     <span class="price-old-pro-detail">{{ formatMoney($rowDetail->price_regular) }}</span>
                                 @else
                                     <span
-                                        class="price-new-pro-detail">{{ $rowDetail->price_regular > 0 ? formatMoney($rowDetail->price_regular) : 'Liên hệ' }}</span>
+                                        class="price-new-pro-detail">{{ $rowDetail->price_regular > 0 ? formatMoney($rowDetail->price_regular) : 'Liên hệ' }}
+                                    </span>
                                 @endif
                             </div>
                         </li>
@@ -103,8 +107,10 @@
                     </ul>
                     <div class="cart-pro-detail">
                         <a class="btn btn-success add-cart rounded-0 mr-2" data-id="{{ $rowDetail->id }}">
-                            <i class="fas fa-cart-plus mr-1"></i>
-                            <span>Thêm vào giỏ hàng</span>
+                            <div class="bg-add">
+                                <i class="fas fa-cart-plus mr-1"></i>
+                                <span>Thêm vào giỏ hàng</span>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -117,8 +123,13 @@
             </ul>
             <div class="tab-content pt-4 pb-4" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <div class="autoHeight w-clear" id="toc-content">{!! htmlspecialchars_decode($rowDetail->content) !!}</div>
-
+                    @if (!empty($rowDetail->content))
+                        <div class="w-clear" id="content">{!! htmlspecialchars_decode($rowDetail->content) !!}</div>   
+                    @else
+                        <div class="col-12 text-2xl">
+                            Thông tin đang cập nhật
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

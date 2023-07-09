@@ -4206,9 +4206,6 @@ if ($("#filer-gallery").length) {
             dragContainer: null,
         },
         captions: {
-            // button: 'Thêm hình',
-            // feedback: 'Vui lòng chọn hình ảnh',
-            // feedback2: 'Những hình đã được chọn',
             errors: {
                 filesLimit: "Chỉ được upload mỗi lần {{fi-limit}} hình ảnh",
                 filesType:

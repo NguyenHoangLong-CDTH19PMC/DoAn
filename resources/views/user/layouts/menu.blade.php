@@ -15,8 +15,6 @@
             <li>
                 <a class="transition" href="" title="Tin tức">Tin tức</a>
             </li>
-            <li class="menu-line"></li>
-            <li><a class="transition" href="" title="Liên hệ">Liên hệ</a></li>
             <li class="ml-auto li-last">
 
                 <div class="search w-clear">
@@ -30,7 +28,7 @@
                             <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div class="quantity-item">
-                            2
+                            {{ is_array(session('cart')) ? count(session('cart')) : 0}}
                         </div>
                     </div>
                 </a>

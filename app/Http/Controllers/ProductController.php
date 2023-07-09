@@ -17,6 +17,8 @@ use App\Models\TableVariantsColorProduct;
 use App\Models\TableVariantsSizeProduct;
 use App\Models\TableOrder;
 use App\Models\TableOrderDetail;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -143,7 +145,7 @@ class ProductController extends Controller
             array_push($arrIdSize, $v->id_size);
         }
 
-        return view('.admin.product.main.modify', ['detailSP'  => $product], compact('level1', 'level2', 'dsColor', 'dsSize', 'arrIdColor', 'arrIdSize','dsGallery'));
+        return view('.admin.product.main.modify', ['detailSP'  => $product], compact('level1', 'level2', 'dsColor', 'dsSize', 'arrIdColor', 'arrIdSize', 'dsGallery'));
     }
 
     public function modifyproducts(xlAddRequestProduct $req, $id)
@@ -216,30 +218,21 @@ class ProductController extends Controller
                 $variantsSizPro->save();
             }
         }
-        
-        
+
+
         //kiểm tra xem có nhập file hay không
         if ($req->hasFile('filenames')) {
-            $arr_picture = TableAlbum::where('id', $req->id)->get();
-            foreach ($arr_picture as $v) {
-                $image_path = public_path('upload/album/' . $v->photo);
-                if (file_exists($image_path)) {
-                    unlink($image_path);
-                }
-            }
-            if(!isset($arr_picture->name)){
-                foreach ($req->filenames as $image) {
-                    // tạo random mới
-                    $randomNew = Str::random(5);
-                    // tạo mới hình con
-                    $picture = new TableAlbum();
-                    $destinationPath = public_path('upload/album/');
-                    $filename = 'pictureProduct-' . $randomNew . '.' . $image->getClientOriginalExtension();
-                    $image->move($destinationPath, $filename);
-                    $picture->id_product  = $itemproduct->id;
-                    $picture->photo = $filename;
-                    $picture->save();
-                }
+            foreach ($req->filenames as $image) {
+                // tạo random mới
+                $randomNew = Str::random(5);
+                // tạo mới hình con
+                $picture = new TableAlbum();
+                $destinationPath = public_path('upload/album/');
+                $filename = 'pictureProduct-' . $randomNew . '.' . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $filename);
+                $picture->id_product  = $itemproduct->id;
+                $picture->photo = $filename;
+                $picture->save();
             }
         }
         return redirect()->route('san-pham-admin');
@@ -270,7 +263,8 @@ class ProductController extends Controller
         return redirect()->route('san-pham-admin');
     }
 
-    public function removeFormGallery(Request $req){
+    public function removeFormGallery(Request $req)
+    {
         $arr_picture = TableAlbum::where('id', $req->id)->get();
         foreach ($arr_picture as $v) {
             $image_path = public_path('upload/album/' . $v->photo);
@@ -289,7 +283,7 @@ class ProductController extends Controller
         $limit =  10;
         $dslevel1 = TableBrand::latest()->paginate($limit);
         //kiểm tra xem nhập keyword chưa
-        
+
         // lấy trang hiện tại
         $current = $dslevel1->currentPage();
         // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
@@ -442,7 +436,7 @@ class ProductController extends Controller
             $perSerial = $limit * ($current - 1);
             $serial = $perSerial + 1;
         }
-        return view('.admin.product.main.list', compact('dsProduct','serial'));
+        return view('.admin.product.main.list', compact('dsProduct', 'serial'));
     }
 
     public function searchBrandAdmin(Request $req)
@@ -457,7 +451,7 @@ class ProductController extends Controller
             $perSerial = $limit * ($current - 1);
             $serial = $perSerial + 1;
         }
-        return view('.admin.product.brand.list', compact('dslevel1','serial'));
+        return view('.admin.product.brand.list', compact('dslevel1', 'serial'));
     }
 
     public function searchTypeAdmin(Request $req)
@@ -472,7 +466,7 @@ class ProductController extends Controller
             $perSerial = $limit * ($current - 1);
             $serial = $perSerial + 1;
         }
-        return view('.admin.product.type.list', compact('dslevel2','serial'));
+        return view('.admin.product.type.list', compact('dslevel2', 'serial'));
     }
 
     // ---------------- ADMIN ---------------- //
@@ -526,7 +520,7 @@ class ProductController extends Controller
         $rowColor  = TableColor::whereIn('id', $arrIdColor)->get();
         $rowSize  = TableSize::whereIn('id', $arrIdSize)->get();
 
-        return view('.user.product.detail', ['rowDetail' => $detailProduct], compact('rowColor', 'rowSize','dsGallery'));
+        return view('.user.product.detail', ['rowDetail' => $detailProduct], compact('rowColor', 'rowSize', 'dsGallery'));
     }
 
 
@@ -538,18 +532,25 @@ class ProductController extends Controller
         return view('.user.order.order', compact('colors', 'sizes'));
     }
 
-    // kiểm tra sản phẩm có tồn tại trong giỏ hàng không
-    public function ProductExist($code_order, $q)
+    private function productExists($code_order = '', $q = 1)
     {
-        $flag = 0;
-        if (isset($cart) && !empty($cart) && $code_order != '') {
-            foreach ($cart as $value) {
-                if ($code_order == $value->code) {
-                    $value->quantity += $q;
-                    $flag = 1;
+        $flag = false;
+        //kiểm tra session có tồn tại và mã tạm không rỗng
+        if (!empty(session()->get('cart')) && $code_order != '') {
+            $q = ($q > 1) ? $q : 1;
+            $cart = session()->get('cart');
+
+            foreach ($cart as $index => $value) {
+                if ($code_order == $value['code']) {
+                    // tăng dố lượng item hiện tại có mã tạm = mã tạm truyền vào
+                    $cart[$index]['quantity'] += $q;
+                    $flag = true;
                 }
             }
+            // thêm vào seesion
+            session()->put('cart', $cart);
         }
+
         return $flag;
     }
 
@@ -557,60 +558,136 @@ class ProductController extends Controller
     {
         $code_order = $req->id . $req->id_color . $req->id_size;
         // tạo session
-        $cart = session()->get('cart', []);
-        $id = $req->id;
-        $Itemproduct = TableProduct::findOrFail($id);
-        // kiểm tra giỏ hàng có tồn tại và không rỗng
-        if (isset($cart) && !empty($cart)) {
-            // kiểm tra xem sản phẩm đã tồn tại chưa qua biến code_order
-            if (!$this->ProductExist($code_order, 1)) {
-                $max = count($cart);
+        $Itemproduct = TableProduct::findOrFail($req->id);
+        // kiểm tra session giỏ hàng có tồn tại và không rỗng
+        if (!empty(session()->get('cart'))) {
+            $cart = session()->get('cart');
+            //lấy vị trí cuối cùng torng session cart
+            $max = count($cart);
+            //kiểm tra sản phẩm đó có tồn tại trong giỏ hàng chưa 
+            if (!$this->productExists($code_order, $req->quantity)) {
                 $cart[$max] = [
                     "name" => $Itemproduct->name,
                     "quantity" => $req->quantity,
                     "price_regular" => $Itemproduct->price_regular,
                     "price_sale" => $Itemproduct->sale_price,
                     "image" => $Itemproduct->photo,
+                    "id_product" => $Itemproduct->id,
                     "id_color" => $req->id_color,
                     "id_size" => $req->id_size,
                     "code" => $code_order,
                 ];
+                // thêm vào seesion
+                session()->put('cart', $cart);
             }
-        }
-        // ngược lại chưa có tạo mới
-        else {
+        } else { // ngược lại chưa có tạo mới
+            $cart = session()->get('cart');
             $cart[0] = [
                 "name" => $Itemproduct->name,
                 "quantity" => $req->quantity,
                 "price_regular" => $Itemproduct->price_regular,
                 "price_sale" => $Itemproduct->sale_price,
                 "image" => $Itemproduct->photo,
+                "id_product" => $req->id,
                 "id_color" => $req->id_color,
                 "id_size" => $req->id_size,
                 "code" => $code_order,
             ];
+            // thêm vào seesion
+            session()->put('cart', $cart);
         }
-        // thêm vào seesion
-        session()->put('cart', $cart);
-        return $cart;
+        //trả về số lượng sản phẩm trong giỏ hàng không cần load lại trang
+        return response()->json(array('max' => count(session()->get('cart'))));
     }
 
     public function removeFromCart(Request $req)
     {
 
-        $cart = session()->get('cart');
-        foreach ($cart as $key => $value) {
-            if ($value['code'] == $req->code) {
-                unset($cart[$key]);
+        if (session()->get('cart')) {
+            $cart = session()->get('cart');
+            foreach ($cart as $key => $value) {
+                if ($cart[$key]['code'] == $req->code) {
+                    unset($cart[$key]);
+                    break;
+                }
             }
+            session()->put('cart', $cart);
         }
-        session()->put('cart', $cart);
+        // trả về session cart sau khi xoá
+        return response()->json(session()->get('cart'));
     }
 
-    // public function Payment(Request $req){
-    //     $info = new TableOrder();
-    //     $info->id_user = 
+    public function updateCart(Request $req)
+    {
+        $tempCart = session()->get('cart');
+        foreach ($tempCart as $index => $value) {
+            if ($value['code'] == $req->code && $req->quantity > 0) {
+                $tempCart[$index]['quantity'] = $req->quantity;
+                break;
+            }
+        }
+        session()->put('cart', $tempCart);
+
+        $total = getOrderTotal();
+        $totalText = formatMoney($total);
+
+        $product = getProductInfo($req->id);
+        $regular_price = formatMoney($product->price_regular * $req->quantity);
+        $sale_price = formatMoney($product->sale_price * $req->quantity);
+
+        return response()->json(array('regularPrice' => $regular_price, 'salePrice' => $sale_price, 'totalText' => $totalText));
+    }
+
+    // public function GetMapVn(){
+    //     //dọc file json
+    //     $data = json_decode(file_get_contents(storage_path() . "/app/public/data_map.json"), true);
+    //     return $data;
     // }
+
+    public function Payment(Request $req){
+        $mahd = 'HD'.Str::random(3);
+        $infoOrder = new TableOrder();
+        $infoOrder->code = $mahd;
+        $infoOrder->fullname = $req->fullname;
+        $infoOrder->phone = $req->phone;
+        $infoOrder->address = $req->address;
+        $infoOrder->email = $req->email;
+        $infoOrder->payment = $req->payments;
+        $infoOrder->status = 'moidat';
+        $infoOrder->total_price	 = getOrderTotal();
+        $infoOrder->save();
+        $cart = session()->get('cart');
+        foreach($cart as $key => $value){
+            $detailOrder = new TableOrderDetail();
+            $detailOrder->id_order = $infoOrder->id;
+            $detailOrder->id_product = $value['id_product'];
+            $detailOrder->id_color	= $value['id_color'];
+            $detailOrder->id_size = $value['id_size'];
+            $detailOrder->name_product = $value['name'];
+            $detailOrder->photo_product = $value['image'];
+            if($value['price_sale'] > 0) $detailOrder->price = $value['price_sale'];
+            else $detailOrder->price = $value['price_regular'];
+            $detailOrder->quantity = $value['quantity'];
+            $detailOrder->save();
+            
+            // if ($value[$key]['code'] == $req->code) {
+            //     unset($value[$key]);
+            //     break;
+            // }
+            // session()->put('cart', $cart);
+           
+            $miniusQuantity = TableProduct::find($value['id_product']);
+    
+            $miniusQuantity->quantity = $miniusQuantity->quantity - $value['quantity'];
+            $miniusQuantity->save();
+        }
+        
+        return redirect()->route('trang-chu-user');
+
+        // if(!empty(Auth::guard('user')->user()->id)){
+        //    $sl = TableProduct::
+        // }
+    }
 
 
     // ---------------- USER ---------------- //    

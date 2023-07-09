@@ -26,7 +26,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="{{asset('assets/user/images/img-01.png')}}" alt="IMG">
+					<img src="{{asset('assets/user/images/banner-qc.jpg')}}" alt="IMG">
 				</div>
 
 				<form class="login100-form validate-form" action="{{ route('xl-dang-nhap-user') }}" method="POST">
@@ -59,16 +59,16 @@
 
 					<div class="text-center p-t-12">
 						<span class="txt1">
-							bạn quên
+							Bạn quên
 						</span>
 						<a class="txt2" href="#">
-							Mật khẩu?
+							mật khẩu?
 						</a>
 					</div>
 
 					<div class="text-center p-t-136">
                         Nếu bạn chưa có
-						<a class="txt2" href="#">
+						<a class="txt2" href="{{ route('trang-dang-ky') }}">
 							tải khoản
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>

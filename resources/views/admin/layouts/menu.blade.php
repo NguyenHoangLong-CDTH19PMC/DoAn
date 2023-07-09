@@ -183,6 +183,25 @@
                         
                     </ul>
                 </li>
+                <li class="nav-item {{($name == 'hinh-anh-admin'|| $name == 'them-moi-hinh-anh-admin' || $name == 'sua-doi-hinh-anh-admin') ? "menu-open" : ""}}">
+                    <a class="nav-link {{($name == 'hinh-anh-admin' || $name == 'them-moi-hinh-anh-admin' || $name == 'sua-doi-hinh-anh-admin') ? "active" : ""}} ">
+                        <i class="nav-icon fas fa-duotone fa-image"></i>
+                        <p>
+                           Quản lý Hình Ảnh
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('hinh-anh-admin')}}" class="nav-link {{($name == 'hinh-anh-admin' || $name == 'them-moi-hinh-anh-admin' || $name == 'sua-doi-hinh-anh-admin') ? "active" : ""}}">
+                                <i class="nav-icon-small fas fa-circle fa-2xs"></i>
+                                <p>Danh sách hình ảnh</p>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
