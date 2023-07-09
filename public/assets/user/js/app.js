@@ -341,32 +341,58 @@ NN_FRAMEWORK.Cart = function () {
     if ($(".color-pro-detail").length > 0) {
         $(document).on("click", ".color-pro-detail input", function () {
             $this = $(this).parents(".color-pro-detail");
+            $parents = $this.parents(".attr-pro-detail");
+            $parents
+                .find(".color-block-pro-detail")
+                .find(".color-pro-detail")
+                .removeClass("active");
+            $parents
+                .find(".color-block-pro-detail")
+                .find(".color-pro-detail input")
+                .prop("checked", false);
+            $this.addClass("active");
+            $this.find("input").prop("checked", true);
+
+            /* $this = $(this).parents(".color-pro-detail");
             if ($this.hasClass("active")) {
                 $(".color-pro-detail").removeClass("active");
                 $this.removeClass("active");
             } else {
                 $(".color-pro-detail").removeClass("active");
                 $this.addClass("active");
-            }
+            } */
         });
     }
 
     if ($(".size-pro-detail").length > 0) {
         $(document).on("click", ".size-pro-detail input", function () {
             $this = $(this).parents(".size-pro-detail");
+            $parents = $this.parents(".attr-pro-detail");
+            $parents
+                .find(".size-block-pro-detail")
+                .find(".size-pro-detail")
+                .removeClass("active");
+            $parents
+                .find(".size-block-pro-detail")
+                .find(".size-pro-detail input")
+                .prop("checked", false);
+            $this.addClass("active");
+            $this.find("input").prop("checked", true);
+
+            /* $this = $(this).parents(".size-pro-detail");
             if ($this.hasClass("active")) {
                 $(".size-pro-detail").removeClass("active");
                 $this.removeClass("active");
             } else {
                 $(".size-pro-detail").removeClass("active");
                 $this.addClass("active");
-            }
+            } */
         });
     }
     /* Add Cart */
     $("body").on("click", ".add-cart", function () {
         $this = $(this);
-        $parents = $this.parents().parents(".right-pro-detail");
+        $parents = $this.parents(".right-pro-detail");
         var id = $this.data("id");
         var quantity = $parents
             .find(".quantity-pro-detail")
@@ -374,11 +400,21 @@ NN_FRAMEWORK.Cart = function () {
             .val();
         quantity = quantity ? quantity : 1;
 
-        var color = $parents.find(".color-pro-detail input:checked").val();
+        var color = $parents
+            .find(".color-block-pro-detail")
+            .find(".color-pro-detail input:checked")
+            .val();
+        color = color ? color : 0;
+        var size = $parents
+            .find(".size-block-pro-detail")
+            .find(".size-pro-detail input:checked")
+            .val();
+        size = size ? size : 0;
+        /* var color = $parents.find(".color-pro-detail input:checked").val();
 
         color = color ? color : 0;
 
-        var size = $parents.find(".size-pro-detail input:checked").val();
+        var size = $parents.find(".size-pro-detail input:checked").val(); */
 
         if (id) {
             $.ajax({
@@ -391,6 +427,8 @@ NN_FRAMEWORK.Cart = function () {
                     quantity: quantity,
                 },
                 success: function (response) {
+                    $(".quantity-item").html(response["max"]);
+
                     Swal.fire({
                         title: "Thông báo",
                         text: "Thêm vào giỏ hàng thành công",
@@ -403,6 +441,8 @@ NN_FRAMEWORK.Cart = function () {
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.href = "/cart";
+                        } else {
+                            //location.reload();
                         }
                     });
                 },
@@ -431,7 +471,7 @@ NN_FRAMEWORK.Cart = function () {
                         code: code_order,
                     },
                     success: function (response) {
-                        window.location.reload();
+                        location.reload();
                     },
                 });
             }
@@ -439,33 +479,63 @@ NN_FRAMEWORK.Cart = function () {
     });
 
     /* Counter */
-	$('body').on('click', '.counter-procart', function () {
-		var $button = $(this);
-		var quantity = 1;
-		var input = $button.parent().find('input');
-		var id = input.data('pid');
-		var code = input.data('code');
-		var oldValue = $button.parent().find('input').val();
-		if ($button.text() == '+') quantity = parseFloat(oldValue) + 1;
-		else if (oldValue > 1) quantity = parseFloat(oldValue) - 1;
-		$button.parent().find('input').val(quantity);
-		updateCart(id, code, quantity);
-	});
+    $("body").on("click", ".counter-procart", function () {
+        var $button = $(this);
+        var quantity = 1;
+        var input = $button.parent().find("input");
+        var id = input.data("pid");
+        var code = input.data("code");
+        var oldValue = input.val();
+        if ($button.text() == "+") quantity = parseFloat(oldValue) + 1;
+        else if (oldValue > 1) quantity = parseFloat(oldValue) - 1;
+        input.val(quantity);
+        updateCart(id, code, quantity);
+    });
+
+    function updateCart(id = 0, code = "", quantity = 1) {
+        if (id) {
+            var formCart = $(".form-cart");
+
+            $.ajax({
+                type: "GET",
+                url: "/updatecart",
+                dataType: "json",
+                data: {
+                    id: id,
+                    code: code,
+                    quantity: quantity,
+                },
+                success: function (result) {
+                    if (result) {
+                        formCart
+                            .find(".load-price-" + code)
+                            .html(result.regularPrice);
+                        formCart
+                            .find(".load-price-new-" + code)
+                            .html(result.salePrice);
+                        formCart
+                            .find(".load-price-total")
+                            .html(result.totalText);
+                    }
+                },
+            });
+        }
+    }
 
     /* Quantity detail page */
-	if ($('.quantity-pro-detail span').length > 0) {
-		$('.quantity-pro-detail span').click(function () {
-			var $button = $(this);
-			var oldValue = $button.parent().find('.qty-pro').val();
-			if ($button.text() == '+') {
-				var newVal = parseFloat(oldValue) + 1;
-			} else {
-				if (oldValue > 1) var newVal = parseFloat(oldValue) - 1;
-				else var newVal = 1;
-			}
-			$button.parent().find('input').val(newVal);
-		});
-	}
+    if ($(".quantity-pro-detail span").length > 0) {
+        $(".quantity-pro-detail span").click(function () {
+            var $button = $(this);
+            var oldValue = $button.parent().find(".qty-pro").val();
+            if ($button.text() == "+") {
+                var newVal = parseFloat(oldValue) + 1;
+            } else {
+                if (oldValue > 1) var newVal = parseFloat(oldValue) - 1;
+                else var newVal = 1;
+            }
+            $button.parent().find("input").val(newVal);
+        });
+    }
 };
 NN_FRAMEWORK.Search = function () {
     /* Search */
@@ -477,11 +547,87 @@ NN_FRAMEWORK.Search = function () {
                 title: "Oops...",
                 text: "Bạn chưa nhập từ khoá!",
             });
-        } 
-        else{
-            window.location.href = "/search/"+$("#keyword").val();
+        } else {
+            window.location.href = "/search/" + $("#keyword").val();
         }
     });
+};
+
+NN_FRAMEWORK.RenderPicture = function () {
+    /* Reader image */
+    function readImage(inputFile, elementPhoto) {
+        if (inputFile[0].files[0]) {
+            if (inputFile[0].files[0].name.match(/.(jpg|jpeg|png)$/i)) {
+                var size = parseInt(inputFile[0].files[0].size) / 1024;
+
+                if (size <= 4096) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $(elementPhoto).attr("src", e.target.result);
+                    };
+                    reader.readAsDataURL(inputFile[0].files[0]);
+                } else {
+                    notifyDialog(
+                        "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 100MB ~ 4096KB"
+                    );
+                    return false;
+                }
+            } else {
+                $(elementPhoto).attr("src", "");
+                notifyDialog("Định dạng hình ảnh không hợp lệ");
+                return false;
+            }
+        } else {
+            $(elementPhoto).attr("src", "");
+            return false;
+        }
+    }
+
+    /* Photo zone */
+    function photoZone(eDrag, iDrag, eLoad) {
+        if ($(eDrag).length) {
+            /* Drag over */
+            $(eDrag).on("dragover", function () {
+                $(this).addClass("drag-over");
+                return false;
+            });
+
+            /* Drag leave */
+            $(eDrag).on("dragleave", function () {
+                $(this).removeClass("drag-over");
+                return false;
+            });
+
+            /* Drop */
+            $(eDrag).on("drop", function (e) {
+                e.preventDefault();
+                $(this).removeClass("drag-over");
+
+                var lengthZone = e.originalEvent.dataTransfer.files.length;
+
+                if (lengthZone == 1) {
+                    $(iDrag).prop("files", e.originalEvent.dataTransfer.files);
+                    readImage($(iDrag), eLoad);
+                } else if (lengthZone > 1) {
+                    notifyDialog("Bạn chỉ được chọn 1 hình ảnh để upload");
+                    return false;
+                } else {
+                    notifyDialog("Dữ liệu không hợp lệ");
+                    return false;
+                }
+            });
+
+            /* File zone */
+            $(iDrag).change(function () {
+                readImage($(this), eLoad);
+            });
+        }
+    }
+
+    /* PhotoZone */
+    if ($("#photo-zone").length) {
+        photoZone("#photo-zone", "#file-zone", "#photoUpload-preview img");
+    }
 };
 
 /* Ready */
@@ -492,4 +638,5 @@ $(document).ready(function () {
     NN_FRAMEWORK.scrolltoTop();
     NN_FRAMEWORK.Cart();
     NN_FRAMEWORK.Search();
+    NN_FRAMEWORK.RenderPicture();
 });

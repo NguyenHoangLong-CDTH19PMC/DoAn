@@ -11,8 +11,6 @@ $yearnow =  date("Y", time()) ;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @include('user.layouts.head')
     @include('user.layouts.css')
-    @include('user.layouts.js')
-    
 </head>
 <body>
     <div class="contain_main">
@@ -25,5 +23,6 @@ $yearnow =  date("Y", time()) ;
         </div>
         @include('user.layouts.footer')
     </div>
+    @include('user.layouts.js')
 </body>
 </html>

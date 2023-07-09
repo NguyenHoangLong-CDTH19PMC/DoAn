@@ -115,16 +115,16 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_role')->nullable();
             $table->foreign('id_role')->references('id')->on('table_role')->onDelete('set null');
-            $table->string('name');
-            $table->integer('gender');
-            $table->string('birthday');
-            $table->string('email');
-            $table->string('phone',11);
-            $table->string('address');
-            $table->string('avatar');
-            $table->string('username');
-            $table->string('password');
-            $table->string('remember_token');
+            $table->string('name')->nullable();
+            $table->integer('gender')->default(0);
+            $table->date('birthday')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone',11)->nullable();
+            $table->string('address')->nullable();
+            $table->string('avatar')->nullable();
+            $table->string('username')->nullable();
+            $table->string('password')->nullable();
+            $table->string('remember_token')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -184,6 +184,15 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        Schema::create('table_photo', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('link')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
@@ -205,5 +214,6 @@ return new class extends Migration
         Schema::dropIfExists('table_article');
         Schema::dropIfExists('table_order');
         Schema::dropIfExists('table_order_detail');
+        Schema::dropIfExists('table_photo');
     }
 };

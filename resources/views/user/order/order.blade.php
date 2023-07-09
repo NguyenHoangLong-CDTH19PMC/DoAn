@@ -1,7 +1,8 @@
 @extends('user.index')
 @section('body')
     <div class="wap_1200 layout-cart">
-        <form class="form-cart validation-cart" method="post" action="" enctype="multipart/form-data">
+        <form class="form-cart validation-cart" method="post" action="{{ route('thanh-toan') }}" enctype="multipart/form-data">
+            @csrf
             <div class="wrap-cart">
                 @if (session('cart'))
                     <div class="row">
@@ -21,8 +22,21 @@
                                 
                                 @foreach (session('cart') as $i => $details)
                                     @php
-                                        $nameColor = $colors->where('id','=',$details['id_color'])->first();
-                                        $nameSize = $sizes->where('id','=',$details['id_size'])->first()
+                                        $pid = $details['id_product'];
+                                        $quantity = $details['quantity'];
+                                        $color = $details['id_color'] ? $details['id_color'] : 0;
+                                        $size = $details['id_size'] ? $details['id_size'] : 0;
+                                        $code = $details['code'] ? $details['code'] : '';
+                                        
+                                        $proinfo = getProductInfo($pid);
+                                        $pro_price = $proinfo['price_regular']; //Giá 1 sp
+                                        $pro_price_new = $proinfo['sale_price']; //Giá mới 1 sp
+                                        
+                                        $pro_price_qty = $pro_price * $quantity; //Giá sau khi nhân số lượng
+                                        $pro_price_new_qty = $pro_price_new * $quantity; //Giá mới sau khi nhân số lượng
+                                        
+                                        $nameColor = $colors->where('id', '=', $color)->first();
+                                        $nameSize = $sizes->where('id', '=', $size)->first();
                                     @endphp
                                     <div class="procart">
                                         <div class="form-row">
@@ -34,8 +48,7 @@
                                                         src="{{ asset('upload/product/' . $details['image']) }}"
                                                         style="" alt="" />
                                                 </a>
-                                                <a class="del-procart text-decoration-none"
-                                                    data-code="{{ $details['code'] }}">
+                                                <a class="del-procart text-decoration-none" data-code="{{ $code }}">
                                                     <i class="fa fa-times-circle"></i>
                                                     <span>xoá</span>
                                                 </a>
@@ -50,7 +63,7 @@
                                                         </strong></p>
 
                                                     <p>Size: <strong>
-                                                        {{ isset($nameSize) ? $nameSize['name'] : 'Chưa chọn size' }}
+                                                            {{ isset($nameSize) ? $nameSize['name'] : 'Chưa chọn size' }}
                                                         </strong></p>
 
                                                 </div>
@@ -59,29 +72,31 @@
                                                 <div class="quantity-counter-procart quantity-counter-procart">
                                                     <span class="counter-procart-minus counter-procart">-</span>
                                                     <input type="number" class="quantity-procart" min="1"
-                                                        value="{{ $details['quantity'] }}" data-pid="1" readonly />
+                                                        value="{{ $quantity }}" data-pid="{{ $pid }}"
+                                                        data-code="{{ $code }}" readonly />
                                                     <span class="counter-procart-plus counter-procart">+</span>
                                                 </div>
                                             </div>
                                             <div class="price-procart col-3 col-md-3">
                                                 <div class="price-procart price-procart-rp">
-                                                    @if (!empty($details['price_sale']))
-                                                        <p class="price-new-cart load-price-new">
-                                                            {{ formatMoney($details['price_sale']) }}
-                                                        </p>
-                                                        <p class="price-old-cart load-price">
-                                                            {{ $details['price_regular'] }}
-                                                        </p>
+                                                    @if ($pro_price_new_qty > 0)
+                                                        <p class="price-new-cart load-price-new-{{ $code }}">
+                                                            {{ formatMoney($pro_price_new_qty) }}</p>
+                                                        <p class="price-old-cart load-price-{{ $code }}">
+                                                            {{ formatMoney($pro_price_qty) }}</p>
                                                     @else
-                                                        <p class="price-new-cart load-price-new">
-                                                            {{ formatMoney($details['price_regular']) }}
-                                                        </p>
+                                                        <p class="price-new-cart load-price-{{ $code }}">
+                                                            {{ formatMoney($pro_price_qty) }}</p>
                                                     @endif
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
+                                <div class="total-procart">
+                                    <p>Tổng tiền:</p>
+                                    <p class="total-price load-price-total">{{ formatMoney(getOrderTotal()) }}</p>
+                                </div>
                             </div>
                         </div>
                         <div class="bottom-cart col-12 col-lg-5">
@@ -90,10 +105,9 @@
                                 <div class="information-cart">
 
                                     <div class="payments-cart custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="payments"
-                                            name="payments" value="1" checked required>
-                                        <label class="payments-label custom-control-label" for="payments"
-                                            data-payments="">Thanh toán khi nhận</label>
+                                        <input type="radio" class="custom-control-input" id="payments" name="payments"
+                                            value="1" checked required>
+                                        <label class="payments-label custom-control-label" for="payments">Thanh toán khi nhận</label>
                                     </div>
 
                                 </div>
@@ -102,27 +116,27 @@
                                     <div class="form-row">
                                         <div class="input-cart col-md-6">
                                             <input type="text" class="form-control text-sm" id="fullname"
-                                                name="fullname" placeholder="Họ tên" value="" required />
+                                                name="fullname" placeholder="Họ tên" value="{{ (!empty(Auth::guard('user')->user()->id)) ? Auth::guard('user')->user()->username : "" }}" required />
                                         </div>
                                         <div class="input-cart col-md-6">
                                             <input type="number" class="form-control text-sm" id="phone" name="phone"
-                                                placeholder="Số điện thoại" value="" required />
+                                                placeholder="Số điện thoại" value="{{ (!empty(Auth::guard('user')->user()->id)) ? Auth::guard('user')->user()->phone : "" }}" required />
                                         </div>
                                     </div>
                                     <div class="input-cart">
                                         <input type="email" class="form-control text-sm" id="email" name="email"
-                                            placeholder="Email" value="" required />
+                                            placeholder="Email" value="{{ (!empty(Auth::guard('user')->user()->id)) ? Auth::guard('user')->user()->email : "" }}" required />
                                     </div>
                                     <div class="input-cart">
                                         <input type="text" class="form-control text-sm" id="address" name="address"
-                                            placeholder="Địa chỉ" value="" required />
+                                            placeholder="Địa chỉ" value="{{ (!empty(Auth::guard('user')->user()->id)) ? Auth::guard('user')->user()->address : "" }} " required />
                                     </div>
                                     <div class="input-cart">
                                         <textarea class="form-control text-sm" id="requirements" name="requirements" placeholder="Yêu cầu khác"></textarea>
                                     </div>
                                 </div>
                                 <input type="submit" class="btn btn-dark btn-cart w-100" name="thanhtoan"
-                                    value="Thanh toán" />
+                                    value="Mua hàng" />
                             </div>
                         </div>
                     </div>
