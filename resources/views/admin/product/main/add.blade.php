@@ -165,7 +165,7 @@
                                             <p class="photoUpload-or">hoặc</p>
                                             <p class="photoUpload-choose btn btn-sm bg-gradient-success">Chọn hình</p>
                                         </label>
-                                        <div class="photoUpload-dimension">Width: 352px - Height: 352px
+                                        <div class="photoUpload-dimension">Width: 734px - Height: 734px
                                             (.jpg|.png|.jpeg)</div>
                                     </div>
                                 </div>

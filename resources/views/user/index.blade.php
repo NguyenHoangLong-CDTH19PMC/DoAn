@@ -17,7 +17,7 @@ $yearnow =  date("Y", time()) ;
         @include('user.layouts.header')
         @include('user.layouts.menu')
         @include('user.layouts.mmenu')
-         @include('user.layouts.slide')   
+        @include('user.layouts.slide')   
         <div class="wap-home">
             @yield('body')
         </div>

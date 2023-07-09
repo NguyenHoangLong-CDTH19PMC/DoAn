@@ -1,7 +1,8 @@
 @extends('user.index')
 @section('body')
     <div class="wap_1200 layout-cart">
-        <form class="form-cart validation-cart" method="post" action="{{ route('thanh-toan') }}" enctype="multipart/form-data">
+        <form class="form-cart validation-cart" action="{{ route('thanh-toan') }}" method="POST" id="form-cart"
+            enctype="multipart/form-data">
             @csrf
             <div class="wrap-cart">
                 @if (session('cart'))
@@ -19,7 +20,7 @@
                                         <div class="price-procart col-3 col-md-3">Đơn giá</div>
                                     </div>
                                 </div>
-                                
+
                                 @foreach (session('cart') as $i => $details)
                                     @php
                                         $pid = $details['id_product'];
@@ -69,13 +70,18 @@
                                                 </div>
                                             </div>
                                             <div class="quantity-procart col-3 col-md-2">
-                                                <div class="quantity-counter-procart quantity-counter-procart">
-                                                    <span class="counter-procart-minus counter-procart">-</span>
+                                                <div class="quantity-counter-procart">
+                                                    <span class="quantity-minus-pro-detail decrease"><i
+                                                            class="fa-solid fa-minus"></i></span>
                                                     <input type="number" class="quantity-procart" min="1"
                                                         value="{{ $quantity }}" data-pid="{{ $pid }}"
                                                         data-code="{{ $code }}" readonly />
-                                                    <span class="counter-procart-plus counter-procart">+</span>
+                                                    <span class="quantity-plus-pro-detail increase"><i
+                                                            class="fa-solid fa-plus"></i></span>
                                                 </div>
+                                                <div class="show-available mt-2">Còn <span
+                                                        class="quantity-available">{{ $details['available'] }}</span> sản
+                                                    phẩm</div>
                                             </div>
                                             <div class="price-procart col-3 col-md-3">
                                                 <div class="price-procart price-procart-rp">
@@ -94,7 +100,7 @@
                                     </div>
                                 @endforeach
                                 <div class="total-procart">
-                                    <p>Tổng tiền:</p>
+                                    <p>Tổng giá trị đơn hàng:</p>
                                     <p class="total-price load-price-total">{{ formatMoney(getOrderTotal()) }}</p>
                                 </div>
                             </div>
@@ -106,8 +112,9 @@
 
                                     <div class="payments-cart custom-control custom-radio">
                                         <input type="radio" class="custom-control-input" id="payments" name="payments"
-                                            value="1" checked required>
-                                        <label class="payments-label custom-control-label" for="payments">Thanh toán khi nhận</label>
+                                            value="1" checked />
+                                        <label class="payments-label custom-control-label" for="payments">Thanh toán khi
+                                            nhận</label>
                                     </div>
 
                                 </div>
@@ -115,28 +122,32 @@
                                 <div class="information-cart">
                                     <div class="form-row">
                                         <div class="input-cart col-md-6">
-                                            <input type="text" class="form-control text-sm" id="fullname"
-                                                name="fullname" placeholder="Họ tên" value="{{ (!empty(Auth::guard('user')->user()->id)) ? Auth::guard('user')->user()->username : "" }}" required />
+                                            <input type="text" class="form-control text-sm field-name" id="fullname"
+                                                name="fullname" placeholder="Họ tên"
+                                                value="{{ !empty(Auth::guard('user')->user()->id) ? Auth::guard('user')->user()->username : '' }}" />
                                         </div>
                                         <div class="input-cart col-md-6">
-                                            <input type="number" class="form-control text-sm" id="phone" name="phone"
-                                                placeholder="Số điện thoại" value="{{ (!empty(Auth::guard('user')->user()->id)) ? Auth::guard('user')->user()->phone : "" }}" required />
+                                            <input type="number" class="form-control text-sm field-phone" id="phone"
+                                                name="phone" placeholder="Số điện thoại"
+                                                value="{{ !empty(Auth::guard('user')->user()->id) ? Auth::guard('user')->user()->phone : '' }}" />
                                         </div>
                                     </div>
                                     <div class="input-cart">
-                                        <input type="email" class="form-control text-sm" id="email" name="email"
-                                            placeholder="Email" value="{{ (!empty(Auth::guard('user')->user()->id)) ? Auth::guard('user')->user()->email : "" }}" required />
+                                        <input type="email" class="form-control text-sm field-email" id="email"
+                                            name="email" placeholder="Email"
+                                            value="{{ !empty(Auth::guard('user')->user()->id) ? Auth::guard('user')->user()->email : '' }}" />
                                     </div>
                                     <div class="input-cart">
-                                        <input type="text" class="form-control text-sm" id="address" name="address"
-                                            placeholder="Địa chỉ" value="{{ (!empty(Auth::guard('user')->user()->id)) ? Auth::guard('user')->user()->address : "" }} " required />
+                                        <input type="text" class="form-control text-sm field-address" id="address"
+                                            name="address" placeholder="Địa chỉ"
+                                            value="{{ !empty(Auth::guard('user')->user()->id) ? Auth::guard('user')->user()->address : '' }}" />
                                     </div>
                                     <div class="input-cart">
                                         <textarea class="form-control text-sm" id="requirements" name="requirements" placeholder="Yêu cầu khác"></textarea>
                                     </div>
                                 </div>
-                                <input type="submit" class="btn btn-dark btn-cart w-100" name="thanhtoan"
-                                    value="Mua hàng" />
+                                <button type="submit" class="btn btn-dark btn-payment w-100" name="thanhtoan">Mua
+                                    hàng</button>
                             </div>
                         </div>
                     </div>

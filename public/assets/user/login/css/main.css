@@ -513,3 +513,20 @@ iframe {
     opacity: 1;
   }
 }
+.email-form{width: 400px;}
+.form-btn-sendmail{padding-top: 10px;}
+.wrap-email{
+  padding: 33px 95px 33px 95px;
+  width: 960px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}

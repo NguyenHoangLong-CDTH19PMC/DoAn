@@ -352,15 +352,6 @@ NN_FRAMEWORK.Cart = function () {
                 .prop("checked", false);
             $this.addClass("active");
             $this.find("input").prop("checked", true);
-
-            /* $this = $(this).parents(".color-pro-detail");
-            if ($this.hasClass("active")) {
-                $(".color-pro-detail").removeClass("active");
-                $this.removeClass("active");
-            } else {
-                $(".color-pro-detail").removeClass("active");
-                $this.addClass("active");
-            } */
         });
     }
 
@@ -378,15 +369,6 @@ NN_FRAMEWORK.Cart = function () {
                 .prop("checked", false);
             $this.addClass("active");
             $this.find("input").prop("checked", true);
-
-            /* $this = $(this).parents(".size-pro-detail");
-            if ($this.hasClass("active")) {
-                $(".size-pro-detail").removeClass("active");
-                $this.removeClass("active");
-            } else {
-                $(".size-pro-detail").removeClass("active");
-                $this.addClass("active");
-            } */
         });
     }
     /* Add Cart */
@@ -410,12 +392,6 @@ NN_FRAMEWORK.Cart = function () {
             .find(".size-pro-detail input:checked")
             .val();
         size = size ? size : 0;
-        /* var color = $parents.find(".color-pro-detail input:checked").val();
-
-        color = color ? color : 0;
-
-        var size = $parents.find(".size-pro-detail input:checked").val(); */
-
         if (id) {
             $.ajax({
                 type: "GET",
@@ -479,15 +455,19 @@ NN_FRAMEWORK.Cart = function () {
     });
 
     /* Counter */
-    $("body").on("click", ".counter-procart", function () {
-        var $button = $(this);
-        var quantity = 1;
-        var input = $button.parent().find("input");
+    $("body").on("click", ".quantity-counter-procart span", function () {
+        var parent = $(this).parent();
+        var input = parent.children("input");
         var id = input.data("pid");
         var code = input.data("code");
         var oldValue = input.val();
-        if ($button.text() == "+") quantity = parseFloat(oldValue) + 1;
-        else if (oldValue > 1) quantity = parseFloat(oldValue) - 1;
+        var quantity = oldValue;
+        var available = $(".quantity-available").text();
+        if ($(this).hasClass("increase") && oldValue < available) {
+            quantity = parseFloat(oldValue) + 1;
+        } else if ($(this).hasClass("decrease") && oldValue > 1) {
+            quantity = parseFloat(oldValue) - 1;
+        }
         input.val(quantity);
         updateCart(id, code, quantity);
     });
@@ -527,11 +507,13 @@ NN_FRAMEWORK.Cart = function () {
         $(".quantity-pro-detail span").click(function () {
             var $button = $(this);
             var oldValue = $button.parent().find(".qty-pro").val();
-            if ($button.text() == "+") {
-                var newVal = parseFloat(oldValue) + 1;
-            } else {
-                if (oldValue > 1) var newVal = parseFloat(oldValue) - 1;
-                else var newVal = 1;
+            var available = $(".quantity-available").text();
+            var newVal = oldValue;
+            if ($(this).hasClass("increase") && oldValue < available) {
+                newVal = parseFloat(oldValue) + 1;
+            } else if ($(this).hasClass("decrease")) {
+                if (oldValue > 1) newVal = parseFloat(oldValue) - 1;
+                else newVal = 1;
             }
             $button.parent().find("input").val(newVal);
         });
@@ -540,7 +522,6 @@ NN_FRAMEWORK.Cart = function () {
 NN_FRAMEWORK.Search = function () {
     /* Search */
     $("body").on("click", ".btn-search", function () {
-        var keyword = $("#keyword").val();
         if ($("#keyword").val() == "") {
             Swal.fire({
                 icon: "error",
@@ -630,6 +611,77 @@ NN_FRAMEWORK.RenderPicture = function () {
     }
 };
 
+NN_FRAMEWORK.CheckSubmit = function () {
+    $("body").on("click", ".btn-payment", function () {
+        var name = ".field-name".val();
+        var phone = ".field-phone".val();
+        var email = ".field-email".val();
+        var address = ".field-address".val();
+
+        if (name == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Bạn chưa nhập họ tên!!!",
+            });
+        }
+        elseif(phone == "");
+        {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Bạn chưa nhập họ tên!!!",
+            });
+        }
+        elseif(email == "");
+        {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Bạn chưa nhập email!!!",
+            });
+        }
+        elseif(address == "");
+        {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Bạn chưa nhập địa chỉ!!!",
+            });
+        }
+    });
+};
+
+NN_FRAMEWORK.ShowPassword = function () {
+    /* Show old password */
+    $(".show").click(function () {
+        if ($("#old-password").val()) {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active");
+                $("#old-password").attr("type", "password");
+            } else {
+                $(this).addClass("active");
+                $("#old-password").attr("type", "text");
+            }
+            $(this).find("span").toggleClass("fas fa-eye fas fa-eye-slash");
+        }
+    });
+
+    /* Show new password */
+    $(".show-icon").click(function () {
+        if ($(".show-value").val()) {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active");
+                $(".show-value").attr("type", "password");
+            } else {
+                $(this).addClass("active");
+                $(".show-value").attr("type", "text");
+            }
+            $(this).find("span").toggleClass("fas fa-eye fas fa-eye-slash");
+        }
+    });
+};
+
 /* Ready */
 $(document).ready(function () {
     NN_FRAMEWORK.Menu();
@@ -639,4 +691,6 @@ $(document).ready(function () {
     NN_FRAMEWORK.Cart();
     NN_FRAMEWORK.Search();
     NN_FRAMEWORK.RenderPicture();
+    NN_FRAMEWORK.CheckSubmit();
+    NN_FRAMEWORK.ShowPassword();
 });
