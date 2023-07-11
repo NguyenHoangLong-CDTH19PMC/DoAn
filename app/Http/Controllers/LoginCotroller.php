@@ -236,6 +236,7 @@ class LoginCotroller extends Controller
         $info->save();
         return redirect()->route('trang-chu-user');
     }
+
     public function GetForgotPasswordIndex()
     {
         return view('.user.login.forgot_password');
@@ -254,7 +255,7 @@ class LoginCotroller extends Controller
             'email.required' => 'Vui lòng nhập địa chỉ Email hợp lệ!'
         ]);
 
-        $user = TableUser::where('email', $req->email)->first();
+        //$user = TableUser::where('email', $req->email)->first();
         // $token = Str::random(20);
         // $user->update(['token' => $token]);
         $mailData = [
@@ -265,7 +266,35 @@ class LoginCotroller extends Controller
         Mail::to($req->email)->send(new SendMail($mailData));
 
         // $user->update([$status => 1, 'token' => null]);
-        return redirect()->back('trang-dang-nhap')->with('yes', 'Vui lòng kiểm tra Email để tiến hành thay đổi mật khẩu');
+        return redirect()->route('dang-nhap-user')->with('yes', 'Vui lòng kiểm tra Email để tiến hành thay đổi mật khẩu');
+    }
+
+    public function xl_forgot_password(Request $req)
+    {
+        // $change = TableUser::find();
+
+        // if ($change == null) {
+        //     return "không tìm thấy người dùng nào có ID = {$id} này";
+        // }
+
+        // if ($change == $req->oldpassword || !empty($req->oldpassword)) {
+        //     if ($req->newpassword < 6 || $req->renewpassword < 6) {
+        //         return "Mật khẩu mới có độ dài bé hơn 6 ký tự";
+        //     } else {
+        //         if ($req->newpassword != $req->renewpassword) {
+        //             return "Xác nhận mật khẩu mới không trùng khớp";
+        //         } elseif (empty($req->newpassword) || empty($req->renewpassword)) {
+        //             return "Chưa nhập mật khẩu!!!";
+        //         } else {
+        //             $change->password = Hash::make($req->renewpassword);
+        //         }
+        //     }
+        // } else {
+        //     return "Mật khẩu cũ của bạn chưa đúng!!! hoặc bạn chưa nhập mật khẩu cũ";
+        // }
+
+        // $change->save();
+        // return redirect()->route('trang-dang-nhap');
     }
 
     public function GetRegisterIndex()

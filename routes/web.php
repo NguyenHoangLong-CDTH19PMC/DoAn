@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginCotroller;
 use App\Http\Controllers\ArticleCotroller;
 use App\Http\Controllers\TypeArticleCotroller;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -103,7 +104,13 @@ Route::group(['middleware' => ['checkauth:admin']], function () {
     Route::post('/admin/photo/modify-photo/{id}', [PhotoController::class, 'modifyphoto'])->name('xl-sua-doi-hinh-anh-admin');
     Route::get('/admin/photo/delete-photo', [PhotoController::class, 'deletephoto'])->name('xl-xoa-bo-hinh-anh-admin');
 
+    Route::get('/admin/user', [UserController::class, 'getsusers'])->name('nguoi-dung-admin');
+    Route::get('/admin/user/delete-user', [UserController::class, 'deleteuser'])->name('xl-xoa-bo-nguoi-dung-admin');
+
     Route::get('/admin/status', [ProductController::class, 'setStatus'])->name('set-trang-thai-sp');
+
+    Route::get('/admin/invoice', [ProductController::class, 'loadOrder'])->name('don-hang');
+    Route::get('/admin/invoice/{id}', [ProductController::class, 'loadOrderDetail'])->name('chi-tiet-don-hang');
 });
 
 
@@ -124,14 +131,12 @@ Route::get('/logout-user', [LoginCotroller::class, 'xlLogoutUser'])->name('xl-lo
 
 Route::group(['middleware' => ['checkauth:admin']], function () {
 
-    // Route::get('/forgot-password', [LoginCotroller::class, 'GetForgotPasswordIndex'])->name('trang-forgot');
-    // Route::post('/forgot-password', [LoginCotroller::class, 'xl_ForgotPassword'])->name('xl-trang-forgot');
     // Route::get('/get-password', [LoginCotroller::class, 'GetForgotPassword'])->name('trang-getpassword');
     // Route::post('/get-password', [LoginCotroller::class, 'xl_GetPassword'])->name('xl-trang-get-password');
 
 
-    Route::get('/change-password/user/{id}', [LoginCotroller::class, 'index_change_user'])->name('doi-matkhau-user');
-    Route::post('/change-password/user/{id}', [LoginCotroller::class, 'xl_change_password_user'])->name('xl-doi-matkhau-user');
+    Route::get('/change-password/user', [LoginCotroller::class, 'index_change_user'])->name('doi-matkhau-user');
+    Route::post('/change-password/user', [LoginCotroller::class, 'xl_change_password_user'])->name('xl-doi-matkhau-user');
 
     Route::get('/update-info/user/{id}', [LoginCotroller::class, 'index_update_user'])->name('suadoi-thongtin-user');
     Route::post('/update-info/user/{id}', [LoginCotroller::class, 'xl_update_info_user'])->name('xl-suadoi-thongtin-user');
@@ -140,8 +145,10 @@ Route::group(['middleware' => ['checkauth:admin']], function () {
 });
 Route::get('/mail', [LoginCotroller::class, 'SendMail'])->name('trang-gui-mail');
 Route::post('/mail', [LoginCotroller::class, 'xl_SendMail'])->name('xl-gui-mail');
+Route::get('/forgot-password/{email}', [LoginCotroller::class, 'GetForgotPasswordIndex'])->name('trang-forgot');
+Route::post('/forgot-password', [LoginCotroller::class, 'xl_ForgotPassword'])->name('xl-trang-forgot');
+
 
 Route::get('/register', [LoginCotroller::class, 'GetRegisterIndex'])->name('trang-dang-ky');
 Route::post('/register', [LoginCotroller::class, 'addRegister'])->name('xl-dang-ky-nguoi-dung');
-
 Route::post('/payment', [ProductController::class, 'Payment'])->name('thanh-toan');

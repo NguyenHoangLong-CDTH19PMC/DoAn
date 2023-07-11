@@ -1,5 +1,6 @@
 @extends('user.index')
 @section('body')
+    @if(count($dsProductNew))
     <div class="box-sanpham-tc">
         <div class="wap_1200">
             <div class="box-title">
@@ -49,7 +50,7 @@
             @endif
         </div>
     </div>
-
+    @endif
     <div class="box-gioithieu">
         <div class="wap_1200">
             <div class="wap_gioithieu">

@@ -145,6 +145,7 @@ return new class extends Migration
             $table->string('name');
             $table->mediumText('content')->nullable();
             $table->string('photo')->nullable();
+            $table->string('photo2')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
             $table->softDeletes();

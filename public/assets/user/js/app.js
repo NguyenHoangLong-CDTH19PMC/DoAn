@@ -460,16 +460,15 @@ NN_FRAMEWORK.Cart = function () {
         var input = parent.children("input");
         var id = input.data("pid");
         var code = input.data("code");
-        var oldValue = input.val();
-        var quantity = oldValue;
-        var available = $(".quantity-available").text();
+        var oldValue = parseInt(input.val());
+        var available = parseInt($(".quantity-available").text());
         if ($(this).hasClass("increase") && oldValue < available) {
-            quantity = parseFloat(oldValue) + 1;
+            oldValue = parseFloat(oldValue) + 1;
         } else if ($(this).hasClass("decrease") && oldValue > 1) {
-            quantity = parseFloat(oldValue) - 1;
+            oldValue = parseFloat(oldValue) - 1;
         }
-        input.val(quantity);
-        updateCart(id, code, quantity);
+        input.val(oldValue);
+        updateCart(id, code, oldValue);
     });
 
     function updateCart(id = 0, code = "", quantity = 1) {
@@ -505,17 +504,15 @@ NN_FRAMEWORK.Cart = function () {
     /* Quantity detail page */
     if ($(".quantity-pro-detail span").length > 0) {
         $(".quantity-pro-detail span").click(function () {
-            var $button = $(this);
-            var oldValue = $button.parent().find(".qty-pro").val();
-            var available = $(".quantity-available").text();
-            var newVal = oldValue;
+            var oldValue = parseInt($(this).parent().find(".qty-pro").val());
+            var available = parseInt($(".quantity-available").text());
             if ($(this).hasClass("increase") && oldValue < available) {
-                newVal = parseFloat(oldValue) + 1;
+                oldValue = parseInt(oldValue) + 1;
             } else if ($(this).hasClass("decrease")) {
-                if (oldValue > 1) newVal = parseFloat(oldValue) - 1;
-                else newVal = 1;
+                if (oldValue > 1) oldValue = parseInt(oldValue) - 1;
+                else oldValue = 1;
             }
-            $button.parent().find("input").val(newVal);
+            $(this).parent().find("input").val(oldValue);
         });
     }
 };
@@ -613,11 +610,11 @@ NN_FRAMEWORK.RenderPicture = function () {
 
 NN_FRAMEWORK.CheckSubmit = function () {
     $("body").on("click", ".btn-payment", function () {
-        var name = ".field-name".val();
-        var phone = ".field-phone".val();
-        var email = ".field-email".val();
-        var address = ".field-address".val();
-
+        var name = $(".field-name").val();
+        var phone = $(".field-phone").val();
+        var email = $(".field-email").val();
+        var address = $(".field-address").val();
+        
         if (name == "") {
             Swal.fire({
                 icon: "error",
@@ -682,6 +679,16 @@ NN_FRAMEWORK.ShowPassword = function () {
     });
 };
 
+NN_FRAMEWORK.Disable = function () {
+    var available = $(".quantity-available").text();
+    var value = $(".price-new-pro-detail").text();
+    if (available <= 0) {
+        $(".cart-pro-detail .add-cart").addClass("disable");
+    } else {
+        $(".cart-pro-detail .add-cart").remove("disable");
+    }
+};
+
 /* Ready */
 $(document).ready(function () {
     NN_FRAMEWORK.Menu();
@@ -693,4 +700,5 @@ $(document).ready(function () {
     NN_FRAMEWORK.RenderPicture();
     NN_FRAMEWORK.CheckSubmit();
     NN_FRAMEWORK.ShowPassword();
+    NN_FRAMEWORK.Disable();
 });

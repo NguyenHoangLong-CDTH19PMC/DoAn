@@ -70,8 +70,8 @@ class ProductController extends Controller
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
-            if ($size > 102400) {
-                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 100MB ~ 102400KB";
+            if ($size > 512000) {
+                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 500MB ~ 512000KB";
             }
             // lọc ra đuôi file
             $extension = $req->file->getClientOriginalExtension();
@@ -170,9 +170,9 @@ class ProductController extends Controller
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
-            if ($size > 102400) {
+            if ($size > 512000) {
 
-                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 100MB ~ 102400KB";
+                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 100MB ~ 512000KB";
             }
             // lọc ra đuôi file
             $extension = $req->file->getClientOriginalExtension();
@@ -244,10 +244,11 @@ class ProductController extends Controller
         if ($products == null) {
             return "không tìm thấy sản phẩm nào có ID = {$req->id} này";
         }
-
-        $image_path = public_path('upload/product/' . $products->photo);
-        if (file_exists($image_path)) {
-            unlink($image_path);
+        if (!empty($products->photo)) {
+            $image_path = public_path('upload/product/' . $products->photo);
+            if (file_exists($image_path)) {
+                unlink($image_path);
+            }
         }
 
         $arr_picture = TableAlbum::where('id_product', $req->id)->get();
@@ -273,6 +274,32 @@ class ProductController extends Controller
             }
             $v->delete();
         }
+    }
+
+    public function loadOrder(){
+        $limit =  10;
+        $dsOrder = TableOrder::latest()->paginate($limit);
+        // lấy trang hiện tại
+        $current = $dsOrder->currentPage();
+        // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
+        $perSerial = $limit * ($current - 1);
+        $serial = $perSerial + 1;
+        return view('.admin.order.order', compact('dsOrder','serial'));
+    }
+
+    public function loadOrderDetail($id){
+        $limit =  10;
+        $infoOrder = TableOrder::find($id); 
+        $dsOrderDetail = TableOrderDetail::where('id_order',$infoOrder->id)->latest()->paginate($limit);
+        // $color = TableColor::where('id',$dsOrderDetail->id_color)->first();
+        // $size = TableColor::where('id',$dsOrderDetail->id_size)->first();
+        
+        // lấy trang hiện tại
+        $current = $dsOrderDetail->currentPage();
+        // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
+        $perSerial = $limit * ($current - 1);
+        $serial = $perSerial + 1;
+        return view('.admin.order.detail', ['orderDetail'=>$infoOrder], compact('dsOrderDetail','serial'));
     }
 
     // Sản phẩm //
@@ -469,6 +496,20 @@ class ProductController extends Controller
         return view('.admin.product.type.list', compact('dslevel2', 'serial'));
     }
 
+    // public function index_Cart(Request $req)
+    // {
+    //     $limit =  10;
+    //     //latest() = orderBy('created_at','desc')
+    //     $dsOrder = TableOrder::latest()->paginate($limit);
+    //     $dsOrdeDetail = TableOrderDetail::where('id_order',$dsOrder->id)->get();
+    //     // lấy trang hiện tại
+    //     $current = $dsOrder->currentPage();
+    //     // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
+    //     $perSerial = $limit * ($current - 1);
+    //     $serial = $perSerial + 1;
+    //     return view('.admin.product.main.list', compact('dsOrder', 'serial'),);
+    // }
+
     // ---------------- ADMIN ---------------- //
 
     // ---------------- USER ---------------- //
@@ -642,45 +683,45 @@ class ProductController extends Controller
 
     public function Payment(Request $req)
     {
-        if (!empty(Auth::guard('user')->user()->id)) {
+        // if (!empty(Auth::guard('user')->user()->id)) {
 
-            $mahd = 'HD' . Str::random(3);
-            $infoOrder = new TableOrder();
-            $infoOrder->code = $mahd;
-            $infoOrder->fullname = $req->fullname;
-            $infoOrder->phone = $req->phone;
-            $infoOrder->address = $req->address;
-            $infoOrder->email = $req->email;
-            $infoOrder->payment = $req->payments;
-            $infoOrder->status = 'moidat';
-            $infoOrder->total_price     = getOrderTotal();
-            $infoOrder->save();
-            $cart = session()->get('cart');
-            foreach ($cart as $key => $value) {
-                $detailOrder = new TableOrderDetail();
-                $detailOrder->id_order = $infoOrder->id;
-                $detailOrder->id_product = $value['id_product'];
-                $detailOrder->id_color    = $value['id_color'];
-                $detailOrder->id_size = $value['id_size'];
-                $detailOrder->name_product = $value['name'];
-                $detailOrder->photo_product = $value['image'];
-                if ($value['price_sale'] > 0) $detailOrder->price = $value['price_sale'];
-                else $detailOrder->price = $value['price_regular'];
-                $detailOrder->quantity = $value['quantity'];
-                $detailOrder->save();
+        $mahd = 'HD' . Str::random(3);
+        $infoOrder = new TableOrder();
+        $infoOrder->code = $mahd;
+        $infoOrder->fullname = $req->fullname;
+        $infoOrder->phone = $req->phone;
+        $infoOrder->address = $req->address;
+        $infoOrder->email = $req->email;
+        $infoOrder->payment = $req->payments;
+        $infoOrder->status = 'moidat';
+        $infoOrder->total_price     = getOrderTotal();
+        $infoOrder->save();
+        $cart = session()->get('cart');
+        foreach ($cart as $key => $value) {
+            $detailOrder = new TableOrderDetail();
+            $detailOrder->id_order = $infoOrder->id;
+            $detailOrder->id_product = $value['id_product'];
+            $detailOrder->id_color    = $value['id_color'];
+            $detailOrder->id_size = $value['id_size'];
+            $detailOrder->name_product = $value['name'];
+            $detailOrder->photo_product = $value['image'];
+            if ($value['price_sale'] > 0) $detailOrder->price = $value['price_sale'];
+            else $detailOrder->price = $value['price_regular'];
+            $detailOrder->quantity = $value['quantity'];
+            $detailOrder->save();
 
-                $miniusQuantity = TableProduct::find($value['id_product']);
+            $miniusQuantity = TableProduct::find($value['id_product']);
 
-                $miniusQuantity->quantity = $miniusQuantity->quantity - $value['quantity'];
-                $miniusQuantity->save();
-            }
-            if (session()->has('cart')) {
-                session()->forget('cart');
-            }
-
-            return redirect()->route('trang-chu-user');
+            $miniusQuantity->quantity = $miniusQuantity->quantity - $value['quantity'];
+            $miniusQuantity->save();
         }
+        if (session()->has('cart')) {
+            session()->forget('cart');
+        }
+
+        return redirect()->route('trang-chu-user');
     }
+    // }
 
 
     // ---------------- USER ---------------- //    

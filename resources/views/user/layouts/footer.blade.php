@@ -5,7 +5,11 @@
                 <div class="footer-news" id="main_footer">
                     <p class="footer-title">Liên hệ thông tin</p>
                     <div class="footer-info">
-
+                        <ul class="footer-ul">
+                            <li>Địa chỉ: Đường số 1, Phường Trường Thọ, TP Thủ Đức</li>   
+                            <li>Email: hlshoestore@gmail.com</li>
+                            <li>Hotline: 0362.243.977</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="footer-news">
@@ -22,21 +26,16 @@
         </div>
     </div>
     
-    <div class="footer-powered">
+    {{-- <div class="footer-powered">
         <div class="wrap-content">
             <div class="wap_copy">
                 <p class="copyright">© Copyright © 2023 <span>Tên công ty</span></p>
-                <p class="statistic">
-                    <span>Online: 9</span>                     
-                    <span>Trong tháng: 99</span>
-                    <span>Tổng kết: 999</span>
-                </p>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 
-<a class="btn-map btn-frame text-decoration-none" target="_blank" href="">
+{{-- <a class="btn-map btn-frame text-decoration-none" target="_blank" href="">
     <div class="animated infinite zoomIn kenit-alo-circle"></div>
     <div class="animated infinite pulse kenit-alo-circle-fill"></div>
     <i><img src="{{ asset('assets/user/images/maps.png') }}" alt="Bản đồ"></i>
@@ -51,7 +50,7 @@
     <div class="animated infinite pulse kenit-alo-circle-fill"></div>
     <i><img src="{{ asset('assets/user/images/hl.png') }}" alt="Hotline"></i>
 
-</a>
+</a> --}}
 
 <div class="progress-wrap cursor-pointer">
     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">

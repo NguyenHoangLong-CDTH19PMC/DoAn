@@ -43,8 +43,8 @@ class ArticleCotroller extends Controller
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
-            if ($size > 102400) {
-                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 100MB ~ 102400KB";
+            if ($size > 512000) {
+                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 500MB ~ 512000KB";
             }
             // lọc ra đuôi file
             $extension = $req->file->getClientOriginalExtension();
@@ -55,6 +55,25 @@ class ArticleCotroller extends Controller
                 $itemnew->photo = $filename;
                 //Lưu trữ file vào thư mục product trong public -> upload -> product
                 $req->file->move(public_path('upload/article/'), $filename);
+            } else {
+                return "Định dạng ảnh không đúng. Định dạng cho phép (.jpg|.png|.jpeg)";
+            }
+        }
+        if ($req->file2 != null) {
+            // kiểm tra kích thước
+            $size = $req->file2->getSize();
+            if ($size > 512000) {
+                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 500MB ~ 512000KB";
+            }
+            // lọc ra đuôi file2
+            $extension = $req->file2->getClientOriginalExtension();
+            if ($extension == 'jpg' || $extension == 'png' || $extension = 'jpeg') {
+                // đổi tên hình
+                $filename2 = 'article-' . $random . '.' . $req->file2->getClientOriginalExtension();
+                // lấy tên file2 để lưu vào csdl
+                $itemnew->photo2 = $filename2;
+                //Lưu trữ file2 vào thư mục product trong public -> upload -> product
+                $req->file2->move(public_path('upload/article/'), $filename);
             } else {
                 return "Định dạng ảnh không đúng. Định dạng cho phép (.jpg|.png|.jpeg)";
             }
@@ -84,8 +103,8 @@ class ArticleCotroller extends Controller
         if ($req->file != null) {
             // kiểm tra kích thước
             $size = $req->file->getSize();
-            if ($size > 102400) {
-                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 100MB ~ 102400KB";
+            if ($size > 512000) {
+                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 500MB ~ 512000KB";
             }
             // lọc ra đuôi file
             $extension = $req->file->getClientOriginalExtension();
@@ -96,6 +115,26 @@ class ArticleCotroller extends Controller
                 $itemnew->photo = $filename;
                 //Lưu trữ file vào thư mục product trong public -> upload -> product
                 $req->file->move(public_path('upload/article/'), $filename);
+            } else {
+                return "Định dạng ảnh không đúng. Định dạng cho phép (.jpg|.png|.jpeg)";
+            }
+        }
+
+        if ($req->file2 != null) {
+            // kiểm tra kích thước
+            $size = $req->file2->getSize();
+            if ($size > 512000) {
+                return "Dung lượng hình ảnh lớn. Dung lượng cho phép <= 500MB ~ 512000KB";
+            }
+            // lọc ra đuôi file2
+            $extension = $req->file2->getClientOriginalExtension();
+            if ($extension == 'jpg' || $extension == 'png' || $extension = 'jpeg') {
+                // đổi tên hình
+                $filename2 = 'article-' . $random . '.' . $req->file2->getClientOriginalExtension();
+                // lấy tên file2 để lưu vào csdl
+                $itemnew->photo2 = $filename2;
+                //Lưu trữ file2 vào thư mục product trong public -> upload -> product
+                $req->file2->move(public_path('upload/article/'), $filename2);
             } else {
                 return "Định dạng ảnh không đúng. Định dạng cho phép (.jpg|.png|.jpeg)";
             }
