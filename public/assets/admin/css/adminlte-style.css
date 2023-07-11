@@ -1603,3 +1603,10 @@ span.name_user {
 .container-upload-img{display: flex; flex-wrap: wrap;}
 .col-img{width: calc(100% / 8 - 20px);margin: 0 10px;}
 .container-upload-img .col-img img{ object-fit: cover; width: 180px; height: 180px; }
+.welcome{text-align: center;display: flex; align-items: center; justify-content: center;}
+.welcome p{font-size: 75px;}
+.container-fluid{height: 100%;}
+.content-wrapper{height: 100%;}
+.delete-item{cursor: pointer;}
+.col-card{max-width: 50%;width: 50%;}
+.col-xl-12{margin: 0;}

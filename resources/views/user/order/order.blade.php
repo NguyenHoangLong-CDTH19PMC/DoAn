@@ -12,12 +12,10 @@
                             <div class="list-procart">
                                 <div class="procart procart-label">
                                     <div class="form-row">
-                                        <div class="pic-procart col-3 col-md-2">Hình ảnh</div>
-                                        <div class="info-procart col-6 col-md-5">Thông tin sản phẩm</div>
-                                        <div class="quantity-procart col-3 col-md-2">
-                                            <p>Số lượng</p>
-                                        </div>
-                                        <div class="price-procart col-3 col-md-3">Đơn giá</div>
+                                        <div class="pic-procart label-pro col-3 col-md-2">Hình ảnh</div>
+                                        <div class="info-procart label-pro col-6 col-md-5">Thông tin sản phẩm</div>
+                                        <div class="quantity-procart label-pro col-3 col-md-2"> Số lượng </div>
+                                        <div class="price-procart label-pro col-3 col-md-3">Đơn giá</div>
                                     </div>
                                 </div>
 
@@ -100,7 +98,7 @@
                                     </div>
                                 @endforeach
                                 <div class="total-procart">
-                                    <p>Tổng giá trị đơn hàng:</p>
+                                    <p class="label-pro">Tổng giá trị đơn hàng:</p>
                                     <p class="total-price load-price-total">{{ formatMoney(getOrderTotal()) }}</p>
                                 </div>
                             </div>
@@ -114,7 +112,7 @@
                                         <input type="radio" class="custom-control-input" id="payments" name="payments"
                                             value="1" checked />
                                         <label class="payments-label custom-control-label" for="payments">Thanh toán khi
-                                            nhận</label>
+                                            nhận hàng</label>
                                     </div>
 
                                 </div>
@@ -146,8 +144,7 @@
                                         <textarea class="form-control text-sm" id="requirements" name="requirements" placeholder="Yêu cầu khác"></textarea>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-dark btn-payment w-100" name="thanhtoan">Mua
-                                    hàng</button>
+                                <button type="button" class="btn btn-dark btn-payment w-100" name="thanhtoan">Đặt hàng</button>
                             </div>
                         </div>
                     </div>

@@ -40,8 +40,8 @@
     padding: 20px 15px;
     background: #ffffff;
     border: 1px solid #d8d8d8;
-    -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.15);
-    box-shadow: 0 0 20px rgba(0,0,0,0.15)
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15)
 }
 
 .top-cart {
@@ -59,8 +59,10 @@
 }
 
 .pic-procart img {
-    max-height: 100px;
-    height: inherit
+    max-height: 126px;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
 }
 
 .pic-procart .del-procart {
@@ -76,7 +78,7 @@
 }
 
 .name-procart a {
-    font-size: 14px;
+    font-size: 18px;
     color: #000;
     display: block
 }
@@ -134,7 +136,8 @@
     font-size: 23px
 }
 
-.counter-procart:hover,.counter-procart:focus {
+.counter-procart:hover,
+.counter-procart:focus {
     color: var(--maincolor)
 }
 
@@ -289,16 +292,17 @@
     padding: 10px 15px;
     border-radius: 3px;
     margin-bottom: 0px;
-    color: #313131!important
+    color: #313131 !important
 }
 
-.payments-label::before,.payments-label::after {
+.payments-label::before,
+.payments-label::after {
     top: calc(50% - 1rem / 2)
 }
 
 .payments-label.active {
     background: var(--maincolor);
-    color: #ffffff!important
+    color: #ffffff !important
 }
 
 .payments-info {
@@ -330,7 +334,7 @@
     padding: 25px 30px;
     display: block;
     text-align: center;
-    color: #23527c!important;
+    color: #23527c !important;
     width: 100%;
     border: 1px solid #c00;
     border-top: 0;
@@ -362,7 +366,12 @@
     margin-left: -5px;
 }
 
-.form-row>.col, .form-row>[class*=col-] {
+.form-row>.col,
+.form-row>[class*=col-] {
     padding-right: 5px;
     padding-left: 5px;
+}
+
+.label-pro {
+    font-family: "quicksand-b";
 }

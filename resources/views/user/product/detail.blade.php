@@ -66,7 +66,7 @@
                                     <input type="number" class="qty-pro" min="1" value="1" readonly />
                                     <span class="quantity-plus-pro-detail increase"><i class="fa-solid fa-plus"></i></span>
                                 </div>
-                                <div class="show-available ml-4">Có <span class="quantity-available">{{ $rowDetail->quantity }}</span> sản phẩm có sẵn</div>
+                                <div class="show-available ml-4">Còn <span class="quantity-available">{{ $rowDetail->quantity }}</span> sản phẩm có sẵn</div>
                             </div>
                         </li>
                         <li class="color-block-pro-detail w-clear">

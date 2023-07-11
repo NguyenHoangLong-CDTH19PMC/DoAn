@@ -4130,6 +4130,11 @@ if ($("#photo-zone").length) {
     photoZone("#photo-zone", "#file-zone", "#photoUpload-preview img");
 }
 
+if ($("#photo-zone2").length) {
+    photoZone("#photo-zone2", "#file-zone2", "#photoUpload-preview2 img");
+}
+
+
 /* Sumoselect */
 if ($(".multiselect").length) {
     $(".multiselect").SumoSelect({
