@@ -8,10 +8,8 @@
                         <li class="breadcrumb-item"><a href="{{ route('trang-chu-admin') }}" title="Bảng điều khiển">Bảng điều
                                 khiển</a></li>
 
-                        <li class="breadcrumb-item"><a href="{{ route('san-pham-admin') }}" title="Quản lý sản phẩm">Quản lý
-                                sản phẩm</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('san-pham-admin') }}" title="Quản lý hoá đơn">Quản lý hoá đơn</a></li>
 
-                        <li class="breadcrumb-item active">Thêm mới sản phẩm</li>
                     </ol>
                 </div>
             </div>
@@ -66,6 +64,12 @@
                                         <input type="email" class="form-control check-valid text-sm" name="email"
                                             id="email" placeholder="Email" value="{{ $orderDetail->email }}" required>
                                     </div>
+                                    <div class="form-group title col-md-4 col-sm-6">
+                                        <label for="name-product">Ngày đặt</label>
+                                        <input type="text" class="form-control check-valid text-sm" name="date"
+                                            id="date" placeholder="Ngày đặt" value="{{ $orderDetail->created_at}}"
+                                            readonly>
+                                    </div>
 
                                     <div class="form-group title col-md-12 col-sm-12">
                                         <label for="name-product">Phương thức thanh toán</label>
@@ -73,13 +77,14 @@
                                             id="payment" placeholder="Email" value="Thanh toán khi nhận hàng" readonly>
                                     </div>
 
+                                    
                                     <div class="form-group title col-md-12 col-sm-12">
-                                        <label for="name-product">Phương thức thanh toán</label>
+                                        <label for="name-product">Trạng thái đơn hàng</label>
                                         <select id="select-status" name="status" class="form-control select2">
-                                            <option value="moidat">Mới Đặt</option>
-                                            <option value="daxacnhan">Đã Xác Nhận</option>
-                                            <option value="danggiao">Đang giao</option>
-                                            <option value="dagiao">Đã Giao</option>
+                                            <option value="moidat" {{ ($orderDetail->status=='moidat')? "selected" : "" }}>Mới Đặt</option>
+                                            <option value="daxacnhan"{{ ($orderDetail->status=='daxacnhan')? "selected" : "" }}>Đã Xác Nhận</option>
+                                            <option value="danggiao"{{ ($orderDetail->status=='danggiao')? "selected" : "" }}>Đang giao</option>
+                                            <option value="dagiao"{{ ($orderDetail->status=='dagiao')? "selected" : "" }}>Đã Giao</option>
                                         </select>
                                     </div>
                                 </div>
