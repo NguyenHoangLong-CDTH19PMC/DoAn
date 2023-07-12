@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\xlAddRequestProduct;
 use App\Http\Requests\xlAddRequestDmucLevel;
+use App\Http\Requests\xlAddRequestOrder;
 use Illuminate\Support\Str;
 use App\Models\TableProduct;
+use App\Models\TableOrder;
 use App\Models\TableBrand;
 use App\Models\TableProductType;
 use App\Models\TableColor;
@@ -15,7 +17,6 @@ use App\Models\TableSize;
 use App\Models\TableAlbum;
 use App\Models\TableVariantsColorProduct;
 use App\Models\TableVariantsSizeProduct;
-use App\Models\TableOrder;
 use App\Models\TableOrderDetail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -276,31 +277,7 @@ class ProductController extends Controller
         }
     }
 
-    public function loadOrder(){
-        $limit =  10;
-        $dsOrder = TableOrder::latest()->paginate($limit);
-        // lấy trang hiện tại
-        $current = $dsOrder->currentPage();
-        // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
-        $perSerial = $limit * ($current - 1);
-        $serial = $perSerial + 1;
-        return view('.admin.order.order', compact('dsOrder','serial'));
-    }
-
-    public function loadOrderDetail($id){
-        $limit =  10;
-        $infoOrder = TableOrder::find($id); 
-        $dsOrderDetail = TableOrderDetail::where('id_order',$infoOrder->id)->latest()->paginate($limit);
-        // $color = TableColor::where('id',$dsOrderDetail->id_color)->first();
-        // $size = TableColor::where('id',$dsOrderDetail->id_size)->first();
-        
-        // lấy trang hiện tại
-        $current = $dsOrderDetail->currentPage();
-        // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
-        $perSerial = $limit * ($current - 1);
-        $serial = $perSerial + 1;
-        return view('.admin.order.detail', ['orderDetail'=>$infoOrder], compact('dsOrderDetail','serial'));
-    }
+   
 
     // Sản phẩm //
 
@@ -496,20 +473,56 @@ class ProductController extends Controller
         return view('.admin.product.type.list', compact('dslevel2', 'serial'));
     }
 
-    // public function index_Cart(Request $req)
-    // {
-    //     $limit =  10;
-    //     //latest() = orderBy('created_at','desc')
-    //     $dsOrder = TableOrder::latest()->paginate($limit);
-    //     $dsOrdeDetail = TableOrderDetail::where('id_order',$dsOrder->id)->get();
-    //     // lấy trang hiện tại
-    //     $current = $dsOrder->currentPage();
-    //     // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
-    //     $perSerial = $limit * ($current - 1);
-    //     $serial = $perSerial + 1;
-    //     return view('.admin.product.main.list', compact('dsOrder', 'serial'),);
-    // }
+    public function loadOrder(){
+        $limit =  10;
+        $dsOrder = TableOrder::latest()->paginate($limit);
+        // lấy trang hiện tại
+        $current = $dsOrder->currentPage();
+        // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
+        $perSerial = $limit * ($current - 1);
+        $serial = $perSerial + 1;
+        return view('.admin.order.order', compact('dsOrder','serial'));
+    }
 
+    public function loadOrderDetail($id){
+        $limit =  10;
+        $infoOrder = TableOrder::find($id); 
+        $dsOrderDetail = TableOrderDetail::where('id_order',$infoOrder->id)->latest()->paginate($limit);
+        // $color = TableColor::where('id',$dsOrderDetail->id_color)->first();
+        // $size = TableColor::where('id',$dsOrderDetail->id_size)->first();
+        
+        // lấy trang hiện tại
+        $current = $dsOrderDetail->currentPage();
+        // lấy số thứ tự đầu tiên nhưng theo dạng mảng (là số 0)
+        $perSerial = $limit * ($current - 1);
+        $serial = $perSerial + 1;
+        return view('.admin.order.detail', ['orderDetail'=>$infoOrder], compact('dsOrderDetail','serial'));
+    }
+
+
+    public function modifyorders(xlAddRequestOrder $req, $id)
+    {
+        // tạo 1 chuỗi ngẫu nhiên 
+        $random = Str::random(5);
+
+        //tìm xem sản phẩm có hay không
+        $itemorder = TableOrder::find($id);
+        if ($itemorder == null) {
+            return "không tìm thấy sản phẩm nào có ID = {$id} này";
+        }
+        $itemorder->code = $req->code;
+        $itemorder->fullname = $req->fullname;
+        $itemorder->email = $req->email;
+        $itemorder->address = $req->address;
+        $itemorder->phone = $req->phone;
+        $itemorder->content = $req->content;
+        $itemorder->status = ($req->status!=NULL)?$req->status:'moidat';
+        
+        $itemorder->save();
+
+        // Xoá đi để thêm lại cái mới
+        return redirect()->route('don-hang');
+    }
     // ---------------- ADMIN ---------------- //
 
     // ---------------- USER ---------------- //

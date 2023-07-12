@@ -111,6 +111,7 @@ Route::group(['middleware' => ['checkauth:admin']], function () {
 
     Route::get('/admin/invoice', [ProductController::class, 'loadOrder'])->name('don-hang');
     Route::get('/admin/invoice/{id}', [ProductController::class, 'loadOrderDetail'])->name('chi-tiet-don-hang');
+    Route::post('/admin/invoice/{id}', [ProductController::class, 'modifyorders'])->name('xl-don-hang');
 });
 
 

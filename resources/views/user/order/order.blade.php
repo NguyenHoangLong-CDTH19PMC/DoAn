@@ -144,7 +144,7 @@
                                         <textarea class="form-control text-sm" id="requirements" name="requirements" placeholder="Yêu cầu khác"></textarea>
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-dark btn-payment w-100" name="thanhtoan">Đặt hàng</button>
+                                <button type="submit" class="btn btn-dark btn-payment w-100" name="thanhtoan">Đặt hàng</button>
                             </div>
                         </div>
                     </div>
